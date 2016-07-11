@@ -1,0 +1,15 @@
+site_name: ETJump Documentation
+pages:
+- 'Getting Started': index.md
+- 'Client':
+  - 'Client CVars': 'client/client_cvars.md'
+  - 'Client Commands': 'client/client_commands.md'
+- 'Server':
+  - 'Server CVars': 'server/server_cvars.md'
+  - 'Server Admin System': 'server/admin_system.md'
+  - 'Setting Up Server': 'server/server_setup.md'
+- 'Mapping':
+  - 'ETjump Mapping': 'mapping/getting_started.md'
+  - 'ETJump Entities': 'mapping/mapping_entities.md'
+theme: readthedocs
+repo_url: https://github.com/etjump/ETJump-docs
