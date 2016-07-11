@@ -209,6 +209,3 @@ You can adjust camera shaking from explosives using `etj_explosivesShake` cvar:
 * `etj_explosivesShake 2` disable cam shaking from other players explosives.
 * `etj_explosivesShake 1` disable cam shaking from own explosives.
 * `etj_explosivesShake 0` disable cam shaking from any explosions.
-
-### New cvar
-Text
