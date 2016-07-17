@@ -1,6 +1,8 @@
 # List of ETJump client cvars
 Below is a list of all ETJump related cvars (console variables) for players.
 
+---
+
 ## etj_altScoreboard
 Name                    | values        | default
 ------------------------|:-------------:|-------------
@@ -217,24 +219,6 @@ Name                    | values        | default
 etj_drawSpeed2          | 0 or 1        | 1
 
 Draws ETJump speedometer.
-
----
-
-## etj_drawspeedX
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_drawspeedX          | Any integer   | -10
-
-Sets the original speedometer horizontal position.
-
----
-
-## etj_drawspeedY
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_drawspeedY          | Any integer   | -20
-
-Sets the original speedometer vertical position.
 
 ---
 
