@@ -1,6 +1,8 @@
 # List of ETJump server cvars
 Below is a list of all ETJump related cvars (console variables) for server configuration.
 
+---
+
 ## g_adminLog
 Name                    | values        | default
 ------------------------|:-------------:|-------------
@@ -10,12 +12,21 @@ Toggles whether to log admin commands in a separate log.
 
 ---
 
+## g_banDatabase
+Name                    | values        | default
+------------------------|:-------------:|-------------
+g_banDatabase           | filename      | bans.dat
+
+File where bans are stored. Filename is currently hardcoded into mod and cannot be changed.
+
+---
+
 ## g_bannerN
 Name                    | values        | default
 ------------------------|:-------------:|-------------
 g_bannerN               | any text      |
 
-Where N is a number from 1 to 5. Toggles whether to log admin commands in a separate log.
+Where N is a number from 1 to 5. Text to print out in a banner.
 
 ---
 
@@ -38,7 +49,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 g_bannerTime            | any integer   | 60000
 
-How often in milliseconds to print the banner.
+How often in milliseconds to print banners.
 
 ---
 
@@ -56,16 +67,34 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 g_blockedMaps           | map names     | 
 
-A list of maps that cannot be voted for. Maps are separated by space.
+A list of maps that cannot be voted for. Names are separated by space. Use .bsp names.
+
+---
+
+## g_chatOptions
+Name                    | values        | default
+------------------------|:-------------:|-------------
+g_chatOptions           | 0 or 1        | 1
+
+Allow players to highlight other players in chat using @name@.
 
 ---
 
 ## g_customMapVotesFile
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-g_customMapVotesFile    | file name     | customvotes.json
+g_customMapVotesFile    | filename      | customvotes.json
 
-File name for the custom map votes file.
+Filename for the custom map votes file.
+
+---
+
+## g_customVoiceChat
+Name                    | values        | default
+------------------------|:-------------:|-------------
+g_customVoiceChat       | 0 or 1        | 1
+
+Enables custom text for voice chats.
 
 ---
 
@@ -132,12 +161,30 @@ Toggles goto.
 
 ---
 
+## g_lastVisitedMessage
+Name                    | values        | default
+------------------------|:-------------:|-------------
+g_lastVisitedMessage    | any text      | ^2Welcome back! Your last visit was on [t].
+
+Message that prints to returning players.
+
+---
+
 ## g_levelConfig
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-g_levelConfig           | file name     | levels.cfg
+g_levelConfig           | filename      | levels.cfg
 
 File to store levels in.
+
+---
+
+## g_mapDatabase
+Name                    | values        | default
+------------------------|:-------------:|-------------
+g_mapDatabase           | filename      | maps.dat
+
+File where information about maps is stored (eg. playtime).
 
 ---
 
@@ -153,7 +200,7 @@ Directory to load custom map scripts from.
 ## g_maxConnsPerIP
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-g_maxConnsPerIP         | any integer   | 3
+g_maxConnsPerIP         | any integer   | 2
 
 How many clients can connect from a single IP address.
 
@@ -162,7 +209,7 @@ How many clients can connect from a single IP address.
 ## g_motdFile
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-g_motdFile              | file name     | motd.json
+g_motdFile              | filename     | motd.json
 
 File that has the message of the day.
 
@@ -218,6 +265,15 @@ Toggles nofatigue for players.
 
 ---
 
+## g_portalDebug
+Name                    | values        | default
+------------------------|:-------------:|-------------
+g_portalDebug           | 0 or 1        | 0
+
+Toggles drawing of portal activation box.
+
+---
+
 ## g_portalMode
 Name                    | values        | default
 ------------------------|:-------------:|-------------
@@ -230,21 +286,12 @@ Toggles restricted portal gun mode.
 
 ---
 
-## g_randomMapMode
+## g_raceDatabase
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-g_randomMapMode         | 0 or 1        | 0
+g_raceDatabase          | filename      | races.db
 
-Toggles whether the map is changed to a random map after given interval.
-
----
-
-## g_randomMapModeInterval
-Name                    | values        | default
-------------------------|:-------------:|-------------
-g_randomMapModeInterval | any integer   | 30
-
-How long until map will be changed to another one.
+File where information about races is stored in. Filename is currently hardcoded into mod and cannot be changed.
 
 ---
 
@@ -262,23 +309,41 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 g_savemsg               | any text      | "^7Saved"
 
-What to print when user saves a position.
+What to print when player saves a position.
 
 ---
 
 ## g_timerunsDatabase
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-g_timerunsDatabase      | file name     | timeruns.db
+g_timerunsDatabase      | filename     | timeruns.db
 
 File to store timeruns data in.
+
+---
+
+## g_tokensMode
+Name                    | values        | default
+------------------------|:-------------:|-------------
+g_tokensMode            | 0 or 1        | 1
+
+Enables players to use `!tokens` command to add collectible tokens into a map. 
+
+---
+
+## g_tokensPath
+Name                    | values        | default
+------------------------|:-------------:|-------------
+g_tokensPath            | directory name| tokens
+
+Directory where tokens information is stored.
 
 ---
 
 ## g_userConfig
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-g_userConfig            | file name     | users.db
+g_userConfig            | filename     | users.db
 
 File to store user data in.
 
@@ -301,19 +366,3 @@ g_weapons               | 0 or 1        | 1
 Toggles whether players spawn with weapons or just knife.
 
 ---
-
-## vote_randomMapMode
-Name                    | values        | default
-------------------------|:-------------:|-------------
-vote_randomMapMode      | 0 or 1        | 1
-
-Toggles whether players can vote for the random map mode.
-
----
-
-## g_customVoiceChat
-Name                    | values        | default
-------------------------|:-------------:|-------------
-g_customVoiceChat       | 0 or 1        | 1
-
-Enables custom text for voice chats.
