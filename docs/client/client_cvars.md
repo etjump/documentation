@@ -9,6 +9,7 @@ Name                    | values        | default
 etj_altScoreboard       | 0 - 2         | 2
 
 Changes the scoreboard to an alternative one.  
+
 * __0__ default etmain styled scoreboard 
 * __1__ and __2__ draw alternatively styled scoreboard
 
@@ -140,6 +141,7 @@ Name                    | values        | default
 etj_drawClock           | 0 - 2        | 1
 
 Draws clock. 
+
 * __1__ `24-hour` clock 
 * __2__ `12-hour` clock
 
@@ -169,6 +171,7 @@ Name                    | values        | default
 etj_drawMessageTime     | 0 - 2         | 2
 
 Draw when a message was sent. 
+
 * __1__ for `hours:minutes` format 
 * __2__ for `hours:minutes:seconds` format.
 
@@ -180,10 +183,12 @@ Name                    | values        | default
 etj_drawOB              | 0 or 1        | 0
 
 Draws overbounce meter.
+
 * __1__ simple overbounce meter 
 * __2__ don't predict sticky ob if there is an ob already or if the sticky ob detection isn't requested
 
 Symbols meaning:
+
 * __J__ jump ob
 * __F__ fall ob
 * __B__ below ob
@@ -232,10 +237,12 @@ Name                    | values        | default
 etj_drawSpeed2          | 0 - 8         | 1
 
 Draws ETJump speedometer under the corsshair. Has several drawing options:
+
 * __1__ draws **current speed**
 * __2__ draws **speed** and **max speed** nearby  
 
 And several options to represent **speed** and **max speed**
+
 * __3__ speed **^z**max
 * __4__ speed **(**max**)**
 * __5__ speed **^z(**max**)**
@@ -269,6 +276,7 @@ Name                    | values        | default
 etj_explosivesShake     | 0 - 3         | 3
 
 Controls screenshake from explosives.
+
 * __0__ disables screenshakes
 * __1__ disables for own explosives 
 * __2__ disables for other player's explosives
@@ -705,6 +713,7 @@ Name                    | values        | default
 etj_speedunit           | 0 - 2         | 0
 
 Speedometer 1 speed measure units. 
+
 * __0__ for UPS 
 * __1__ for MPH
 * __2__ for KPH
@@ -762,6 +771,7 @@ Name                    | values        | default
 etj_viewPlayerPortals   | 0 or 1        | 1
 
 Toggles other players portals. 
+
 * __0__ don't show
 * __1__ always show
 * __2__ show when spectating
