@@ -1,5 +1,5 @@
 # List of ETJump client cvars
-Below is a list of all ETJump related cvars (console variables) for players.
+Below is a list of all ETJump related cvars (console variables) available for players.
 
 ---
 
@@ -8,7 +8,9 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_altScoreboard       | 0 - 2         | 2
 
-Changes the scoreboard to an alternative one. 0 for default scoreboard, 1 for alternative scoreboard 1, 2 for alternative scoreboard 2.
+Changes the scoreboard to an alternative one.  
+* __0__ default etmain styled scoreboard 
+* __1__ and __2__ draw alternatively styled scoreboard
 
 ---
 
@@ -17,7 +19,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_CGazAlpha           | 0.0 - 1.0     | 0.15
 
-How transparent CGaz meter is.
+Controls CGaz meter transparency.
 
 ---
 
@@ -53,7 +55,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_chatBackgroundAlpha | 0.0 - 1.0     | 0.33
 
-How transparent chat box is.
+Controls chat box background transparency.
 
 ---
 
@@ -62,7 +64,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_chatFlags           | 0 or 1        | 1
 
-Toggles drawing chat flags.
+Toggles chat flags.
 
 ---
 
@@ -101,7 +103,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_drawCGaz            | 0 - 4         | 0
 
-Draws the CGaz meter.
+Draws the CGaz meter. Has 4 different variations from `1` to `4`.
 
 ---
 
@@ -110,7 +112,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_drawCGazUsers       | 0 or 1        | 1
 
-Shows whether users are using CGaz in the original scoreboard.
+Shows whether users are using CGaz in the scoreboard.
 
 ---
 
@@ -119,7 +121,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_drawCHS1            | 0 or 1        | 0
 
-Draws crosshair stats 1.
+Draws crosshair stats 1. [More info](/index.md#chs).
 
 ---
 
@@ -128,7 +130,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_drawCHS2            | 0 or 1        | 0
 
-Draws crosshair stats 2.
+Draws crosshair stats 2. [More info](/index.md#chs).
 
 ---
 
@@ -137,7 +139,9 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_drawClock           | 0 - 2        | 1
 
-Draws clock. 1 for 24-hour clock, 2 for 12-hour clock.
+Draws clock. 
+* __1__ `24-hour` clock 
+* __2__ `12-hour` clock
 
 ---
 
@@ -146,7 +150,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_drawConnectionIssues | 0 or 1       | 1
 
-Toggles drawing of connection interrupted text if there are connection problems.
+Toggles connection interrupted text if there are connection problems. Useful for high ping players.
 
 ---
 
@@ -164,7 +168,9 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_drawMessageTime     | 0 - 2         | 2
 
-Draw when a message was sent. 1 for hours:minutes format, 2 for hours:minutes:seconds format.
+Draw when a message was sent. 
+* __1__ for `hours:minutes` format 
+* __2__ for `hours:minutes:seconds` format.
 
 ---
 
@@ -173,7 +179,14 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_drawOB              | 0 or 1        | 0
 
-Draws overbounce meter. 1 for simple overbounce meter, 2 for advanced.
+Draws overbounce meter.
+* __1__ simple overbounce meter 
+* __2__ don't predict sticky ob if there is an ob already or if the sticky ob detection isn't requested
+
+Symbols meaning:
+* __J__ jump ob
+* __F__ fall ob
+* __B__ below ob
 
 ---
 
@@ -182,7 +195,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_drawRunTimer        | 0 or 1        | 1
 
-Draws the timerun timer.
+Draws the timerun timer. Doesn't draw runtimers if the server or map doesn't enable timeruns.
 
 ---
 
@@ -191,7 +204,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_drawSlick           | 0 or 1        | 1
 
-Draws slick detector.
+Slick detector. Draws `S` symbol if you are aiming at slick surface.
 
 ---
 
@@ -209,16 +222,26 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_drawspeed           | 0 - 2         | 1
 
-Draws original ETPub-style speedometer. 2 to also draw max speed. Reset with `resetmaxspeed`.
+Draws original ETPub-style speedometer, __2__ additionally draws max speed, that can be reset with `resetmaxspeed` command.
 
 ---
 
 ## etj_drawSpeed2
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_drawSpeed2          | 0 or 1        | 1
+etj_drawSpeed2          | 0 - 8         | 1
 
-Draws ETJump speedometer.
+Draws ETJump speedometer under the corsshair. Has several drawing options:
+* __1__ draws **current speed**
+* __2__ draws **speed** and **max speed** nearby  
+
+And several options to represent **speed** and **max speed**
+* __3__ speed **^z**max
+* __4__ speed **(**max**)**
+* __5__ speed **^z(**max**)**
+* __6__ speed **^z[**max**]**
+* __7__ speed **|** max
+* __8__ **Speed:** speed
 
 ---
 
@@ -236,7 +259,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_enableTimeruns      | 0 or 1        | 1
 
-Toggles timeruns.
+Toggles timeruns. Having __0__ means don't activate any timerun timers on timerun supported map.
 
 ---
 
@@ -245,7 +268,11 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_explosivesShake     | 0 - 3         | 3
 
-Controls screenshake from explosives. 0 to disable screenshakes, 1 to disable for own explosives, 2 to disable for other player's explosives, 3 for default behaviour.
+Controls screenshake from explosives.
+* __0__ disables screenshakes
+* __1__ disables for own explosives 
+* __2__ disables for other player's explosives
+* __3__ default behaviour
 
 ---
 
@@ -281,7 +308,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_ghostPlayersOpacity | 0.0 - 1.0     | 1.0
 
-Controls transparency level for player models. 1.0 is fully opaque.
+Controls transparency level for player models. __1.0__ is fully opaque.
 
 ---
 
@@ -308,7 +335,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_hideMe              | 0 or 1        | 0
 
-Hides yourself.
+Hides yourself from other players view.
 
 ---
 
@@ -461,7 +488,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_logBanner           | 0 or 1        | 1
 
-Prints banner text into console.
+Prints banner text into the console.
 
 ---
 
@@ -560,7 +587,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_runTimerShadow      | 0 or 1        | 0
 
-Draws shadow under run timer.
+Toggles shadow under the run timer.
 
 ---
 
@@ -623,7 +650,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_speedAlpha          | 0.0 - 1.0     | 1.0
 
-How transparent speedometer 2 is.
+Controls ETJump speedometer transparency.
 
 ---
 
@@ -632,7 +659,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_speedColor          | red, cyan, white, etc | White
 
-Color of the speedometer 2.
+Sets ETJump speedometer color.
 
 ---
 
@@ -650,7 +677,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_speedShadow         | 0 or 1        | 0
 
-Draws shadow under speedometer 2.
+Toggles shadow under the ETJump speedometer.
 
 ---
 
@@ -659,7 +686,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_speedSizeX          | any integer   | 3
 
-Horizontal size of speedometer 2.
+Horizontal size of the ETJump speedometer.
 
 ---
 
@@ -668,7 +695,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_speedSizeY          | any integer   | 3
 
-Vertical size of speedometer 2.
+Vertical size of the ETJump speedometer.
 
 ---
 
@@ -677,7 +704,10 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_speedunit           | 0 - 2         | 0
 
-Speedometer 1 units. 0 for UPS, 1 for MPH, 2 for KPH.
+Speedometer 1 speed measure units. 
+* __0__ for UPS 
+* __1__ for MPH
+* __2__ for KPH
 
 ---
 
@@ -686,7 +716,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_speedX              | any integer   | 320
 
-Horizontal position of the speedometer 2.
+Horizontal position of the ETJump speedometer.
 
 ---
 
@@ -704,7 +734,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_speedY              | any integer   | 360
 
-Vertical position of the speedometer 2.
+Vertical position of the ETJump speedometer.
 
 ---
 
@@ -722,7 +752,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_viewlog             | 0 or 1        | 1
 
-Show an external console log for copy pasting etc.
+Toggles an external console window, mainly used for copy pasting etc.
 
 ---
 
@@ -731,7 +761,10 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_viewPlayerPortals   | 0 or 1        | 1
 
-Show other players portals. 0 don't show, 1 always show, 2 show when spectating.
+Toggles other players portals. 
+* __0__ don't show
+* __1__ always show
+* __2__ show when spectating
 
 ---
 
