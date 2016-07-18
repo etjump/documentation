@@ -227,7 +227,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_drawTokens          | 0 or 1        | 1
 
-Toggles drawing of collectible tokens in original maps.
+Toggles drawing of collectible tokens.
 
 ---
 
@@ -254,7 +254,9 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_ghostPlayersAlt     | 0 or 1        | 0
 
-Toggles alternative drawing of other players. When enabled, a single shader is used to draw other players. [Example](http://i.imgur.com/yJaQ1be.png).
+Toggles alternative drawing of other players. When enabled, a single shader is used to draw other players.
+
+![Example](/img/etj_ghostPlayersAlt_example.png).
 
 ---
 
