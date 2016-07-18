@@ -555,15 +555,6 @@ Automatically hides run timer if it's not being used.
 
 ---
 
-## etj_runTimerColor
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_runTimerColor       | red, cyan, white etc | White
-
-Sets the color of run timer.
-
----
-
 ## etj_runTimerShadow
 Name                    | values        | default
 ------------------------|:-------------:|-------------
