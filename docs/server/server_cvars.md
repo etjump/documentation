@@ -53,6 +53,15 @@ How often in milliseconds to print banners.
 
 ---
 
+## g_banners
+Name                    | values        | default
+------------------------|:-------------:|-------------
+g_banners               | 0 or 1        | 0
+
+Toggles banners.
+
+---
+
 ## g_blockCheatCvars
 Name                    | values        | default
 ------------------------|:-------------:|-------------
