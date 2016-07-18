@@ -281,7 +281,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_ghostPlayersOpacity | 0.0 - 1.0     | 1.0
 
-Opacity of other players when `etj_ghostPlayersAlt` is enabled.
+Controls transparency level for player models. 1.0 is fully opaque.
 
 ---
 
