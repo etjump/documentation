@@ -6,9 +6,9 @@ Below is a list of all ETJump related cvars (console variables) for server confi
 ## g_adminLog
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-g_adminLog              | 0 or 1        | 1
+g_adminLog              | filename      | adminsystem.log
 
-Toggles whether to log admin commands in a separate log.
+Logs admin commands in a separate log if `g_log` is set.
 
 ---
 
@@ -58,7 +58,13 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 g_blockCheatCvars       | 0 or 1        | 0
 
-Toggles whether to block cvars that could be considered cheating such as `com_maxFPS 333` + `pmove_fixed 0`.
+Toggles whether to block cvars that could be considered cheating such:
+
+* __m_pitch__ (-0.01 <= x <= 0.01)
+* __cl_yawspeed__ (not 0)
+* __cl_freelook__ (0)
+* __pmove_Fixed__ (0) while having
+* __com_maxFPS__ (25 < x or x > 125)
 
 ---
 
