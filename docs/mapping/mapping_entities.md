@@ -114,8 +114,8 @@ __Keys__
 Key              | Values            | Default       | Description
 -----------------|:-----------------:|---------------|------------
 tracker_eq       | [index,value] format specified above. | 1,-1 | Tracker activates targets if specified tracker value matches the player's tracker value.
-tracker_gt       | [index,value] format specified above. | 1,-1 | Tracker activates targets if player's tracker value is greater than `tracker_eq`.
-tracker_lt       | [index,value] format specified above. | 1,-1 | Tracker activates targets if player's tracker value is less than `tracker_eq`.
+tracker_gt       | [index,value] format specified above. | 1,-1 | Tracker activates targets if player's tracker value is greater than specified value.
+tracker_lt       | [index,value] format specified above. | 1,-1 | Tracker activates targets if player's tracker value is less than specified value.
 tracker_set      | [index,value] format specified above. | 1,-1 | Tracker sets player's tracker value to the specified value.
 tracker_set_if   | [index,value] format specified above. | 1,-1 | Tracker sets player's tracker value to the specified value if `tracker_eq` matches the player's tracker value.
 tracker_inc      | [index,value] format specified above. | 1,0 | Tracker increases player's target value by the specified value.
