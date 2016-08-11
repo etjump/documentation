@@ -1,5 +1,5 @@
-# ETJump-docs
-[ETJump](http://etjump.com) documentation contains set of all avaible ETJump cvars, mapping entities and more. This documentation is hosted on the [http://etjump.rtfd.io/](http://etjump.rtfd.io/). 
+# ETJump Documentation
+[__ETJump__](http://etjump.com) is a [Wolfenstein: Enemy Territory](https://en.wikipedia.org/wiki/Wolfenstein:_Enemy_Territory) trickjump modification. __ETJump documentation__ contains set of all avaible ETJump cvars, mapping entities and more. This documentation is hosted on the [http://etjump.rtfd.io/](http://etjump.rtfd.io/). 
 
 ## How to contribute
 This documentation is build using [mkdocs](http://www.mkdocs.org/). This allows us to use __markdown__ for all documentation pages, easing the use and editing process. If you would like to __edit__ or __add__ ETJump documentation, you have two options to follow:
