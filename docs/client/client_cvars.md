@@ -165,6 +165,15 @@ Draws pressed keys.
 
 ---
 
+## etj_drawMaxSpeed
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_drawMaxSpeed        | 0 or 1        | 0
+
+Draws your max speed from last load.
+
+---
+
 ## etj_drawMessageTime
 Name                    | values        | default
 ------------------------|:-------------:|-------------
@@ -192,6 +201,25 @@ Symbols meaning:
 * __J__ jump ob
 * __F__ fall ob
 * __B__ below ob
+
+---
+
+## etj_drawObWatcher
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_drawObWatcher       | 0 or 1        | 1
+
+Draws overbounce watcher. Allows you to save position and look where you would get an overbounce from that position.
+
+* `ob_save <optional name>` will save your current coordinates.
+* `ob_load <optional name>` will load saved coordinates.
+* `ob_reset` resets currently displayed coordinates so nothing will be displayed.
+
+Symbols meaning:
+
+* __J__ jump ob
+* __F__ fall ob
+* __S__ sticky ob
 
 ---
 
@@ -234,12 +262,13 @@ Draws original ETPub-style speedometer, __2__ additionally draws max speed, that
 ## etj_drawSpeed2
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_drawSpeed2          | 0 - 8         | 1
+etj_drawSpeed2          | 0 - 9         | 1
 
 Draws ETJump speedometer under the corsshair. Has several drawing options:
 
 * __1__ draws **current speed**
 * __2__ draws **speed** and **max speed** nearby  
+* __9__ displays only tens (ignores hundreds and thousands).
 
 And several options to represent **speed** and **max speed**
 
@@ -502,6 +531,33 @@ Prints banner text into the console.
 
 ---
 
+## etj_maxSpeedDuration
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_maxSpeedDuration    | any integer   | 2000
+
+How long in milliseconds your max speed from last load will be visible when `etj_drawMaxSpeed` is enabled.
+
+---
+
+## etj_maxSpeedX
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_maxSpeedX           | any integer   | 320
+
+Horizontal location of `etj_drawMaxSpeed`.
+
+---
+
+## etj_maxSpeedY
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_maxSpeedY           | any integer   | 320
+
+Vertical location of `etj_drawMaxSpeed`.
+
+---
+
 ## etj_noActivateLean
 Name                    | values        | default
 ------------------------|:-------------:|-------------
@@ -535,6 +591,24 @@ Name                    | values        | default
 etj_numPopups           | 0 - 32        | 5
 
 Maximum amount of popups to display.
+
+---
+
+## etj_obWatcherX
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_obWatcherX          | any integer   | 100
+
+Set horizontal position of OB watcher.
+
+---
+
+## etj_obWatcherY
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_obWatcherX          | any integer   | 100
+
+Set vertical position of OB watcher.
 
 ---
 

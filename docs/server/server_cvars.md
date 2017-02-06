@@ -381,3 +381,12 @@ g_weapons               | 0 or 1        | 1
 Toggles whether players spawn with weapons or just knife.
 
 ---
+
+## vote_minVoteDuration
+Name                    | values        | default
+------------------------|:-------------:|-------------
+vote_minVoteDuration    | any integer   | 5000
+
+Minimum time in milliseconds a vote must active before passing.
+
+---
