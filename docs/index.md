@@ -148,6 +148,7 @@ Value      | What it shows
 45         | view position x y z
 46         | angles x y z
 47         | velocity x y z
+50         | jump x y z
 
 ### Overbounce detector
 Overbounce detector shows you if you can overbounce by jumping to a certain platform. It also shows you which kind of overbounce is possible, do you need to jump or fall.

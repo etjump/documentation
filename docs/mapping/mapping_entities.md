@@ -27,22 +27,22 @@ Works exactly like `target_relay` but activates the entities for everyone in the
 
 ---
 
-## target_increase_ident
-Increases the players map progression identifier.
-
-Key              | Values            | Default       | Description
------------------|:-----------------:|---------------|------------
-inc              | any integer       | 1             | How much the identifier should be increased when player activates the entity.
+## target_interrupt_timerun
+Stops any active timerun without setting a record.
 
 ---
 
 ## target_printname
-Works exactly like `target_print`, but prints the message as popup rather than centerprint. Prints __activator's name__ if message contains `%s`.
+Works exactly like `target_print`, but prints the message as popup rather than centerprint. Prints __activator's name__ if message contains `%s` or `i%`. Supports same spawnflags as `target_print`.
 
 ---
 
 ## target_remove_portals
 Removes activators's existing portals.
+
+Key              | Values            | Default       | Description
+-----------------|:-----------------:|---------------|------------
+spawnflags       | 0, 1              | 0             | __1__ does not print text when portals are removed.
 
 ---
 
@@ -51,7 +51,7 @@ Saves current position to activators's save slot 0.
 
 ---
 
-## target_savereset
+## target_savereset and trigger_savereset
 Resets activator's saved positions.
 
 ---
@@ -65,12 +65,14 @@ scale            | any integer       | 1             | How many times should be 
 
 ---
 
-## target_setident
-Sets the activator's map progression identifier.
+## target_set_health
+Sets activators health to specified value.
 
 Key              | Values            | Default       | Description
 -----------------|:-----------------:|---------------|------------
-ident            | any integer       | 0             | The value the identifier will be set to.
+health           | any integer       | 100           | Value to set health to.
+wait             | any integer       | 1000          | How long in milliseconds before next activation by same player.
+spawnflags       | 0, 1              | 0             | __1__ Only activates for player once per life.
 
 ---
 
@@ -79,8 +81,9 @@ Starts a timerun for activator.
 
 Key              | Values            | Default       | Description
 -----------------|:-----------------:|---------------|------------
-name             | any text          | default       | The name of the run. Start and stop timer must have a matching name.
-spawnflags       | 0, 1, 2, 4        | 0             |  __0__ always reset the run. __1__ reset the run on team change. __2__ reset the run on death. __4__ only reset when you reach the end.
+name             | any text          | default       | The name of the run. Start and stop timer must have a matching name. Names are case sensitive.
+speed_limit      | any integer       | 700           | Timerun does not start if player has higher starting speed than specified.
+spawnflags       | 0, 1, 2, 4, 8, 16, 32, 64        | 0             |  __0__ always reset the run. __1__ reset the run on team change. __2__ reset the run on death. __4__ only reset when you reach the end. __8__ run does not start unless player has `pmove_fixed 1`. __16__ disables `save` and `backup`. __32__ cannot pickup explosive weapons. __64__ cannot pickup portalgun.
 
 ---
 
@@ -93,7 +96,7 @@ name             | any text          | default       | The name of the run. Star
 
 ---
 
-## trigger_tracker and target_tracker
+## target_tracker and trigger_tracker
 Replacement for target_activate.
 
 There are three different formats for specifying the tracker index and value.
@@ -101,6 +104,8 @@ There are three different formats for specifying the tracker index and value.
 1. __[value]__ Set the tracker on index __1__ to __[value]__
 2. __[index,value]__ Set the tracker on index __[index]__ to __[value]__
 3. __[index1,value1]|[index2,value2]|..|[indexN,valueN]__ Set the trackers on indices __[index1, index2, .., indexN]__ to values __[value1, value2, .., valueN]__
+
+Tracker index has an upper limit of 50.
 
 __Examples__
 
@@ -127,6 +132,10 @@ tracker_inc_if   | [index,value] format specified above. | 1,0 | Tracker increas
 ## weapon_portalgun
 Spawns a portal gun at the location.
 
+Key              | Values            | Default       | Description
+-----------------|:-----------------:|:-------------:|------------
+spawnflags       | 0, 2, 4           | 0             | __2__ spins around its axis. __4__ bobs up and down.
+
 ---
 
 ## Worldspawn keys
@@ -139,7 +148,51 @@ nogod            | 0 or 1            | 0             | Disables god mode
 nogoto           | 0 or 1            | 0             | Disables goto
 nonoclip         | 0 or 1            | 0             | Disables noclip
 nosave           | 0 or 1            | 0             | Disables save
+nooverbounce     | 0 or 1            | 0             | If set to __1__, players can only do overbounces on surfaces with `surfaceparm monsterslicksouth`
 portalgun_spawn  | 0 or 1            | 0             | Toggles whether players should spawn with a portal gun.
 portalsurfaces   | 0 or 1            | 1             | If set to __1__, players can shoot portals everywhere on the map. If set to __0__, players can only shoot portals to areas with `surfaceparm monsterslickeast`.
 portalteam       | 0 - 2             | 0             | If set to __0__, players can only go to own portals. If set to __1__, players can also go to fireteam mates' portals. If set to __2__, anyone can go to anyones portals.
 savelimit        | any integer       | 0             | If set to higher than 0, saves are limited to the set value.
+
+---
+
+# Legacy ident system
+The ident system was initially created to track map progression. While still functional, it has been deprecated in favor of tracker system (`trigger_tracker` and `target_tracker`). It's not recommended to use these entities when creating new maps, and there won't be new entities to expand the system.
+
+
+## target_activate
+Activates targeted entities if ident requirement is set.
+
+Key              | Values            | Default       | Description
+-----------------|:-----------------:|---------------|------------
+reqident         | any integer       | 0             | Ident value required for activation.
+spawnflags       | 1, 2, 4           | 0             | __0__ trigger if equal. __1__ trigger if greater. __2__ trigger if not. __4__ trigger if lower.
+
+---
+
+## target_decay
+Decays activators ident value.
+
+Key              | Values            | Default       | Description
+-----------------|:-----------------:|---------------|------------
+ident            | any integer       | -1            | Ident value required for activation.
+decay_time       | any integer       | -1            | How long in milliseconds it takes for ident to decay to specified value.
+decay_value      | any integer       | -1            | Value to which ident decays to.
+
+---
+
+## target_increase_ident
+Increases the players map progression identifier.
+
+Key              | Values            | Default       | Description
+-----------------|:-----------------:|---------------|------------
+inc              | any integer       | 1             | How much the identifier should be increased when player activates the entity.
+
+---
+
+## target_setident
+Sets the activator's map progression identifier.
+
+Key              | Values            | Default       | Description
+-----------------|:-----------------:|---------------|------------
+ident            | any integer       | 0             | The value the identifier will be set to.
