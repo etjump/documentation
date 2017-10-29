@@ -83,7 +83,7 @@ Key              | Values            | Default       | Description
 -----------------|:-----------------:|---------------|------------
 name             | any text          | default       | The name of the run. Start and stop timer must have a matching name. Names are case sensitive.
 speed_limit      | any integer       | 700           | Timerun does not start if player has higher starting speed than specified.
-spawnflags       | 0, 1, 2, 4, 8, 16, 32, 64        | 0             |  __0__ always reset the run. __1__ reset the run on team change. __2__ reset the run on death. __4__ only reset when you reach the end. __8__ run does not start unless player has `pmove_fixed 1`. __16__ disables `save` and `backup`. __32__ cannot pickup explosive weapons. __64__ cannot pickup portalgun.
+spawnflags       | 0, 1, 2, 4, 8, 16, 32, 64        | 0             |  __0__ always reset the run. __1__ reset the run on team change. __2__ reset the run on death. __4__ only reset when you reach the end. __8__ run does not start unless player has `pmove_fixed 1`. __16__ disables `backup` and extra save slots. __32__ cannot pickup explosive weapons. __64__ cannot pickup portalgun.
 
 ---
 
@@ -147,10 +147,10 @@ noghost          | 0 or 1            | 0             | Disables player ghosting
 nogod            | 0 or 1            | 0             | Disables god mode
 nogoto           | 0 or 1            | 0             | Disables goto
 nonoclip         | 0 or 1            | 0             | Disables noclip
-nosave           | 0 or 1            | 0             | Disables save
-nooverbounce     | 0 or 1            | 0             | If set to __1__, players can only do overbounces on surfaces with `surfaceparm monsterslicksouth`
+nosave           | 0 or 1            | 0             | Enable/disable save. __0__ Don't allow save inside `surfaceparm clusterportal`brushes __1__ Only allow save inside `surfaceparm clusterportal` brushes.
+nooverbounce     | 0 or 1            | 0             | Enable/disable overbounces. __0__ Don't allow overbounces on `surfaceparm monsterslicksouth` __1__ Only allow overbounces on `surfaceparm monsterslicksouth`.
 portalgun_spawn  | 0 or 1            | 0             | Toggles whether players should spawn with a portal gun.
-portalsurfaces   | 0 or 1            | 1             | If set to __1__, players can shoot portals everywhere on the map. If set to __0__, players can only shoot portals to areas with `surfaceparm monsterslickeast`.
+portalsurfaces   | 0 or 1            | 1             | Enable/disable portalsurfaces. __0__ Only allow portals on `surfaceparm monsterslickeast` __1__ Don't allow portals on `surfaceparm monsterslickeast`.
 portalteam       | 0 - 2             | 0             | If set to __0__, players can only go to own portals. If set to __1__, players can also go to fireteam mates' portals. If set to __2__, anyone can go to anyones portals.
 savelimit        | any integer       | 0             | If set to higher than 0, saves are limited to the set value.
 
