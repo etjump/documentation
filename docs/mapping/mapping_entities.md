@@ -83,7 +83,7 @@ Key              | Values            | Default       | Description
 -----------------|:-----------------:|---------------|------------
 name             | any text          | default       | The name of the run. Start and stop timer must have a matching name. Names are case sensitive.
 speed_limit      | any integer       | 700           | Timerun does not start if player has higher starting speed than specified.
-spawnflags       | 0, 1, 2, 4, 8, 16, 32, 64        | 0             |  __0__ always reset the run. __1__ reset the run on team change. __2__ reset the run on death. __4__ only reset when you reach the end. __8__ run does not start unless player has `pmove_fixed 1`. __16__ disables `backup` and extra save slots. __32__ cannot pickup explosive weapons. __64__ cannot pickup portalgun.
+spawnflags       | 0, 1, 2, 4, 8, 16, 32, 64        | 0             |  __0__ always reset the run. __1__ reset the run on team change. __2__ reset the run on death. __4__ only reset when you reach the end. __8__ run resets if client sets `pmove_fixed 0`. __16__ disables `backup` and extra save slots. __32__ cannot pickup explosive weapons. __64__ cannot pickup portalgun.
 
 ---
 
