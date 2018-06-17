@@ -1,5 +1,5 @@
 # ETJump mapping entities
-Here you will find full list of ETJump entities you can use in your map.
+Here you will find full list of ETJump entities you can use in your map. Included on this list are also stock ET entities that have been expanded or fixed by ETJump.
 
 ## etjump203_target_relay
 A `target_relay` that works only on __ETJump 2.0.3__ and newer.
@@ -11,14 +11,29 @@ A `target_relay` that works only on __ETJump 2.0.0__ and newer.
 
 ---
 
+## func_invisible_user
+Uses targeted entities on activation.
+
+Key              | Values            | Default       | Description
+-----------------|:-----------------:|---------------|------------
+noise            | path to .wav      |               | Sound to play on activation.
+volume           | any integer       | 255           | Volume of activation sound.
+
+---
+
 ## target_activate_if_velocity
 Activates targeted entities if player's velocity is between the lower and upper velocity limit.
 
 Key              | Values            | Default       | Description
 -----------------|:-----------------:|---------------|------------
-spawnflags       | 0, 1, 2           | 0             |  If __0__, speed will be calculated from __horizontal and vertical__ velocity. If __1__, speed will be calculated from __horizontal__ velocity. If __2__, speed will be calculated from __vertical__ velocity.
 lower_limit      | any integer       | 0             | If value is higher than lower limit, targets will be __activated__.
 upper_limit      | any integer       | 0             | If value is lower than upper limit, targets will be __activated__.
+spawnflags       | 0, 1, 2           | 0             | __1__ only calculate __horizontal__ velocity. __2__ only calculate __vertical__ velocity.
+
+---
+
+## target_give
+Gives activator targeted items. Must target actual entites in the map. Standard class restrictions apply when giving weapons (eg. cannot give `weapon_panzerfaust` to a medic).
 
 ---
 
@@ -33,7 +48,25 @@ Stops any active timerun without setting a record.
 ---
 
 ## target_printname
-Works exactly like `target_print`, but prints the message as popup rather than centerprint. Prints __activator's name__ if message contains `%s` or `i%`. Supports same spawnflags as `target_print`.
+Works exactly like `target_print`, but prints the message as popup rather than centerprint. Prints __activator's name__ if message contains `%s` or `%i`. Supports same spawnflags as `target_print`.
+
+---
+
+## target_push
+Pushes activator towards `target` or `angle(s)`.
+
+Key              | Values            | Default       | Description
+-----------------|:-----------------:|---------------|------------
+spawnflags       | 2                 | 0             | __2__ Adds players current XY speed to the pusher instead of setting it.
+
+---
+
+## target_relay
+Fires its targets when activated.
+
+Key              | Values            | Default       | Description
+-----------------|:-----------------:|---------------|------------
+spawnflags       | 8, 16             | 0             | __8__ Only activates during timerun. __16__ Doesn't activate during timerun.
 
 ---
 
@@ -62,6 +95,8 @@ Scales activator's velocity.
 Key              | Values            | Default       | Description
 -----------------|:-----------------:|---------------|------------
 scale            | any integer       | 1             | How many times should be velocity be multiplied.
+time             | any integer       | 0             | Time in seconds for constant speed scale when `spawnflags 1` is used.
+spawnflags       | 0, 1              | 0             | __1__ Scales base movement speed by `scale` for duration of `time`.
 
 ---
 
@@ -83,7 +118,7 @@ Key              | Values            | Default       | Description
 -----------------|:-----------------:|---------------|------------
 name             | any text          | default       | The name of the run. Start and stop timer must have a matching name. Names are case sensitive.
 speed_limit      | any integer       | 700           | Timerun does not start if player has higher starting speed than specified.
-spawnflags       | 0, 1, 2, 4, 8, 16, 32, 64        | 0             |  __0__ always reset the run. __1__ reset the run on team change. __2__ reset the run on death. __4__ only reset when you reach the end. __8__ run resets if client sets `pmove_fixed 0`. __16__ disables `backup` and extra save slots. __32__ cannot pickup explosive weapons. __64__ cannot pickup portalgun.
+spawnflags       | 0, 1, 2, 4, 8, 16, 32, 64, 128 | 0 |  __0__ always reset the run. __1__ reset the run on team change. __2__ reset the run on death. __4__ only reset when you reach the end. __8__ run resets if client sets `pmove_fixed 0`. __16__ disables `backup` and extra save slots. __32__ cannot pickup explosive weapons. __64__ cannot pickup portalgun. __128__ Disables `save`, `load` resets run.
 
 ---
 
@@ -93,6 +128,19 @@ Stops a timerun for activator.
 Key              | Values            | Default       | Description
 -----------------|:-----------------:|---------------|------------
 name             | any text          | default       | The name of the run. Start and stop timer must have a matching name.
+
+---
+
+---
+
+## target_teleporter and trigger_teleport
+Teleports player to target location.
+
+Key              | Values            | Default       | Description
+-----------------|:-----------------:|---------------|------------
+outspeed         | any integer       | 0             | Fixed speed at which player exits at target destination. __0__ to ignore.
+noise            | path to .wav      |               | Sound to play on activation.
+spawnflags       | 0, 1, 2, 4, 8, 16 | 0             | __1__ Reset activators speed. __2__ Convert activators speed towards angle of destination. __4__ Convert angle and speed relative to destination while preserving yaw. __8__ Convert angle and speed relative to destination while preserving yaw and pitch. __16__ Apply __160ms__ long knockback event after teleportation (Q3 behavior).
 
 ---
 
@@ -120,12 +168,33 @@ __Keys__
 Key              | Values            | Default       | Description
 -----------------|:-----------------:|---------------|------------
 tracker_eq       | [index,value] format specified above. | 1,-1 | Tracker activates targets if specified tracker value matches the player's tracker value.
+tracker_not_eq   | [index,value] format specified above. | 1,-1 | Tracker activates targets if specified tracker value does not match the player's tracker value.
 tracker_gt       | [index,value] format specified above. | 1,-1 | Tracker activates targets if player's tracker value is greater than specified value.
 tracker_lt       | [index,value] format specified above. | 1,-1 | Tracker activates targets if player's tracker value is less than the specified value.
 tracker_set      | [index,value] format specified above. | 1,-1 | Tracker sets player's tracker value to the specified value.
 tracker_set_if   | [index,value] format specified above. | 1,-1 | Tracker sets player's tracker value to the specified value if conditions from `tracker_eq`, `tracker_gt` or `tracker_lt` are met.
 tracker_inc      | [index,value] format specified above. | 1,0 | Tracker increases player's target value by the specified value.
 tracker_inc_if   | [index,value] format specified above. | 1,0 | Tracker increases player's target value by the specified value if conditions from `tracker_eq`, `tracker_gt` or `tracker_lt` are met.
+
+---
+
+## trigger_multiple
+Activates targets when touched.
+
+Key              | Values            | Default       | Description
+-----------------|:-----------------:|:-------------:|------------
+spawnflags       | 512, 2048         | 0             | __512__ activates every frame for all touching clients. __2048__ activates for every touching client with unique wait times.
+
+---
+
+## trigger_push
+Pushes activator towards `target` or `angle(s)`. This entity is client side predicted.
+
+Key              | Values            | Default       | Description
+-----------------|:-----------------:|:-------------:|------------
+speed            | any integer       | 1000          | Speed at which player is launched. No effect if targeting an entity (unless `spawnflags 1` is also used).
+noise            | path to .wav      |               | Sound to play on activation.
+spawnflags       | 0, 2              | 0             | __2__ Adds players current XY speed to the pusher instead of setting it.
 
 ---
 
@@ -143,16 +212,20 @@ spawnflags       | 0, 2, 4           | 0             | __2__ spins around its ax
 Key              | Values            | Default       | Description
 -----------------|:-----------------:|:-------------:|------------
 noexplosives     | 0 - 2             | 0             | Disables explosives. __0__ explosives are allowed. __1__ no explosive weapons. __2__ no dynamite.
+nofalldamage     | 0 - 2             | 0             | Enable/disable fall damage. __0__ Fall damage disabled on `surfaceparm nodamage` __1__ Fall damage enabled on `sufraceparm nodamage` __2__ Fall damage disabled everywhere.
 noghost          | 0 or 1            | 0             | Disables player ghosting
 nogod            | 0 or 1            | 0             | Disables god mode
 nogoto           | 0 or 1            | 0             | Disables goto
+nojumpdelay      | 0 or 1            | 0             | Enable/disable jump delay. __0__ Jump delay disabled on `surfaceparm monsterslicknorth` __1__ Jump delay enabled on `surfaceparm monsterslicknorth`.
 nonoclip         | 0 or 1            | 0             | Disables noclip
 nosave           | 0 or 1            | 0             | Enable/disable save. __0__ Don't allow save inside `surfaceparm clusterportal`brushes __1__ Only allow save inside `surfaceparm clusterportal` brushes.
 nooverbounce     | 0 or 1            | 0             | Enable/disable overbounces. __0__ Don't allow overbounces on `surfaceparm monsterslicksouth` __1__ Only allow overbounces on `surfaceparm monsterslicksouth`.
+noprone          | 0 or 1            | 0             | Enable/disable prone. __0__ Don't allow prone inside `surfaceparm donotenter`brushes __1__ Only allow prone inside `surfaceparm donotenter` brushes.
 portalgun_spawn  | 0 or 1            | 0             | Toggles whether players should spawn with a portal gun.
 portalsurfaces   | 0 or 1            | 1             | Enable/disable portalsurfaces. __0__ Only allow portals on `surfaceparm monsterslickeast` __1__ Don't allow portals on `surfaceparm monsterslickeast`.
 portalteam       | 0 - 2             | 0             | If set to __0__, players can only go to own portals. If set to __1__, players can also go to fireteam mates' portals. If set to __2__, anyone can go to anyones portals.
 savelimit        | any integer       | 0             | If set to higher than 0, saves are limited to the set value.
+strictsaveload   | bitmask or string | 0             | Limits save and load by given conditions. __1/move__ cannot save while moving __2/dead__ cannot save/load while dead. Combine strings with `|` (eg. `move|dead`).
 
 ---
 

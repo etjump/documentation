@@ -15,7 +15,7 @@ Teleports target player to you.
 
 ## class
 `class [class][weapon]`  
-Changes to class with weapon. Possible classes are __s__, __e__, __m__, __f__, __c__. Possible weapons are __1__-__5__.
+Changes to class with weapon. Possible classes are __s__, __e__, __m__, __f__, __c__. Possible weapons are __1__-__7__.
 
 ---
 
@@ -28,6 +28,18 @@ Toggles god mode.
 ## goto
 `goto [player]`  
 Teleports you to target player.
+
+---
+
+## incrementVar
+`incrementVar [cvar] [start] [end] [step]`  
+Cycles given cvar between values of `start` and `end` with increments of `step`. Same as `cycle`, but supports float values.
+
+---
+
+## interruptRun
+`interruptRun`  
+Interrupts a currently active timerun.
 
 ---
 
@@ -94,3 +106,9 @@ Prints top records in each run on the map. If a run name is given, prints top __
 ## save
 `save [slot]`  
 Saves current position. Possible slots __0__-__2__. If no slot is given, slot is __0__.
+
+---
+
+## setoffset
+`setoffset [X Y Z]`  
+Offsets your position by the amount of units on each vector. Usage requires access to `noclip`. Maximum offset value per vector is __4096__.

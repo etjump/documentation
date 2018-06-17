@@ -203,6 +203,14 @@ __Flag:__ a
 
 ---
 
+## moverscale
+`!moverscale [value]`  
+Scales vehicle movement speed by given value. Valid range is __0.1-5.0__.
+
+__Flag:__ v
+
+---
+
 ## mute
 `!mute [player]`  
 Mutes target player.
