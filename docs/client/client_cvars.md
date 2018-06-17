@@ -135,7 +135,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_chatPosX            | any integer   | 0
 
-Chat box horizontal location.
+Chat box horizontal offset.
 
 ---
 
@@ -144,7 +144,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_chatPosY            | any integer   | 0
 
-Chat box vertical location.
+Chat box vertical offset.
 
 ---
 
@@ -318,7 +318,7 @@ Draws pressed keys. There are five different keysets available:
 * __2__ DeFRaG default
 * __3__ ETJump 2
 * __4__ ETJump 3
-* __5__ ETJump 4
+* __5__ Draw bound keys
 
 ---
 
@@ -411,7 +411,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_drawProneIndicator  | 0 - 3         | 3
 
-Draw no prone area indicator.
+Draw prone area indicator.
 
 * __1__ always draw the icon.
 * __2__ only draw the icon when outside of noprone brush.
