@@ -122,6 +122,29 @@ Whether to log everything in a single file or change the file daily.
 
 ---
 
+## g_debugTimeruns
+Name                    | values        | default
+------------------------|:-------------:|-------------
+g_debugTimeruns         | 0 or 1        | 0
+
+Toggles timerun debugging. When enabled, allows players to use cheats during timeruns, but records are not saved.
+
+---
+
+## g_debugTrackers
+Name                    | values        | default
+------------------------|:-------------:|-------------
+g_debugTrackers         | 0 or 1        | 0
+
+Toggles tracker debugging. When enabled, all tracker changes are printed to players. Additionally, players gain access to following commands:
+
+* `tracker_print [index1|all] [index2] [index3]...` prints tracker values on specified or all indices. If index isn't specified, defaults to index __1__.
+* `tracker_set [index|all] [value]` sets tracker on specified index to specified value. If index is not specified, defaults to index __1__.
+
+Timerun records are not saved when tracker debugging is enabled.
+
+---
+
 ## g_disableVoteAfterMapChange
 Name                    | values        | default
 ------------------------|:-------------:|-------------
@@ -227,6 +250,15 @@ Name                    | values        | default
 g_motdFile              | filename     | motd.json
 
 File that has the message of the day.
+
+---
+
+## g_moverScale
+Name                    | values        | default
+------------------------|:-------------:|-------------
+g_moverScale            | 0.1 - 5.0     | 1.0
+
+Scales movement speed of vehicles. Can be also accessed with `!moverscale` admin command.
 
 ---
 

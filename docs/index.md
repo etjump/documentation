@@ -60,9 +60,11 @@ ETJump automatically shows you the keys you press. It also shows the keys player
 
 __Modifying key press HUD__
 
+- Different keysets can be used with the `etj_drawKeys` cvar. There are __five__ different keysets available.
 - Color of the keys can be modified with the `etj_keysColor` cvar.  
 - Size of the keys can be modified with the `etj_keysSize` cvar.
 - Position can be modified using `etj_keysX`, `etj_keysY` cvars.
+- Shadow can be drawn using `etj_keysShadow` cvar.
 
 ### Speedometer
 If you want to check how fast you're going or how much speed you're gaining speedometer is just for you! There are two different speedometers:
@@ -85,10 +87,11 @@ The simple one `etj_drawSpeed2`.
 ![alt text](img/cg_drawSpeed2.gif)  
 
 * Position on the X/Y-axis can be modified with `etj_speedX`, `etj_speedY`.
-* Width/Height of speedometer can be modified with `etj_speedSizeX`, `etj_speedSizeY`.
+* Size of speedometer can be modified with `etj_speedSize`.
 * Color of speedometer can be modified with `etj_speedColor`.
 * Transparency of speedometer can be modified with `etj_speedAlpha`.
-* Text shadows can be added with `etj_speedShadow`. 
+* Text shadows can be added with `etj_speedShadow`.
+* Max speed from last load session can be displayed with `etj_drawMaxSpeed`.
 
 ### Portal gun
 Portal gun let's you shoot portals at walls, run into portals and get teleported to the other portal. To shoot a portal, just do `/bind KEY +attack2` where KEY is the key you want to use to shoot the second portal.
@@ -176,6 +179,8 @@ There are __four__ different CGaz' strafeometers. You can switch between them by
 
 __Modifying CGaz HUD__
 
+_Note: these cvars have no effect on CGaz __2__._
+
 * Transparency can be modified with `etj_CGazAlpha` cvar.
 * Height can be modified with `etj_CGazHeight` cvar.
 * Width can be modified with `etj_CGazWidth` cvar.
@@ -199,6 +204,8 @@ Some of the standart HUD elements can be easily hidden.
 * Player's health `etj_HUD_playerHealth`.
 * Weapon icon with `etj_HUD_weaponIcon`.
 * XP info with `etj_HUD_xpInfo`.
+* Fireteam with `etj_HUD_fireteam`.
+* Popups with `etj_HUD_popup`.
 
 ### Ghost players transparency
 ETJump supports semi-transparency effect on players. You can controll transparency effect using `etj_ghostPlayersOpacity` cvar. Also using `etj_ghostPlayersAlt` will draw all players in white semi-transparent color, you can then apply custom color using `etj_ghostPlayersColor`.
@@ -210,3 +217,18 @@ You can adjust camera shaking from explosives using `etj_explosivesShake` cvar:
 * `etj_explosivesShake 2` disable cam shaking from other players explosives.
 * `etj_explosivesShake 1` disable cam shaking from own explosives.
 * `etj_explosivesShake 0` disable cam shaking from any explosions.
+
+## Color system
+ETJump includes an improved color parsing system for cvars that expect color values. The following formats are supported:
+
+Format                  | Example value
+------------------------|:------------------------
+string                  |  white, black, green
+normalized RGB(A)       |  1.0 0.5 0.75 0.33
+true RGB(A)             |  255 128 191 62
+hex                     |  #ff80bf, 0xff80bf
+
+* For RGB(A) value to be considered true RGB(A), at least one value must be over __1__.
+* RGB(A) values must be put inside quotes (eg. `etj_speedColor "1.0 0.0 1.0"`).
+
+Any ETJump cvar that accepts a color as value can use the color formats listed above. In a future release, this system will be expanded to every cgame cvar as well.
