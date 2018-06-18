@@ -192,7 +192,7 @@ Pushes activator towards `target` or `angle(s)`. This entity is client side pred
 
 Key              | Values            | Default       | Description
 -----------------|:-----------------:|:-------------:|------------
-speed            | any integer       | 1000          | Speed at which player is launched. No effect if targeting an entity (unless `spawnflags 1` is also used).
+speed            | any integer       | 1000          | Speed at which player is launched. No effect if targeting an entity (unless `spawnflags 2` is also used).
 noise            | path to .wav      |               | Sound to play on activation.
 spawnflags       | 0, 2              | 0             | __2__ Adds players current XY speed to the pusher instead of setting it.
 
@@ -239,7 +239,7 @@ Activates targeted entities if ident requirement is set.
 Key              | Values            | Default       | Description
 -----------------|:-----------------:|---------------|------------
 reqident         | any integer       | 0             | Ident value required for activation.
-spawnflags       | 1, 2, 4           | 0             | __0__ trigger if equal. __1__ trigger if greater. __2__ trigger if not. __4__ trigger if lower.
+spawnflags       | 0, 1, 2, 4        | 0             | __0__ trigger if equal. __1__ trigger if greater. __2__ trigger if not. __4__ trigger if lower.
 
 ---
 

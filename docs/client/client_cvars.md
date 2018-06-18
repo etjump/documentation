@@ -1004,6 +1004,8 @@ etj_onRunEnd            | any command(s) |
 
 Set of commands to be executed on timerun end.
 
+_Note: also triggers on timerun interrupts._
+
 ---
 
 ## etj_popupAlpha
