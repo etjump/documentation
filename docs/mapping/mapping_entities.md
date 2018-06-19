@@ -212,11 +212,11 @@ spawnflags       | 0, 2, 4           | 0             | __2__ spins around its ax
 Key              | Values            | Default       | Description
 -----------------|:-----------------:|:-------------:|------------
 noexplosives     | 0 - 2             | 0             | Disables explosives. __0__ explosives are allowed. __1__ no explosive weapons. __2__ no dynamite.
-nofalldamage     | 0 - 2             | 0             | Enable/disable fall damage. __0__ Fall damage disabled on `surfaceparm nodamage` __1__ Fall damage enabled on `sufraceparm nodamage` __2__ Fall damage disabled everywhere.
+nofalldamage     | 0 - 2             | 0             | Enable/disable fall damage. __0__ Fall damage disabled only on `surfaceparm nodamage` __1__ Fall damage enabled only on `sufraceparm nodamage` __2__ Fall damage disabled everywhere.
 noghost          | 0 or 1            | 0             | Disables player ghosting
 nogod            | 0 or 1            | 0             | Disables god mode
 nogoto           | 0 or 1            | 0             | Disables goto
-nojumpdelay      | 0 or 1            | 0             | Enable/disable jump delay. __0__ Jump delay disabled on `surfaceparm monsterslicknorth` __1__ Jump delay enabled on `surfaceparm monsterslicknorth`.
+nojumpdelay      | 0 or 1            | 0             | Enable/disable jump delay. __0__ Jump delay disabled only on `surfaceparm monsterslicknorth` __1__ Jump delay enabled only on `surfaceparm monsterslicknorth`.
 nonoclip         | 0 or 1            | 0             | Disables noclip
 nosave           | 0 or 1            | 0             | Enable/disable save. __0__ Don't allow save inside `surfaceparm clusterportal`brushes __1__ Only allow save inside `surfaceparm clusterportal` brushes.
 nooverbounce     | 0 or 1            | 0             | Enable/disable overbounces. __0__ Don't allow overbounces on `surfaceparm monsterslicksouth` __1__ Only allow overbounces on `surfaceparm monsterslicksouth`.
@@ -225,7 +225,7 @@ portalgun_spawn  | 0 or 1            | 0             | Toggles whether players s
 portalsurfaces   | 0 or 1            | 1             | Enable/disable portalsurfaces. __0__ Only allow portals on `surfaceparm monsterslickeast` __1__ Don't allow portals on `surfaceparm monsterslickeast`.
 portalteam       | 0 - 2             | 0             | If set to __0__, players can only go to own portals. If set to __1__, players can also go to fireteam mates' portals. If set to __2__, anyone can go to anyones portals.
 savelimit        | any integer       | 0             | If set to higher than 0, saves are limited to the set value.
-strictsaveload   | bitmask or string | 0             | Limits save and load by given conditions. __1/move__ cannot save while moving __2/dead__ cannot save/load while dead. Combine strings with `|` (eg. `move|dead`).
+strictsaveload   | bitmask or string | 0             | Limits save and load by given conditions. __1/move__ cannot save while moving __2/dead__ cannot save/load while dead. Combine strings with `|` (eg. `move | dead`).
 
 ---
 
