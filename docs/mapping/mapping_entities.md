@@ -173,8 +173,8 @@ tracker_gt       | [index,value] format specified above. | 1,-1 | Tracker activa
 tracker_lt       | [index,value] format specified above. | 1,-1 | Tracker activates targets if player's tracker value is less than the specified value.
 tracker_set      | [index,value] format specified above. | 1,-1 | Tracker sets player's tracker value to the specified value.
 tracker_set_if   | [index,value] format specified above. | 1,-1 | Tracker sets player's tracker value to the specified value if conditions from `tracker_eq`, `tracker_gt` or `tracker_lt` are met.
-tracker_inc      | [index,value] format specified above. | 1,0 | Tracker increases player's target value by the specified value.
-tracker_inc_if   | [index,value] format specified above. | 1,0 | Tracker increases player's target value by the specified value if conditions from `tracker_eq`, `tracker_gt` or `tracker_lt` are met.
+tracker_inc      | [index,value] format specified above. | 1,0 | Tracker increases player's tracker value by the specified value.
+tracker_inc_if   | [index,value] format specified above. | 1,0 | Tracker increases player's tracker value by the specified value if conditions from `tracker_eq`, `tracker_gt` or `tracker_lt` are met.
 
 ---
 
