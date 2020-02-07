@@ -216,7 +216,7 @@ nofalldamage     | 0 - 2             | 0             | Enable/disable fall damag
 noghost          | 0 or 1            | 0             | Disables player ghosting
 nogod            | 0 or 1            | 0             | Disables god mode
 nogoto           | 0 or 1            | 0             | Disables goto
-nojumpdelay      | 0 or 1            | 0             | Enable/disable jump delay. __0__ Jump delay disabled only on `surfaceparm monsterslicknorth` __1__ Jump delay enabled only on `surfaceparm monsterslicknorth`.
+nojumpdelay      | 0 or 1            | 0             | Enable/disable jump delay. __0__ Jump delay enabled only on `surfaceparm monsterslicknorth` __1__ Jump delay disabled only on `surfaceparm monsterslicknorth`.
 nonoclip         | 0 or 1            | 0             | Disables noclip
 nosave           | 0 or 1            | 0             | Enable/disable save. __0__ Don't allow save inside `surfaceparm clusterportal`brushes __1__ Only allow save inside `surfaceparm clusterportal` brushes.
 nooverbounce     | 0 or 1            | 0             | Enable/disable overbounces. __0__ Don't allow overbounces on `surfaceparm monsterslicksouth` __1__ Only allow overbounces on `surfaceparm monsterslicksouth`.
