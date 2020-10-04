@@ -154,6 +154,15 @@ How long players must wait to vote again in milliseconds after map changes.
 
 ---
 
+## g_enableVote
+Name                    | values        | default
+------------------------|:-------------:|-------------
+g_enableVote            | 0 or 1        | 1
+
+Toggles voting.
+
+---
+
 ## g_floodlimit
 Name                    | values        | default
 ------------------------|:-------------:|-------------
@@ -360,6 +369,20 @@ What to print when player saves a position.
 
 ---
 
+## g_spectatorVote
+Name                    | values        | default
+------------------------|:-------------:|-------------
+g_spectatorVote         | 0 - 2         | 0
+
+Toggles spectator voting.
+
+* __1__ spectators can cast votes.
+* __2__ spectators can also call votes.
+
+_Note: Only spectators who participate in voting are taken into account by `vote_percent` cvar, to prevent votes never passing on servers with multiple idle spectators._
+
+---
+
 ## g_timerunsDatabase
 Name                    | values        | default
 ------------------------|:-------------:|-------------
@@ -411,6 +434,15 @@ Name                    | values        | default
 g_weapons               | 0 or 1        | 1
 
 Toggles whether players spawn with weapons or just knife.
+
+---
+
+## vote_allow_randommap
+Name                    | values        | default
+------------------------|:-------------:|-------------
+vote_allow_randommap    | 0 or 1        | 1
+
+Toggles whether players can vote for a random map.
 
 ---
 

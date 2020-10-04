@@ -4,10 +4,14 @@ Here you will find full list of ETJump entities you can use in your map. Include
 ## etjump203_target_relay
 A `target_relay` that works only on __ETJump 2.0.3__ and newer.
 
+_Note: Fires a random target instead of all targets._
+
 ---
 
 ## etjump2_target_relay
 A `target_relay` that works only on __ETJump 2.0.0__ and newer.
+
+_Note: Fires a random target instead of all targets._
 
 ---
 
@@ -30,6 +34,8 @@ lower_limit      | any integer       | 0             | If value is higher than l
 upper_limit      | any integer       | 0             | If value is lower than upper limit, targets will be __activated__.
 spawnflags       | 0, 1, 2           | 0             | __1__ only calculate __horizontal__ velocity. __2__ only calculate __vertical__ velocity.
 
+_Note: Fires a random target instead of all targets._
+
 ---
 
 ## target_give
@@ -38,7 +44,9 @@ Gives activator targeted items. Must target actual entites in the map. Standard 
 ---
 
 ## target_ftrelay
-Works exactly like `target_relay` but activates the entities for everyone in the player's current fireteam, not just the player.
+Works like `target_relay` but activates the entities for everyone in the player's current fireteam, not just the player.
+
+_Note: Fires a random target instead of all targets. The target is randomly picked for each fireteam member._
 
 ---
 
@@ -47,8 +55,22 @@ Stops any active timerun without setting a record.
 
 ---
 
+## target_print
+Prints `message` as a centerprint. If no spawnflags are specified, prints to all clients, including spectators.
+
+Key              | Values            | Default       | Description
+-----------------|:-----------------:|---------------|------------
+spawnflags       | 8                 | 0             | __8__ Prints to CPM (popup messages) instead of centerprint.
+
+---
+
 ## target_printname
-Works exactly like `target_print`, but prints the message as popup rather than centerprint. Prints __activator's name__ if message contains `%s` or `%i`. Supports same spawnflags as `target_print`.
+Prints `message` as a popup message. If no spawnflags are specified, prints to all clients, including spectators.
+
+Key              | Values            | Default       | Description
+-----------------|:-----------------:|---------------|------------
+message          | any string        |               | Message to print. `%i` and `%s` can be used to print the activators name.
+spawnflags       | 0, 1, 2, 4        | 0             | __1__ Only prints for Axis. __2__ Only prints for Allies. __4__ Only prints for activator.
 
 ---
 
@@ -57,7 +79,7 @@ Pushes activator towards `target` or `angle(s)`.
 
 Key              | Values            | Default       | Description
 -----------------|:-----------------:|---------------|------------
-spawnflags       | 2                 | 0             | __2__ Adds players current XY speed to the pusher instead of setting it.
+spawnflags       | 2, 4              | 0             | __2__ Speed from the pusher is added to activators horizontal speed. __4__ Speed from the pusher is added to activators vertical speed.
 
 ---
 
@@ -71,7 +93,7 @@ spawnflags       | 8, 16             | 0             | __8__ Only activates duri
 ---
 
 ## target_remove_portals
-Removes activators's existing portals.
+Removes activators existing portals.
 
 Key              | Values            | Default       | Description
 -----------------|:-----------------:|---------------|------------
@@ -80,12 +102,16 @@ spawnflags       | 0, 1              | 0             | __1__ does not print text
 ---
 
 ## target_save
-Saves current position to activators's save slot 0.
+Saves current position to activators save slot __0__.
 
 ---
 
 ## target_savereset and trigger_savereset
-Resets activator's saved positions.
+Resets activators saved positions.
+
+Key              | Values            | Default       | Description
+-----------------|:-----------------:|---------------|------------
+spawnflags       | 0, 1              | 0             | __1__ does not print text when saves are reset.
 
 ---
 
@@ -105,7 +131,7 @@ Sets activators health to specified value.
 
 Key              | Values            | Default       | Description
 -----------------|:-----------------:|---------------|------------
-health           | any integer       | 100           | Value to set health to.
+health           | integer > 0       | 100           | Value to set health to.
 wait             | any integer       | 1000          | How long in milliseconds before next activation by same player.
 spawnflags       | 0, 1              | 0             | __1__ Only activates for player once per life.
 
@@ -120,6 +146,13 @@ name             | any text          | default       | The name of the run. Star
 speed_limit      | any integer       | 700           | Timerun does not start if player has higher starting speed than specified.
 spawnflags       | 0, 1, 2, 4, 8, 16, 32, 64, 128 | 0 |  __0__ always reset the run. __1__ reset the run on team change. __2__ reset the run on death. __4__ only reset when you reach the end. __8__ run resets if client sets `pmove_fixed 0`. __16__ disables `backup` and extra save slots. __32__ cannot pickup explosive weapons. __64__ cannot pickup portalgun. __128__ Disables `save`, `load` resets run.
 
+Starting a timerun performs the following actions to the activating player:
+* Removes explosive weapons and flamethrower
+* Removes all projectiles and mines of the activator
+* Removes portalgun
+* Resets portals
+* Clears all save slots and backups (unless `spawnflags 128` is used)
+
 ---
 
 ## target_stopTimer
@@ -127,7 +160,7 @@ Stops a timerun for activator.
 
 Key              | Values            | Default       | Description
 -----------------|:-----------------:|---------------|------------
-name             | any text          | default       | The name of the run. Start and stop timer must have a matching name.
+name             | any text          | default       | The name of the run. Start and stop timer must have a matching name. Names are case sensitive.
 
 ---
 
@@ -153,7 +186,7 @@ There are three different formats for specifying the tracker index and value.
 2. __[index,value]__ Set the tracker on index __[index]__ to __[value]__
 3. __[index1,value1]|[index2,value2]|..|[indexN,valueN]__ Set the trackers on indices __[index1, index2, .., indexN]__ to values __[value1, value2, .., valueN]__
 
-Tracker index has an upper limit of 50.
+Valid range for tracker indices is __1-50__.
 
 __Examples__
 
@@ -183,7 +216,7 @@ Activates targets when touched.
 
 Key              | Values            | Default       | Description
 -----------------|:-----------------:|:-------------:|------------
-spawnflags       | 512, 2048         | 0             | __512__ activates every frame for all touching clients. __2048__ activates for every touching client with unique wait times.
+spawnflags       | 512, 2048         | 0             | __512__ activates every server frame. __2048__ activates for every touching client with unique wait times.
 
 ---
 
@@ -192,9 +225,9 @@ Pushes activator towards `target` or `angle(s)`. This entity is client side pred
 
 Key              | Values            | Default       | Description
 -----------------|:-----------------:|:-------------:|------------
-speed            | any integer       | 1000          | Speed at which player is launched. No effect if targeting an entity (unless `spawnflags 2` is also used).
+speed            | any integer       | 1000          | Speed at which player is launched. No effect if targeting an entity.
 noise            | path to .wav      |               | Sound to play on activation.
-spawnflags       | 0, 2              | 0             | __2__ Adds players current XY speed to the pusher instead of setting it.
+spawnflags       | 0, 2, 4           | 0             | __2__ Speed from the pusher is added to activators horizontal speed. __4__ Speed from the pusher is added to activators vertical speed.
 
 ---
 
@@ -213,11 +246,11 @@ Key              | Values            | Default       | Description
 -----------------|:-----------------:|:-------------:|------------
 noexplosives     | 0 - 2             | 0             | Disables explosives. __0__ explosives are allowed. __1__ no explosive weapons. __2__ no dynamite.
 nofalldamage     | 0 - 2             | 0             | Enable/disable fall damage. __0__ Fall damage disabled only on `surfaceparm nodamage` __1__ Fall damage enabled only on `sufraceparm nodamage` __2__ Fall damage disabled everywhere.
-noghost          | 0 or 1            | 0             | Disables player ghosting
-nogod            | 0 or 1            | 0             | Disables god mode
-nogoto           | 0 or 1            | 0             | Disables goto
+noghost          | 0 or 1            | 0             | Disables player ghosting. Overrides `g_ghostPlayers` server cvar.
+nogod            | 0 or 1            | 0             | Disables god mode.
+nogoto           | 0 or 1            | 0             | Disables goto.
 nojumpdelay      | 0 or 1            | 0             | Enable/disable jump delay. __0__ No jump delay only on `surfaceparm monsterslicknorth` __1__ Jump delay only on `surfaceparm monsterslicknorth`.
-nonoclip         | 0 or 1            | 0             | Disables noclip
+nonoclip         | 0 or 1            | 0             | Disables noclip.
 nosave           | 0 or 1            | 0             | Enable/disable save. __0__ Don't allow save inside `surfaceparm clusterportal`brushes __1__ Only allow save inside `surfaceparm clusterportal` brushes.
 nooverbounce     | 0 or 1            | 0             | Enable/disable overbounces. __0__ Don't allow overbounces on `surfaceparm monsterslicksouth` __1__ Only allow overbounces on `surfaceparm monsterslicksouth`.
 noprone          | 0 or 1            | 0             | Enable/disable prone. __0__ Don't allow prone inside `surfaceparm donotenter`brushes __1__ Only allow prone inside `surfaceparm donotenter` brushes.
@@ -240,6 +273,8 @@ Key              | Values            | Default       | Description
 -----------------|:-----------------:|---------------|------------
 reqident         | any integer       | 0             | Ident value required for activation.
 spawnflags       | 0, 1, 2, 4        | 0             | __0__ trigger if equal. __1__ trigger if greater. __2__ trigger if not. __4__ trigger if lower.
+
+_Note: Fires a random target instead of all targets._
 
 ---
 

@@ -17,13 +17,57 @@ _Note: this cvar shares it's name with the ETPro variant for Camtrace 3D compati
 ## etj_altScoreboard
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_altScoreboard       | 0 - 3         | 2
+etj_altScoreboard       | 0 - 3         | 0
 
 Changes the scoreboard to an alternative one.  
 
-* __0__ default etmain styled scoreboard .
+* __0__ default ETMain styled scoreboard.
 * __1__ and __2__ draw alternatively styled scoreboard.
 * __3__ draws a compact scoreboard with dynamic size and position adjustments.
+
+---
+
+## etj_ad_savePBOnly
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_ad_savePBOnly       | 0 or 1        | 0
+
+Whether or not autodemo should save a demo when finishing a timerun.
+
+* __0__ save all demos.
+* __1__ save only personal bests.
+
+---
+
+## etj_ad_stopDelay
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_ad_stopDelay        | 0 - 10000     | 2000
+
+Time in milliseconds to delay the stopping and saving of autodemo when a timerun ends.
+
+---
+
+## etj_ad_targetPath
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_ad_targetPath       | any string    | autodemo
+
+Folder inside `demos` folder to store saved autodemo recordings in.
+
+---
+
+## etj_autoDemo
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_autoDemo            | 0 - 2         | 0
+
+Automatically start recording a demo whenever player loads (unless a timerun is active) or spawns.
+
+* __1__ enabled only for maps with a timerun.
+* __2__ enabled for all maps.
+
+_Note: Autodemo will keep a maximum of 20 temp demos, located in `demos/temp` before it starts overwriting them._
 
 ---
 
@@ -36,12 +80,59 @@ Automatically load into last saved position when joining a team.
 
 ---
 
+## etj_CGaz5Color1
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_CGaz5Color1         | [any color](/index.md#color-system) | 0.75 0.75 0.75 1.0
+
+Sets the no accel zone color of CGaz HUD __5__.
+
+---
+
+## etj_CGaz5Color2
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_CGaz5Color2         | [any color](/index.md#color-system) | 0.0 1.0 0.0 1.0
+
+Sets the minimum angle color of CGaz HUD __5__.
+
+---
+
+## etj_CGaz5Color3
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_CGaz5Color3         | [any color](/index.md#color-system) | 0.0 0.2 0.0 1.0
+
+Sets the accel zone color of CGaz HUD __5__.
+
+---
+
+## etj_CGaz5Color4
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_CGaz5Color4         | [any color](/index.md#color-system) | 1.0 1.0 0.0 1.0
+
+Sets the max angle color of CGaz HUD __5__.
+
+---
+
+## etj_CGaz5Fov
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_CGaz5Fov            | 0 - 180       | 0
+
+Sets the FOV of CGaz HUD __5__. __0__ means use your current in-game FOV.
+
+---
+
 ## etj_CGazAlpha
 Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_CGazAlpha           | 0.0 - 1.0     | 0.15
 
 Controls CGaz meter transparency.
+
+_Note: This also affects SnapHUD alpha._
 
 ---
 
@@ -124,7 +215,7 @@ Toggles chat flags.
 ## etj_chatLineWidth
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_chatLineWidth       | 1-200         | 62
+etj_chatLineWidth       | 1 - 200       | 62
 
 Set number of characters on one line of chat before linebreak happens.
 
@@ -145,6 +236,15 @@ Name                    | values        | default
 etj_chatPosY            | any integer   | 0
 
 Chat box vertical offset.
+
+---
+
+## etj_chatScale
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_chatScale           | any value     | 1.0
+
+Scales the chat size.
 
 ---
 
@@ -214,6 +314,15 @@ Draw shadow on CHS.
 
 ---
 
+## etj_CHSUseFeet
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_CHSUseFeet          | 0 or 1        | 0
+
+Shift Z origin to feet level for positional calculations.
+
+---
+
 ## etj_consoleAlpha
 Name                    | values        | default
 ------------------------|:-------------:|-------------
@@ -244,18 +353,9 @@ Toggle console background shader. Changing requires `vid_restart`.
 ## etj_drawCGaz
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_drawCGaz            | 0 - 4         | 0
+etj_drawCGaz            | 0 - 5         | 0
 
-Draws the CGaz meter. Has 4 different variations from `1` to `4`.
-
----
-
-## etj_drawCGazUsers
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_drawCGazUsers       | 0 or 1        | 1
-
-Shows whether users are using CGaz in the scoreboard.
+Draws the CGaz HUD. Has 5 [different variations](/index.md#cgaz-strafeometer) from __1__ to __5__.
 
 ---
 
@@ -273,7 +373,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_drawCHS2            | 0 - 2         | 0
 
-Draws crosshair stats 2. Value __2__ draws on the right side of screen. [More info](/index.md#chs).
+Draws crosshair stats 2. Value __2__ aligns text to the right. [More info](/index.md#chs).
 
 ---
 
@@ -400,8 +500,8 @@ etj_drawObWatcher       | 0 or 1        | 1
 
 Draws overbounce watcher. Allows you to save position and when you are about to hit overbounce on that surface, the detector will show `OB` without having to actually aim at the saved surface.
 
-* `ob_save <optional name>` will save your current coordinates.
-* `ob_load <optional name>` will load saved coordinates.
+* `ob_save` will save your current coordinates.
+* `ob_load` will load saved coordinates.
 * `ob_reset` resets currently displayed coordinates so nothing will be displayed.
 
 ---
@@ -442,12 +542,32 @@ Draw save area indicator.
 
 ---
 
+## etj_drawSimplePlayers
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_drawSimplePlayers   | 0 or 1        | 0
+
+Toggles alternative drawing of other players. When enabled, a single shader is used to draw other players.
+
+![Example](/img/etj_ghostPlayersAlt_example.png).
+
+---
+
 ## etj_drawSlick
 Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_drawSlick           | 0 or 1        | 1
 
 Draw slick detector. Draws `S` symbol if you are aiming at slick surface.
+
+---
+
+## etj_drawSnapHUD
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_drawSnapHUD         | 0 or 1        | 0
+
+Draws velocity snapping HUD.
 
 ---
 
@@ -523,6 +643,26 @@ Controls screenshake from explosives.
 
 ---
 
+## etj_extraTrace
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_extraTrace          | bitmask       | 0
+
+Toggles tracing of playerclips on various detectors.
+
+* __1__ OB detector
+* __2__ Slick detector
+* __4__ No jump delay detector
+* __8__ CHS 10-11
+* __16__ CHS 12
+* __32__ CHS 13-15
+* __64__ CHS 16
+* __128__ CHS 53
+
+The bitmask values can be listed in console with the command `/extraTrace`.
+
+---
+
 ## etj_fireteamAlpha
 Name                    | values        | default
 ------------------------|:-------------:|-------------
@@ -550,41 +690,12 @@ Set vertical offset of fireteam.
 
 ---
 
-## etj_ghostPlayersAlt
+## etj_gunSway
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_ghostPlayersAlt     | 0 or 1        | 0
+etj_gunSway             | 0 or 1        | 1
 
-Toggles alternative drawing of other players. When enabled, a single shader is used to draw other players.
-
-![Example](/img/etj_ghostPlayersAlt_example.png).
-
----
-
-## etj_ghostPlayersColor
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_ghostPlayersColor   | [any color](/index.md#color-system) | 1.0 1.0 1.0
-
-Changes player color when `etj_ghostPlayersAlt` is enabled.
-
----
-
-## etj_ghostPlayersFadeRange
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_ghostPlayersFadeRange | any integer | 200
-
-Additional range added to `etj_hideDistance` where other players start to fade before disappearing completely.
-
----
-
-## etj_ghostPlayersOpacity
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_ghostPlayersOpacity | 0.0 - 1.0     | 1.0
-
-Controls transparency level for player models. __1.0__ is fully opaque.
+Toggles gun idle/movement sway and landing bobbing.
 
 ---
 
@@ -603,6 +714,15 @@ Name                    | values        | default
 etj_hideDistance        | any integer   | 128
 
 How close a player has to be to be hidden from view.
+
+---
+
+## etj_hideFadeRange
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_hideFadeRange       | any integer   | 200
+
+Additional range added to `etj_hideDistance` where other players start to fade before disappearing completely.
 
 ---
 
@@ -1008,6 +1128,15 @@ _Note: also triggers on timerun interrupts._
 
 ---
 
+## etj_playerOpacity
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_playerOpacity       | 0.0 - 1.0     | 1.0
+
+Controls transparency level for player models. __1.0__ is fully opaque.
+
+---
+
 ## etj_popupAlpha
 Name                    | values        | default
 ------------------------|:-------------:|-------------
@@ -1029,9 +1158,12 @@ How long in milliseconds it takes for a popup to fade.
 ## etj_popupGrouped
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_popupGrouped        | 0 or 1        | 1
+etj_popupGrouped        | 0 - 2         | 1
 
-Groups identical repetitive popup messages into one. 
+Groups identical repetitive popup messages into one.
+
+* __1__ group popups, print duplicates in console.
+* __2__ group popups and console prints.
 
 ---
 
@@ -1133,7 +1265,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_runTimerInactiveColor | [any color](/index.md#color-system) | mdgrey
 
-Set color of timerun timer when no timerun is active
+Set color of timerun timer when no timerun is active.
 
 ---
 
@@ -1194,6 +1326,15 @@ Draws edges of triangles. Unlocked version of `r_showTris`.
 
 ---
 
+## etj_simplePlayersColor
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_simplePlayersColor  | [any color](/index.md#color-system) | 1.0 1.0 1.0
+
+Changes player color when `etj_ghostPlayersAlt` is enabled.
+
+---
+
 ## etj_slickX
 Name                    | values        | default
 ------------------------|:-------------:|-------------
@@ -1209,6 +1350,51 @@ Name                    | values        | default
 etj_slickY              | any integer   | 220
 
 Changes slick detector's vertical position.
+
+---
+
+## etj_snapHUDColor1
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_snapHUDColor1       | [any color](/index.md#color-system)   | 0.0 1.0 1.0 0.75
+
+Sets the primary color of velocity snapping HUD.
+
+---
+
+## etj_snapHUDColor2
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_snapHUDColor2       | [any color](/index.md#color-system)   | 0.0 1.0 1.0 0.75
+
+Sets the secondary color of velocity snapping HUD.
+
+---
+
+## etj_snapHUDFov
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_snapHUDColor2       | 0 - 180       | 0
+
+Sets the FOV of the velocity snapping HUD. __0__ means use your current in-game FOV.
+
+---
+
+## etj_snapHUDHeight
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_snapHUDHeight       | any integer   | 10
+
+Changes the height of the velocity snapping HUD.
+
+---
+
+## etj_snapHUDOffsetY
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_snapHUDHeight       | any integer   | 0
+
+Changes Y-axis position of the velocity snapping HUD.
 
 ---
 
@@ -1248,6 +1434,15 @@ Sets ETJump speedometer color.
 
 ---
 
+## etj_speedColorUsesAccel
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_speedColorUsesAccel | 0 or 1        | 0
+
+Changes ETJump speedometer color to represent acceleration or deceleration.
+
+---
+
 ## etj_speedinterval
 Name                    | values        | default
 ------------------------|:-------------:|-------------
@@ -1260,7 +1455,7 @@ How often speedometer 1 gets updated in milliseconds.
 ## etj_speeds
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_speeds              | 0-7           | 0
+etj_speeds              | 0 - 7         | 0
 
 Output render statistics to console. Unlocked version of `r_speeds`.
 
@@ -1378,7 +1573,7 @@ Toggles an external console window, mainly used for copy pasting etc. Unlocked v
 ## etj_viewPlayerPortals
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_viewPlayerPortals   | 0 or 1        | 1
+etj_viewPlayerPortals   | 0 - 2         | 1
 
 Toggles other players portals. 
 
