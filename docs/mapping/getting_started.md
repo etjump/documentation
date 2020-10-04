@@ -2,10 +2,26 @@
 Here you will find simple guide on how to start mapping for ETJump mod.
 
 ## Getting started
-To start mapping it's recommended to make a clean ET install seperate from your regular ET install. This way you won't accidentally use custom assets provided by other maps in your map. A third, untouched install could also come in handy when creating a pk3. This install should only be used to test if you have included every custom asset in your pk3.
+To start mapping it's __HIGHLY RECOMMENDED__ to make a clean ET install seperate from your regular ET install. This way you won't accidentally use custom assets provided by other maps in your map. A third, untouched install could also come in handy when creating a pk3. This install should only be used to test if you have included every custom asset in your pk3.
 
 ## Tools
-To create maps, you need GTK Radiant. You can get it [here](http://icculus.org/gtkradiant/).
+To create maps, you need an id Tech 3 compatible level editor. Two of the most commonly used ones are __GtkRadiant__ and __NetRadiant__ (specifically netradiant-custom by Garux).
+
+You can download GtkRadiant [here](http://icculus.org/gtkradiant/).
+
+You can download NetRadiant by Garux [here](https://github.com/Garux/netradiant-custom).
+
+GtkRadiant is the older, nowadays rarely updated level editor that most people have used to make maps. However, NetRadiant custom has gained popularity in recent times and is often the recommendation for mapping today, as it includes some excellent improvements in comparison to GtkRadiant, such as hardware accelerated 3D window, UV Tool, CSG Wrap Merge, customizeable shortcuts, new mouse shortcuts and Nvidia gamma fix to name a few. However it doesn't support ET out-of-box and requires few extra steps to get up and running:
+
+* Download [unverified game packs](https://github.com/Garux/netradiant-custom/blob/readme_files/unverified_gamepacks.7z) from the repository.
+* Extract `et.game` folder and `games/et.game` file into your NetRadiant installation folder. Your folder structure should now look like this:
+```
+NetRadiant
+├── \et.game\
+└── \games\
+    └── et.game
+```
+* If done correctly, you should now be able to select ET as a game when starting up the editor.
 
 In order to play your own maps you create, you need ETJump server files. These are not included in pk3 that you download from a server, instead you need to download them from [ETJump website](https://etjump.com/).
 

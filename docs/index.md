@@ -1,5 +1,5 @@
 # ETJump documentation
-This is official ETJump documentation. It contains [client](client/client_cvars.md) and [server](server/server_cvars.md) cvars, aswell as other useful [server](server/server_setup.md) and [mapping](mapping/mapping_entities.md) information. To get latest etjump version visit [http://etjump.com](http://etjump.com).
+This is official ETJump documentation. It contains [client](client/client_cvars.md) and [server](server/server_cvars.md) cvars, aswell as other useful [server](server/server_setup.md) and [mapping](mapping/mapping_entities.md) information. To get latest ETJump version visit [http://etjump.com](http://etjump.com).
 
 ## Things everyone should know
 
@@ -89,6 +89,7 @@ The simple one `etj_drawSpeed2`.
 * Position on the X/Y-axis can be modified with `etj_speedX`, `etj_speedY`.
 * Size of speedometer can be modified with `etj_speedSize`.
 * Color of speedometer can be modified with `etj_speedColor`.
+* Color of speedometer can be made to indicate acceleration with `etj_speedColorUsesAccel`
 * Transparency of speedometer can be modified with `etj_speedAlpha`.
 * Text shadows can be added with `etj_speedShadow`.
 * Max speed from last load session can be displayed with `etj_drawMaxSpeed`.
@@ -101,12 +102,15 @@ Portal gun let's you shoot portals at walls, run into portals and get teleported
 
 ## Advanced features
 ### CHS
-CHS is a feature that let's you see plenty of different interesting client related values.  
+CHS is a feature that lets you see plenty of different interesting client related values.  
 There are two different CHS positions:
 
-* To activate the one around your crosshair, do `/etj_drawCHS1 1`.  
+* To activate the one around your crosshair, do `/etj_drawCHS1 1`.
+
 ![alt text](img/cg_drawCHS1.gif)
-* To activate the one on the left, do `/etj_drawCHS2 1`.  
+
+* To activate the list-type, do `/etj_drawCHS2 1`. Alternatively, value of __2__ will align the text right for positioning it on the right side of the screen.
+
 ![alt text](img/cg_drawCHS2.gif)
 
 Each position has 8 configurable cvars, that let you see different things. Setting them is simple, just do `/etj_CHS1InfoX [VALUE]` or `/etj_CHS2InfoX [VALUE]` where __X__ is an position (__1..8__) and __"VALUE"__ is an integer from the following table.
@@ -152,6 +156,7 @@ Value      | What it shows
 46         | angles x y z
 47         | velocity x y z
 50         | jump x y z
+53         | plane angle z
 
 ### Overbounce detector
 Overbounce detector shows you if you can overbounce by jumping to a certain platform. It also shows you which kind of overbounce is possible, do you need to jump or fall.
@@ -166,7 +171,7 @@ There are two possible overbounce types:
 
 ### CGaz' strafeometer
 CGaz strafeometer is a tool that helps you to get correct angles when you are doing gamma jumps.
-There are __four__ different CGaz' strafeometers. You can switch between them by changing the value of `etj_drawCGaz`.
+There are __five__ different CGaz' strafeometers. You can switch between them by changing the value of `etj_drawCGaz`.
 
 * `etj_drawCGaz 1`  
 ![alt text](img/cg_drawCGaz1.gif)
@@ -176,6 +181,8 @@ There are __four__ different CGaz' strafeometers. You can switch between them by
 ![alt text](img/cg_drawCGaz3.gif)
 * `etj_drawCGaz 4`  
 ![alt text](img/cg_drawCGaz4.gif)
+* `etj_drawCGaz 5`  
+![alt text](img/etj_drawCGaz5.png)
 
 __Modifying CGaz HUD__
 
@@ -186,6 +193,25 @@ _Note: these cvars have no effect on CGaz __2__._
 * Width can be modified with `etj_CGazWidth` cvar.
 * Y-axis position can be modified with `etj_CGazY` cvar.
 
+CGaz __2__ & __5__ also have some customization cvars exclusive to them.
+
+* CGaz __2__ colors can be changed with `etj_CGazColor1` & `etj_CGazColor2`.
+* CGaz __5__ colors can be changed with `etj_CGaz5Color1-4`.
+* CGaz __5__ FOV can be changed with `etj_CGaz5Fov`.
+
+### Velocity Snapping HUD
+
+Velocity snapping HUD can be enabled with the cvar `etj_drawSnapHUD`. It lets you see the zones at which all acceleration is snapped to the same value/direction. This tool is ideally combined with `etj_drawCGaz 5`, to visualize the correct yaw angle for acceleration to occur. By keeping your crosshair in between the minimum angle (green line) of CGaz and the edge of the next snapzone, you will gain acceleration. The exact positioning of your crosshair doesn't matter - as long as the "in between" condition is met, acceleration occurs.
+
+![alt text](img/snaphud.png)
+
+__Modifying SnapHUD__
+
+* Colors can be changed with `etj_snapHUDColor1` & `etj_snapHUDColor2`.
+* Height can be changed with `etj_snapHUDHeight`.
+* Y-axis position can be changed with `etj_snapHUDOffsetY`.
+* FOV can be changed with `etj_snapHUDFov`.
+
 ### Chat position
 Moving chat location is simple. It can be done by modifying the following cvars:
 
@@ -193,9 +219,10 @@ Moving chat location is simple. It can be done by modifying the following cvars:
 * Position on the Y-axis can be modified with `etj_chatPosY`.
 * Transparency can be modified with `etj_chatBackgroundAlpha`.
 * Chat flags can be turned off with `etj_chatFlags`.
+* Chat size can be scaled with `etj_chatScale`.
 
 ### HUD drawing
-Some of the standart HUD elements can be easily hidden.
+Some of the standard HUD elements can be easily hidden.
 
 * Charge bar with `etj_HUD_chargeBar`.
 * Fatigue bar with `etj_HUD_fatigueBar`.
@@ -207,8 +234,8 @@ Some of the standart HUD elements can be easily hidden.
 * Fireteam with `etj_HUD_fireteam`.
 * Popups with `etj_HUD_popup`.
 
-### Ghost players transparency
-ETJump supports semi-transparency effect on players. You can controll transparency effect using `etj_ghostPlayersOpacity` cvar. Also using `etj_ghostPlayersAlt` will draw all players in white semi-transparent color, you can then apply custom color using `etj_ghostPlayersColor`.
+### Player drawing
+ETJump supports transparency effect on players. You can control transparency effect using `etj_playerOpacity` cvar. By enabling `etj_drawSimplePlayers`, players will be drawn in single color, which you can adjust with the cvar `etj_simplePlayersColor`.
 
 ### Explosive's shaking
 You can adjust camera shaking from explosives using `etj_explosivesShake` cvar:
@@ -231,4 +258,4 @@ hex                     |  #ff80bf, 0xff80bf
 * For RGB(A) value to be considered true RGB(A), at least one value must be over __1__.
 * RGB(A) values must be put inside quotes (eg. `etj_speedColor "1.0 0.0 1.0"`).
 
-Any ETJump cvar that accepts a color as value can use the color formats listed above. In a future release, this system will be expanded to every cgame cvar as well.
+This color system will work with any ETJump or ETMain cgame cvar, with the exception of `etj_simplePlayersColor` which doesn't support setting alpha (set via `etj_playerOpacity` cvar instead).
