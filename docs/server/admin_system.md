@@ -337,3 +337,13 @@ Prints information about user.
 __Flag:__ A
 
 ---
+
+## Silent command execution
+`/!command`
+Allows clients to execute any admin commands available to them silently, without having the typed command appear in chat.
+
+*Note: Must be typed in console. Any output that the given command produces might still be visible to other clients.*
+
+__Flag:__ /
+
+---
