@@ -350,6 +350,42 @@ Toggle console background shader. Changing requires `vid_restart`.
 
 ---
 
+## etj_demo_freecamspeed
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_demo_freecamspeed   | any integer   | 800
+
+Sets freecam movement speed in demo playback.
+
+---
+
+## etj_demo_rollspeed
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_demo_rollspeed      | any integer   | 140
+
+Sets freecam `ROLL` turn speed in demo playback.
+
+---
+
+## etj_demo_pitchturnspeed
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_demo_pitchturnspeed | any integer   | 140
+
+Sets freecam `PITCH` turn speed in demo playback.
+
+---
+
+## etj_demo_yawturnspeed
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_demo_yawturnspeed   | any integer   | 140
+
+Sets freecam `YAW` turn speed in demo playback.
+
+---
+
 ## etj_drawCGaz
 Name                    | values        | default
 ------------------------|:-------------:|-------------
@@ -1209,6 +1245,15 @@ Name                    | values        | default
 etj_popupTime           | any integer   | 1000
 
 How long it takes for a popup to show on the sidebar in milliseconds.
+
+---
+
+## etj_predefineddemokeys
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_predefineddemokeys  | 0 or 1        | 1
+
+Use predefined demo keybindings in demo playback.
 
 ---
 
