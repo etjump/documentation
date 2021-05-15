@@ -11,5 +11,6 @@ pages:
 - 'Mapping':
   - 'ETjump Mapping': 'mapping/getting_started.md'
   - 'ETJump Entities': 'mapping/mapping_entities.md'
+  - 'ETJump Map Scripting': 'mapping/mapscripting.md'
 theme: readthedocs
 repo_url: https://github.com/etjump/ETJump-docs
