@@ -1,5 +1,5 @@
 site_name: ETJump Documentation
-pages:
+nav:
 - 'Getting Started': index.md
 - 'Client':
   - 'Client CVars': 'client/client_cvars.md'
