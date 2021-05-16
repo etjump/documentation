@@ -11,17 +11,7 @@ You can download GtkRadiant [here](http://icculus.org/gtkradiant/).
 
 You can download NetRadiant by Garux [here](https://github.com/Garux/netradiant-custom).
 
-GtkRadiant is the older, nowadays rarely updated level editor that most people have used to make maps. However, NetRadiant custom has gained popularity in recent times and is often the recommendation for mapping today, as it includes some excellent improvements in comparison to GtkRadiant, such as hardware accelerated 3D window, UV Tool, CSG Wrap Merge, customizeable shortcuts, new mouse shortcuts and Nvidia gamma fix to name a few. However it doesn't support ET out-of-box and requires few extra steps to get up and running:
-
-* Download [unverified game packs](https://github.com/Garux/netradiant-custom/blob/readme_files/unverified_gamepacks.7z) from the repository.
-* Extract `et.game` folder and `games/et.game` file into your NetRadiant installation folder. Your folder structure should now look like this:
-```
-NetRadiant
-├── \et.game\
-└── \games\
-    └── et.game
-```
-* If done correctly, you should now be able to select ET as a game when starting up the editor.
+GtkRadiant is the older, nowadays rarely updated level editor that most people have used to make maps. However, NetRadiant custom has gained popularity in recent times and is often the recommendation for mapping today, as it includes some excellent improvements in comparison to GtkRadiant, such as hardware accelerated 3D window, UV Tool, CSG Wrap Merge, customizeable shortcuts, new mouse shortcuts and Nvidia gamma fix to name a few. NetRadiant also has a built-in support for ETJump, meaning you can select ETJump as a mod when mapping, and you will automatically get ETJump entities in the editor.
 
 In order to play your own maps you create, you need ETJump server files. These are not included in pk3 that you download from a server, instead you need to download them from [ETJump website](https://etjump.com/).
 

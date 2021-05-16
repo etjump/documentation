@@ -147,6 +147,7 @@ speed_limit      | any integer       | 700           | Timerun does not start if
 spawnflags       | 0, 1, 2, 4, 8, 16, 32, 64, 128 | 0 |  __0__ always reset the run. __1__ reset the run on team change. __2__ reset the run on death. __4__ only reset when you reach the end. __8__ run resets if client sets `pmove_fixed 0`. __16__ disables `backup` and extra save slots. __32__ cannot pickup explosive weapons. __64__ cannot pickup portalgun. __128__ Disables `save`, `load` resets run.
 
 Starting a timerun performs the following actions to the activating player:
+
 * Removes explosive weapons and flamethrower
 * Removes all projectiles and mines of the activator
 * Removes portalgun
@@ -205,9 +206,9 @@ tracker_not_eq   | [index,value] format specified above. | 1,-1 | Tracker activa
 tracker_gt       | [index,value] format specified above. | 1,-1 | Tracker activates targets if player's tracker value is greater than specified value.
 tracker_lt       | [index,value] format specified above. | 1,-1 | Tracker activates targets if player's tracker value is less than the specified value.
 tracker_set      | [index,value] format specified above. | 1,-1 | Tracker sets player's tracker value to the specified value.
-tracker_set_if   | [index,value] format specified above. | 1,-1 | Tracker sets player's tracker value to the specified value if conditions from `tracker_eq`, `tracker_gt` or `tracker_lt` are met.
+tracker_set_if   | [index,value] format specified above. | 1,-1 | Tracker sets player's tracker value to the specified value if conditions from `tracker_eq`, `tracker_not_eq`, `tracker_gt` or `tracker_lt` are met.
 tracker_inc      | [index,value] format specified above. | 1,0 | Tracker increases player's tracker value by the specified value.
-tracker_inc_if   | [index,value] format specified above. | 1,0 | Tracker increases player's tracker value by the specified value if conditions from `tracker_eq`, `tracker_gt` or `tracker_lt` are met.
+tracker_inc_if   | [index,value] format specified above. | 1,0 | Tracker increases player's tracker value by the specified value if conditions from `tracker_eq`, `tracker_not_eq`, `tracker_gt` or `tracker_lt` are met.
 
 ---
 
@@ -245,8 +246,8 @@ spawnflags       | 0, 2, 4           | 0             | __2__ spins around its ax
 Key              | Values            | Default       | Description
 -----------------|:-----------------:|:-------------:|------------
 noexplosives     | 0 - 2             | 0             | Disables explosives. __0__ explosives are allowed. __1__ no explosive weapons. __2__ no dynamite.
-nofalldamage     | 0 - 2             | 0             | Enable/disable fall damage. __0__ Fall damage disabled only on `surfaceparm nodamage` __1__ Fall damage enabled only on `sufraceparm nodamage` __2__ Fall damage disabled everywhere.
-noghost          | 0 or 1            | 0             | Disables player ghosting. Overrides `g_ghostPlayers` server cvar.
+nofalldamage     | 0 - 2             | 0             | Enable/disable fall damage. __0__ Fall damage disabled only on `surfaceparm nodamage` __1__ Fall damage enabled only on `surfaceparm nodamage` __2__ Fall damage disabled everywhere.
+noghost          | 0 or 1            | 0             | Disables player ghosting (nonsolid players). Overrides `g_ghostPlayers` server cvar.
 nogod            | 0 or 1            | 0             | Disables god mode.
 nogoto           | 0 or 1            | 0             | Disables goto.
 nojumpdelay      | 0 or 1            | 0             | Enable/disable jump delay. __0__ No jump delay only on `surfaceparm monsterslicknorth` __1__ Jump delay only on `surfaceparm monsterslicknorth`.
