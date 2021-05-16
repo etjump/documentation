@@ -9,7 +9,7 @@ nav:
   - 'Server Admin System': 'server/admin_system.md'
   - 'Setting Up Server': 'server/server_setup.md'
 - 'Mapping':
-  - 'ETjump Mapping': 'mapping/getting_started.md'
+  - 'ETJump Mapping': 'mapping/getting_started.md'
   - 'ETJump Entities': 'mapping/mapping_entities.md'
   - 'ETJump Map Scripting': 'mapping/mapscripting.md'
 theme: readthedocs

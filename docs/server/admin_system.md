@@ -13,7 +13,7 @@ __Flag:__ a
 
 ## addlevel
 `!addlevel [level] -cmds [commands] -greeting [greeting] -title [title]`  
-Adds a new level. Optionally you can use -cmds, -greeting and -title switches to set commands, greeting and title.
+Adds a new level. Optionally you can use `-cmds`, `-greeting` and `-title` switches to set commands, greeting and title.
 
 __Flag:__ A
 
@@ -45,7 +45,7 @@ __Flag:__ C
 
 ## deletelevel
 `!deletelevel [level]`  
-Deletes a level. Finds every user with that level and sets them to level 0.
+Deletes a level. Users who are currently set to deleted level will be set to level 0.
 
 __Flag:__ A
 
