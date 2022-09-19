@@ -219,6 +219,14 @@ __Flag:__ m
 
 ---
 
+## newmaps
+`!newmaps [count]`  
+Displays the latest `[count]` maps added to the server, sorted from oldest to newest.
+
+__Flag:__ a
+
+---
+
 ## noclip
 `!noclip [player] [count]`  
 Gives noclip to player. If count is specified, allows player to use noclip `[count]` times.

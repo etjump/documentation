@@ -157,6 +157,7 @@ Value      | What it shows
 47         | velocity x y z
 50         | jump x y z
 53         | plane angle z
+55         | last jump speed
 
 ### Overbounce detector
 Overbounce detector shows you if you can overbounce by jumping to a certain platform. It also shows you which kind of overbounce is possible, do you need to jump or fall.
@@ -171,46 +172,75 @@ There are two possible overbounce types:
 
 ### CGaz' strafeometer
 CGaz strafeometer is a tool that helps you to get correct angles when you are doing gamma jumps.
-There are __five__ different CGaz' strafeometers. You can switch between them by changing the value of `etj_drawCGaz`.
+There are __two__ different CGaz' strafeometers. You can switch between them by changing the value of `etj_drawCGaz`.
 
 * `etj_drawCGaz 1`  
-![alt text](img/cg_drawCGaz1.gif)
+![alt text](img/etj_drawCGaz5.png)
 * `etj_drawCGaz 2`  
 ![alt text](img/cg_drawCGaz2.gif)
-* `etj_drawCGaz 3`  
-![alt text](img/cg_drawCGaz3.gif)
-* `etj_drawCGaz 4`  
-![alt text](img/cg_drawCGaz4.gif)
-* `etj_drawCGaz 5`  
-![alt text](img/etj_drawCGaz5.png)
 
 __Modifying CGaz HUD__
 
-_Note: these cvars have no effect on CGaz __2__._
-
-* Transparency can be modified with `etj_CGazAlpha` cvar.
-* Height can be modified with `etj_CGazHeight` cvar.
-* Width can be modified with `etj_CGazWidth` cvar.
-* Y-axis position can be modified with `etj_CGazY` cvar.
-
-CGaz __2__ & __5__ also have some customization cvars exclusive to them.
-
-* CGaz __2__ colors can be changed with `etj_CGazColor1` & `etj_CGazColor2`.
-* CGaz __5__ colors can be changed with `etj_CGaz5Color1-4`.
-* CGaz __5__ FOV can be changed with `etj_CGaz5Fov`.
+* [etj_CGaz1Color1](client/client_cvars/#etj_cgaz1color1)
+* [etj_CGaz1Color2](client/client_cvars/#etj_cgaz1color2)
+* [etj_CGaz1Color3](client/client_cvars/#etj_cgaz1color3)
+* [etj_CGaz1Color4](client/client_cvars/#etj_cgaz1color4)
+* [etj_CGaz2Color1](client/client_cvars/#etj_cgaz2color1)
+* [etj_CGaz2Color2](client/client_cvars/#etj_cgaz2color2)
+* [etj_CGazFov](client/client_cvars/#etj_cgazfov)
+* [etj_CGazHeight](client/client_cvars/#etj_cgazheight)
+* [etj_CGazTrueness](client/client_cvars/#etj_cgaztrueness)
+* [etj_CGazY](client/client_cvars/#etj_cgazy)
+* [etj_stretchCgaz](client/client_cvars/#etj_stretchcgaz)
 
 ### Velocity Snapping HUD
 
-Velocity snapping HUD can be enabled with the cvar `etj_drawSnapHUD`. It lets you see the zones at which all acceleration is snapped to the same value/direction. This tool is ideally combined with `etj_drawCGaz 5`, to visualize the correct yaw angle for acceleration to occur. By keeping your crosshair in between the minimum angle (green line) of CGaz and the edge of the next snapzone, you will gain acceleration. The exact positioning of your crosshair doesn't matter - as long as the "in between" condition is met, acceleration occurs.
+Velocity snapping HUD can be enabled with the cvar `etj_drawSnapHUD`. It lets you see the zones at which all acceleration is snapped to the same value/direction. This tool is ideally combined with `etj_drawCGaz 1`, to visualize the correct yaw angle for acceleration to occur. By keeping your crosshair in between the minimum angle (green line) of CGaz and the edge of the next snapzone, you will gain acceleration. The exact positioning of your crosshair doesn't matter - as long as the "in between" condition is met, acceleration occurs.
 
 ![alt text](img/snaphud.png)
 
 __Modifying SnapHUD__
 
-* Colors can be changed with `etj_snapHUDColor1` & `etj_snapHUDColor2`.
-* Height can be changed with `etj_snapHUDHeight`.
-* Y-axis position can be changed with `etj_snapHUDOffsetY`.
-* FOV can be changed with `etj_snapHUDFov`.
+* [etj_snapHUDColor1](client/client_cvars/#etj_snaphudcolor1)
+* [etj_snapHUDColor2](client/client_cvars/#etj_snaphudcolor2)
+* [etj_snapHUDFov](client/client_cvars/#etj_snaphudfov)
+* [etj_snapHUDHeight](client/client_cvars/#etj_snaphudheight)
+* [etj_snapHUDHLActive](client/client_cvars/#etj_snaphudhlactive)
+* [etj_snapHUDHLColor1](client/client_cvars/#etj_snaphudhlcolor1)
+* [etj_snapHUDHLColor2](client/client_cvars/#etj_snaphudhlcolor2)
+* [etj_snapHUDOffsetY](client/client_cvars/#etj_snaphudoffsety)
+* [etj_snapHUDTrueness](client/client_cvars/#etj_snaphudtrueness)
+
+### Upmove meter
+
+Upmove meter can be enabled with the cvar `etj_drawUpmoveMeter`. It displays a graph (__1__) and/or text (__2__) representation of `+moveup` times while jumping, or amount of time spend on ground. It displays the following information:
+
+![upmovemeter](img/upmovemeter.jpg)
+
+* Time spend on ground OR time `+moveup` was held before landing (bottom element)
+* Total time `+moveup` was held (middle element)
+* Time `+moveup` was held after jumping (top element)
+
+Note that due to the fact that servers run at `sv_fps 20`, this is only fully accurate while playing, because user commands are received at __50ms__ intervals while spectating or playing back demo instead of __8ms__ intervals while actually playing. Spectating someone or playing a demo will display a rough approximation.
+
+__Modifying upmove meter__
+
+* [etj_upmoveMeterGraphColor](client/client_cvars/#etj_upmovemetergraphcolor)
+* [etj_upmoveMeterGraphH](client/client_cvars/#etj_upmovemetergraphh)
+* [etj_upmoveMeterGraphOnGroundColor](client/client_cvars/#etj_upmovemetergraphongroundcolor)
+* [etj_upmoveMeterGraphOutlineColor](client/client_cvars/#etj_upmovemetergraphoutlinecolor)
+* [etj_upmoveMeterGraphOutlineW](client/client_cvars/#etj_upmovemetergraphoutlinew)
+* [etj_upmoveMeterGraphPostJumpColor](client/client_cvars/#etj_upmovemetergraphpostjumpcolor)
+* [etj_upmoveMeterGraphPreJumpColor](client/client_cvars/#etj_upmovemetergraphprejumpcolor)
+* [etj_upmoveMeterGraphW](client/client_cvars/#etj_upmovemetergraphw)
+* [etj_upmoveMeterGraphX](client/client_cvars/#etj_upmovemetergraphx)
+* [etj_upmoveMeterGraphY](client/client_cvars/#etj_upmovemetergraphy)
+* [etj_upmoveMeterMaxDelay](client/client_cvars/#etj_upmovemetermaxdelay)
+* [etj_upmoveMeterTextColor](client/client_cvars/#etj_upmovemetertextcolor)
+* [etj_upmoveMeterTextH](client/client_cvars/#etj_upmovemetertexth) 
+* [etj_upmoveMeterTextShadow](client/client_cvars/#etj_upmovemetertextshadow)
+* [etj_upmoveMeterTextSize](client/client_cvars/#etj_upmovemetertextsize)
+* [etj_upmoveMeterTextX](client/client_cvars/#etj_upmovemetertextx)
 
 ### Chat position
 Moving chat location is simple. It can be done by modifying the following cvars:
@@ -245,6 +275,29 @@ You can adjust camera shaking from explosives using `etj_explosivesShake` cvar:
 * `etj_explosivesShake 1` disable cam shaking from own explosives.
 * `etj_explosivesShake 0` disable cam shaking from any explosions.
 
+### Clip, Trigger & Slick drawing
+
+A recent update to [ETe engine](https://github.com/etfdevs/ETe) added basic support for drawing clip brushes, trigger brushes and slick surfaces. ETJump offers cvar unlockers for these features with the cvars `etj_drawClips`, `etj_drawTriggers` and `etj_drawSlicks`.
+
+![clip-trigger-slicks](img/clip-trigger-slick.jpg)
+
+This will draw any clip brushes (both playerclips and weaponclips, with different color variations per clip type), trigger brushes and slick surfaces. The system is not perfect: it will hit renderer limits very quickly on maps with lots of geometry, breaks when certain types of renderer elements are on screen (for example skyportals and __HUD player head__), and has no awarness of gamestate, meaning any brush that is placed onto it's correct position or moved around during gamestate will be static and might appear in a wrong position.
+
+The shaders used for drawing are constructed in place by ETe. They can however be customized with the following cvars:
+
+* `r_drawClipsShader`
+* `r_drawTriggersShader`
+* `r_drawClipsShader`
+
+ETJump provides some additional shaders that can be used for drawing. Note that using these shaders for `r_drawClipsShader` will disable the distinction between different clip types.
+
+#### `tcRenderShader_nocull`
+   * Identical to the built-in shader used by ETe, except it will disable culling on the shader, so looking at a clip brush for example will also draw the other side of the brush. 
+#### `tcRenderShader<1|2|3><r|g|b|y|m|c>`
+  * Allows setting __3__ different transparency levels, __1__ being most opaque (equivalent to the built-in shader), as well as __6__ different colors (red, green, blue, yellow, magenta, cyan). For example, `tcRenderShader2c` would be a medium tranparency (__2__) shader with cyan (__c__) color.
+
+Note that since this feature is built into ETe engine and we merely provide cvar unlockers, ETJump has no real control over it's development. Keep an eye out for ETe updates for possible improvements and fixes!
+
 ## Color system
 ETJump includes an improved color parsing system for cvars that expect color values. The following formats are supported:
 
@@ -256,6 +309,7 @@ true RGB(A)             |  255 128 191 62
 hex                     |  #ff80bf, 0xff80bf
 
 * For RGB(A) value to be considered true RGB(A), at least one value must be over __1__.
-* RGB(A) values must be put inside quotes (eg. `etj_speedColor "1.0 0.0 1.0"`).
+* RGB(A) values must be put inside quotes (eg. `etj_speedColor "1.0 0.0 1.0"`) when using ET 2.60b.
+* Omitting alpha value while using RGB(A) strings will default it to __1.0__.
 
 This color system will work with any ETJump or ETMain cgame cvar, with the exception of `etj_simplePlayersColor` which doesn't support setting alpha (set via `etj_playerOpacity` cvar instead).

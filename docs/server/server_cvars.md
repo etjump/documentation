@@ -238,7 +238,7 @@ File where information about maps is stored (eg. playtime).
 ## g_mapScriptDir
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-g_mapScriptDir          | directory name | scripts
+g_mapScriptDir          | directory name | mapscripts
 
 Directory to load custom map scripts from.
 
@@ -321,6 +321,23 @@ Toggles nofatigue for players.
 
 ---
 
+## g_oss
+Name                    | values        | default
+------------------------|:-------------:|-------------
+g_oss                   | bitflag       | 15
+
+Indicates operating systems and architectures supported by the mod. This is intended for ET: Legacy server browser to filter out mods that are incompatible with clients OS/architecture, and should be left unchanged.
+
+* __0__ vanilla/unknown/ET: Legacy auto setup
+* __1__ Windows 32-bit
+* __2__ Linux 32-bit
+* __4__ Linux 64-bit
+* __8__ Mac OS X (Intel, 64-bit)
+* __16__ Android
+* __32__ Raspberry Pi
+
+---
+
 ## g_portalDebug
 Name                    | values        | default
 ------------------------|:-------------:|-------------
@@ -357,15 +374,6 @@ Name                    | values        | default
 g_save                  | 0 or 1        | 1
 
 Toggles save and load.
-
----
-
-## g_savemsg
-Name                    | values        | default
-------------------------|:-------------:|-------------
-g_savemsg               | any text      | "^7Saved"
-
-What to print when player saves a position.
 
 ---
 
