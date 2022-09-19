@@ -15,6 +15,15 @@ _Note: Fires a random target instead of all targets._
 
 ---
 
+## func_button
+When a button is used, it moves some distance in the direction of it's angles, triggers all of it's targets, waits some time, then returns to it's original position where it can be triggered again.
+
+Key              | Values            | Default                         | Description
+-----------------|:-----------------:|---------------------------------|------------
+noise            | path to .wav      | sound/movers/switches/butn2.wav | Sound to play on activation. Use `nosound` to disable sound completely.
+
+---
+
 ## func_invisible_user
 Uses targeted entities on activation.
 
@@ -22,6 +31,15 @@ Key              | Values            | Default       | Description
 -----------------|:-----------------:|---------------|------------
 noise            | path to .wav      |               | Sound to play on activation.
 volume           | any integer       | 255           | Volume of activation sound.
+
+---
+
+## func_static
+Uses targeted entities on activation.
+
+Key              | Values            | Default       | Description
+-----------------|:-----------------:|---------------|------------
+spawnflags       | 8                 | 0             | Disable random **500-1000ms** wait added on top of `delay`
 
 ---
 
@@ -47,6 +65,17 @@ Gives activator targeted items. Must target actual entites in the map. Standard 
 Works like `target_relay` but activates the entities for everyone in the player's current fireteam, not just the player.
 
 _Note: Fires a random target instead of all targets. The target is randomly picked for each fireteam member._
+
+---
+
+## target_init
+Initalizes player into a freshly spawned state
+
+Key              | Values                         | Default       | Description
+-----------------|:------------------------------:|---------------|------------
+spawnflags       | 0, 1, 2, 4, 8, 16, 32, 64, 128 | 0             | __1__ Keep health __2__ Keep ammo __4__ Keep current weapons __8__ Keep portalgun __16__ Keep holdable items __32__ Keep ident value __64__ keep tracker values __128__ Remove starting weapons
+
+_Note: spawnflags **128** has no effect if spawnflags **4** is used._
 
 ---
 
@@ -120,7 +149,7 @@ Scales activator's velocity.
 
 Key              | Values            | Default       | Description
 -----------------|:-----------------:|---------------|------------
-scale            | any integer       | 1             | How many times should be velocity be multiplied.
+scale            | 0.25 - 4.0        | 1.0           | How many times should velocity be multiplied.
 time             | any integer       | 0             | Time in seconds for constant speed scale when `spawnflags 1` is used.
 spawnflags       | 0, 1              | 0             | __1__ Scales base movement speed by `scale` for duration of `time`.
 

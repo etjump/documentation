@@ -139,6 +139,12 @@ Toggles whether other players can teleport to you.
 
 ---
 
+## ob_save, ob_reset
+`ob_save`, `ob_reset`  
+Saves/resets current coordinates for overbounce watcher.
+
+---
+
 ## portal
 `portal`  
 Prints information about portal gun.
@@ -151,6 +157,30 @@ Prints top records in each run on the map. If a run name is given, prints top __
 
 ---
 
+## resetmaxspeed
+`resetmaxspeed`  
+Resets the maximum speed displayed at speedmeter 1.
+
+---
+
+## resetJumpSpeeds
+`resetJumpSpeeds`  
+Queues reset for jump speeds display. This command is automatically executed upon death, team change, `save` and `load`. The display will reset on next jump event.
+
+---
+
+## resetStrafeQuality
+`resetStrafeQuality`  
+Queues reset for strafe quality display. This command is automatically executed upon death, team change, `save` and `load`. The display will reset the next time you're in air or on slick.
+
+---
+
+## resetUpmoveMeter
+`resetUpmoveMeter`  
+Resets the upmove meter display. This command is automatically executed upon death, team change, `save` and `load`.
+
+---
+
 ## save
 `save [slot]`  
 Saves current position. Possible slots __0__-__2__. If no slot is given, slot is __0__.
@@ -160,6 +190,24 @@ Saves current position. Possible slots __0__-__2__. If no slot is given, slot is
 ## setoffset
 `setoffset [X Y Z]`  
 Offsets your position by the amount of units on each vector. Usage requires access to `noclip`. Maximum offset value per vector is __4096__.
+
+---
+
+## specinvite, specuninvite
+`specinvite [name/clientnum]`, `specuninvite [name/clientnum]`  
+Invites/uninvites specified client to spectate you.
+
+---
+
+## speclist
+`speclist`  
+Prints a list of clients who are allowed to spectate you while speclocked.
+
+---
+
+## speclock, specunlock
+`speclock`, `specunlock`  
+Locks/unlocks you from spectators. When locked, use `specinvite/specuninvite` to invite/uninvite clients to spectate you.
 
 ---
 
@@ -176,5 +224,13 @@ _Note: Usage of this command requires the server to have `g_debugTrackers 1`. Ti
 Sets your tracker on given index to specified value. Special case `all` sets specified value in all indices. If no index is specified, defaults to index __1__.
 
 _Note: Usage of this command requires the server to have `g_debugTrackers 1`. Timerun records are not saved when tracker debugging is enabled._
+
+---
+
+## unload
+`unload`  
+Undo your last `load` command and teleport back to the position you last executed a load from. The position must be a valid position for using `save` (e.g. cannot use `unload` to teleport to an area where you cannot `save`).
+
+_Note: `unload` cannot be used during timeruns. There is only a single slot available, which is overwritten on every successful `load` command._
 
 ---

@@ -14,19 +14,6 @@ _Note: this cvar shares it's name with the ETPro variant for Camtrace 3D compati
 
 ---
 
-## etj_altScoreboard
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_altScoreboard       | 0 - 3         | 0
-
-Changes the scoreboard to an alternative one.  
-
-* __0__ default ETMain styled scoreboard.
-* __1__ and __2__ draw alternatively styled scoreboard.
-* __3__ draws a compact scoreboard with dynamic size and position adjustments.
-
----
-
 ## etj_ad_savePBOnly
 Name                    | values        | default
 ------------------------|:-------------:|-------------
@@ -57,6 +44,19 @@ Folder inside `demos` folder to store saved autodemo recordings in.
 
 ---
 
+## etj_altScoreboard
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_altScoreboard       | 0 - 3         | 0
+
+Changes the scoreboard to an alternative one.  
+
+* __0__ default ETMain styled scoreboard.
+* __1__ and __2__ draw alternatively styled scoreboard.
+* __3__ draws a compact scoreboard with dynamic size and position adjustments.
+
+---
+
 ## etj_autoDemo
 Name                    | values        | default
 ------------------------|:-------------:|-------------
@@ -80,81 +80,66 @@ Automatically load into last saved position when joining a team.
 
 ---
 
-## etj_CGaz5Color1
+## etj_CGaz1Color1
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_CGaz5Color1         | [any color](/index.md#color-system) | 0.75 0.75 0.75 1.0
+etj_CGaz1Color1         | [any color](/index.md#color-system) | 0.75 0.75 0.75 0.75
 
-Sets the no accel zone color of CGaz HUD __5__.
+Sets the no accel zone color of CGaz HUD __1__.
 
 ---
 
-## etj_CGaz5Color2
+## etj_CGaz1Color2
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_CGaz5Color2         | [any color](/index.md#color-system) | 0.0 1.0 0.0 1.0
+etj_CGaz1Color2         | [any color](/index.md#color-system) | 0.0 1.0 0.0 0.75
 
-Sets the minimum angle color of CGaz HUD __5__.
+Sets the minimum angle color of CGaz HUD __1__.
 
 ---
 
-## etj_CGaz5Color3
+## etj_CGaz1Color3
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_CGaz5Color3         | [any color](/index.md#color-system) | 0.0 0.2 0.0 1.0
+etj_CGaz1Color3         | [any color](/index.md#color-system) | 0.0 0.2 0.0 0.75
 
-Sets the accel zone color of CGaz HUD __5__.
+Sets the accel zone color of CGaz HUD __1__.
 
 ---
 
-## etj_CGaz5Color4
+## etj_CGaz1Color4
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_CGaz5Color4         | [any color](/index.md#color-system) | 1.0 1.0 0.0 1.0
+etj_CGaz1Color4         | [any color](/index.md#color-system) | 1.0 1.0 0.0 0.75
 
-Sets the max angle color of CGaz HUD __5__.
+Sets the max angle color of CGaz HUD __1__.
 
 ---
 
-## etj_CGaz5Fov
+## etj_CGaz2Color1
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_CGaz5Fov            | 0 - 180       | 0
-
-Sets the FOV of CGaz HUD __5__. __0__ means use your current in-game FOV.
-
----
-
-## etj_CGazAlpha
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_CGazAlpha           | 0.0 - 1.0     | 0.15
-
-Controls CGaz meter transparency.
-
-_Note: This also affects SnapHUD alpha._
-
----
-
-## etj_CGazColor1
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_CGazColor1          | [any color](/index.md#color-system) | 1.0 0.0 0.0 1.0
+etj_CGaz2Color1          | [any color](/index.md#color-system) | 1.0 0.0 0.0 1.0
 
 Set the primary color of CGaz HUD __2__.
 
-_Note: value includes alpha._
-
 ---
 
-## etj_CGazColor2
+## etj_CGaz2Color2
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_CGazColor2          | [any color](/index.md#color-system) | 0.0 1.0 1.0 1.0
+etj_CGaz2Color2          | [any color](/index.md#color-system) | 0.0 1.0 1.0 1.0
 
 Set the secondary color of CGaz HUD __2__.
 
-_Note: value includes alpha._
+---
+
+## etj_CGazFov
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_CGazFov             | 0 - 180       | 0
+
+Sets the FOV of CGaz HUD __1__. __0__ means use your current in-game FOV.
 
 ---
 
@@ -163,25 +148,28 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_CGazHeight          | any integer   | 20
 
-Height of the CGaz meter.
+Height of the CGaz HUD __1__.
 
 ---
 
-## etj_CGazWidth
+## etj_CGazTrueness
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_CGazWidth           | any integer   | 300
+etj_CGazTrueness        | bitflag       | 2
 
-Width of the CGaz meter.
+Set "trueness" flags on CGaz HUD.
+
+* __1__ Show upmove influence
+* __2__ Show true groundzones (CGaz 1 only)
 
 ---
 
 ## etj_CGazY
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_CGazY               | any integer   | 260
+etj_CGazY               | any integer   | 240
 
-Vertical position of CGaz meter.
+Vertical position of CGaz HUD __1__.
 
 ---
 
@@ -386,12 +374,21 @@ Sets freecam `YAW` turn speed in demo playback.
 
 ---
 
+## etj_drawBanners
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_drawBanners         | 0 or 1        | 1
+
+Toggle drawing of banner prints.
+
+---
+
 ## etj_drawCGaz
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_drawCGaz            | 0 - 5         | 0
+etj_drawCGaz            | 0 - 2         | 0
 
-Draws the CGaz HUD. Has 5 [different variations](/index.md#cgaz-strafeometer) from __1__ to __5__.
+Draws the CGaz HUD. Has 2 [different variations](/index.md#cgaz-strafeometer).
 
 ---
 
@@ -410,6 +407,15 @@ Name                    | values        | default
 etj_drawCHS2            | 0 - 2         | 0
 
 Draws crosshair stats 2. Value __2__ aligns text to the right. [More info](/index.md#chs).
+
+---
+
+## etj_drawClips
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_drawClips           | 0 or 1        | 0
+
+Toggle clip brush drawing. Unlocked version of `r_drawClips`. Requires [ETe client](https://github.com/etfdevs/ETe) release from Sep 10th 2022 or newer. [More info](/index.md#clip-trigger-slick-drawing).
 
 ---
 
@@ -440,6 +446,15 @@ Name                    | values        | default
 etj_drawFoliage         | 0 or 1        | 1
 
 Draws foliage. Unlocked version of `r_drawfoliage`.
+
+---
+
+## etj_drawJumpSpeeds
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_drawJumpSpeeds      | 0 or 1        | 1
+
+Draws last 10 jump speeds.
 
 ---
 
@@ -519,13 +534,16 @@ etj_drawOB              | 0 - 2         | 0
 Draws overbounce meter.
 
 * __1__ simple overbounce meter 
-* __2__ don't predict sticky ob if there is an ob already or if the sticky ob detection isn't requested
+* __2__ predict sticky overbounces
 
 Symbols meaning:
 
 * __J__ jump ob
 * __F__ fall ob
 * __B__ below ob
+* __S__ sticky ob
+
+_Note: sticky overbounces are never drawn on surfaces that are on the exact same height as you are currently, as it is always possible to get a sticky OB in such cases, and drawing it would mostly just be distracting._
 
 ---
 
@@ -578,6 +596,16 @@ Draw save area indicator.
 
 ---
 
+## etj_drawScoreboardInactivity
+
+Name                         | values        | default
+-----------------------------|:-------------:|-------------
+etj_drawScoreboardInactivity | 0 or 1        | 1
+
+Draw an idle indicator on scoreboard for clients who haven't registered an input for __3__ minutes.
+
+---
+
 ## etj_drawSimplePlayers
 Name                    | values        | default
 ------------------------|:-------------:|-------------
@@ -595,6 +623,15 @@ Name                    | values        | default
 etj_drawSlick           | 0 or 1        | 1
 
 Draw slick detector. Draws `S` symbol if you are aiming at slick surface.
+
+---
+
+## etj_drawSlicks
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_drawSlicks          | 0 or 1        | 0
+
+Toggle slick surface drawing. Works for surfaces with `surfaceparm slick` and angle slicks. Unlocked version of `r_drawSlicks`. Requires [ETe client](https://github.com/etfdevs/ETe) release from Sep 10th 2022 or newer. [More info](/index.md#clip-trigger-slick-drawing).
 
 ---
 
@@ -647,6 +684,15 @@ And several options to represent **speed** and **max speed**
 
 ---
 
+## etj_drawStrafeQuality
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_drawStrafeQuality   | 0 or 1        | 0
+
+Toggles drawing of strafe quality meter.
+
+---
+
 ## etj_drawTokens
 Name                    | values        | default
 ------------------------|:-------------:|-------------
@@ -656,12 +702,43 @@ Toggles drawing of collectible tokens.
 
 ---
 
+## etj_drawTriggers
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_drawTriggers        | 0 or 1        | 0
+
+Toggle trigger brush drawing. Unlocked version of `r_drawTriggers`. Requires [ETe client](https://github.com/etfdevs/ETe) release from Sep 10th 2022 or newer. [More info](/index.md#clip-trigger-slick-drawing).
+
+---
+
+## etj_drawUpmoveMeter
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_drawUpmoveMeter     | bitflag       | 0
+
+Draws upmove meter.
+
+* __0__ Off
+* __1__ Graph
+* __2__ Text
+
+---
+
 ## etj_enableTimeruns
 Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_enableTimeruns      | 0 or 1        | 1
 
 Toggles timeruns. Having __0__ means don't activate any timerun timers on timerun supported map.
+
+---
+
+## etj_expandedMapAlpha
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_expandedMapAlpha    | 0.0 - 1.0     | 0.7
+
+Set transparency of expanded command map (`+mapexpand`).
 
 ---
 
@@ -682,7 +759,7 @@ Controls screenshake from explosives.
 ## etj_extraTrace
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_extraTrace          | bitmask       | 0
+etj_extraTrace          | bitflags      | 0
 
 Toggles tracing of playerclips on various detectors.
 
@@ -695,7 +772,7 @@ Toggles tracing of playerclips on various detectors.
 * __64__ CHS 16
 * __128__ CHS 53
 
-The bitmask values can be listed in console with the command `/extraTrace`.
+The bitflags values can be listed in console with the command `/extraTrace`.
 
 ---
 
@@ -723,6 +800,24 @@ Name                    | values        | default
 etj_fireteamPosY        | any integer   | 0
 
 Set vertical offset of fireteam.
+
+---
+
+## etj_fixedCompassShader
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_fixedCompassShader  | 0 or 1        | 0
+
+Toggle overriding the shader used for compass in the map with a fixed, default shader which ensures that the corners of the compass will be correctly cropped. Original image is still used for drawing. This is mostly unnoticeable when enabled, but since it overrides the shader, it will break certain special command map shaders, such as the animated compass of Skacharohuth.
+
+---
+
+## etj_FPSMeterUpdateInterval
+Name                       | values        | default
+---------------------------|:-------------:|-------------
+etj_FPSMeterUpdateInterval | any integer   | 250
+
+Sets the update interval of FPS meter in milliseconds.
 
 ---
 
@@ -885,6 +980,84 @@ Name                    | values        | default
 etj_itemPickupText      | 0 or 1        | 1
 
 Draw text when item is picked up.
+
+---
+
+## etj_jumpSpeedsColor
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_jumpSpeedsColor     | [any color](/index.md#color-system) | 1.0 1.0 1.0 1.0
+
+Set the color of jump speeds display. Also used as a color for label text.
+
+_Note: When `etj_jumpSpeedsShowDiff` is enabled, this color will be used for jumps that are equal speed to previous one._
+
+---
+
+## etj_jumpSpeedsFasterColor
+Name                      | values        | default
+--------------------------|:-------------:|-------------
+etj_jumpSpeedsFasterColor | [any color](/index.md#color-system) | 0.0 1.0 0.0 1.0
+
+Set the color to use for a jump that was faster than previous jump on jump speeds display.
+
+---
+
+## etj_jumpSpeedsShadow
+Name                      | values        | default
+--------------------------|:-------------:|-------------
+etj_jumpSpeedsShadow      | 0 or 1        | 1
+
+Draw shadow on jump speeds display.
+
+---
+
+## etj_jumpSpeedsShowDiff
+Name                      | values        | default
+--------------------------|:-------------:|-------------
+etj_jumpSpeedsShowDiff    | 0 or 1        | 0
+
+Toggle coloring jump speeds with `etj_jumpSpeedsFasterColor`/`etj_jumpSpeedsSlowerColor` depending on if a jump was faster or slower than previous one.
+
+---
+
+## etj_jumpSpeedsSlowerColor
+Name                      | values        | default
+--------------------------|:-------------:|-------------
+etj_jumpSpeedsSlowerColor | [any color](/index.md#color-system) | 1.0 0.0 0.0 1.0
+
+Set the color to use for a jump that was slower than previous jump on jump speeds display.
+
+---
+
+## etj_jumpSpeedsStyle
+Name                      | values        | default
+--------------------------|:-------------:|-------------
+etj_jumpSpeedsStyle       | bitflag       | 0
+
+Set various drawing options for jump speeds display.
+
+* __1__ draw horizontal list
+* __2__ hide label text
+* __4__ reversed list (latest jump first)
+
+---
+
+## etj_jumpSpeedsX
+Name                      | values        | default
+--------------------------|:-------------:|-------------
+etj_jumpSpeedsX           | any value     | 0
+
+X offset of jump speeds display.
+
+---
+
+## etj_jumpSpeedsY
+Name                      | values        | default
+--------------------------|:-------------:|-------------
+etj_jumpSpeedsX           | any value     | 0
+
+Y offset of jump speeds display.
 
 ---
 
@@ -1257,6 +1430,19 @@ Use predefined demo keybindings in demo playback.
 
 ---
 
+## etj_projection
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_projection          | 0 - 2         | 0
+
+Set projection type used for CGaz __1__ and SnapHUD.
+
+* __0__ rectilinear
+* __1__ cylindrical
+* __2__ panini
+
+---
+
 ## etj_proneIndicatorX
 Name                    | values        | default
 ------------------------|:-------------:|-------------
@@ -1359,15 +1545,33 @@ Set vertical position of save zone indicator.
 
 ---
 
+## etj_saveMsg
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_saveMsg             | any string    | ^7Saved
+
+Set the message to display when using `save`.
+
+---
+
 ## etj_showTris
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_showTris            | 0 - 2           | 0
+etj_showTris            | 0 - 2         | 0
 
-Draws edges of triangles. Unlocked version of `r_showTris`.
+Draws edges of triangles. Unlocked version of `r_showTris`. Functionality varies slightly depending on engine used.
 
+#### ET 2.60b
 * __1__ draws triangle edges on your current POV.
 * __2__ draws triangle edges on your current PVS.
+
+#### ET: Legacy
+* Same as __ET 2.60b__, except 2D elements are ignored (e.g. HUD).
+
+#### ETe
+* __1__ draws triangle edges, excluding 2D elements.
+* __2__ draws triangle edges, including 2D elements.
+* `r_trisMode` is used to toggle between POV/PVS drawing.
 
 ---
 
@@ -1401,7 +1605,7 @@ Changes slick detector's vertical position.
 ## etj_snapHUDColor1
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_snapHUDColor1       | [any color](/index.md#color-system)   | 0.0 1.0 1.0 0.75
+etj_snapHUDColor1       | [any color](/index.md#color-system) | 0.0 1.0 1.0 0.75
 
 Sets the primary color of velocity snapping HUD.
 
@@ -1410,7 +1614,7 @@ Sets the primary color of velocity snapping HUD.
 ## etj_snapHUDColor2
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_snapHUDColor2       | [any color](/index.md#color-system)   | 0.0 1.0 1.0 0.75
+etj_snapHUDColor2       | [any color](/index.md#color-system) | 0.05 0.05 0.05 0.1
 
 Sets the secondary color of velocity snapping HUD.
 
@@ -1434,12 +1638,51 @@ Changes the height of the velocity snapping HUD.
 
 ---
 
+## etj_snapHUDHLActive
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_snapHUDHLActive     | 0 or 1        | 0
+
+Highlights currently active snapzone with a different color.
+
+---
+
+## etj_snapHUDHLColor1
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_snapHUDHLColor1     | [any color](/index.md#color-system) | 1.0 0.5 1.0 0.75
+
+Sets the primary highlight color of velocity snapping HUD.
+
+---
+
+## etj_snapHUDHLColor2
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_snapHUDHLColor2     | [any color](/index.md#color-system) | 1.0 0.5 1.0 0.1
+
+Sets the secondary highlight color of velocity snapping HUD.
+
+---
+
 ## etj_snapHUDOffsetY
 Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_snapHUDHeight       | any integer   | 0
 
 Changes Y-axis position of the velocity snapping HUD.
+
+---
+
+## etj_snapHUDTrueness
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_snapHUDTrueness     | bitflag       | 0
+
+Set "trueness" flags on velocity snapping HUD.
+
+* __1__ Show upmove influence
+* __2__ Show true groundzones
 
 ---
 
@@ -1458,6 +1701,19 @@ Name                    | values        | default
 etj_spectatorInfoY      | any integer   | 40
 
 Changes vectical position of the list of people spectating you.
+
+---
+
+## etj_speedAlign
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_speedAlign          | 0 - 2         | 0
+
+Set the alignment of ETJump speedometer.
+
+* __0__ Center
+* __1__ Left align
+* __2__ Right align
 
 ---
 
@@ -1574,6 +1830,64 @@ Vertical position of the ETJump speedometer.
 
 ---
 
+## etj_strafeQualityColor
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_strafeQualityColor  | [any color](/index.md#color-system) | 1.0 1.0 1.0 1.0
+
+Set color of strafe quality display.
+
+---
+
+## etj_strafeQualityShadow
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_strafeQualityShadow | 0 or 1        | 1
+
+Draw shadow on strafe quality display.
+
+---
+
+## etj_strafeQualitySize
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_strafeQualitySize   | any value     | 3
+
+Set the size of strafe quality display.
+
+---
+
+## etj_strafeQualityStyle
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_strafeQualityStyle  | 0 - 2         | 0
+
+Set the style of strafe quality display.
+
+* __0__ `Strafe quality: <value>%`
+* __1__ `<value>%`
+* __2__ `<value>`
+
+---
+
+## etj_strafeQualityX
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_strafeQualityX      | any value     | 0
+
+X offset of strafe quality display.
+
+---
+
+## etj_strafeQualityY
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_strafeQualityY      | any value     | 0
+
+Y offset of strafe quality display.
+
+---
+
 ## etj_stretchCgaz
 Name                    | values        | default
 ------------------------|:-------------:|-------------
@@ -1606,6 +1920,154 @@ Play footsteps on very low landing speeds.
 
 ---
 
+## etj_upmoveMeterGraphColor
+Name                      | values        | default
+--------------------------|:-------------:|-------------
+etj_upmoveMeterGraphColor | [any color](/index.md#color-system) | mdgrey
+
+Set the color of upmove meter graph.
+
+---
+
+## etj_upmoveMeterGraphH
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_upmoveMeterGraphH   | any value     | 80
+
+Set the height of upmove meter graph.
+
+---
+
+## etj_upmoveMeterGraphOnGroundColor
+Name                              | values        | default
+----------------------------------|:-------------:|-------------
+etj_upmoveMeterGraphOnGroundColor | [any color](/index.md#color-system) | Green
+
+Set the color of "on ground" bar on upmove meter graph.
+
+---
+
+## etj_upmoveMeterGraphOutlineColor
+Name                              | values        | default
+----------------------------------|:-------------:|-------------
+etj_upmoveMeterGraphOutlineColor  | [any color](/index.md#color-system) | White
+
+Set the color of upmove meter graph border.
+
+---
+
+## etj_upmoveMeterGraphOutlineW
+Name                         | values        | default
+-----------------------------|:-------------:|-------------
+etj_upmoveMeterGraphOutlineW | any value     | 1
+
+Set the width of upmove meter graph border.
+
+---
+
+## etj_upmoveMeterGraphPostJumpColor
+Name                              | values        | default
+----------------------------------|:-------------:|-------------
+etj_upmoveMeterGraphPostJumpColor | [any color](/index.md#color-system) | Red
+
+Set the color of "post jump" bar on upmove meter graph.
+
+---
+
+## etj_upmoveMeterGraphPreJumpColor
+Name                              | values        | default
+----------------------------------|:-------------:|-------------
+etj_upmoveMeterGraphPreJumpColor  | [any color](/index.md#color-system) | Blue
+
+Set the color of "pre jump" bar on upmove meter graph.
+
+---
+
+## etj_upmoveMeterGraphW
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_upmoveMeterGraphW   | any value     | 6
+
+Set the width of upmove meter graph.
+
+---
+
+## etj_upmoveMeterGraphX
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_upmoveMeterGraphX   | any value     | 8
+
+Set the X position of upmove meter graph.
+
+_Note: acts as a baseline position for text elements as well, even when graph isn't drawn._
+
+---
+
+## etj_upmoveMeterGraphY
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_upmoveMeterGraphY   | any value     | 8
+
+Set the Y position of upmove meter graph.
+
+_Note: acts as a baseline position for text elements as well, even when graph isn't drawn._
+
+---
+
+## etj_upmoveMeterMaxDelay
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_upmoveMeterMaxDelay | any integer   | 360
+
+Set the maximum tracked value in milliseconds for each upmove meter element to display.
+
+---
+
+## etj_upmoveMeterTextColor
+Name                     | values        | default
+-------------------------|:-------------:|-------------
+etj_upmoveMeterTextColor | [any color](/index.md#color-system) | White
+
+Set the color of "pre jump" bar on upmove meter graph.
+
+---
+
+## etj_upmoveMeterTextH
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_upmoveMeterTextH    | any value     | 12
+
+Set the vertical spacing of upmove meter text elements.
+
+---
+
+## etj_upmoveMeterTextShadow
+Name                      | values        | default
+--------------------------|:-------------:|-------------
+etj_upmoveMeterTextShadow | 0 or 1        | 1
+
+Draw shadow on upmove meter text.
+
+---
+
+## etj_upmoveMeterTextSize
+Name                      | values        | default
+--------------------------|:-------------:|-------------
+etj_upmoveMeterTextSize   | any value     | 2
+
+Set the size of upmove meter text elements.
+
+---
+
+## etj_upmoveMeterTextX
+Name                      | values        | default
+--------------------------|:-------------:|-------------
+etj_upmoveMeterTextX      | any value     | 6
+
+Set the horizontal distance of upmove meter text elements relative to the graph.
+
+---
+
 ## etj_viewlog
 Name                    | values        | default
 ------------------------|:-------------:|-------------
@@ -1628,12 +2090,12 @@ Toggles other players portals.
 
 ---
 
-## etj_weaponSound
+## etj_weaponVolume
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_weaponSound         | 0 or 1        | 1
+etj_weaponVolume        | 0.0 - 1.0     | 1
 
-Play weapon sound when firing a weapon.
+Set the volume of weapon-related sounds.
 
 ---
 
