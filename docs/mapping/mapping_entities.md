@@ -149,9 +149,11 @@ Scales activator's velocity.
 
 Key              | Values            | Default       | Description
 -----------------|:-----------------:|---------------|------------
-scale            | 0.25 - 4.0        | 1.0           | How many times should velocity be multiplied.
+scale            | any value         | 1.0           | How many times should velocity be multiplied.
 time             | any integer       | 0             | Time in seconds for constant speed scale when `spawnflags 1` is used.
 spawnflags       | 0, 1              | 0             | __1__ Scales base movement speed by `scale` for duration of `time`.
+
+_Note: When `spawnflags 1` is used, `scale` is limited to **0.25 - 3.0**_
 
 ---
 
