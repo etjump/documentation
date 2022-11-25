@@ -152,6 +152,15 @@ Height of the CGaz HUD __1__.
 
 ---
 
+## etj_CGazOnTop
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_CGazOnTop           | 0 or 1        | 0
+
+Toggles drawing of CGaz HUD on top of Snaphud.
+
+---
+
 ## etj_CGazTrueness
 Name                    | values        | default
 ------------------------|:-------------:|-------------

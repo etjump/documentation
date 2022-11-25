@@ -289,7 +289,7 @@ noprone          | 0 or 1            | 0             | Enable/disable prone. __0
 portalgun_spawn  | 0 or 1            | 0             | Toggles whether players should spawn with a portal gun.
 portalsurfaces   | 0 or 1            | 1             | Enable/disable portalsurfaces. __0__ Only allow portals on `surfaceparm monsterslickeast` __1__ Don't allow portals on `surfaceparm monsterslickeast`.
 portalteam       | 0 - 2             | 0             | If set to __0__, players can only go to own portals. If set to __1__, players can also go to fireteam mates' portals. If set to __2__, anyone can go to anyones portals.
-savelimit        | any integer       | 0             | If set to higher than 0, saves are limited to the set value.
+limitedsaves     | any integer       | 0             | If set to higher than 0, saves are limited to the set value.
 strictsaveload   | bitmask or string | 0             | Limits save and load by given conditions. __1/move__ cannot save while moving __2/dead__ cannot save/load while dead. Combine strings with `|` (eg. `move | dead`).
 
 ---
