@@ -324,17 +324,20 @@ Toggles nofatigue for players.
 ## g_oss
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-g_oss                   | bitflag       | 15
+g_oss                   | bitflag       | 399
 
-Indicates operating systems and architectures supported by the mod. This is intended for ET: Legacy server browser to filter out mods that are incompatible with clients OS/architecture, and should be left unchanged.
+Indicates operating systems and architectures supported by the mod. This cvar is read-only, and is used by ET: Legacy server browser to filter out incompatible servers for clients architecture.
 
 * __0__ vanilla/unknown/ET: Legacy auto setup
-* __1__ Windows 32-bit
-* __2__ Linux 32-bit
-* __4__ Linux 64-bit
-* __8__ Mac OS X (Intel, 64-bit)
-* __16__ Android
-* __32__ Raspberry Pi
+* __1__ Windows x86
+* __2__ Linux x86
+* __4__ Linux x86_64
+* __8__ macOS x86_64
+* __16__ Android aarch64
+* __32__ Raspberry Pi arm
+* __64__ Raspberry Pi aarch64
+* __128__ macOS aarch64 (M1)
+* __256__ Windows x86_64
 
 ---
 
