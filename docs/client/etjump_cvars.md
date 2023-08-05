@@ -2304,24 +2304,3 @@ movie_fovMinSpeed       | any integer   | 400
 UPS value at which minimum FOV is reached.
 
 ---
-
-# ETMain cvars
-
-The following ETMain cvars have been modified or extended by ETJump.
-
----
-
-## cg_drawCrosshair
-Name                    | values        | default
-------------------------|:-------------:|-------------
-cg_drawCrosshair        | 10-16         | 1
-
-ETJump includes additional crosshairs.
-
-* __10__ Vertical line
-* __11__ Cross
-* __12__ Diagonal cross
-* __13__ V-shape
-* __14__ Triangle
-* __15__ T-shape
-* __16__ Two vertical lines
