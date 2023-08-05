@@ -276,6 +276,7 @@ spawnflags       | 0, 2, 4           | 0             | __2__ spins around its ax
 
 Key              | Values            | Default       | Description
 -----------------|:-----------------:|:-------------:|------------
+nodrop           | 0 or  1           | 0             | Enable/disable nodrop. __0__ Items are not dropped inside `surfaceparm nodrop`. __1__ items are only dropped inside `surfaceparm nodrop`.
 noexplosives     | 0 - 2             | 0             | Disables explosives. __0__ explosives are allowed. __1__ no explosive weapons. __2__ no dynamite.
 nofalldamage     | 0 - 2             | 0             | Enable/disable fall damage. __0__ Fall damage disabled only on `surfaceparm nodamage` __1__ Fall damage enabled only on `surfaceparm nodamage` __2__ Fall damage disabled everywhere.
 noghost          | 0 or 1            | 0             | Disables player ghosting (nonsolid players). Overrides `g_ghostPlayers` server cvar.
@@ -283,9 +284,9 @@ nogod            | 0 or 1            | 0             | Disables god mode.
 nogoto           | 0 or 1            | 0             | Disables goto.
 nojumpdelay      | 0 or 1            | 0             | Enable/disable jump delay. __0__ No jump delay only on `surfaceparm monsterslicknorth` __1__ Jump delay only on `surfaceparm monsterslicknorth`.
 nonoclip         | 0 or 1            | 0             | Disables noclip.
-nosave           | 0 or 1            | 0             | Enable/disable save. __0__ Don't allow save inside `surfaceparm clusterportal`brushes __1__ Only allow save inside `surfaceparm clusterportal` brushes.
+nosave           | 0 or 1            | 0             | Enable/disable save. __0__ Don't allow save inside `surfaceparm clusterportal` brushes __1__ Only allow save inside `surfaceparm clusterportal` brushes.
 nooverbounce     | 0 or 1            | 0             | Enable/disable overbounces. __0__ Don't allow overbounces on `surfaceparm monsterslicksouth` __1__ Only allow overbounces on `surfaceparm monsterslicksouth`.
-noprone          | 0 or 1            | 0             | Enable/disable prone. __0__ Don't allow prone inside `surfaceparm donotenter`brushes __1__ Only allow prone inside `surfaceparm donotenter` brushes.
+noprone          | 0 or 1            | 0             | Enable/disable prone. __0__ Don't allow prone inside `surfaceparm donotenter` brushes __1__ Only allow prone inside `surfaceparm donotenter` brushes.
 portalgun_spawn  | 0 or 1            | 0             | Toggles whether players should spawn with a portal gun.
 portalsurfaces   | 0 or 1            | 1             | Enable/disable portalsurfaces. __0__ Only allow portals on `surfaceparm monsterslickeast` __1__ Don't allow portals on `surfaceparm monsterslickeast`.
 portalteam       | 0 - 2             | 0             | If set to __0__, players can only go to own portals. If set to __1__, players can also go to fireteam mates' portals. If set to __2__, anyone can go to anyones portals.

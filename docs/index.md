@@ -1,5 +1,5 @@
 # ETJump documentation
-This is official ETJump documentation. It contains [client](client/client_cvars.md) and [server](server/server_cvars.md) cvars, aswell as other useful [server](server/server_setup.md) and [mapping](mapping/mapping_entities.md) information. To get latest ETJump version visit [http://etjump.com](http://etjump.com).
+This is official ETJump documentation. It contains [client](client/etjump_cvars.md) and [server](server/server_cvars.md) cvars, aswell as other useful [server](server/server_setup.md) and [mapping](mapping/mapping_entities.md) information. To get latest ETJump version visit [http://etjump.com](http://etjump.com).
 
 ## Things everyone should know
 
@@ -181,17 +181,18 @@ There are __two__ different CGaz' strafeometers. You can switch between them by 
 
 __Modifying CGaz HUD__
 
-* [etj_CGaz1Color1](client/client_cvars/#etj_cgaz1color1)
-* [etj_CGaz1Color2](client/client_cvars/#etj_cgaz1color2)
-* [etj_CGaz1Color3](client/client_cvars/#etj_cgaz1color3)
-* [etj_CGaz1Color4](client/client_cvars/#etj_cgaz1color4)
-* [etj_CGaz2Color1](client/client_cvars/#etj_cgaz2color1)
-* [etj_CGaz2Color2](client/client_cvars/#etj_cgaz2color2)
-* [etj_CGazFov](client/client_cvars/#etj_cgazfov)
-* [etj_CGazHeight](client/client_cvars/#etj_cgazheight)
-* [etj_CGazTrueness](client/client_cvars/#etj_cgaztrueness)
-* [etj_CGazY](client/client_cvars/#etj_cgazy)
-* [etj_stretchCgaz](client/client_cvars/#etj_stretchcgaz)
+* [etj_CGaz1Color1](client/etjump_cvars.md#etj_cgaz1color1)
+* [etj_CGaz1Color2](client/etjump_cvars.md#etj_cgaz1color2)
+* [etj_CGaz1Color3](client/etjump_cvars.md#etj_cgaz1color3)
+* [etj_CGaz1Color4](client/etjump_cvars.md#etj_cgaz1color4)
+* [etj_CGaz2Color1](client/etjump_cvars.md#etj_cgaz2color1)
+* [etj_CGaz2Color2](client/etjump_cvars.md#etj_cgaz2color2)
+* [etj_CGaz2FixedSpeed](client/etjump_cvars.md#etj_cgaz2fixedspeed)
+* [etj_CGazFov](client/etjump_cvars.md#etj_cgazfov)
+* [etj_CGazHeight](client/etjump_cvars.md#etj_cgazheight)
+* [etj_CGazTrueness](client/etjump_cvars.md#etj_cgaztrueness)
+* [etj_CGazY](client/etjump_cvars.md#etj_cgazy)
+* [etj_stretchCgaz](client/etjump_cvars.md#etj_stretchcgaz)
 
 ### Velocity Snapping HUD
 
@@ -201,15 +202,15 @@ Velocity snapping HUD can be enabled with the cvar `etj_drawSnapHUD`. It lets yo
 
 __Modifying SnapHUD__
 
-* [etj_snapHUDColor1](client/client_cvars/#etj_snaphudcolor1)
-* [etj_snapHUDColor2](client/client_cvars/#etj_snaphudcolor2)
-* [etj_snapHUDFov](client/client_cvars/#etj_snaphudfov)
-* [etj_snapHUDHeight](client/client_cvars/#etj_snaphudheight)
-* [etj_snapHUDHLActive](client/client_cvars/#etj_snaphudhlactive)
-* [etj_snapHUDHLColor1](client/client_cvars/#etj_snaphudhlcolor1)
-* [etj_snapHUDHLColor2](client/client_cvars/#etj_snaphudhlcolor2)
-* [etj_snapHUDOffsetY](client/client_cvars/#etj_snaphudoffsety)
-* [etj_snapHUDTrueness](client/client_cvars/#etj_snaphudtrueness)
+* [etj_snapHUDColor1](client/etjump_cvars.md#etj_snaphudcolor1)
+* [etj_snapHUDColor2](client/etjump_cvars.md#etj_snaphudcolor2)
+* [etj_snapHUDFov](client/etjump_cvars.md#etj_snaphudfov)
+* [etj_snapHUDHeight](client/etjump_cvars.md#etj_snaphudheight)
+* [etj_snapHUDHLActive](client/etjump_cvars.md#etj_snaphudhlactive)
+* [etj_snapHUDHLColor1](client/etjump_cvars.md#etj_snaphudhlcolor1)
+* [etj_snapHUDHLColor2](client/etjump_cvars.md#etj_snaphudhlcolor2)
+* [etj_snapHUDOffsetY](client/etjump_cvars.md#etj_snaphudoffsety)
+* [etj_snapHUDTrueness](client/etjump_cvars.md#etj_snaphudtrueness)
 
 ### Upmove meter
 
@@ -225,22 +226,22 @@ Note that due to the fact that servers run at `sv_fps 20`, this is only fully ac
 
 __Modifying upmove meter__
 
-* [etj_upmoveMeterGraphColor](client/client_cvars/#etj_upmovemetergraphcolor)
-* [etj_upmoveMeterGraphH](client/client_cvars/#etj_upmovemetergraphh)
-* [etj_upmoveMeterGraphOnGroundColor](client/client_cvars/#etj_upmovemetergraphongroundcolor)
-* [etj_upmoveMeterGraphOutlineColor](client/client_cvars/#etj_upmovemetergraphoutlinecolor)
-* [etj_upmoveMeterGraphOutlineW](client/client_cvars/#etj_upmovemetergraphoutlinew)
-* [etj_upmoveMeterGraphPostJumpColor](client/client_cvars/#etj_upmovemetergraphpostjumpcolor)
-* [etj_upmoveMeterGraphPreJumpColor](client/client_cvars/#etj_upmovemetergraphprejumpcolor)
-* [etj_upmoveMeterGraphW](client/client_cvars/#etj_upmovemetergraphw)
-* [etj_upmoveMeterGraphX](client/client_cvars/#etj_upmovemetergraphx)
-* [etj_upmoveMeterGraphY](client/client_cvars/#etj_upmovemetergraphy)
-* [etj_upmoveMeterMaxDelay](client/client_cvars/#etj_upmovemetermaxdelay)
-* [etj_upmoveMeterTextColor](client/client_cvars/#etj_upmovemetertextcolor)
-* [etj_upmoveMeterTextH](client/client_cvars/#etj_upmovemetertexth) 
-* [etj_upmoveMeterTextShadow](client/client_cvars/#etj_upmovemetertextshadow)
-* [etj_upmoveMeterTextSize](client/client_cvars/#etj_upmovemetertextsize)
-* [etj_upmoveMeterTextX](client/client_cvars/#etj_upmovemetertextx)
+* [etj_upmoveMeterGraphColor](client/etjump_cvars.md#etj_upmovemetergraphcolor)
+* [etj_upmoveMeterGraphH](client/etjump_cvars.md#etj_upmovemetergraphh)
+* [etj_upmoveMeterGraphOnGroundColor](client/etjump_cvars.md#etj_upmovemetergraphongroundcolor)
+* [etj_upmoveMeterGraphOutlineColor](client/etjump_cvars.md#etj_upmovemetergraphoutlinecolor)
+* [etj_upmoveMeterGraphOutlineW](client/etjump_cvars.md#etj_upmovemetergraphoutlinew)
+* [etj_upmoveMeterGraphPostJumpColor](client/etjump_cvars.md#etj_upmovemetergraphpostjumpcolor)
+* [etj_upmoveMeterGraphPreJumpColor](client/etjump_cvars.md#etj_upmovemetergraphprejumpcolor)
+* [etj_upmoveMeterGraphW](client/etjump_cvars.md#etj_upmovemetergraphw)
+* [etj_upmoveMeterGraphX](client/etjump_cvars.md#etj_upmovemetergraphx)
+* [etj_upmoveMeterGraphY](client/etjump_cvars.md#etj_upmovemetergraphy)
+* [etj_upmoveMeterMaxDelay](client/etjump_cvars.md#etj_upmovemetermaxdelay)
+* [etj_upmoveMeterTextColor](client/etjump_cvars.md#etj_upmovemetertextcolor)
+* [etj_upmoveMeterTextH](client/etjump_cvars.md#etj_upmovemetertexth) 
+* [etj_upmoveMeterTextShadow](client/etjump_cvars.md#etj_upmovemetertextshadow)
+* [etj_upmoveMeterTextSize](client/etjump_cvars.md#etj_upmovemetertextsize)
+* [etj_upmoveMeterTextX](client/etjump_cvars.md#etj_upmovemetertextx)
 
 ### Chat position
 Moving chat location is simple. It can be done by modifying the following cvars:

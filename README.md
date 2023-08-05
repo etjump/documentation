@@ -15,7 +15,7 @@ To edit documentation you would need to open required file and then press edit b
 ### Edit documentation locally on your machine
 To edit documentation locally you would need to:
 
-* install [mkdocs](http://www.mkdocs.org/#installation)
+* install [mkdocs](http://www.mkdocs.org#installation)
 * clone this repository
 * run `mkdocs serve` command in terminal within the cloned repository
 * edit/add documentation
