@@ -49,15 +49,15 @@ _Note: Removes saved slots on both teams._
 
 ---
 
-## extraTrace
-`extraTrace`  
-Prints the list of bitmask values for `etj_extraTrace`.
+## cv
+`cv`  
+Alias for `callvote`.
 
 ---
 
-## god
-`god`  
-Toggles god mode.
+## extraTrace
+`extraTrace`  
+Prints the list of bitmask values for `etj_extraTrace`.
 
 ---
 
@@ -97,6 +97,12 @@ Lists all callvote randommap map lists. If a map is given, lists the maps on the
 
 ---
 
+## listspawnpt
+`listspawnpt`  
+Lists all valid spawnpoints in the map. The value in __[brackets]__ indicates the spawnpoint number (used with `setspawnpt`) and the letters __A__ and __X__ indicate if the spawnpoint belongs to Allies or Axis, respectively.
+
+---
+
 ## load
 `load [slot]`  
 Loads a previously saved position. Possible slots __0__-__2__. If no slot is given, loads slot __0__.
@@ -127,12 +133,6 @@ Toggles whether other players are allowed to call you.
 
 ---
 
-## noclip
-`noclip`  
-Toggles noclip.
-
----
-
 ## nogoto
 `nogoto`  
 Toggles whether other players can teleport to you.
@@ -151,8 +151,8 @@ Prints information about portal gun.
 
 ---
 
-## ranks, records and times
-`ranks [run name]`, `records [run name]`, `times [run name]`  
+## ranks, records, times and top
+`ranks [run name]`, `records [run name]`, `times [run name]`, `top [run name]`  
 Prints top records in each run on the map. If a run name is given, prints top __50__ records on that run.
 
 ---

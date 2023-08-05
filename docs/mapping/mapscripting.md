@@ -204,3 +204,11 @@ mytrigger
 ```
 
 ---
+
+## cvar set/inc/random
+
+`cvar [cvarname] set/inc/random [value]`
+
+These mapscript actions have been removed from ETJump as they can be used for malicious purposes, e.g. changing `rconPassword` on server.
+
+---

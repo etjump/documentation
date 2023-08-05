@@ -116,8 +116,8 @@ __Flag:__ k
 ---
 
 ## leastplayed
-`!leastplayed`  
-Lists __5__ of the least played maps.
+`!leastplayed [count]`  
+Lists the least played maps on the server. If no `[count]` is given, defaults to __5__ maps. Maximum number of maps to list is __100__.
 
 __Flag:__ a
 
@@ -196,8 +196,8 @@ __Flag:__ a
 ---
 
 ## mostplayed
-`!mostplayed`  
-Lists __5__ most played maps.
+`!mostplayed [count]`
+Lists the most played maps on the server. If no `[count]` is given, defaults to __5__ maps. Maximum number of maps to list is __100__.
 
 __Flag:__ a
 
@@ -221,7 +221,7 @@ __Flag:__ m
 
 ## newmaps
 `!newmaps [count]`  
-Displays the latest `[count]` maps added to the server, sorted from oldest to newest.
+Displays the latest `[count]` maps added to the server, sorted from oldest to newest.  Maximum number of maps to list is __50__.
 
 __Flag:__ a
 
@@ -235,35 +235,11 @@ __Flag:__ N
 
 ---
 
-## nogoto
-`!nogoto [player]`  
-Enable and disable goto for target player.
-
-__Flag:__ K
-
----
-
-## nosave
-`!nosave [player]`  
-Enable and disable save for target player.
-
-__Flag:__ T
-
----
-
 ## passvote
 `!passvote`  
 Passes current vote.
 
 __Flag:__ P
-
----
-
-## putteam
-`!putteam [player] [team]`  
-Puts target player to team.
-
-__Flag:__ p
 
 ---
 
@@ -280,14 +256,6 @@ __Flag:__ R
 Restarts current map.
 
 __Flag:__ r
-
----
-
-## rmsaves
-`!rmsaves [player]`  
-Resets saved position for target player.
-
-__Flag:__ T
 
 ---
 
