@@ -701,9 +701,12 @@ Toggle slick surface drawing. Works for surfaces with `surfaceparm slick` and an
 ## etj_drawSnapHUD
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_drawSnapHUD         | 0 or 1        | 0
+etj_drawSnapHUD         | 0 - 2         | 0
 
 Draws velocity snapping HUD.
+
+* **1** Draw full snapzones
+* **2** Draw only edges of snapzones
 
 ---
 
@@ -1339,6 +1342,17 @@ Set vertical position of no jump delay detector.
 
 ---
 
+## etj_noPanzerAutoswitch
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_noPanzerAutoswitch  | 0 or 1        | 0
+
+Toggle automatic weapon switch after firing a panzerfaust.
+
+_Note: autoswitch will occur when completely out of ammo regardless of this._
+
+---
+
 ## etj_numPopups
 Name                    | values        | default
 ------------------------|:-------------:|-------------
@@ -1729,6 +1743,15 @@ Name                    | values        | default
 etj_snapHUDColor2       | [any color](../index.md#color-system) | 0.05 0.05 0.05 0.1
 
 Sets the secondary color of velocity snapping HUD.
+
+---
+
+## etj_snapHUDEdgeThickness
+Name                     | values        | default
+-------------------------|:-------------:|-------------
+etj_snapHUDEdgeThickness | 1 - 128       | 10
+
+Thickness of snaphud edges when [`etj_drawSnapHUD`](etjump_cvars.md/#etj_drawsnaphud) is set to **2**.
 
 ---
 

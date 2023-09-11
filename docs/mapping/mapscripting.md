@@ -1,6 +1,6 @@
 # ETJump Map Scripting
 
-ETJump adds new scripting actions and events for mapscripts. Below is a list of new scripting actions, as well as any additions to existing ones.
+ETJump adds new scripting actions, events and entities for mapscripting. Below is a list of new scripting actions, as well as any additions to existing ones.
 
 ## create
 ```
@@ -12,10 +12,10 @@ create
 
 _Disclaimer: the documentation of this script action is possibly lacking and inaccurate._
 
-Allows limited spawning of entities in a map. `create` should be called as a first thing inside `game_manager` -> `spawn` scriptblock. If a map lacks `script_multiplayer` or the `game_manager` script block, it should be called at another entitys `spawn` block, preferrably one that has no brushwork (eg. a point entity). Each entity must be given `classname` and `origin` keys, and additionally for `trigger_multiple_ext`, the brushmodel `mins` and `maxs`. Spawning of point entities generally works as if you would make them in map editor (just remember to set `origin` key manually), but spawning of brush entities is severly limited. Such limits include, but are not necessarily limited to:
+Allows limited spawning of entities in a map. `create` should be called as a first thing inside `game_manager` -> `spawn` scriptblock. If a map lacks `script_multiplayer` or the `game_manager` script block, it should be called at another entitys `spawn` block, preferrably one that has no brushwork (eg. a point entity). Each entity must be given `classname` and `origin` keys, and additionally for `trigger_multiple_ext`, `trigger_starttimer_ext`, `trigger_checkpoint_ext`, `trigger_stoptimer_ext` and `func_fakebrush`, the brushmodel `mins` and `maxs` (and `contents` in case of `func_fakebrush`). Spawning of point entities generally works as if you would make them in map editor (just remember to set `origin` key manually), but spawning of brush entities is severly limited. Such limits include, but are not necessarily limited to:
 
-* Only brush entities that function when spawned out of nothing seem to be `trigger_multiple`, ` trigger_multiple_ext`, `trigger_push`, and `func_fakebrush`. Any other brush entity will spawn, but won't function properly unless a brushmodel is hijacked from another entity in the map.
-* Only `trigger_multiple_ext` and `func_fakebrush` can create volume by setting `mins/maxs`, others act as point entities unless hijacking a brushmodel from another entity in the map.
+* Only brush entities that function when spawned out of nothing are `trigger_multiple`, ` trigger_multiple_ext`, `trigger_starttimer_ext`, `trigger_checkpoint_ext`, `trigger_stoptimer_ext`, `trigger_push`, and `func_fakebrush`. Any other brush entity will spawn, but won't function properly unless a brushmodel is hijacked from another entity in the map.
+* Only `trigger_multiple_ext`, `trigger_starttimer_ext`, `trigger_checkpoint_ext`, `trigger_stoptimer_ext` and `func_fakebrush` can create volume by setting `mins/maxs`, others act as point entities unless hijacking a brushmodel from another entity in the map.
 * Spawning of visible brushwork only works by hijacking another brushmodel from a map; it's not possible to create your own, visible brushmodel with specific textures.
 * You cannot set surfaceparms, only contentparms can be modified with `contents <integer>` key (see [surfaceflags.h](https://github.com/etjump/etjump/blob/091acf0658605061441aa8bc0268fe96290f8315/src/game/surfaceflags.h#L13-L39)).
     * Some contentparms are compile-time only, such as `CONTENTS_LIGHTGRID` and `CONTENTS_AREAPORTAL`, and cannot be used.
@@ -29,10 +29,6 @@ Considerations with brushmodel hijacking:
 * If the brushmodel you are hijacking is visible at the same time as the entity you are hijacking it to, either might become invisible.
 * When setting the `origin` key, the value is relative to the brushmodel you are hijacking, meaning you are moving the brushmodel from its original postion rather than setting an absolute position.
 * Hijacking another brushmodel does not remove the original, but rather duplicates it. This means that it's possible to hijack same brushmodel multiple times for different entities.
-
-### func_fakebrush
-
-`func_fakebrush` is a special brush entity that can be spawned via mapscripts. Historically it is used in ETPro to fix exploits in maps. It can act as a clip brush for example to prevent players from jumping out of the map, if the mapper has failed to clip the map properly. To spawn a `func_fakebrush`, you must set the following keys: `origin`, `mins`, `maxs` and `contents`.
 
 ### Examples
 
@@ -147,12 +143,28 @@ create
 
 ---
 
+## cvar set/inc/random
+
+`cvar [cvarname] set/inc/random [value]`
+
+These mapscript actions have been removed from ETJump as they can be used for malicious purposes, e.g. changing `rconPassword` on server.
+
+---
+
 ## damageplayer
 `damageplayer <damage>`
 
 Damages player by given amount. Damage is halved if the player has `etj_nofatigue 1` due to it giving player constant adrenaline.
 
 _Note: This script action **must** be called via `target_script_trigger` entity to pass activator data._
+
+---
+
+## func_fakebrush
+
+`func_fakebrush` is a special brush entity that can be spawned via mapscripts. Historically it is used in ETPro to fix exploits in maps. It can act as a clip brush for example to prevent players from jumping out of the map, if the mapper has failed to clip the map properly. To spawn a `func_fakebrush`, you must set the following keys: `origin`, `mins`, `maxs` and `contents`.
+
+_Note: when `g_scriptDebug` is set to **1**, this entitys bounding box will be drawn in red._
 
 ---
 
@@ -183,6 +195,14 @@ _Note: This script action **must** be called via `target_script_trigger` entity 
 
 ---
 
+## trigger_checkpoint_ext
+
+Used for spawning a `trigger_checkpoint` entity. You must set `mins`, `maxs` and `origin` keys for this manually. Supports same entity keys and spawnflags as regular `target/trigger_checkpoint`.
+
+_Note: when `g_scriptDebug` is set to **1**, this entitys bounding box will be drawn in magenta._
+
+---
+
 ## trigger_multiple activate event
 
 `activate allies/axis`
@@ -205,10 +225,26 @@ mytrigger
 
 ---
 
-## cvar set/inc/random
+## trigger_multiple_ext
 
-`cvar [cvarname] set/inc/random [value]`
+Used for spawning a `trigger_multiple` entity. You must set `mins`, `maxs` and `origin` keys for this manually. Supports same entity keys and spawnflags as regular `trigger_multiple`.
 
-These mapscript actions have been removed from ETJump as they can be used for malicious purposes, e.g. changing `rconPassword` on server.
+_Note: when `g_scriptDebug` is set to **1**, this entitys bounding box will be drawn in green._
+
+---
+
+## trigger_starttimer_ext
+
+Used for spawning a `trigger_starttimer` entity. You must set `mins`, `maxs` and `origin` keys for this manually. Supports same entity keys and spawnflags as regular `target/trigger_starttimer`.
+
+_Note: when `g_scriptDebug` is set to **1**, this entitys bounding box will be drawn in blue._
+
+---
+
+## trigger_stoptimer_ext
+
+Used for spawning a `trigger_stoptimer` entity. You must set `mins`, `maxs` and `origin` keys for this manually. Supports same entity keys and spawnflags as regular `target/trigger_stoptimer`.
+
+_Note: when `g_scriptDebug` is set to **1**, this entitys bounding box will be drawn in blue._
 
 ---

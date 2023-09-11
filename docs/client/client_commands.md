@@ -109,6 +109,12 @@ Loads a previously saved position. Possible slots __0__-__2__. If no slot is giv
 
 ---
 
+## loadcheckpoints
+`loadcheckpoints [run name] [rank]`  
+Loads timerun checkpoints for comparison for given timerun. If `[rank]` isn't specified, defaults to rank 1 time.
+
+---
+
 ## man and manual
 `manual [command]`  
 Prints a manual for command.
@@ -151,9 +157,20 @@ Prints information about portal gun.
 
 ---
 
+## rankings
+`rankings --season [season] --page [page] --page-size [page size]`  
+Prints timerun rankings. If no parameters are given, prints top **20** overall rankings.
+
+---
+
 ## ranks, records, times and top
-`ranks [run name]`, `records [run name]`, `times [run name]`, `top [run name]`  
-Prints top records in each run on the map. If a run name is given, prints top __50__ records on that run.
+`records [run name]`  
+`records [map name] [run name]`  
+`records [season] [map name] [run name]`  
+`records --season [season] --map [map name] --run [run name] --page [page] --page-size [page size]`  
+Prints timerun records with given parameters. If `[run name]` isn't specified, prints top **3** records of all timeruns in the map. If specified, will print top **20** records for given run. If `[season]` isn't specifed, prints overall records. `[run name]`, `[map name]` and `[season]` support partial name matching.
+
+_Note: `ranks`, `reconds`, `times` and `top` are all valid aliases for this command._
 
 ---
 
