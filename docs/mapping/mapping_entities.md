@@ -56,6 +56,17 @@ _Note: Fires a random target instead of all targets._
 
 ---
 
+## target_checkpoint and trigger_checkpoint
+Timerun checkpoint.
+
+Key              | Values            | Default       | Description
+-----------------|:-----------------:|---------------|------------
+name             | any text          | default       | The name of the run. Names are case sensitive.
+
+A timerun can have a maximum of **16** checkpoints.
+
+---
+
 ## target_give
 Gives activator targeted items. Must target actual entites in the map. Standard class restrictions apply when giving weapons (eg. cannot give `weapon_panzerfaust` to a medic).
 
@@ -168,7 +179,7 @@ spawnflags       | 0, 1              | 0             | __1__ Only activates for 
 
 ---
 
-## target_startTimer
+## target_starttimer and trigger_starttimer
 Starts a timerun for activator.
 
 Key              | Values            | Default       | Description
@@ -187,14 +198,12 @@ Starting a timerun performs the following actions to the activating player:
 
 ---
 
-## target_stopTimer
+## target_stoptimer and trigger_stoptimer
 Stops a timerun for activator.
 
 Key              | Values            | Default       | Description
 -----------------|:-----------------:|---------------|------------
 name             | any text          | default       | The name of the run. Start and stop timer must have a matching name. Names are case sensitive.
-
----
 
 ---
 

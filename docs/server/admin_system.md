@@ -11,6 +11,14 @@ __Flag:__ a
 
 ---
 
+## add-season
+`!add-season --name [name] [required] --start-date [YYYY-MM-DD] [required] --end-date-exclusive [YYYY-MM-DD]`  
+Adds a new timerun season. If `--end-date-exclusive` isn't set, the season will be active until end date is added with [`!edit-season`](admin_system.md/#edit-season).
+
+__Flag:__ T
+
+---
+
 ## addlevel
 `!addlevel [level] -cmds [commands] -greeting [greeting] -title [title]`  
 Adds a new level. Optionally you can use `-cmds`, `-greeting` and `-title` switches to set commands, greeting and title.
@@ -43,11 +51,29 @@ __Flag:__ C
 
 ---
 
+## delete-season
+`!delete-season --name [exact name]`  
+Deletes a timerun season. Name must be an exact match.
+
+_Note: this will delete all timerun records associated with the season._
+
+__Flag:__ T
+
+---
+
 ## deletelevel
 `!deletelevel [level]`  
 Deletes a level. Users who are currently set to deleted level will be set to level 0.
 
 __Flag:__ A
+
+---
+
+## edit-season
+`!edit-season --name [name] [required] --start-date [YYYY-MM-DD] --end-date [YYYY-MM-DD]`  
+Edits an existing timerun season. You can only edit either `--start-date` or `--end-date` with a single command.
+
+__Flag:__ T
 
 ---
 
@@ -179,6 +205,14 @@ __Flag:__ A
 
 ---
 
+## loadcheckpoints, load-checkpoints
+`!loadcheckpoints [run name] [rank]`  
+Loads timerun checkpoints for comparison for given timerun. If `[rank]` isn't specified, defaults to rank 1 time.
+
+__Flag:__ a
+
+---
+
 ## map
 `!map [map]`  
 Changes map to target map.
@@ -243,6 +277,27 @@ __Flag:__ P
 
 ---
 
+## rankings
+`!rankings --season [season] --page [page] --page-size [page size]`  
+Prints timerun rankings. If no parameters are given, prints top **20** overall rankings.
+
+__Flag:__ a
+
+---
+
+## ranks, records, times and top
+`!records [run name]`  
+`!records [map name] [run name]`  
+`!records [season] [map name] [run name]`  
+`!records --season [season] --map [map name] --run [run name] --page [page] --page-size [page size]`  
+Prints timerun records with given parameters. If `[run name]` isn't specified, prints top **3** records of all timeruns in the map. If specified, will print top **20** records for given run. If `[season]` isn't specifed, prints overall records. `[run name]`, `[map name]` and `[season]` support partial name matching.
+
+_Note: `!ranks`, `!reconds`, `!times` and `!top` are all valid aliases for this command._
+
+__Flag:__ a
+
+---
+
 ## rename
 `!rename [player] [new name]`  
 Renames target player.
@@ -256,6 +311,14 @@ __Flag:__ R
 Restarts current map.
 
 __Flag:__ r
+
+---
+
+## seasons
+`!seasons`  
+Lists all timerun seasons on the server.
+
+__Flag:__ a
 
 ---
 

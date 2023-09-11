@@ -65,6 +65,26 @@ _ETJump allows using floating point values for this cvar._
 
 ---
 
+## cg_drawWeaponIconFlash
+Name                    | values        | default
+------------------------|:-------------:|-------------
+cg_drawWeaponIconFlash  | 0 - 2         | 0
+
+Draws weapon icon with different colors depending on state of weapon.
+
+* cg_drawWeaponIconFlash 1
+    * yellow = ready/reloading
+    * red = shooting
+    * white = switching
+* cg_drawWeaponIconFlash 2
+    * white - ready
+    * yellow - reloading/switching
+    * red - shooting
+
+_ETJump has added value 2._
+
+---
+
 ## cg_gunX/Y/Z
 Name                    | values        | default
 ------------------------|:-------------:|-------------

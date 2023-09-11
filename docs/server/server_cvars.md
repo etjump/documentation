@@ -65,15 +65,12 @@ Toggles banners.
 ## g_blockCheatCvars
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-g_blockCheatCvars       | 0 or 1        | 0
+g_blockCheatCvars       | bitflag       | 0
 
-Toggles whether to block cvars that could be considered cheating such:
+Blocks usage of certain cvars that can be used to cheat.
 
-* __m_pitch__ (-0.01 <= x <= 0.01)
-* __cl_yawspeed__ (not 0)
-* __cl_freelook__ (0)
-* __pmove_Fixed__ (0) while having
-* __com_maxFPS__ (25 < x or x > 125)
+* __1__ forces `cl_yawspeed 0` & `cl_freelook 1`
+* __2__ forces `com_maxfps 25-125` if user has `pmove_fixed 0`
 
 ---
 
@@ -397,9 +394,18 @@ _Note: Only spectators who participate in voting are taken into account by `vote
 ## g_timerunsDatabase
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-g_timerunsDatabase      | filename     | timeruns.db
+g_timerunsDatabase      | filename      | timeruns.db
 
 File to store timeruns data in.
+
+---
+
+## g_timeruns2Database
+Name                    | values        | default
+------------------------|:-------------:|-------------
+g_timeruns2Database     | filename      | timeruns.v2.db
+
+File to store new timerun system data in.
 
 ---
 
