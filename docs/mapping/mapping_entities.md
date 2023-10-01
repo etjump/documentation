@@ -100,7 +100,7 @@ Prints `message` as a centerprint. If no spawnflags are specified, prints to all
 
 Key              | Values            | Default       | Description
 -----------------|:-----------------:|---------------|------------
-spawnflags       | 8                 | 0             | __8__ Prints to CPM (popup messages) instead of centerprint.
+spawnflags       | 8, 16             | 0             | __8__ Prints to CPM (popup messages) instead of centerprint. __16__ replaces any occurrence of `[n]` in the print with the activators name.
 
 ---
 

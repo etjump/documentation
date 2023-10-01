@@ -15,6 +15,8 @@ __Flag:__ a
 `!add-season --name [name] [required] --start-date [YYYY-MM-DD] [required] --end-date-exclusive [YYYY-MM-DD]`  
 Adds a new timerun season. If `--end-date-exclusive` isn't set, the season will be active until end date is added with [`!edit-season`](admin_system.md/#edit-season).
 
+_Note: season names are case insensitive._
+
 __Flag:__ T
 
 ---
@@ -55,7 +57,7 @@ __Flag:__ C
 `!delete-season --name [exact name]`  
 Deletes a timerun season. Name must be an exact match.
 
-_Note: this will delete all timerun records associated with the season._
+_Note: this will delete all timerun records associated with the season. Season names are case insensitive._
 
 __Flag:__ T
 
@@ -71,7 +73,9 @@ __Flag:__ A
 
 ## edit-season
 `!edit-season --name [name] [required] --start-date [YYYY-MM-DD] --end-date [YYYY-MM-DD]`  
-Edits an existing timerun season. You can only edit either `--start-date` or `--end-date` with a single command.
+Edits an existing timerun season.
+
+_Note: season names are case insensitive._
 
 __Flag:__ T
 
@@ -206,8 +210,9 @@ __Flag:__ A
 ---
 
 ## loadcheckpoints, load-checkpoints
+`!loadcheckpoints [run name]`  
 `!loadcheckpoints [run name] [rank]`  
-Loads timerun checkpoints for comparison for given timerun. If `[rank]` isn't specified, defaults to rank 1 time.
+Loads timerun checkpoints for comparison for given timerun. If `[rank]` isn't specified, defaults to rank 1 time. Loaded checkpoints can be cleared by specifying `-1` as rank. `[run name]` supports partial matching.
 
 __Flag:__ a
 
@@ -278,6 +283,7 @@ __Flag:__ P
 ---
 
 ## rankings
+`!rankings [season]`  
 `!rankings --season [season] --page [page] --page-size [page size]`  
 Prints timerun rankings. If no parameters are given, prints top **20** overall rankings.
 
