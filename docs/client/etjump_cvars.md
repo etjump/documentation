@@ -143,6 +143,15 @@ When set to higher than __0__, CGaz 2 will be drawn as if the player had the set
 
 ---
 
+## etj_CGaz2NoVelocityDir
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_CGaz2NoVelocityDir  | 0 or 1        | 0
+
+Toggles drawing of velocity direction line on CGaz 2.
+
+---
+
 ## etj_CGazFov
 Name                    | values        | default
 ------------------------|:-------------:|-------------

@@ -110,8 +110,9 @@ Loads a previously saved position. Possible slots __0__-__2__. If no slot is giv
 ---
 
 ## loadcheckpoints
+`loadcheckpoints [run name]`  
 `loadcheckpoints [run name] [rank]`  
-Loads timerun checkpoints for comparison for given timerun. If `[rank]` isn't specified, defaults to rank 1 time.
+Loads timerun checkpoints for comparison for given timerun. If `[rank]` isn't specified, defaults to rank 1 time. Loaded checkpoints can be cleared by specifying `-1` as rank. `[run name]` supports partial matching.
 
 ---
 
@@ -158,6 +159,7 @@ Prints information about portal gun.
 ---
 
 ## rankings
+`rankings [season]`  
 `rankings --season [season] --page [page] --page-size [page size]`  
 Prints timerun rankings. If no parameters are given, prints top **20** overall rankings.
 
