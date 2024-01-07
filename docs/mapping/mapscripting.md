@@ -160,6 +160,12 @@ _Note: This script action **must** be called via `target_script_trigger` entity 
 
 ---
 
+## etjump_manager
+
+Acts as an entry point for mapscript. If a map contains no `script_multiplayer` or any entities with a `scriptname` set, you can use this script block to access mapscripting in a map, e.g. spawn in entities using [create](#create). This is only present in maps which do not provide `script_multiplayer` or entities with a `scriptname` set.
+
+---
+
 ## func_fakebrush
 
 `func_fakebrush` is a special brush entity that can be spawned via mapscripts. Historically it is used in ETPro to fix exploits in maps. It can act as a clip brush for example to prevent players from jumping out of the map, if the mapper has failed to clip the map properly. To spawn a `func_fakebrush`, you must set the following keys: `origin`, `mins`, `maxs` and `contents`.

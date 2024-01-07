@@ -11,13 +11,13 @@ cg_drawCrosshair        | 0 - 16        | 1
 
 ETJump includes additional crosshairs.
 
-* __10__ Vertical line
-* __11__ Cross
-* __12__ Diagonal cross
-* __13__ V-shape
-* __14__ Triangle
-* __15__ T-shape
-* __16__ Two vertical lines
+* **10** Vertical line
+* **11** Cross
+* **12** Diagonal cross
+* **13** V-shape
+* **14** Triangle
+* **15** T-shape
+* **16** Two vertical lines
 
 ---
 
@@ -103,8 +103,8 @@ cg_lagometer            | 0 - 2         | 0
 
 Draws lagometer, showing connection quality to server.
 
-* __1__ Draw lagometer on online servers and demo playback
-* __2__ Draw lagometer also on localhost
+* **1** Draw lagometer on online servers and demo playback
+* **2** Draw lagometer also on localhost
 
 ---
 
@@ -115,11 +115,11 @@ cg_showmiss             | bitflags      | 0
 
 Outputs prediction related events and errors to console.
 
-* __1__ General prediction information
-* __2__ Output statistics of predicted/played back frames
-* __4__ Output client pmove timestamps and cgame time timestamps
-* __8__ Output prediction error codes
-* __16__ Output info if player didn't move this frame
+* **1** General prediction information
+* **2** Output statistics of predicted/played back frames
+* **4** Output client pmove timestamps and cgame time timestamps
+* **8** Output prediction error codes
+* **16** Output info if player didn't move this frame
 
 ---
 

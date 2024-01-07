@@ -7,7 +7,15 @@ Below is a list of all ETJump related admin commands.
 `!8ball [question]`  
 8ball answers all your questions with three possible answers: yes, no and maybe.
 
-__Flag:__ a
+**Flag:** a
+
+---
+
+## add-customvote
+`!add-customvote --name [name] [required] --full-name [callvote_text] [required] --maps [maps] [required]`  
+Adds a new custom map vote list. `[maps]` is a space separated list of maps to include in the list.
+
+**Flag:** c
 
 ---
 
@@ -17,7 +25,7 @@ Adds a new timerun season. If `--end-date-exclusive` isn't set, the season will 
 
 _Note: season names are case insensitive._
 
-__Flag:__ T
+**Flag:** T
 
 ---
 
@@ -25,7 +33,7 @@ __Flag:__ T
 `!addlevel [level] -cmds [commands] -greeting [greeting] -title [title]`  
 Adds a new level. Optionally you can use `-cmds`, `-greeting` and `-title` switches to set commands, greeting and title.
 
-__Flag:__ A
+**Flag:** A
 
 ---
 
@@ -33,7 +41,7 @@ __Flag:__ A
 `!admintest`  
 Prints your admin level to everyone in the chat.
 
-__Flag:__ a
+**Flag:** a
 
 ---
 
@@ -41,7 +49,7 @@ __Flag:__ a
 `!ban [player] [time] [reason]`  
 Bans a player. Optionally you can set a time for ban duration in seconds. No time means a permanent ban. Optionally you can also give a reason for the ban that will be printed to the banned user. Setting a reason requires and time as well.
 
-__Flag:__ b
+**Flag:** b
 
 ---
 
@@ -49,7 +57,15 @@ __Flag:__ b
 `!cancelvote`  
 Cancels the current vote.
 
-__Flag:__ C
+**Flag:** C
+
+---
+
+## delete-customvote
+`!delete-customvote --name [name]`  
+Deletes a custom map vote list. Name must be an exact match.
+
+**Flag:** c
 
 ---
 
@@ -59,7 +75,7 @@ Deletes a timerun season. Name must be an exact match.
 
 _Note: this will delete all timerun records associated with the season. Season names are case insensitive._
 
-__Flag:__ T
+**Flag:** T
 
 ---
 
@@ -67,7 +83,15 @@ __Flag:__ T
 `!deletelevel [level]`  
 Deletes a level. Users who are currently set to deleted level will be set to level 0.
 
-__Flag:__ A
+**Flag:** A
+
+---
+
+## edit-customvote
+`!edit-customvote --list [name] [required] --name [name] --full-name [callvote_text] --add-maps [maps] --remove-maps [maps]`  
+Edits an existing custom map vote list.
+
+**Flag:** c
 
 ---
 
@@ -77,7 +101,7 @@ Edits an existing timerun season.
 
 _Note: season names are case insensitive._
 
-__Flag:__ T
+**Flag:** T
 
 ---
 
@@ -85,7 +109,7 @@ __Flag:__ T
 `!editcommands [level] +[command] -[command]`  
 Edits a single level's commands. Adding a + before the command will add that command to the level, adding a - before the command will remove that command from the level. The following example adds kick and ban to level 5 and removes 8ball from the level 5. `!editcommands 5 +kick +ban -8ball`
 
-__Flag:__ A
+**Flag:** A
 
 ---
 
@@ -93,7 +117,7 @@ __Flag:__ A
 `!editlevel [level] -cmds [commands] -greeting [greeting] -title [title] -clear cmds,greeting,title`  
 Edits a level. `-cmds [command flags]` to edit commands, `-greeting [greeting]`o edit greeting, `-title [title]` to edit title. To empty commands, greeting or title do for example `-clear cmds`.
 
-__Flag:__ A
+**Flag:** A
 
 ---
 
@@ -101,15 +125,15 @@ __Flag:__ A
 `!edituser [id] -cmds [commands] -greeting [greeting] -title [title] -clear cmds, greeting, title`  
 Edits user's private commands, greeting or title. `-cmds [command flags]` to edit commands, `-greeting [greeting]` to edit greeting, `-title [title]` to edit title. `-clear cmds` to empty commands.
 
-__Flag:__ A
+**Flag:** A
 
 ---
 
 ## findmap
 `!findmap [partial name] [maps per row]`  
-Lists all maps on server matching __[partial name]__. Use __[maps per row]__ to define how many maps are listed per row.
+Lists all maps on server matching **[partial name]**. Use **[maps per row]** to define how many maps are listed per row.
 
-__Flag:__ a
+**Flag:** a
 
 ---
 
@@ -117,7 +141,7 @@ __Flag:__ a
 `!finduser [name]`  
 Lists users that match the name.
 
-__Flag:__ A
+**Flag:** A
 
 ---
 
@@ -125,7 +149,7 @@ __Flag:__ A
 `!finger [name]`  
 Prints information about target player.
 
-__Flag:__ f
+**Flag:** f
 
 ---
 
@@ -133,7 +157,7 @@ __Flag:__ f
 `!help [command]`  
 Prints a list of commands if no parameter is given. If a parameter is given, prints the manual of given command.
 
-__Flag:__ a
+**Flag:** a
 
 ---
 
@@ -141,15 +165,15 @@ __Flag:__ a
 `!kick [player]`  
 Kicks target player.
 
-__Flag:__ k
+**Flag:** k
 
 ---
 
 ## leastplayed
 `!leastplayed [count]`  
-Lists the least played maps on the server. If no `[count]` is given, defaults to __5__ maps. Maximum number of maps to list is __100__.
+Lists the least played maps on the server. If no `[count]` is given, defaults to **5** maps. Maximum number of maps to list is **100**.
 
-__Flag:__ a
+**Flag:** a
 
 ---
 
@@ -157,7 +181,7 @@ __Flag:__ a
 `!levelinfo [level]`  
 Lists all levels if no level is given. If a level is given, prints information of that level.
 
-__Flag:__ A
+**Flag:** A
 
 ---
 
@@ -165,7 +189,7 @@ __Flag:__ A
 `!listbans [page]`  
 Lists bans. If no page is given, lists latest bans.
 
-__Flag:__ L
+**Flag:** L
 
 ---
 
@@ -173,7 +197,7 @@ __Flag:__ L
 `!listflags`  
 Lists command flags for each admin command.
 
-__Flag:__ A
+**Flag:** A
 
 ---
 
@@ -181,7 +205,7 @@ __Flag:__ A
 `!listmaps`  
 Lists all maps on the server.
 
-__Flag:__ a
+**Flag:** a
 
 ---
 
@@ -189,7 +213,7 @@ __Flag:__ a
 `!listplayers`  
 Lists all players on server.
 
-__Flag:__ l
+**Flag:** l
 
 ---
 
@@ -197,15 +221,15 @@ __Flag:__ l
 `!listusernames [id]`  
 Lists all names player with id has used on the server.
 
-__Flag:__ A
+**Flag:** A
 
 ---
 
 ## listusers
 `!listusers [page]`  
-Lists users that have visited the server. If a page is given, lists users on that page. Max __20__ users per page.
+Lists users that have visited the server. If a page is given, lists users on that page. Max **20** users per page.
 
-__Flag:__ A
+**Flag:** A
 
 ---
 
@@ -214,7 +238,7 @@ __Flag:__ A
 `!loadcheckpoints [run name] [rank]`  
 Loads timerun checkpoints for comparison for given timerun. If `[rank]` isn't specified, defaults to rank 1 time. Loaded checkpoints can be cleared by specifying `-1` as rank. `[run name]` supports partial matching.
 
-__Flag:__ a
+**Flag:** a
 
 ---
 
@@ -222,7 +246,7 @@ __Flag:__ a
 `!map [map]`  
 Changes map to target map.
 
-__Flag:__ M
+**Flag:** M
 
 ---
 
@@ -230,23 +254,23 @@ __Flag:__ M
 `!mapinfo [map]`  
 Lists information about target map.
 
-__Flag:__ a
+**Flag:** a
 
 ---
 
 ## mostplayed
 `!mostplayed [count]`
-Lists the most played maps on the server. If no `[count]` is given, defaults to __5__ maps. Maximum number of maps to list is __100__.
+Lists the most played maps on the server. If no `[count]` is given, defaults to **5** maps. Maximum number of maps to list is **100**.
 
-__Flag:__ a
+**Flag:** a
 
 ---
 
 ## moverscale
 `!moverscale [value]`  
-Scales vehicle movement speed by given value. Valid range is __0.1-5.0__.
+Scales vehicle movement speed by given value. Valid range is **0.1-5.0**.
 
-__Flag:__ v
+**Flag:** v
 
 ---
 
@@ -254,15 +278,15 @@ __Flag:__ v
 `!mute [player]`  
 Mutes target player.
 
-__Flag:__ m
+**Flag:** m
 
 ---
 
 ## newmaps
 `!newmaps [count]`  
-Displays the latest `[count]` maps added to the server, sorted from oldest to newest.  Maximum number of maps to list is __50__.
+Displays the latest `[count]` maps added to the server, sorted from oldest to newest.  Maximum number of maps to list is **50**.
 
-__Flag:__ a
+**Flag:** a
 
 ---
 
@@ -270,7 +294,7 @@ __Flag:__ a
 `!noclip [player] [count]`  
 Gives noclip to player. If count is specified, allows player to use noclip `[count]` times.
 
-__Flag:__ N
+**Flag:** N
 
 ---
 
@@ -278,7 +302,7 @@ __Flag:__ N
 `!passvote`  
 Passes current vote.
 
-__Flag:__ P
+**Flag:** P
 
 ---
 
@@ -287,7 +311,7 @@ __Flag:__ P
 `!rankings --season [season] --page [page] --page-size [page size]`  
 Prints timerun rankings. If no parameters are given, prints top **20** overall rankings.
 
-__Flag:__ a
+**Flag:** a
 
 ---
 
@@ -300,7 +324,7 @@ Prints timerun records with given parameters. If `[run name]` isn't specified, p
 
 _Note: `!ranks`, `!reconds`, `!times` and `!top` are all valid aliases for this command._
 
-__Flag:__ a
+**Flag:** a
 
 ---
 
@@ -308,7 +332,7 @@ __Flag:__ a
 `!rename [player] [new name]`  
 Renames target player.
 
-__Flag:__ R
+**Flag:** R
 
 ---
 
@@ -316,7 +340,15 @@ __Flag:__ R
 `!restart`  
 Restarts current map.
 
-__Flag:__ r
+**Flag:** r
+
+---
+
+## rtv
+`!rtv`  
+Calls Rock The Vote.
+
+**Flag:** a
 
 ---
 
@@ -324,7 +356,7 @@ __Flag:__ r
 `!seasons`  
 Lists all timerun seasons on the server.
 
-__Flag:__ a
+**Flag:** a
 
 ---
 
@@ -332,7 +364,7 @@ __Flag:__ a
 `!setlevel [player] [level] or -id [id] [level]`  
 Sets target player or player with id to level.
 
-__Flag:__ s
+**Flag:** s
 
 ---
 
@@ -340,7 +372,7 @@ __Flag:__ s
 `!spectate [player]`  
 Spectates target player.
 
-__Flag:__ a
+**Flag:** a
 
 ---
 
@@ -353,17 +385,17 @@ __Flag:__ a
 
 `!tokens delete [easy (e)|medium (m)|hard (h)] [1-6]` 
 
-Creates/deletes a collectible token with given parameters. You can create maximum of __6__ tokens per difficulty. `!tokens move` moves nearest token to your location. `!tokens delete` deletes a token nearest to your location.
+Creates/deletes a collectible token with given parameters. You can create maximum of **6** tokens per difficulty. `!tokens move` moves nearest token to your location. `!tokens delete` deletes a token nearest to your location.
 
-__Flag:__ V
+**Flag:** V
 
 ---
 
 ## unban
 `!unban [ban id]`  
-Removes ban with __ID__. __ID__ can be checked with the `!listbans` command.
+Removes ban with **ID**. **ID** can be checked with the `!listbans` command.
 
-__Flag:__ b
+**Flag:** b
 
 ---
 
@@ -371,7 +403,7 @@ __Flag:__ b
 `!unmute [player]`  
 Unmutes target player.
 
-__Flag:__ m
+**Flag:** m
 
 ---
 
@@ -379,7 +411,7 @@ __Flag:__ m
 `!userinfo [id]`  
 Prints information about user.
 
-__Flag:__ A
+**Flag:** A
 
 ---
 
@@ -389,6 +421,6 @@ Allows clients to execute any admin commands available to them silently, without
 
 *Note: Must be typed in console. Any output that the given command produces might still be visible to other clients.*
 
-__Flag:__ /
+**Flag:** /
 
 ---

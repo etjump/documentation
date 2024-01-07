@@ -172,7 +172,7 @@ There are two possible overbounce types:
 
 ### CGaz' strafeometer
 CGaz strafeometer is a tool that helps you to get correct angles when you are doing gamma jumps.
-There are __two__ different CGaz' strafeometers. You can switch between them by changing the value of `etj_drawCGaz`.
+There are __two__ different CGaz' strafeometers. You can switch between them by changing the value of `etj_drawCGaz`. The valus acts as a bitflag, so you can display both if you want to.
 
 * `etj_drawCGaz 1`  
 ![alt text](img/etj_drawCGaz5.png)
@@ -188,6 +188,7 @@ __Modifying CGaz HUD__
 * [etj_CGaz2Color1](client/etjump_cvars.md#etj_cgaz2color1)
 * [etj_CGaz2Color2](client/etjump_cvars.md#etj_cgaz2color2)
 * [etj_CGaz2FixedSpeed](client/etjump_cvars.md#etj_cgaz2fixedspeed)
+* [etj_CGaz2NoVelocityDir](client/etjump_cvars.md#etj_cgaz2novelocitydir)
 * [etj_CGazFov](client/etjump_cvars.md#etj_cgazfov)
 * [etj_CGazHeight](client/etjump_cvars.md#etj_cgazheight)
 * [etj_CGazTrueness](client/etjump_cvars.md#etj_cgaztrueness)
@@ -196,7 +197,7 @@ __Modifying CGaz HUD__
 
 ### Velocity Snapping HUD
 
-Velocity snapping HUD can be enabled with the cvar `etj_drawSnapHUD`. It lets you see the zones at which all acceleration is snapped to the same value/direction. This tool is ideally combined with `etj_drawCGaz 1`, to visualize the correct yaw angle for acceleration to occur. By keeping your crosshair in between the minimum angle (green line) of CGaz and the edge of the next snapzone, you will gain acceleration. The exact positioning of your crosshair doesn't matter - as long as the "in between" condition is met, acceleration occurs.
+Velocity snapping HUD can be enabled with the cvar `etj_drawSnapHUD`. It lets you see the zones at which all acceleration is snapped to the same value/direction. This tool is ideally combined with `etj_drawCGaz 1`, to visualize the correct yaw angle for acceleration to occur. By keeping your crosshair in between the minimum angle (green line) of CGaz and the edge of the next snapzone, you will gain acceleration. The exact positioning of your crosshair doesn't matter - as long as the "in between" condition is met, acceleration occurs. `etj_drawSnapHUD` accepts two values, **1** for drawing the full zones, **2** for only drawing the edges of the zones.
 
 ![alt text](img/snaphud.png)
 
@@ -204,6 +205,7 @@ __Modifying SnapHUD__
 
 * [etj_snapHUDColor1](client/etjump_cvars.md#etj_snaphudcolor1)
 * [etj_snapHUDColor2](client/etjump_cvars.md#etj_snaphudcolor2)
+* [etj_snapHUDEdgeThickness](client/etjump_cvars.md#etj_snaphudedgethickness)
 * [etj_snapHUDFov](client/etjump_cvars.md#etj_snaphudfov)
 * [etj_snapHUDHeight](client/etjump_cvars.md#etj_snaphudheight)
 * [etj_snapHUDHLActive](client/etjump_cvars.md#etj_snaphudhlactive)
