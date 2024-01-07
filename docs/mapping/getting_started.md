@@ -2,10 +2,10 @@
 Here you will find simple guide on how to start mapping for ETJump mod.
 
 ## Getting started
-To start mapping it's __HIGHLY RECOMMENDED__ to make a clean ET install seperate from your regular ET install. This way you won't accidentally use custom assets provided by other maps in your map. A third, untouched install could also come in handy when creating a pk3. This install should only be used to test if you have included every custom asset in your pk3.
+To start mapping it's **HIGHLY RECOMMENDED** to make a clean ET install seperate from your regular ET install. This way you won't accidentally use custom assets provided by other maps in your map. A third, untouched install could also come in handy when creating a pk3. This install should only be used to test if you have included every custom asset in your pk3.
 
 ## Tools
-To create maps, you need an id Tech 3 compatible level editor. Two of the most commonly used ones are __GtkRadiant__ and __NetRadiant__ (specifically netradiant-custom by Garux).
+To create maps, you need an id Tech 3 compatible level editor. Two of the most commonly used ones are **GtkRadiant** and **NetRadiant** (specifically netradiant-custom by Garux).
 
 You can download GtkRadiant [here](http://icculus.org/gtkradiant/).
 

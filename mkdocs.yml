@@ -7,6 +7,7 @@ nav:
   - 'Client Commands': 'client/client_commands.md'
 - 'Server':
   - 'Server CVars': 'server/server_cvars.md'
+  - 'Server Commands': 'server/server_commands.md'
   - 'Server Admin System': 'server/admin_system.md'
   - 'Setting Up Server': 'server/server_setup.md'
 - 'Mapping':

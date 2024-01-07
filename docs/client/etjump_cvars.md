@@ -8,7 +8,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 b_demo_lookat           | any integer   | -1
 
-Specifies an entity to focus freecam at on demo playback. __-1__ disables focus.
+Specifies an entity to focus freecam at on demo playback. **-1** disables focus.
 
 _Note: this cvar shares it's name with the ETPro variant for Camtrace 3D compatibility._
 
@@ -21,8 +21,8 @@ etj_ad_savePBOnly       | 0 or 1        | 0
 
 Whether or not autodemo should save a demo when finishing a timerun.
 
-* __0__ save all demos.
-* __1__ save only personal bests.
+* **0** save all demos.
+* **1** save only personal bests.
 
 ---
 
@@ -51,9 +51,9 @@ etj_altScoreboard       | 0 - 3         | 0
 
 Changes the scoreboard to an alternative one.  
 
-* __0__ default ETMain styled scoreboard.
-* __1__ and __2__ draw alternatively styled scoreboard.
-* __3__ draws a compact scoreboard with dynamic size and position adjustments.
+* **0** default ETMain styled scoreboard.
+* **1** and **2** draw alternatively styled scoreboard.
+* **3** draws a compact scoreboard with dynamic size and position adjustments.
 
 ---
 
@@ -64,8 +64,8 @@ etj_autoDemo            | 0 - 2         | 0
 
 Automatically start recording a demo whenever player loads (unless a timerun is active) or spawns.
 
-* __1__ enabled only for maps with a timerun.
-* __2__ enabled for all maps.
+* **1** enabled only for maps with a timerun.
+* **2** enabled for all maps.
 
 _Note: Autodemo will keep a maximum of 20 temp demos, located in `demos/temp` before it starts overwriting them._
 
@@ -80,12 +80,21 @@ Automatically load into last saved position when joining a team.
 
 ---
 
+## etj_autoPortalBinds
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_autoPortalBinds     | 0 or 1        | 0
+
+Automatically bind `+attack2` to `weapalt` key and back when equipping/unequipping portal gun.
+
+---
+
 ## etj_CGaz1Color1
 Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_CGaz1Color1         | [any color](../index.md#color-system) | 0.75 0.75 0.75 0.75
 
-Sets the no accel zone color of CGaz HUD __1__.
+Sets the no accel zone color of CGaz HUD **1**.
 
 ---
 
@@ -94,7 +103,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_CGaz1Color2         | [any color](../index.md#color-system) | 0.0 1.0 0.0 0.75
 
-Sets the minimum angle color of CGaz HUD __1__.
+Sets the minimum angle color of CGaz HUD **1**.
 
 ---
 
@@ -103,7 +112,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_CGaz1Color3         | [any color](../index.md#color-system) | 0.0 0.2 0.0 0.75
 
-Sets the accel zone color of CGaz HUD __1__.
+Sets the accel zone color of CGaz HUD **1**.
 
 ---
 
@@ -112,7 +121,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_CGaz1Color4         | [any color](../index.md#color-system) | 1.0 1.0 0.0 0.75
 
-Sets the max angle color of CGaz HUD __1__.
+Sets the max angle color of CGaz HUD **1**.
 
 ---
 
@@ -121,7 +130,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_CGaz2Color1          | [any color](../index.md#color-system) | 1.0 0.0 0.0 1.0
 
-Set the primary color of CGaz HUD __2__.
+Set the primary color of CGaz HUD **2**.
 
 ---
 
@@ -130,7 +139,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_CGaz2Color2          | [any color](../index.md#color-system) | 0.0 1.0 1.0 1.0
 
-Set the secondary color of CGaz HUD __2__.
+Set the secondary color of CGaz HUD **2**.
 
 ---
 
@@ -139,7 +148,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_CGaz2FixedSpeed     | 0 - 1200      | 0
 
-When set to higher than __0__, CGaz 2 will be drawn as if the player had the set amount of speed, instead of being adjusted by players real speed.
+When set to higher than **0**, CGaz 2 will be drawn as if the player had the set amount of speed, instead of being adjusted by players real speed.
 
 ---
 
@@ -155,9 +164,9 @@ Toggles drawing of velocity direction line on CGaz 2.
 ## etj_CGazFov
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_CGazFov             | 0 - 180       | 0
+etj_CGazFov             | 0 - 179       | 0
 
-Sets the FOV of CGaz HUD __1__. __0__ means use your current in-game FOV.
+Sets the FOV of CGaz HUD **1**. **0** means use your current in-game FOV.
 
 ---
 
@@ -166,7 +175,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_CGazHeight          | any integer   | 20
 
-Height of the CGaz HUD __1__.
+Height of the CGaz HUD **1**.
 
 ---
 
@@ -186,8 +195,8 @@ etj_CGazTrueness        | bitflag       | 2
 
 Set "trueness" flags on CGaz HUD.
 
-* __1__ Show upmove influence
-* __2__ Show true groundzones (CGaz 1 only)
+* **1** Show upmove influence
+* **2** Show true groundzones (CGaz 1 only)
 
 ---
 
@@ -196,7 +205,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_CGazY               | any integer   | 240
 
-Vertical position of CGaz HUD __1__.
+Vertical position of CGaz HUD **1**.
 
 ---
 
@@ -272,14 +281,131 @@ Draw shadow on chat.
 
 ---
 
-## etj_CHS1Info__X__
-Where __X__ stands for integer of __1__ to __8__ specifing text position on the circle.
+## etj_checkpointsCount
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_checkpointsCount    | 1-5           | 3
+
+How many checkpoints timers to draw.
+
+---
+
+## etj_checkpointsPopup
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_checkpointsPopup    | 0 or 1        | 1
+
+Toggle checkpoint popup on screen when hitting a checkpoint.
+
+_Note: This does not require the regular checkpoint timer to be visible._
+
+---
+
+## etj_checkpointsPopupDuration
+Name                         | values        | default
+-----------------------------|:-------------:|-------------
+etj_checkpointsPopupDuration | any integer   | 1000
+
+How long in milliseconds the checkpoint popup stays on screen.
+
+---
+
+## etj_checkpointsPopupSize
+Name                     | values        | default
+-------------------------|:-------------:|-------------
+etj_checkpointsPopupSize | any value     | 2
+
+Sets the size of the checkpoint popup.
+
+---
+
+## etj_checkpointsPopupShadow
+Name                       | values        | default
+---------------------------|:-------------:|-------------
+etj_checkpointsPopupShadow | 0 or 1        | 1
+
+Draw shadow on checkpoint popup.
+
+---
+
+## etj_checkpointsPopupX
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_checkpointsPopupX   | any value     | 320
+
+Sets X position of checkpoint popup.
+
+---
+
+## etj_checkpointsPopupY
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_checkpointsPopupY   | any value     | 200
+
+Sets Y position of checkpoint popup.
+
+---
+
+## etj_checkpointsShadow
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_checkpointsShadow   | 0 or 1        | 1
+
+Draw shadow on checkpoint timer.
+
+---
+
+## etj_checkpointsSize
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_checkpointsSize     | any value     | 2
+
+Sets the size of checkpoint timer.
+
+---
+
+## etj_checkpointsStyle
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_checkpointsStyle    | 0 or 1        | 0
+
+Sets the style of checkpoint timer.
+
+* **0** relative time
+* **1** absolute time
+
+---
+
+## etj_checkpointsX
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_checkpointsSizeX    | any value     | 320
+
+Sets the X position of checkpoint timer.
+
+_Note: Checkpoint timer must be in detached mode (`etj_drawCheckpoints 2`) to adjust the position._
+
+---
+
+## etj_checkpointsY
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_checkpointsSizeY    | any value     | 380
+
+Sets the Y position of checkpoint timer.
+
+_Note: Checkpoint timer must be in detached mode (`etj_drawCheckpoints 2`) to adjust the position._
+
+---
+
+## etj_CHS1Info**X**
+Where **X** stands for integer of **1** to **8** specifing text position on the circle.
 See full list of parameters [here](../index.md#chs).
 
 ---
 
-## etj_CHS2Info__X__
-Where __X__ stands for integer of __1__ to __8__ specifing text position in the list.
+## etj_CHS2Info**X**
+Where **X** stands for integer of **1** to **8** specifing text position in the list.
 See full list of parameters [here](../index.md#chs).
 
 ---
@@ -361,7 +487,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_consoleColor        | [any color](../index.md#color-system) | 0.0 0.0 0.0
 
-Change console background color when `etj_consoleShader` is set to __0__. Changing requires `vid_restart`.
+Change console background color when `etj_consoleShader` is set to **0**. Changing requires `vid_restart`.
 
 ---
 
@@ -458,9 +584,21 @@ Toggle drawing of banner prints.
 ## etj_drawCGaz
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_drawCGaz            | 0 - 2         | 0
+etj_drawCGaz            | bitflag       | 0
 
 Draws the CGaz HUD. Has 2 [different variations](../index.md#cgaz-strafeometer).
+
+---
+
+## etj_drawCheckpoints
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_drawCheckpoints     | 0 - 2        | 1
+
+Draws checkpoint timer.
+
+* **1** below runtimer 
+* **2** detached
 
 ---
 
@@ -478,7 +616,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_drawCHS2            | 0 - 2         | 0
 
-Draws crosshair stats 2. Value __2__ aligns text to the right. [More info](../index.md#chs).
+Draws crosshair stats 2. Value **2** aligns text to the right. [More info](../index.md#chs).
 
 ---
 
@@ -498,8 +636,8 @@ etj_drawClock           | 0 - 2        | 1
 
 Draws clock. 
 
-* __1__ `24-hour` clock 
-* __2__ `12-hour` clock
+* **1** `24-hour` clock 
+* **2** `12-hour` clock
 
 ---
 
@@ -537,11 +675,11 @@ etj_drawKeys            | 0 - 5         | 1
 
 Draws pressed keys. There are five different keysets available:
 
-* __1__ ETJump 1
-* __2__ DeFRaG default
-* __3__ ETJump 2
-* __4__ ETJump 3
-* __5__ Draw bound keys
+* **1** ETJump 1
+* **2** DeFRaG default
+* **3** ETJump 2
+* **4** ETJump 3
+* **5** Draw bound keys
 
 ---
 
@@ -570,8 +708,21 @@ etj_drawMessageTime     | 0 - 2         | 2
 
 Draw when a message was sent. 
 
-* __1__ for `hours:minutes` format 
-* __2__ for `hours:minutes:seconds` format.
+* **1** for `hours:minutes` format 
+* **2** for `hours:minutes:seconds` format.
+
+---
+
+## etj_drawNoclipIndicator
+Name                     | values        | default
+-------------------------|:-------------:|-------------
+etj_drawNoclipIndicator  | 0 - 3         | 3
+
+Draw no-noclip area indicator.
+
+* **1** always draw the icon.
+* **2** only draw the icon when outside of no-noclip brush.
+* **3** only draw the icon when inside of no-noclip brush.
 
 ---
 
@@ -584,8 +735,8 @@ Draw no jump delay surface detector.
 
 Symbol shown is different depending on the maps usage of worldspawn key `nojumpdelay`.
 
-* __ND__ when aiming at surface without jump delay while `nojumpdelay` is __0__.
-* __D__ when aiming at surface with jump delay while `nojumpdelay` is __1__.
+* **ND** when aiming at surface without jump delay while `nojumpdelay` is **0**.
+* **D** when aiming at surface with jump delay while `nojumpdelay` is **1**.
 
 ---
 
@@ -605,15 +756,15 @@ etj_drawOB              | 0 - 2         | 0
 
 Draws overbounce meter.
 
-* __1__ simple overbounce meter 
-* __2__ predict sticky overbounces
+* **1** simple overbounce meter 
+* **2** predict sticky overbounces
 
 Symbols meaning:
 
-* __J__ jump ob
-* __F__ fall ob
-* __B__ below ob
-* __S__ sticky ob
+* **J** jump ob
+* **F** fall ob
+* **B** below ob
+* **S** sticky ob
 
 _Note: sticky overbounces are never drawn on surfaces that are on the exact same height as you are currently, as it is always possible to get a sticky OB in such cases, and drawing it would mostly just be distracting._
 
@@ -639,9 +790,9 @@ etj_drawProneIndicator  | 0 - 3         | 3
 
 Draw prone area indicator.
 
-* __1__ always draw the icon.
-* __2__ only draw the icon when outside of noprone brush.
-* __3__ only draw the icon when inside of noprone brush.
+* **1** always draw the icon.
+* **2** only draw the icon when outside of noprone brush.
+* **3** only draw the icon when inside of noprone brush.
 
 ---
 
@@ -662,9 +813,9 @@ etj_drawSaveIndicator   | 0 - 3         | 3
 
 Draw save area indicator.
 
-* __1__ always draw the icon.
-* __2__ only draw the icon when outside of nosave brush.
-* __3__ only draw the icon when inside of nosave brush.
+* **1** always draw the icon.
+* **2** only draw the icon when outside of nosave brush.
+* **3** only draw the icon when inside of nosave brush.
 
 ---
 
@@ -674,7 +825,7 @@ Name                         | values        | default
 -----------------------------|:-------------:|-------------
 etj_drawScoreboardInactivity | 0 or 1        | 1
 
-Draw an idle indicator on scoreboard for clients who haven't registered an input for __3__ minutes.
+Draw an idle indicator on scoreboard for clients who haven't registered an input for **3** minutes.
 
 ---
 
@@ -724,11 +875,11 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_drawSpectatorInfo   | 0 - 3         | 0
 
-Draws a list of people spectating you.
+Draws a list of people spectating you. Idle spectators are drawn with sligtly transparent colors.
 
-* __1__ Left aligned
-* __2__ Center aligned
-* __3__ Right aligned
+* **1** Left aligned
+* **2** Center aligned
+* **3** Right aligned
 
 ---
 
@@ -737,7 +888,10 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_drawspeed           | 0 - 2         | 1
 
-Draws original ETPub-style speedometer, __2__ additionally draws max speed, that can be reset with `resetmaxspeed` command.
+Draws original ETPub-style speedometer, **2** additionally draws max speed, that can be reset with `resetmaxspeed` command.
+
+* **1** draw speed
+* **2** draw speed + maxspeed
 
 ---
 
@@ -748,18 +902,18 @@ etj_drawSpeed2          | 0 - 9         | 1
 
 Draws ETJump speedometer under the corsshair. Has several drawing options:
 
-* __1__ draws **current speed**
-* __2__ draws **speed** and **max speed** nearby  
-* __9__ displays only tens (ignores hundreds and thousands).
+* **1** draws **current speed**
+* **2** draws **speed** and **max speed** nearby  
+* **9** displays only tens (ignores hundreds and thousands).
 
 And several options to represent **speed** and **max speed**
 
-* __3__ speed **^z**max
-* __4__ speed **(**max**)**
-* __5__ speed **^z(**max**)**
-* __6__ speed **^z[**max**]**
-* __7__ speed **|** max
-* __8__ **Speed:** speed
+* **3** speed **^z**max
+* **4** speed **(**max**)**
+* **5** speed **^z(**max**)**
+* **6** speed **^z[**max**]**
+* **7** speed **|** max
+* **8** **Speed:** speed
 
 ---
 
@@ -797,9 +951,9 @@ etj_drawUpmoveMeter     | bitflag       | 0
 
 Draws upmove meter.
 
-* __0__ Off
-* __1__ Graph
-* __2__ Text
+* **0** Off
+* **1** Graph
+* **2** Text
 
 ---
 
@@ -808,7 +962,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_enableTimeruns      | 0 or 1        | 1
 
-Toggles timeruns. Having __0__ means don't activate any timerun timers on timerun supported map.
+Toggles timeruns. Having **0** means don't activate any timerun timers on timerun supported map.
 
 ---
 
@@ -828,10 +982,10 @@ etj_explosivesShake     | 0 - 3         | 3
 
 Controls screenshake from explosives.
 
-* __0__ disables screenshakes
-* __1__ disables for own explosives 
-* __2__ disables for other player's explosives
-* __3__ default behaviour
+* **0** disables screenshakes
+* **1** disables for own explosives 
+* **2** disables for other player's explosives
+* **3** default behaviour
 
 ---
 
@@ -842,14 +996,14 @@ etj_extraTrace          | bitflags      | 0
 
 Toggles tracing of playerclips on various detectors.
 
-* __1__ OB detector
-* __2__ Slick detector
-* __4__ No jump delay detector
-* __8__ CHS 10-11
-* __16__ CHS 12
-* __32__ CHS 13-15
-* __64__ CHS 16
-* __128__ CHS 53
+* **1** OB detector
+* **2** Slick detector
+* **4** No jump delay detector
+* **8** CHS 10-11
+* **16** CHS 12
+* **32** CHS 13-15
+* **64** CHS 16
+* **128** CHS 53
 
 The bitflags values can be listed in console with the command `/extraTrace`.
 
@@ -888,6 +1042,15 @@ Name                    | values        | default
 etj_fixedCompassShader  | 0 or 1        | 0
 
 Toggle overriding the shader used for compass in the map with a fixed, default shader which ensures that the corners of the compass will be correctly cropped. Original image is still used for drawing. This is mostly unnoticeable when enabled, but since it overrides the shader, it will break certain special command map shaders, such as the animated compass of Skacharohuth.
+
+---
+
+## etj_fixedCushionSteps
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_fixedCushionSteps   | 0 or 1        | 0
+
+Toggles playing correct step sounds when landing on a cushion brush.
 
 ---
 
@@ -1049,7 +1212,10 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_HUD_popup           | 0 - 2         | 1
 
-Enable popups. Value __2__ draws popups on right side.
+Toggles drawing of popup messages.
+
+* **1** draw left-aligned
+* **2** draw right-aligned
 
 ---
 
@@ -1105,7 +1271,7 @@ Name                      | values        | default
 --------------------------|:-------------:|-------------
 etj_jumpSpeedsMinSpeed    | any integer   | 0
 
-When set to higher than __0__, any jump slower than the set value will be colored with `etj_jumpSpeedsSlowerColor`. Works independently of `etj_jumpSpeedsShowDiff`.
+When set to higher than **0**, any jump slower than the set value will be colored with `etj_jumpSpeedsSlowerColor`. Works independently of `etj_jumpSpeedsShowDiff`.
 
 ---
 
@@ -1143,9 +1309,9 @@ etj_jumpSpeedsStyle       | bitflag       | 0
 
 Set various drawing options for jump speeds display.
 
-* __1__ draw horizontal list
-* __2__ hide label text
-* __4__ reversed list (latest jump first)
+* **1** draw horizontal list
+* **2** hide label text
+* **4** reversed list (latest jump first)
 
 ---
 
@@ -1237,9 +1403,9 @@ etj_lightmap            | 0-3           | 0
 
 Draw lightmaps on surfaces that have one. Unlocked version of `r_lightmap`.
 
-* __1__ draws regular lightmaps.
-* __2__ draws temperature colored lightmaps (`vid_restart` required).
-* __3__ draws inverted temperature colored lightmaps (`vid_restart` required).
+* **1** draws regular lightmaps.
+* **2** draws temperature colored lightmaps (`vid_restart` required).
+* **3** draws inverted temperature colored lightmaps (`vid_restart` required).
 
 ---
 
@@ -1311,7 +1477,25 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_noActivateLean      | 0 or 1        | 0
 
-Disables leaning when strafing and pressing activate in the same time.
+Disables leaning when strafing and pressing `+activate` at the same time.
+
+---
+
+## etj_noclipIndicatorX
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_noclipIndicatorX    | any value     | 615
+
+Sets X position of no-noclip indicator.
+
+---
+
+## etj_noclipIndicatorY
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_noclipIndicatorY    | any value     | 313
+
+Sets Y position of no-noclip indicator.
 
 ---
 
@@ -1430,7 +1614,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_offsetFactor        | any integer   | -1
 
-Set factor for `etj_offsetUnits` to control polygonOffset amount. Unlocked version of `r_offsetfactor`.
+Set factor for `etj_offsetUnits` to control `polygonOffset` amount. Unlocked version of `r_offsetfactor`.
 
 ---
 
@@ -1439,14 +1623,14 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_offsetUnits         | any integer   | -2
 
-Set distance from a shader with polygonOffset to the surface below it. Unlocked version of `r_offsetunits`.
+Set distance from a shader with `polygonOffset` to the surface below it. Unlocked version of `r_offsetunits`.
 
 ---
 
 ## etj_onRunStart
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_onRunStart          | any command(s) | 
+etj_onRunStart          | any text      | 
 
 Set of commands to be executed on timerun start.
 
@@ -1455,7 +1639,7 @@ Set of commands to be executed on timerun start.
 ## etj_onRunEnd
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_onRunEnd            | any command(s) | 
+etj_onRunEnd            | any text      | 
 
 Set of commands to be executed on timerun end.
 
@@ -1477,7 +1661,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_playerOpacity       | 0.0 - 1.0     | 1.0
 
-Controls transparency level for player models. __1.0__ is fully opaque.
+Controls transparency level for player models. **1.0** is fully opaque.
 
 ---
 
@@ -1506,8 +1690,8 @@ etj_popupGrouped        | 0 - 2         | 1
 
 Groups identical repetitive popup messages into one.
 
-* __1__ group popups, print duplicates in console.
-* __2__ group popups and console prints.
+* **1** group popups, print duplicates in console.
+* **2** group popups and console prints.
 
 ---
 
@@ -1570,11 +1754,11 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_projection          | 0 - 2         | 0
 
-Set projection type used for CGaz __1__ and SnapHUD.
+Set projection type used for CGaz **1** and SnapHUD.
 
-* __0__ rectilinear
-* __1__ cylindrical
-* __2__ panini
+* **0** rectilinear
+* **1** cylindrical
+* **2** panini
 
 ---
 
@@ -1603,8 +1787,8 @@ etj_quickFollow         | 0 - 2         | 2
 
 Spectate players by aiming at them and pressing `+activate`
 
-* __1__ enables quick follow.
-* __2__ additionally draws a hint under player name.
+* **1** enables quick follow.
+* **2** additionally draws a hint under player name.
 
 ---
 
@@ -1697,15 +1881,15 @@ etj_showTris            | 0 - 2         | 0
 Draws edges of triangles. Unlocked version of `r_showTris`. Functionality varies slightly depending on engine used.
 
 #### ET 2.60b
-* __1__ draws triangle edges on your current POV.
-* __2__ draws triangle edges on your current PVS.
+* **1** draws triangle edges on your current POV.
+* **2** draws triangle edges on your current PVS.
 
 #### ET: Legacy
-* Same as __ET 2.60b__, except 2D elements are ignored (e.g. HUD).
+* Same as **ET 2.60b**, except 2D elements are ignored (e.g. HUD).
 
 #### ETe
-* __1__ draws triangle edges, excluding 2D elements.
-* __2__ draws triangle edges, including 2D elements.
+* **1** draws triangle edges, excluding 2D elements.
+* **2** draws triangle edges, including 2D elements.
 * `r_trisMode` is used to toggle between POV/PVS drawing.
 
 ---
@@ -1769,7 +1953,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_snapHUDColor2       | 0 - 180       | 0
 
-Sets the FOV of the velocity snapping HUD. __0__ means use your current in-game FOV.
+Sets the FOV of the velocity snapping HUD. **0** means use your current in-game FOV.
 
 ---
 
@@ -1825,8 +2009,8 @@ etj_snapHUDTrueness     | bitflag       | 0
 
 Set "trueness" flags on velocity snapping HUD.
 
-* __1__ Show upmove influence
-* __2__ Show true groundzones
+* **1** Show upmove influence
+* **2** Show true groundzones
 
 ---
 
@@ -1873,9 +2057,9 @@ etj_speedAlign          | 0 - 2         | 0
 
 Set the alignment of ETJump speedometer.
 
-* __0__ Center
-* __1__ Left align
-* __2__ Right align
+* **0** Center
+* **1** Left align
+* **2** Right align
 
 ---
 
@@ -1924,13 +2108,13 @@ Output render statistics to console. Unlocked version of `r_speeds`.
 
 Different values output following information:
 
-* __1__ surfaces (always shown)
-* __2__ culling
-* __3__ viewcluster
-* __4__ dlights
-* __5__ render distance
-* __6__ flares
-* __7__ decals
+* **1** surfaces (always shown)
+* **2** culling
+* **3** viewcluster
+* **4** dlights
+* **5** render distance
+* **6** flares
+* **7** decals
 
 ---
 
@@ -1959,9 +2143,9 @@ etj_speedunit           | 0 - 2         | 0
 
 Speedometer 1 speed measure units. 
 
-* __0__ for UPS 
-* __1__ for MPH
-* __2__ for KPH
+* **0** for UPS 
+* **1** for MPH
+* **2** for KPH
 
 ---
 
@@ -2026,9 +2210,9 @@ etj_strafeQualityStyle  | 0 - 2         | 0
 
 Set the style of strafe quality display.
 
-* __0__ `Strafe quality: <value>%`
-* __1__ `<value>%`
-* __2__ `<value>`
+* **0** `Strafe quality: <value>%`
+* **1** `<value>%`
+* **2** `<value>`
 
 ---
 
@@ -2066,10 +2250,10 @@ etj_touchPickupWeapons  | 0 - 2         | 0
 
 Automatically pick up weapons by touching them.
 
-* __1__ only picks up weapons dropped by you or spawned in map.
-* __2__ picks up all weapons.
+* **1** only picks up weapons dropped by you or spawned in map.
+* **2** picks up all weapons.
 
-_Note: this cvar has no effect unless `cg_autoactivate` is set to __1__._
+_Note: this cvar has no effect unless `cg_autoactivate` is set to **1**._
 
 ---
 
@@ -2237,6 +2421,8 @@ etj_viewlog             | 0 or 1        | 1
 
 Toggles an external console window, mainly used for copy pasting etc. Unlocked version of `viewlog`.
 
+_Note: ET: Legacy client requires you to start the game with `+set viewlog 1`, the console window cannot be created while the game is running._
+
 ---
 
 ## etj_viewPlayerPortals
@@ -2246,9 +2432,9 @@ etj_viewPlayerPortals   | 0 - 2         | 1
 
 Toggles other players portals. 
 
-* __0__ don't show
-* __1__ always show
-* __2__ show when spectating
+* **0** don't show
+* **1** always show
+* **2** show when spectating
 
 ---
 
@@ -2275,7 +2461,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 etj_zFar                | any integer   | 0
 
-Set draw distance. Setting this to __0__ uses maps `farplanedist` value. Unlocked version of `r_zfar`.
+Set draw distance. Setting this to **0** uses maps `farplanedist` value. Unlocked version of `r_zfar`.
 
 ---
 
@@ -2304,7 +2490,7 @@ movie_fovMax            | any integer   | 140
 
 Maximum value FOV can increase to.
 
-_Note: values outside of __90-160__ require `developer 1`._
+_Note: values outside of **90-160** require `developer 1`._
 
 ---
 
@@ -2324,7 +2510,7 @@ movie_fovMin            | any integer   | 90
 
 Minimum value FOV can decrease to.
 
-_Note: values outside of __90-160__ require `developer 1`._
+_Note: values outside of **90-160** require `developer 1`._
 
 ---
 

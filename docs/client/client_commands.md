@@ -2,7 +2,7 @@
 Below is a list of all available ETJump related console commands for players.
 
 ## ad_save
-`ad_save [optional name]`
+`ad_save [optional name]`  
 Saves the current temp demo recorded by autodemo with the given name. The manually saved autodemo naming format is `playername_map_name[DD-MM-YY-HHMMSS]`. If no name is given, defaults to `demo`.
 
 _Note: This only saves the latest temp demo recorded with `etj_autoDemo`. If you are manually recording a demo and use this command, it will take the latest `temp/temp_N.dm_84` and save that. The manually recorded demo will be saved normally into whatever folder you're recording into, with the name it was recorded with._
@@ -10,7 +10,7 @@ _Note: This only saves the latest temp demo recorded with `etj_autoDemo`. If you
 ---
 
 ## await
-`await [frames] [command1] | [command2] | [command3]...`
+`await [frames] [command1] | [command2] | [command3]...`  
 Queues commands to be executed after `[frames]`. Unlike `wait`, this works asynchronously without interrupting other user actions.
 
 _Note: `await` cannot be used during timeruns, and queued commands are cleared when a timerun starts._
@@ -19,7 +19,7 @@ _Note: `await` cannot be used during timeruns, and queued commands are cleared w
 
 ## backup
 `backup [slot]`  
-Loads a backup slot. Possible slots __1__-__3__. If no slot is given, loads slot __1__.
+Loads a backup slot. Possible slots **1**-**3**. If no slot is given, loads slot **1**.
 
 ---
 
@@ -36,8 +36,8 @@ Prints the list of available CHS infos to console.
 ---
 
 ## class
-`class [class] [weapon]`
-Changes to class with weapon. Possible classes are __s__, __e__, __m__, __f__, __c__. Possible weapons are __1__-__7__.
+`class [class] [weapon]`  
+Changes to class with weapon. Possible classes are **s**, **e**, **m**, **f**, **c**. Possible weapons are **1**-**7**.
 
 ---
 
@@ -46,6 +46,12 @@ Changes to class with weapon. Possible classes are __s__, __e__, __m__, __f__, _
 Clears users saved positions in all slots.
 
 _Note: Removes saved slots on both teams._
+
+---
+
+## customvotes, listinfo
+`customvotes [list]`  
+Lists all callvote custom map vote lists. If `[list]` is given, lists the maps on the specified list.
 
 ---
 
@@ -91,21 +97,15 @@ Same as call.
 
 ---
 
-## listinfo
-`listinfo [map list]`  
-Lists all callvote randommap map lists. If a map is given, lists the maps on the list.
-
----
-
 ## listspawnpt
 `listspawnpt`  
-Lists all valid spawnpoints in the map. The value in __[brackets]__ indicates the spawnpoint number (used with `setspawnpt`) and the letters __A__ and __X__ indicate if the spawnpoint belongs to Allies or Axis, respectively.
+Lists all valid spawnpoints in the map. The value in **[brackets]** indicates the spawnpoint number (used with `setspawnpt`) and the letters **A** and **X** indicate if the spawnpoint belongs to Allies or Axis, respectively.
 
 ---
 
 ## load
 `load [slot]`  
-Loads a previously saved position. Possible slots __0__-__2__. If no slot is given, loads slot __0__.
+Loads a previously saved position. Possible slots **0**-**2**. If no slot is given, loads slot **0**.
 
 ---
 
@@ -146,9 +146,12 @@ Toggles whether other players can teleport to you.
 
 ---
 
-## ob_save, ob_reset
-`ob_save`, `ob_reset`  
-Saves/resets current coordinates for overbounce watcher.
+## ob_save, ob_load, ob_reset, ob_list
+`ob_save [name]`  
+`ob_load [name]`  
+`ob_reset`  
+`ob_list`  
+Manages overbounce watcher coordinates. `ob_save [name]` will save a coordinate with the given name. `ob_load [name]` loads a saved coordinate with given name. `ob_reset` clears all saved positions. `ob_list` displays all saved coordinates.
 
 ---
 
@@ -200,15 +203,21 @@ Resets the upmove meter display. This command is automatically executed upon dea
 
 ---
 
+## rtvVote
+`rtvVote [number]`  
+Casts a vote for the map specified by `[number]` in an ongoing Rock The Vote.
+
+---
+
 ## save
 `save [slot]`  
-Saves current position. Possible slots __0__-__2__. If no slot is given, slot is __0__.
+Saves current position. Possible slots **0**-**2**. If no slot is given, slot is **0**.
 
 ---
 
 ## setoffset
 `setoffset [X Y Z]`  
-Offsets your position by the amount of units on each vector. Usage requires access to `noclip`. Maximum offset value per vector is __4096__.
+Offsets your position by the amount of units on each vector. Usage requires access to `noclip`. Maximum offset value per vector is **4096**.
 
 ---
 
@@ -232,7 +241,7 @@ Locks/unlocks you from spectators. When locked, use `specinvite/specuninvite` to
 
 ## tracker_print
 `tracker_print [index1|all] [index2] [index3]...`  
-Prints your current tracker values on given indices. Special case `all` prints tracker values on every index. If no index is specified, defaults to index __1__.
+Prints your current tracker values on given indices. Special case `all` prints tracker values on every index. If no index is specified, defaults to index **1**.
 
 _Note: Usage of this command requires the server to have `g_debugTrackers 1`. Timerun records are not saved when tracker debugging is enabled._
 
@@ -240,7 +249,7 @@ _Note: Usage of this command requires the server to have `g_debugTrackers 1`. Ti
 
 ## tracker_set
 `tracker_set [index|all] [value]`  
-Sets your tracker on given index to specified value. Special case `all` sets specified value in all indices. If no index is specified, defaults to index __1__.
+Sets your tracker on given index to specified value. Special case `all` sets specified value in all indices. If no index is specified, defaults to index **1**.
 
 _Note: Usage of this command requires the server to have `g_debugTrackers 1`. Timerun records are not saved when tracker debugging is enabled._
 

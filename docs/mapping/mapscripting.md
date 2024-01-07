@@ -152,11 +152,17 @@ These mapscript actions have been removed from ETJump as they can be used for ma
 ---
 
 ## damageplayer
-`damageplayer <damage>`
+`damageplayer [damage]`
 
 Damages player by given amount. Damage is halved if the player has `etj_nofatigue 1` due to it giving player constant adrenaline.
 
 _Note: This script action **must** be called via `target_script_trigger` entity to pass activator data._
+
+---
+
+## etjump_manager
+
+Acts as an entry point for mapscript. If a map contains no `script_multiplayer` or any entities with a `scriptname` set, you can use this script block to access mapscripting in a map, e.g. spawn in entities using [create](#create). This is only present in maps which do not provide `script_multiplayer` or entities with a `scriptname` set.
 
 ---
 
@@ -178,7 +184,7 @@ _Note: This script action **must** be called via `target_script_trigger` entity 
 ---
 
 ## setplayerautospawn
-`setplayerautospawn <objective description>`
+`setplayerautospawn [objective description]`
 
 Sets the activating players auto spawnpoint to specified spawnpoint. `objective description` is the `description` key of `team_WOLF_objective` (visible next to the clickable flag on command map). Spawnpoint name must be inside quotes if it contains spaces (eg. `setplayerautospawn "Forward Bunker"`).
 
@@ -187,7 +193,7 @@ _Note: This script action **must** be called via `target_script_trigger` entity 
 ---
 
 ## setplayerspawn
-`setplayerspawn <objective description>`
+`setplayerspawn [objective description]`
 
 Sets the activating players current spawnpoint to specified spawnpoint. `objective description` is the `description` key of `team_WOLF_objective` (visible next to the clickable flag on command map). Spawnpoint name must be inside quotes if it contains spaces (eg. `setplayerspawn "Forward Bunker"`).
 
@@ -246,5 +252,21 @@ _Note: when `g_scriptDebug` is set to **1**, this entitys bounding box will be d
 Used for spawning a `trigger_stoptimer` entity. You must set `mins`, `maxs` and `origin` keys for this manually. Supports same entity keys and spawnflags as regular `target/trigger_stoptimer`.
 
 _Note: when `g_scriptDebug` is set to **1**, this entitys bounding box will be drawn in blue._
+
+---
+
+## wm_announce
+
+`wm_announce [message]`
+
+Prints a popup messages for all players. `%s` can be used to print out activators name, if activated through an entity that carries the activator data, such as `target_script_trigger` or `trigger_multiple`.
+
+---
+
+## wm_announce_private
+
+`wm_announce_private [message]`
+
+Prints a popup messages for the activator only. `%s` can be used to print out activators name. Must be activated through an entity that carries the activator data, such as `target_script_trigger` or `trigger_multiple`.
 
 ---

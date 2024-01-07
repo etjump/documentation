@@ -12,6 +12,15 @@ Logs admin commands in a separate log if `g_log` is set.
 
 ---
 
+## g_autoRtv
+Name                    | values        | default
+------------------------|:-------------:|-------------
+g_autoRtv               | 0 - 1440      | 0
+
+Sets the interval for calling automatic Rock The Vote, in minutes.
+
+---
+
 ## g_banDatabase
 Name                    | values        | default
 ------------------------|:-------------:|-------------
@@ -37,10 +46,10 @@ g_bannerLocation        | 0 - 3         | 1
 
 Sets the location where banners are printed.
 
-* __0__ for center print, 
-* __1__ for top print, 
-* __2__ for chat print, 
-* __3__ for left print.
+* **0** for center print, 
+* **1** for top print, 
+* **2** for chat print, 
+* **3** for left print.
 
 ---
 
@@ -69,8 +78,8 @@ g_blockCheatCvars       | bitflag       | 0
 
 Blocks usage of certain cvars that can be used to cheat.
 
-* __1__ forces `cl_yawspeed 0` & `cl_freelook 1`
-* __2__ forces `com_maxfps 25-125` if user has `pmove_fixed 0`
+* **1** forces `cl_yawspeed 0` & `cl_freelook 1`
+* **2** forces `com_maxfps 25-125` if user has `pmove_fixed 0`
 
 ---
 
@@ -135,8 +144,8 @@ g_debugTrackers         | 0 or 1        | 0
 
 Toggles tracker debugging. When enabled, all tracker changes are printed to players. Additionally, players gain access to following commands:
 
-* `tracker_print [index1|all] [index2] [index3]...` prints tracker values on specified or all indices. If index isn't specified, defaults to index __1__.
-* `tracker_set [index|all] [value]` sets tracker on specified index to specified value. If index is not specified, defaults to index __1__.
+* `tracker_print [index1|all] [index2] [index3]...` prints tracker values on specified or all indices. If index isn't specified, defaults to index **1**.
+* `tracker_set [index|all] [value]` sets tracker on specified index to specified value. If index is not specified, defaults to index **1**.
 
 Timerun records are not saved when tracker debugging is enabled.
 
@@ -264,21 +273,20 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 g_moverScale            | 0.1 - 5.0     | 1.0
 
-Scales movement speed of vehicles. Can be also accessed with `!moverscale` admin command.
+Scales movement speed of vehicles. Can be also accessed with [`!moverscale`](./admin_system.md#moverscale) admin command.
 
 ---
 
 ## g_mute
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-g_mute                  | 0 - 3         | 0
+g_mute                  | bitflag       | 0
 
 Mute behaviour. 
 
-* __0__ default behaviour. 
-* __1__ disable private messages. 
-* __2__ disable callvote. 
-* __3__ disable both.
+* **0** default behaviour, cannot send chat messages
+* **1** disable private messages
+* **2** disable callvote
 
 ---
 
@@ -287,7 +295,7 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 g_nameChangeInterval    | any integer   | 60
 
-How often in seconds is the name change limit reseted.
+How often in seconds is the name change limit reset.
 
 ---
 
@@ -325,16 +333,16 @@ g_oss                   | bitflag       | 399
 
 Indicates operating systems and architectures supported by the mod. This cvar is read-only, and is used by ET: Legacy server browser to filter out incompatible servers for clients architecture.
 
-* __0__ vanilla/unknown/ET: Legacy auto setup
-* __1__ Windows x86
-* __2__ Linux x86
-* __4__ Linux x86_64
-* __8__ macOS x86_64
-* __16__ Android aarch64
-* __32__ Raspberry Pi arm
-* __64__ Raspberry Pi aarch64
-* __128__ macOS aarch64 (M1)
-* __256__ Windows x86_64
+* **0** vanilla/unknown/ET: Legacy auto setup
+* **1** Windows x86
+* **2** Linux x86
+* **4** Linux x86_64
+* **8** macOS x86_64
+* **16** Android aarch64
+* **32** Raspberry Pi arm
+* **64** Raspberry Pi aarch64
+* **128** macOS aarch64 (M1)
+* **256** Windows x86_64
 
 ---
 
@@ -354,8 +362,8 @@ g_portalMode            | 0 or 1        | 1
 
 Toggles restricted portal gun mode. 
 
-* __0__ to give portal gun to players on spawn. 
-* __1__ to disable.
+* **0** to give portal gun to players on spawn. 
+* **1** to disable.
 
 ---
 
@@ -365,6 +373,15 @@ Name                    | values        | default
 g_raceDatabase          | filename      | races.db
 
 File where information about races is stored in. Filename is currently hardcoded into mod and cannot be changed.
+
+---
+
+## g_rtvMaxMaps
+Name                    | values        | default
+------------------------|:-------------:|-------------
+g_rtvMaxMaps            | 2 - 9         | 5
+
+Sets the amount of maps to include in a Rock The Vote.
 
 ---
 
@@ -384,8 +401,8 @@ g_spectatorVote         | 0 - 2         | 0
 
 Toggles spectator voting.
 
-* __1__ spectators can cast votes.
-* __2__ spectators can also call votes.
+* **1** spectators can cast votes.
+* **2** spectators can also call votes.
 
 _Note: Only spectators who participate in voting are taken into account by `vote_percent` cvar, to prevent votes never passing on servers with multiple idle spectators._
 
@@ -454,6 +471,15 @@ Toggles whether players spawn with weapons or just knife.
 
 ---
 
+## vote_allow_autoRtv
+Name                    | values        | default
+------------------------|:-------------:|-------------
+vote_allow_rtv          | 0 or 1        | 1
+
+Toggles whether players can vote for changing the interval of automatic Rock The Vote.
+
+---
+
 ## vote_allow_randommap
 Name                    | values        | default
 ------------------------|:-------------:|-------------
@@ -463,10 +489,28 @@ Toggles whether players can vote for a random map.
 
 ---
 
+## vote_allow_rtv
+Name                    | values        | default
+------------------------|:-------------:|-------------
+vote_allow_rtv          | 0 or 1        | 1
+
+Toggles whether players can vote for Rock The Vote.
+
+---
+
+## vote_minRtvDuration
+Name                    | values        | default
+------------------------|:-------------:|-------------
+vote_minRtvDuration     | 1000 - 29000  | 15000
+
+Minimum time in milliseconds Rock The Vote must active before passing.
+
+---
+
 ## vote_minVoteDuration
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-vote_minVoteDuration    | any integer   | 5000
+vote_minVoteDuration    | 1000 - 29000  | 5000
 
 Minimum time in milliseconds a vote must active before passing.
 
