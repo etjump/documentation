@@ -345,6 +345,8 @@ Spawnflag  | Description
 
 By default, timeruns are reset on team change, death and if client sets `pmove_fixed 0`. If **ANY** spawnflags are set, you must explicitly specify the reset conditions.
 
+Runs that don't reset on team change are still reset if the player goes to spectate.
+
 Starting a timerun performs the following actions to the activating player:
 
 * Removes explosive weapons and flamethrower

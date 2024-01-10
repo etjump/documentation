@@ -329,7 +329,7 @@ Toggles nofatigue for players.
 ## g_oss
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-g_oss                   | bitflag       | 399
+g_oss                   | bitflag       | 271
 
 Indicates operating systems and architectures supported by the mod. This cvar is read-only, and is used by ET: Legacy server browser to filter out incompatible servers for clients architecture.
 
