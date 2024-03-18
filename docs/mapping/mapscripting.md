@@ -156,7 +156,7 @@ These mapscript actions have been removed from ETJump as they can be used for ma
 
 Damages player by given amount. Damage is halved if the player has `etj_nofatigue 1` due to it giving player constant adrenaline.
 
-_Note: This script action **must** be called via `target_script_trigger` entity to pass activator data._
+_Note: This script action **must** be called via an entity that passes activator data._
 
 ---
 
@@ -179,7 +179,7 @@ _Note: when `g_scriptDebug` is set to **1**, this entitys bounding box will be d
 
 Kills the player as if they used `/kill` command.
 
-_Note: This script action **must** be called via `target_script_trigger` entity to pass activator data._
+_Note: This script action **must** be called via an entity that passes activator data._
 
 ---
 
@@ -188,7 +188,7 @@ _Note: This script action **must** be called via `target_script_trigger` entity 
 
 Sets the activating players auto spawnpoint to specified spawnpoint. `objective description` is the `description` key of `team_WOLF_objective` (visible next to the clickable flag on command map). Spawnpoint name must be inside quotes if it contains spaces (eg. `setplayerautospawn "Forward Bunker"`).
 
-_Note: This script action **must** be called via `target_script_trigger` entity to pass activator data._
+_Note: This script action **must** be called via an entity that passes activator data._
 
 ---
 
@@ -197,7 +197,29 @@ _Note: This script action **must** be called via `target_script_trigger` entity 
 
 Sets the activating players current spawnpoint to specified spawnpoint. `objective description` is the `description` key of `team_WOLF_objective` (visible next to the clickable flag on command map). Spawnpoint name must be inside quotes if it contains spaces (eg. `setplayerspawn "Forward Bunker"`).
 
-_Note: This script action **must** be called via `target_script_trigger` entity to pass activator data._
+_Note: This script action **must** be called via an entity that passes activator data._
+
+---
+
+## tracker
+`tracker [(optional) index] [command] [value]`
+
+Manipulates or checks activators tracker values. If index is not set, defaults to index **1**.
+
+Command                | Description
+-----------------------|:-----------------------
+set                    | Sets activators tracker value
+inc                    | Increases tracker value
+abort_if_less_than     | Abort script execution is activators tracker value is less than specified
+abort_if_greater_than  | Abort script execution is activators tracker value is greater than specified
+abort_if_not_equal     | Abort script execution is activators tracker value not equal to specified value
+abort_if_equal         | Abort script execution is activators tracker value is equal to specified value
+bitset                 | Sets activators tracker bit
+bitreset               | Resets activator tracker bit
+abort_if_bitset        | Abort script execution is activators tracker value has specified bit set
+abort_if_not_bitset    | Abort script execution is activators tracker value does not have specified bit set
+
+_Note: This script action **must** be called via an entity that passes activator data._
 
 ---
 
@@ -252,6 +274,14 @@ _Note: when `g_scriptDebug` is set to **1**, this entitys bounding box will be d
 Used for spawning a `trigger_stoptimer` entity. You must set `mins`, `maxs` and `origin` keys for this manually. Supports same entity keys and spawnflags as regular `target/trigger_stoptimer`.
 
 _Note: when `g_scriptDebug` is set to **1**, this entitys bounding box will be drawn in blue._
+
+---
+
+## usetarget
+
+Activates targeted entities. Same as `alertentity`, but passes the activator data to the target(s).
+
+_Note: This script action **must** be called via an entity that passes activator data._
 
 ---
 

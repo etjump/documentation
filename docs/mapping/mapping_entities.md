@@ -66,7 +66,46 @@ noise            | path to .wav      |               | Sound to play on activati
 volume           | any integer       | 255           | Volume of activation sound.
 
 **Spawnflags:**
+
+Spawnflag  | Description
+:---------:|:-----------
+8          | Pass activator data to mapscript.
+
+---
+
+## func_missilepad
+Explodes hand and rifle grenades and fires target(s) upon impact.
+
+**Keys**
+
+Key              | Values            | Default       | Description
+-----------------|:-----------------:|---------------|------------
+scale            | any value         | 1.0           | Scales the knockback given from the explosion.
+noise            | path to .wav      |               | Sound to play on activation.
+volume           | any integer       | 255           | Volume of activation sound.
+
+**Spawnflags:**
+
+Spawnflag  | Description
+:---------:|:-----------
+1          | Start the entity as non-existent, if targeted, it will toggle existence when triggered.
+2          | Applies `scale` only to horizontal velocity.
+4          | Applies `scale` only to vertical velocity.
+
+_Note: Only direct impact fires targets, splash damage is ignored. Using this entity does not fire targets._
+
+---
+
+## func_portaltarget
+A brush model that spawns portalgun portals shot on it always on the same position.
+
+**Keys**
 _None_
+
+**Spawnflags:**
+_None_
+
+_Note: The portals are centered on the plane where they spawn either on an explicit origin set by an origin brush, or using the entity's center position. The surfaces should have the correct surfaceparm directly. Due to how traces work with bmodels, using a separate portalsurface-brush is unlikely to work._
 
 ---
 
@@ -414,16 +453,20 @@ tracker_eq       | 1,1&#124;2,1&#124;3,1 | trackers on indices 1, 2 and 3 have t
 
 **Keys**
 
-Key              | Values            | Default       | Description
------------------|:-----------------:|---------------|------------
-tracker_eq       | [index,value]     | 1,-1          | Tracker activates targets if specified tracker value matches the player's tracker value.
-tracker_not_eq   | [index,value]     | 1,-1          | Tracker activates targets if specified tracker value does not match the player's tracker value.
-tracker_gt       | [index,value]     | 1,-1          | Tracker activates targets if player's tracker value is greater than specified value.
-tracker_lt       | [index,value]     | 1,-1          | Tracker activates targets if player's tracker value is less than the specified value.
-tracker_set      | [index,value]     | 1,-1          | Tracker sets player's tracker value to the specified value.
-tracker_set_if   | [index,value]     | 1,-1          | Tracker sets player's tracker value to the specified value if conditions from `tracker_eq`, `tracker_not_eq`, `tracker_gt` or `tracker_lt` are met.
-tracker_inc      | [index,value]     | 1,0           | Tracker increases player's tracker value by the specified value.
-tracker_inc_if   | [index,value]     | 1,0           | Tracker increases player's tracker value by the specified value if conditions from `tracker_eq`, `tracker_not_eq`, `tracker_gt` or `tracker_lt` are met.
+Key                 | Values            | Default       | Description
+--------------------|:-----------------:|---------------|------------
+tracker_eq          | [index,value]     |               | Tracker activates targets if specified tracker value matches the player's tracker value.
+tracker_not_eq      | [index,value]     |               | Tracker activates targets if specified tracker value does not match the player's tracker value.
+tracker_gt          | [index,value]     |               | Tracker activates targets if player's tracker value is greater than specified value.
+tracker_lt          | [index,value]     |               | Tracker activates targets if player's tracker value is less than the specified value.
+tracker_set         | [index,value]     |               | Tracker sets player's tracker value to the specified value.
+tracker_set_if      | [index,value]     |               | Tracker sets player's tracker value to the specified value if conditions from `tracker_eq`, `tracker_not_eq`, `tracker_gt` or `tracker_lt` are met.
+tracker_inc         | [index,value]     |               | Tracker increases player's tracker value by the specified value.
+tracker_inc_if      | [index,value]     |               | Tracker increases player's tracker value by the specified value if conditions from `tracker_eq`, `tracker_not_eq`, `tracker_gt` or `tracker_lt` are met.
+tracker_bit_set     | [index,value]     |               | Tracker sets players tracker bit to specified value.
+tracker_bit_reset   | [index,value]     |               | Tracker resets players tracker bit.
+tracker_bit_is_set  | [index,value]     |               | Tracker activates targets if player's tracker bit is set.
+tracker_bit_not_set | [index,value]     |               | Tracker activates targets if player's tracker bit is not set.
 
 **Spawnflags:**
 _None_
@@ -441,6 +484,7 @@ Key              | Values            | Default       | Description
 -----------------|:-----------------:|:-------------:|------------
 speed            | any integer       | 1000          | Speed at which player is launched. No effect if aimed at an entity.
 noise            | path to .wav      | nosound       | Sound to play on activation.
+wait             | any integer       | 100           | Milliseconds to wait before re-activation.
 
 **Spawnflags**
 
@@ -448,6 +492,46 @@ Spawnflag  | Description
 :---------:|:-----------
 2          | Horizontal speed is additive.
 4          | Vertical speed is additive.
+
+---
+
+## weapon_grenadelauncher
+Spawns an Axis hand grenade at the location.
+
+**Keys:**
+
+Key              | Values            | Default       | Description
+-----------------|:-----------------:|:-------------:|------------
+count            | any integer       | 0             | Amount of ammo to give
+
+**Spawnflags**
+
+Spawnflag  | Description
+:---------:|:-----------
+1          | Spawns on the entitys location and does not fall to the ground.
+4          | Bobs up and down.
+
+_Note: unlike other weapon entities, this respects the maximum grenade limits of classes._
+
+---
+
+## weapon_grenadepineapple
+Spawns an Allied hand grenade at the location.
+
+**Keys:**
+
+Key              | Values            | Default       | Description
+-----------------|:-----------------:|:-------------:|------------
+count            | any integer       | 0             | Amount of ammo to give
+
+**Spawnflags**
+
+Spawnflag  | Description
+:---------:|:-----------
+1          | Spawns on the entitys location and does not fall to the ground.
+4          | Bobs up and down.
+
+_Note: unlike other weapon entities, this respects the maximum grenade limits of classes._
 
 ---
 
@@ -463,6 +547,8 @@ Spawnflag  | Description
 :---------:|:-----------
 2          | Spins around it's axis.
 4          | Bobs up and down.
+
+_Note: this entity does not fall to the ground._
 
 ---
 

@@ -185,6 +185,7 @@ __Modifying CGaz HUD__
 * [etj_CGaz1Color2](client/etjump_cvars.md#etj_cgaz1color2)
 * [etj_CGaz1Color3](client/etjump_cvars.md#etj_cgaz1color3)
 * [etj_CGaz1Color4](client/etjump_cvars.md#etj_cgaz1color4)
+* [etj_CGaz1DrawSnapZone](client/etjump_cvars.md#etj_cgaz1drawsnapzone)
 * [etj_CGaz2Color1](client/etjump_cvars.md#etj_cgaz2color1)
 * [etj_CGaz2Color2](client/etjump_cvars.md#etj_cgaz2color2)
 * [etj_CGaz2FixedSpeed](client/etjump_cvars.md#etj_cgaz2fixedspeed)
@@ -203,6 +204,7 @@ Velocity snapping HUD can be enabled with the cvar `etj_drawSnapHUD`. It lets yo
 
 __Modifying SnapHUD__
 
+* [etj_snapHUDActiveIsPrimary](client/etjump_cvars.md#etj_snaphudactiveisprimary)
 * [etj_snapHUDColor1](client/etjump_cvars.md#etj_snaphudcolor1)
 * [etj_snapHUDColor2](client/etjump_cvars.md#etj_snaphudcolor2)
 * [etj_snapHUDEdgeThickness](client/etjump_cvars.md#etj_snaphudedgethickness)
