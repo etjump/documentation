@@ -332,6 +332,8 @@ _Note: `!ranks`, `!reconds`, `!times` and `!top` are all valid aliases for this 
 `!rename [player] [new name]`  
 Renames target player.
 
+_Note: unless you're targeting yourself, this does not decrease the name change limit defined by [`g_nameChangeLimit`](server_cvars.md/#g_namechangelimit)._
+
 **Flag:** R
 
 ---
@@ -345,8 +347,8 @@ Restarts current map.
 ---
 
 ## rtv
-`!rtv`  
-Calls Rock The Vote.
+`!rtv [(optional) list]`  
+Calls Rock The Vote. If `list` is set, only maps from the specified custom map vote list are included in the vote.
 
 **Flag:** a
 

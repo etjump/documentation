@@ -4,20 +4,19 @@ The following ETMain cvars have been modified or extended by ETJump.
 
 ---
 
-## cg_drawCrosshair
+## cg_autoswitch
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-cg_drawCrosshair        | 0 - 16        | 1
+cg_autoswitch           | bitflag       | 0
 
-ETJump includes additional crosshairs.
+Controls the behavior of automatic weapon switching.
 
-* **10** Vertical line
-* **11** Cross
-* **12** Diagonal cross
-* **13** V-shape
-* **14** Triangle
-* **15** T-shape
-* **16** Two vertical lines
+* **0** disable autoswitching
+* **1** enable autoswitch (required for other options)
+* **2** don't autoswitch unless replacing currently held weapon
+* **4** disable autoswitching to portalgun
+
+_ETJump has added additional control to the behavior of this cvar._
 
 ---
 
@@ -62,6 +61,23 @@ cg_crosshairSize        | any value     | 0
 Offsets crosshairs vertical position
 
 _ETJump allows using floating point values for this cvar._
+
+---
+
+## cg_drawCrosshair
+Name                    | values        | default
+------------------------|:-------------:|-------------
+cg_drawCrosshair        | 0 - 16        | 1
+
+ETJump includes additional crosshairs.
+
+* **10** Vertical line
+* **11** Cross
+* **12** Diagonal cross
+* **13** V-shape
+* **14** Triangle
+* **15** T-shape
+* **16** Two vertical lines
 
 ---
 

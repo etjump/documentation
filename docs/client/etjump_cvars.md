@@ -14,6 +14,93 @@ _Note: this cvar shares it's name with the ETPro variant for Camtrace 3D compati
 
 ---
 
+## etj_accelAlign
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_accelAlign          | 0 - 2         | 0
+
+Set the alignment acceleration meter.
+
+* **0** Center
+* **1** Left align
+* **2** Right align
+
+---
+
+## etj_accelAlpha
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_accelAlpha          | 0.0 - 1.0     | 1.0
+
+Sets alpha of acceleration meter.
+
+---
+
+## etj_accelColor
+Name                    | values                                | default
+------------------------|:-------------------------------------:|-------------
+etj_accelColor          | [any color](../index.md#color-system) | white
+
+Sets color of acceleration meter.
+
+_Note: use [`etj_accelAlpha`](etjump_cvars.md/#etj_accelalpha) to set alpha._
+
+---
+
+## etj_accelColorUsesAccel
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_accelColorUsesAccel | 0 - 2         | 0
+
+Changes acceleration meter color to represent acceleration or deceleration.
+
+* **1** simple, green if accelerating, red if decelerating, white if no input
+* **2** advanced, takes into account per vector and current movement direction
+    * green - optimal acceleration
+    * yellow - suboptimal acceleration relative to movement direction
+    * red - no acceleration towards movement direction
+    * white - no input
+
+_Note: due to inaccuracies in interpolation, advanced coloring is disabled while spectating and in demo playback, and simple acceleration coloring is used instead._
+
+---
+
+## etj_accelShadow
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_accelShadow         | 0 or 1        | 1
+
+Toggle shadow on acceleration meter.
+
+---
+
+## etj_accelSize
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_accelSize           | any value     | 3
+
+Sets size of acceleration meter.
+
+---
+
+## etj_accelX
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_accelSize           | any value     | 320
+
+Sets X position of acceleration meter.
+
+---
+
+## etj_accelY
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_accelSize           | any value     | 340
+
+Sets Y position of acceleration meter.
+
+---
+
 ## etj_ad_savePBOnly
 Name                    | values        | default
 ------------------------|:-------------:|-------------
@@ -83,7 +170,7 @@ Automatically load into last saved position when joining a team.
 ## etj_autoPortalBinds
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_autoPortalBinds     | 0 or 1        | 0
+etj_autoPortalBinds     | 0 or 1        | 1
 
 Automatically bind `+attack2` to `weapalt` key and back when equipping/unequipping portal gun.
 
@@ -125,6 +212,15 @@ Sets the max angle color of CGaz HUD **1**.
 
 ---
 
+## etj_CGaz1DrawSnapZone
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_CGaz1DrawSnapZone   | 0 or 1        | 0
+
+Extends minline drawing on CGaz 1 to the end of the current snap zone.
+
+---
+
 ## etj_CGaz2Color1
 Name                    | values        | default
 ------------------------|:-------------:|-------------
@@ -155,9 +251,12 @@ When set to higher than **0**, CGaz 2 will be drawn as if the player had the set
 ## etj_CGaz2NoVelocityDir
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_CGaz2NoVelocityDir  | 0 or 1        | 0
+etj_CGaz2NoVelocityDir  | 0 - 2         | 0
 
-Toggles drawing of velocity direction line on CGaz 2.
+Controls drawing of velocity direction line on CGaz 2.
+
+* **1** never draw velocity direction line
+* **2** draw only while under wishspeed
 
 ---
 
@@ -569,6 +668,15 @@ Name                    | values        | default
 etj_demo_yawturnspeed   | any integer   | 140
 
 Sets freecam `YAW` turn speed in demo playback.
+
+---
+
+## etj_drawAccel
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_drawAccel           | 0 or 1        | 0
+
+Toggle drawing of acceleration values on x/y axes.
 
 ---
 
@@ -1457,7 +1565,7 @@ Horizontal location of `etj_drawMaxSpeed`.
 ## etj_maxSpeedY
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_maxSpeedY           | any integer   | 320
+etj_maxSpeedY           | any integer   | 300
 
 Vertical location of `etj_drawMaxSpeed`.
 
@@ -1469,6 +1577,19 @@ Name                    | values        | default
 etj_menuSensitivity     | any value     | 1.0
 
 Sets mouse sensitivity for menus.
+
+---
+
+## etj_muzzleFlash
+Name                    | values        | default
+------------------------|:-------------:|-------------
+etj_muzzleFlash         | 0 - 3         | 1
+
+Controls muzzleflash drawing.
+
+* **1** always draw
+* **2** draw only for other players
+* **3** draw only for yourself
 
 ---
 
@@ -1921,6 +2042,15 @@ Changes slick detector's vertical position.
 
 ---
 
+## etj_snapHUDActiveIsPrimary
+Name                       | values        | default
+---------------------------|:-------------:|-------------
+etj_snapHUDActiveIsPrimary | 0 or 1        | 0
+
+Toggles snaphud colors so that the zone you are aiming at will always be drawn with primary color.
+
+---
+
 ## etj_snapHUDColor1
 Name                    | values        | default
 ------------------------|:-------------:|-------------
@@ -2079,14 +2209,25 @@ etj_speedColor          | [any color](../index.md#color-system) | White
 
 Sets ETJump speedometer color.
 
+_Note: use [`etj_speedAlpha`](etjump_cvars.md/#etj_speedalpha) to set alpha._
+
 ---
 
 ## etj_speedColorUsesAccel
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_speedColorUsesAccel | 0 or 1        | 0
+etj_speedColorUsesAccel | 0 - 2         | 0
 
 Changes ETJump speedometer color to represent acceleration or deceleration.
+
+* **1** simple, green if accelerating, red if decelerating, white if no input
+* **2** advanced, takes into account per vector and current movement direction
+    * green - optimal acceleration
+    * yellow - suboptimal acceleration relative to movement direction
+    * red - no acceleration towards movement direction
+    * white - no input
+
+_Note: due to inaccuracies in interpolation, advanced coloring is disabled while spectating and in demo playback, and simple acceleration coloring is used instead._
 
 ---
 
@@ -2170,7 +2311,7 @@ Disables vertical speed from speedometer 1.
 ## etj_speedY
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-etj_speedY              | any integer   | 360
+etj_speedY              | any integer   | 320
 
 Vertical position of the ETJump speedometer.
 
