@@ -240,9 +240,9 @@ Set the secondary color of CGaz HUD **2**.
 ---
 
 ## etj_CGaz2FixedSpeed
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_CGaz2FixedSpeed     | 0 - 1200      | 0
+Name                    | values             | default
+------------------------|:------------------:|-------------
+etj_CGaz2FixedSpeed     | any positive value | 0
 
 When set to higher than **0**, CGaz 2 will be drawn as if the player had the set amount of speed, instead of being adjusted by players real speed.
 
@@ -257,6 +257,24 @@ Controls drawing of velocity direction line on CGaz 2.
 
 * **1** never draw velocity direction line
 * **2** draw only while under wishspeed
+
+---
+
+## etj_CGaz2WishDirFixedSpeed
+Name                       | values             | default
+---------------------------|:------------------:|-------------
+etj_CGaz2WishDirFixedSpeed | any positive value | 0
+
+When set to higher than **0**, CGaz 2 wishdir line length will be scaled to match player speed, similar to [`etj_CGaz2FixedSpeed`](#etj_cgaz2fixedspeed).
+
+---
+
+## etj_CGaz2WishDirUniformLength
+Name                          | values             | default
+------------------------------|:------------------:|-------------
+etj_CGaz2WishDirUniformLength | 0 or 1             | 0
+
+If set, CGaz2 wishdir line will be uniformly scaled regardless of player inputs (e.g. `+forward` & `+moveright` length is same as just `+forward`).
 
 ---
 
