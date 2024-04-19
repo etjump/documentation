@@ -174,6 +174,8 @@ etj_autoPortalBinds     | 0 or 1        | 1
 
 Automatically bind `+attack2` to `weapalt` key and back when equipping/unequipping portal gun.
 
+_Note: switching to spectators will also adjust the bindings in order to preserve `followprev` functtionality of `weapalt`._
+
 ---
 
 ## etj_CGaz1Color1
