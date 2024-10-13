@@ -16,7 +16,9 @@ Controls the behavior of automatic weapon switching.
 * **2** don't autoswitch unless replacing currently held weapon
 * **4** disable autoswitching to portalgun
 
-_ETJump has added additional control to the behavior of this cvar._
+```{hint}
+ETJump has added additional control to the behavior of this cvar.
+```
 
 ---
 
@@ -27,7 +29,9 @@ cg_centertime           | any value     | 5
 
 Defines how long center prints stay on screen. 
 
-_ETJump has removed `CVAR_CHEAT` flag from this cvar._
+```{hint}
+ETJump has removed cheat protection from this cvar.
+```
 
 ---
 
@@ -36,31 +40,37 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 cg_crosshairSize        | any value     | 48
 
-Sets the size of crosshair.
+Sets size of the crosshair.
 
-_ETJump allows using floating point values for this cvar._
+```{hint}
+ETJump allows using floating point values for this cvar.
+```
 
 ---
 
 ## cg_crosshairX
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-cg_crosshairSize        | any value     | 0
+cg_crosshairX           | any value     | 0
 
-Offsets crosshairs horizontal position. 
+Sets horizontal offset for the crosshair. 
 
-_ETJump allows using floating point values for this cvar._
+```{hint}
+ETJump allows using floating point values for this cvar.
+```
 
 ---
 
 ## cg_crosshairY
 Name                    | values        | default
 ------------------------|:-------------:|-------------
-cg_crosshairSize        | any value     | 0
+cg_crosshairY           | any value     | 0
 
-Offsets crosshairs vertical position
+Sets vertical offset for the crosshair.
 
-_ETJump allows using floating point values for this cvar._
+```{hint}
+ETJump allows using floating point values for this cvar.
+```
 
 ---
 
@@ -69,15 +79,20 @@ Name                    | values        | default
 ------------------------|:-------------:|-------------
 cg_drawCrosshair        | 0 - 16        | 1
 
-ETJump includes additional crosshairs.
+Sets the crosshair variant to draw.
 
-* **10** Vertical line
-* **11** Cross
-* **12** Diagonal cross
+* **0-9** default crosshairs
+* **10** vertical line
+* **11** cross
+* **12** diagonal cross
 * **13** V-shape
-* **14** Triangle
+* **14** triangle
 * **15** T-shape
-* **16** Two vertical lines
+* **16** two vertical lines
+
+```{hint}
+ETJump has added crosshairs **10-16**.
+```
 
 ---
 
@@ -88,16 +103,18 @@ cg_drawWeaponIconFlash  | 0 - 2         | 0
 
 Draws weapon icon with different colors depending on state of weapon.
 
-* cg_drawWeaponIconFlash 1
+* **1**
     * yellow = ready/reloading
     * red = shooting
     * white = switching
-* cg_drawWeaponIconFlash 2
+* **2**
     * white - ready
     * yellow - reloading/switching
     * red - shooting
 
-_ETJump has added value 2._
+```{hint}
+ETJump has added value **2**, which mimics ETPro/legacy behavior for the weapon icon flash.
+```
 
 ---
 
@@ -108,7 +125,9 @@ cg_gunX/Y/Z             | any value     | 0
 
 Moves gun viewmodel on X/Y/Z axes, respectively. 
 
-_ETJump has removed `CVAR_CHEAT` flag from these cvars._
+```{hint}
+ETJump has removed cheat protection from these cvars.
+```
 
 ---
 
@@ -121,6 +140,10 @@ Draws lagometer, showing connection quality to server.
 
 * **1** Draw lagometer on online servers and demo playback
 * **2** Draw lagometer also on localhost
+
+```{hint}
+ETJump has added value **2**.
+```
 
 ---
 
@@ -137,6 +160,10 @@ Outputs prediction related events and errors to console.
 * **8** Output prediction error codes
 * **16** Output info if player didn't move this frame
 
+```{hint}
+ETJump has changed this cvar to a bitflag, and added values **2**, **8** and **16**.
+```
+
 ---
 
 ## cg_skybox
@@ -146,7 +173,9 @@ cg_skybox               | 0 or 1        | 1
 
 Toggles drawing of skyportal skyboxes.
 
-_ETJump has removed `CVAR_CHEAT` flag from this cvar._
+```{hint}
+ETJump has removed cheat protection from this cvar.
+```
 
 ---
 
@@ -157,6 +186,12 @@ cg_teamChatHeight       | 0 - 64        | 8
 
 Sets the maximum number of chat lines to draw on screen.
 
-_ETJump has increased the maximum from ***8*** to ***64***._
+```{note}
+Despite the name, this affects all types of chat messages.
+```
+
+```{hint}
+ETJump has increased the maximum from **8** to **64**.
+```
 
 ---
