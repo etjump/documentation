@@ -43,6 +43,8 @@ T    | [`add-season`](admin_system.md/#add-season) [`delete-season`](admin_syste
 v    | [`moverscale`](admin_system.md/#moverscale)
 V    | [`tokens`](admin_system.md/#tokens)
 
+---
+
 ## List of admin commands
 
 Below you'll find a list of all the admin commands, with explanations on what they do and what flag is required to access them.
@@ -599,5 +601,3 @@ Allows clients to execute any admin commands available to them silently, without
 ```{note}
 Silent commands must be typed in console instead of chat. Any output that a command might produce for other players will still be visible.
 ```
-
----

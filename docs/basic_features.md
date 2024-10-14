@@ -172,5 +172,3 @@ To ease the portalgun usage, you can use [`etj_autoPortalBinds`](client/etjump_c
 ```{note}
 Depending on the map and server settings, portalgun might be disabled, as it's quite exploitable on a lot of maps.
 ```
-
----

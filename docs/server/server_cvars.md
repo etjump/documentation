@@ -522,5 +522,3 @@ Name                    | values        | default
 vote_minVoteDuration    | 1000 - 29000  | 5000
 
 Minimum time in milliseconds a vote must active before passing.
-
----

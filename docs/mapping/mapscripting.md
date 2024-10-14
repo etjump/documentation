@@ -376,5 +376,3 @@ Prints a popup messages for the activator only. `%s` can be used to print out ac
 ```{caution}
 This script action **must** be called via an entity that passes activator data!
 ```
-
----

@@ -36,5 +36,3 @@ The state is logged in the server log file.
 `readCustomvotes`
 
 Reloads custom vote file specified in [`g_customMapVotesFile`](./server_cvars.md#g_custommapvotesfile).
-
----

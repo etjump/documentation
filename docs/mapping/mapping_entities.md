@@ -6,7 +6,7 @@ Here you will find full list of ETJump entities you can use in your map. Include
 Entities which originate from ETMain only list the modifications that ETJump offers to the entities. Refer to the entity descriptions in Radiant for a full list of keys and spawnflags.
 ```
 
-______________________________________________________________________
+---
 
 ## etjump_game_manager
 
@@ -26,7 +26,7 @@ Automatically spawned on a map with no `script_multiplayer` or any entity with a
 **Do not** place this entity manually in your map in Radiant! Use `script_multiplayer` instead.
 ```
 
-______________________________________________________________________
+---
 
 ## etjump203_target_relay
 
@@ -44,7 +44,7 @@ A `target_relay` that works only on **ETJump 2.0.3** and newer.
 Fires a random target instead of all targets.
 ```
 
-______________________________________________________________________
+---
 
 ## etjump2_target_relay
 
@@ -62,7 +62,7 @@ A `target_relay` that works only on **ETJump 2.0.0** and newer.
 Fires a random target instead of all targets.
 ```
 
-______________________________________________________________________
+---
 
 ## func_button
 
@@ -78,7 +78,7 @@ When a button is used, it moves some distance in the direction of it's angles, t
 
 *None*
 
-______________________________________________________________________
+---
 
 ## func_invisible_user
 
@@ -97,7 +97,7 @@ Uses targeted entities upon activation.
 | :-------: | :-------------------------------- |
 | 8         | Pass activator data to mapscript. |
 
-______________________________________________________________________
+---
 
 ## func_missilepad
 
@@ -125,7 +125,7 @@ Only direct impact fires targets, splash damage is ignored.
 Activating this entity via another entity or from mapscript with `alertentity/usetarget` does **not** fire targets.
 ```
 
-______________________________________________________________________
+---
 
 ## func_portaltarget
 
@@ -143,7 +143,7 @@ A brush model that spawns portalgun portals shot on it always on the same positi
 The portals are centered on the plane where they spawn either on an explicit origin set by an origin brush, or using the entity's center position. The shaders used on the surfaces of this entity should have the correct surfaceparms for portals set. Using a separate brush with portal surfaceparms, overlaid on top of this entity is unlikely to work reliably.
 ```
 
-______________________________________________________________________
+---
 
 ## func_static
 
@@ -159,7 +159,7 @@ A static brushmodel that does nothing by itself. Activates targets when hurt if 
 | :-------: | :---------------------------------------------------------- |
 | 8         | Disable random **500-1000ms** wait added on top of `delay`. |
 
-______________________________________________________________________
+---
 
 ## target_activate_if_velocity
 
@@ -183,7 +183,7 @@ Activates targeted entities if player's velocity is between the lower and upper 
 Fires a random target instead of all targets.
 ```
 
-______________________________________________________________________
+---
 
 ## target_checkpoint and trigger_checkpoint
 
@@ -207,7 +207,7 @@ Timerun names are case sensitive, and may contain color codes.
 A timerun can have a maximum of **16** checkpoints attached to it.
 ```
 
-______________________________________________________________________
+---
 
 ## target_give
 
@@ -221,7 +221,7 @@ Gives activator targeted items. Must target actual entites in the map. Standard 
 
 *None*
 
-______________________________________________________________________
+---
 
 ## target_ftrelay
 
@@ -239,7 +239,7 @@ Works like `target_relay` but activates the entities for everyone in the player'
 Fires a random target instead of all targets. The target is randomly picked for each fireteam member.
 ```
 
-______________________________________________________________________
+---
 
 ## target_init
 
@@ -266,7 +266,7 @@ Initalizes player into a freshly spawned state
 Spawnflag **128** has no effect if spawnflag **4** is set.
 ```
 
-______________________________________________________________________
+---
 
 ## target_interrupt_timerun
 
@@ -280,7 +280,7 @@ Stops any active timerun without setting a record.
 
 *None*
 
-______________________________________________________________________
+---
 
 ## target_portal_relay
 
@@ -296,7 +296,7 @@ Fires targets if activator has fired less or equal amount of portals than specif
 
 *None*
 
-______________________________________________________________________
+---
 
 ## target_print
 
@@ -313,7 +313,7 @@ Prints `message` as a centerprint. If no spawnflags are specified, prints to all
 | 8         | Prints to popup rather than centerprint.                     |
 | 16        | Replace `[n]` or `%s` in `message` with the activators name. |
 
-______________________________________________________________________
+---
 
 ## target_push
 
@@ -330,7 +330,7 @@ Pushes activator towards `target` or `angle(s)`.
 | 2         | Horizontal speed is additive. |
 | 4         | Vertical speed is additive.   |
 
-______________________________________________________________________
+---
 
 ## target_relay
 
@@ -347,7 +347,7 @@ Fires its targets when activated.
 | 8         | Only fires targets if activator is timerunning.     |
 | 16        | Only fires targets if activator is not timerunning. |
 
-______________________________________________________________________
+---
 
 ## target_remove_portals
 
@@ -367,7 +367,7 @@ Removes activators existing portals.
 | 1         | Don't print text when portals are removed. |
 | 2         | Fire targets when portals are removed.     |
 
-______________________________________________________________________
+---
 
 ## target_save
 
@@ -381,7 +381,7 @@ Saves current position to activators save slot **0**.
 
 *None*
 
-______________________________________________________________________
+---
 
 ## target_savereset and trigger_savereset
 
@@ -397,7 +397,7 @@ Resets activators saved positions.
 | :-------: | :------------------------------------- |
 | 1         | Don't print text when saves are reset. |
 
-______________________________________________________________________
+---
 
 ## target_scale_velocity
 
@@ -420,7 +420,7 @@ Scales activator's velocity.
 When `spawnflag 1` is set, `scale` is limited to **0.25 - 3.0**.
 ```
 
-______________________________________________________________________
+---
 
 \## target_set_health
 Sets activators health to specified value.
@@ -438,7 +438,7 @@ Sets activators health to specified value.
 | :-------: | :--------------------------- |
 | 1         | Activate only once per life. |
 
-______________________________________________________________________
+---
 
 ## target_starttimer and trigger_starttimer
 
@@ -484,7 +484,7 @@ Starting a timerun performs the following actions to the activating player:
 Timerun names are case sensitive, and may contain color codes.
 ```
 
-______________________________________________________________________
+---
 
 ## target_stoptimer and trigger_stoptimer
 
@@ -504,7 +504,7 @@ Stops a timerun for the activator.
 Timerun names are case sensitive, and may contain color codes.
 ```
 
-______________________________________________________________________
+---
 
 ## target_teleporter and trigger_teleport
 
@@ -527,7 +527,7 @@ Teleports player to target location.
 | 8         | Convert angle and speed relative to destination while preserving yaw and pitch angles. |
 | 16        | Apply **160ms** long knockback event after teleportation (Quake 3 behavior).           |
 
-______________________________________________________________________
+---
 
 ## target_tracker and trigger_tracker
 
@@ -631,7 +631,7 @@ Pushes activator towards `target` or `angle(s)`. This entity is client side pred
 | 2         | Horizontal speed is additive. |
 | 4         | Vertical speed is additive.   |
 
-______________________________________________________________________
+---
 
 ## weapon_grenadelauncher
 
@@ -654,7 +654,7 @@ Spawns an Axis hand grenade at the location.
 Unlike other `weapon_` entities, this respects the maximum grenade limits of classes.
 ```
 
-______________________________________________________________________
+---
 
 ## weapon_grenadepineapple
 
@@ -677,7 +677,7 @@ Spawns an Allied hand grenade at the location.
 Unlike other `weapon_` entities, this respects the maximum grenade limits of classes.
 ```
 
-______________________________________________________________________
+---
 
 ## weapon_portalgun
 
@@ -702,7 +702,7 @@ Unlike other `weapon_` entities, this entity does not fall to the ground.
 This entity does not disappear when picked up, and does not need to be manually respawned like other `weapon_` entities.
 ```
 
-______________________________________________________________________
+---
 
 ## worldspawn
 
@@ -732,13 +732,13 @@ ______________________________________________________________________
 
 *None*
 
-______________________________________________________________________
+---
 
 ## Deprecated entities
 
 These entities are considered deprecated, and while still functional, usage is discouraged.
 
-______________________________________________________________________
+---
 
 ### target_activate
 
@@ -746,7 +746,7 @@ ______________________________________________________________________
 
 Replaced by [target_tracker and trigger_tracker](#target_tracker-and-trigger_tracker).
 
-______________________________________________________________________
+---
 
 Activates targeted entities if ident requirement is set.
 
@@ -772,7 +772,7 @@ Default behavior is to fire targets if ident is equal to `reqident`.
 Fires a random target instead of all targets.
 ```
 
-______________________________________________________________________
+---
 
 ### target_decay
 
@@ -780,7 +780,7 @@ ______________________________________________________________________
 
 Replaced by [target_tracker and trigger_tracker](#target_tracker-and-trigger_tracker).
 
-______________________________________________________________________
+---
 
 Decays activators ident value.
 
@@ -796,7 +796,7 @@ Decays activators ident value.
 
 *None*
 
-______________________________________________________________________
+---
 
 ### target_increase_ident
 
@@ -804,7 +804,7 @@ ______________________________________________________________________
 
 Replaced by [target_tracker and trigger_tracker](#target_tracker-and-trigger_tracker).
 
-______________________________________________________________________
+---
 
 Increases the players map progression identifier.
 
@@ -818,7 +818,7 @@ Increases the players map progression identifier.
 
 *None*
 
-______________________________________________________________________
+---
 
 ### target_printname
 
@@ -826,7 +826,7 @@ ______________________________________________________________________
 
 [target_print](#target_print) provides all the same functionality as this entity.
 
-______________________________________________________________________
+---
 
 Prints `message` as a popup message. If no spawnflags are specified, prints to all clients, including spectators.
 
@@ -842,7 +842,7 @@ Prints `message` as a popup message. If no spawnflags are specified, prints to a
 | 2         | Only print for Allies.        |
 | 4         | Only print for the activator. |
 
-______________________________________________________________________
+---
 
 ### target_setident
 
@@ -850,7 +850,7 @@ ______________________________________________________________________
 
 Replaced by [target_tracker and trigger_tracker](#target_tracker-and-trigger_tracker).
 
-______________________________________________________________________
+---
 
 Sets the activator's map progression identifier.
 
@@ -864,7 +864,7 @@ Sets the activator's map progression identifier.
 
 *None*
 
-______________________________________________________________________
+---
 
 ### trigger_multiple spawnflags 512 & 2048
 
@@ -872,7 +872,7 @@ ______________________________________________________________________
 
 Since ETJump 3.1.0, the `spawnflags 2048` behavior was made the default. `spawnflags 512` has been deprecated as it never provided any new functionality, as it effectively just set `wait` to `1000 / sv_fps`.
 
-______________________________________________________________________
+---
 
 Activates targets when touched.
 
@@ -886,5 +886,3 @@ Activates targets when touched.
 | :-------: | :---------------------------------------------------------- |
 | 512       | Activates every server frame.                               |
 | 2048      | Acitavtes for all touching clients with unique wait cycles. |
-
-______________________________________________________________________

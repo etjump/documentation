@@ -64,5 +64,3 @@ An RGB(A) value is considered full RGB(A) if one of the color components (R, G o
 ``` 
 
 This color system will work with any cvar that takes in a color as a value. Note however that certain cvars have a separate cvar that controls their alpha.
-
----
