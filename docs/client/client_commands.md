@@ -352,5 +352,3 @@ Undo your last [`load`](client_commands.md/#load) command and teleport back to t
 ```{note}
 `unload` cannot be used during timeruns. There is only a single slot available, which is overwritten on every successful `load` command.
 ```
-
----

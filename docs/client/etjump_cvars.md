@@ -2967,5 +2967,3 @@ Cvar                    | Values        | Default
 movie_fovMinSpeed       | any integer   | 400
 
 UPS value at which minimum FOV is reached.
-
----
