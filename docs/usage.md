@@ -18,7 +18,7 @@ any positive value   | Any floating point number equal to or higher than `0.0`.
 0 - 5                | A whole number within range `0 - 5`.
 0.0 - 5.0            | A floating point number within range `0.0 - 5.0`.
 bitflag              | A combined value of "flags". Valid values for the flags are listed under the cvar explanation. Adding the desired flag values together represents the final value. For example, a cvar might have flags `1`, `2`, and `4`. If you want to enable flags `1` and `4`, you add them together `1 + 4 = 5`, which is the final value.
-any color            | Takes a color string as an input, see [color system](...) for more information.
+any color            | Takes a color string as an input, see [color system](getting_started.md/#color-system) for more information.
 any string           | Takes in a string literal. This might sometimes be listed with a context-specific name, such as `filename` or `directory`.
 
 ```{note}

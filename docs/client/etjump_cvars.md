@@ -41,7 +41,7 @@ Sets the alpha of the acceleration meter.
 ## etj_accelColor
 Cvar                    | Values                                | Default
 ------------------------|:-------------------------------------:|-------------
-etj_accelColor          | [any color](../index.md#color-system) | white
+etj_accelColor          | [any color](../getting_started.md/#color-system) | white
 
 Sets the color of the acceleration meter.
 
@@ -188,7 +188,7 @@ Switching to spectators will also adjust the bindings in order to preserve `foll
 ## etj_CGaz1Color1
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_CGaz1Color1         | [any color](../index.md#color-system) | 0.75 0.75 0.75 0.75
+etj_CGaz1Color1         | [any color](../getting_started.md/#color-system) | 0.75 0.75 0.75 0.75
 
 Sets color of the no accel zone in CGaz HUD **1**.
 
@@ -197,7 +197,7 @@ Sets color of the no accel zone in CGaz HUD **1**.
 ## etj_CGaz1Color2
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_CGaz1Color2         | [any color](../index.md#color-system) | 0.0 1.0 0.0 0.75
+etj_CGaz1Color2         | [any color](../getting_started.md/#color-system) | 0.0 1.0 0.0 0.75
 
 Sets color of the minimum angle in CGaz HUD **1**.
 
@@ -206,7 +206,7 @@ Sets color of the minimum angle in CGaz HUD **1**.
 ## etj_CGaz1Color3
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_CGaz1Color3         | [any color](../index.md#color-system) | 0.0 0.2 0.0 0.75
+etj_CGaz1Color3         | [any color](../getting_started.md/#color-system) | 0.0 0.2 0.0 0.75
 
 Sets color of the accel zone in CGaz HUD **1**.
 
@@ -215,7 +215,7 @@ Sets color of the accel zone in CGaz HUD **1**.
 ## etj_CGaz1Color4
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_CGaz1Color4         | [any color](../index.md#color-system) | 1.0 1.0 0.0 0.75
+etj_CGaz1Color4         | [any color](../getting_started.md/#color-system) | 1.0 1.0 0.0 0.75
 
 Sets color of the max angle in CGaz HUD **1**.
 
@@ -237,7 +237,7 @@ This uses [`etj_CGazFov`](etjump_cvars.md/#etj_cgazfov) to determine the snapzon
 ## etj_CGaz2Color1
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_CGaz2Color1          | [any color](../index.md#color-system) | 1.0 0.0 0.0 1.0
+etj_CGaz2Color1          | [any color](../getting_started.md/#color-system) | 1.0 0.0 0.0 1.0
 
 Sets primary color of CGaz HUD **2**.
 
@@ -246,7 +246,7 @@ Sets primary color of CGaz HUD **2**.
 ## etj_CGaz2Color2
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_CGaz2Color2          | [any color](../index.md#color-system) | 0.0 1.0 1.0 1.0
+etj_CGaz2Color2          | [any color](../getting_started.md/#color-system) | 0.0 1.0 1.0 1.0
 
 Sets secondary color of CGaz HUD **2**.
 
@@ -541,7 +541,7 @@ Checkpoint timer must be in detached mode (`etj_drawCheckpoints 2`) to adjust th
 ## etj_CHS1Info1-8
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_CHS1Info1-8         | [chs info value](../index.md/#chs) | 0
+etj_CHS1Info1-8         | [chs info value](../advanced_features.md/#chs) | 0
 
 Sets CHS **1** info of the given slot to display the given info value.
 
@@ -550,7 +550,7 @@ Sets CHS **1** info of the given slot to display the given info value.
 ## etj_CHS2Info1-8
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_CHS2Info1-8         | [chs info value](../index.md/#chs) | 0
+etj_CHS2Info1-8         | [chs info value](../advanced_features.md/#chs) | 0
 
 Sets CHS **2** info of the given slot to display the given info value.
 
@@ -586,7 +586,7 @@ Sets alpha of the CHS.
 ## etj_CHSColor
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_CHSColor            | [any color](../index.md#color-system) | 1.0 1.0 1.0
+etj_CHSColor            | [any color](../getting_started.md/#color-system) | 1.0 1.0 1.0
 
 Sets the color of CHS.
 
@@ -639,7 +639,7 @@ Sets alpha of the console.
 ## etj_consoleColor
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_consoleColor        | [any color](../index.md#color-system) | 0.0 0.0 0.0
+etj_consoleColor        | [any color](../getting_started.md/#color-system) | 0.0 0.0 0.0
 
 Sets the console background color when [`etj_consoleShader`](etjump_cvars.md/#etj_consoleshader) is set to **0**.
 
@@ -757,7 +757,7 @@ Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 etj_drawCGaz            | bitflag       | 0
 
-Draws the CGaz HUDs. Has 2 [different variations](../index.md#cgaz-strafeometer).
+Draws the CGaz HUDs. Has 2 [different variations](../advanced_features.md/#cgaz-hud).
 
 * **0** off
 * **1** draw DeFRaG style CGaz HUD
@@ -782,7 +782,11 @@ Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 etj_drawCHS1            | 0 or 1        | 0
 
-Draws crosshair stats 1. [More info](../index.md#chs).
+Draws crosshair stats 1.
+
+```{seealso}
+[Crosshair stats](../advanced_features.md/#chs)
+```
 
 ---
 
@@ -791,7 +795,12 @@ Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 etj_drawCHS2            | 0 - 2         | 0
 
-Draws crosshair stats 2. Value **2** aligns text to the right. [More info](../index.md#chs).
+Draws crosshair stats 2. Value **2** aligns text to the right.
+
+
+```{seealso}
+[Crosshair stats](../advanced_features.md/#chs)
+```
 
 ---
 
@@ -811,7 +820,7 @@ This is a cvar unlocker for `r_drawClips`.
 ```
 
 ```{seealso}
-[Clip, trigger and slick drawing](../index.md#clip-trigger-slick-drawing).
+[Clip, trigger and slick drawing](../advanced_features.md/#clip-trigger--slick-drawing).
 
 ```
 
@@ -1046,8 +1055,6 @@ etj_drawSimplePlayers   | 0 or 1        | 0
 
 Toggles alternative drawing of other players. When enabled, a single shader is used to draw other players.
 
-![Example](../img/etj_ghostPlayersAlt_example.png)
-
 ---
 
 ## etj_drawSlick
@@ -1080,7 +1087,7 @@ This is a cvar unlocker for `r_drawSlicks`.
 ```
 
 ```{seealso}
-[Clip, trigger and slick drawing](../index.md#clip-trigger-slick-drawing).
+[Clip, trigger and slick drawing](../advanced_features.md/#clip-trigger--slick-drawing).
 
 ```
 
@@ -1183,7 +1190,7 @@ This is a cvar unlocker for `r_drawTriggers`.
 ``` 
 
 ```{seealso}
-[Clip, trigger and slick drawing](../index.md#clip-trigger-slick-drawing).
+[Clip, trigger and slick drawing](../advanced_features.md/#clip-trigger--slick-drawing).
 
 ```
 
@@ -1525,7 +1532,7 @@ Toggles item pickup messages.
 ## etj_jumpSpeedsColor
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_jumpSpeedsColor     | [any color](../index.md#color-system) | 1.0 1.0 1.0 1.0
+etj_jumpSpeedsColor     | [any color](../getting_started.md/#color-system) | 1.0 1.0 1.0 1.0
 
 Sets the color of jump speeds display. Also used as a color for label text.
 
@@ -1538,7 +1545,7 @@ When [`etj_jumpSpeedsShowDiff`](etjump_cvars.md/#etj_jumpspeedsshowdiff) is enab
 ## etj_jumpSpeedsFasterColor
 Cvar                      | Values        | Default
 --------------------------|:--------------|-------------
-etj_jumpSpeedsFasterColor | [any color](../index.md#color-system) | 0.0 1.0 0.0 1.0
+etj_jumpSpeedsFasterColor | [any color](../getting_started.md/#color-system) | 0.0 1.0 0.0 1.0
 
 Sets the color to use for a jump that was faster than previous jump on jump speeds display.
 
@@ -1582,7 +1589,7 @@ Toggles coloring jump speeds with [`etj_jumpSpeedsFasterColor`](etjump_cvars.md/
 ## etj_jumpSpeedsSlowerColor
 Cvar                      | Values        | Default
 --------------------------|:--------------|-------------
-etj_jumpSpeedsSlowerColor | [any color](../index.md#color-system) | 1.0 0.0 0.0 1.0
+etj_jumpSpeedsSlowerColor | [any color](../getting_started.md/#color-system) | 1.0 0.0 0.0 1.0
 
 Sets the color to use for a jump that was slower than previous jump on jump speeds display.
 
@@ -1627,7 +1634,7 @@ Sets vertical offset of the jump speeds display.
 ## etj_keysColor
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_keysColor           | [any color](../index.md#color-system) | White
+etj_keysColor           | [any color](../getting_started.md/#color-system) | White
 
 Sets the color of the pressed keys view.
 
@@ -1890,7 +1897,7 @@ Maximum amount of popups to display.
 ## etj_obWatcherColor
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_obWatcherColor      | [any color](../index.md#color-system) | White
+etj_obWatcherColor      | [any color](../getting_started.md/#color-system) | White
 
 Sets color of the OB watcher.
 
@@ -2177,7 +2184,7 @@ Toggles automatically hiding the timerun timer after a while if no timerun is ac
 ## etj_runTimerInactiveColor
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_runTimerInactiveColor | [any color](../index.md#color-system) | mdgrey
+etj_runTimerInactiveColor | [any color](../getting_started.md/#color-system) | mdgrey
 
 Sets color of the timerun timer when no timerun is active.
 
@@ -2265,7 +2272,7 @@ This is a cvar unlocker for `r_showtris`
 ## etj_simplePlayersColor
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_simplePlayersColor  | [any color](../index.md#color-system) | 1.0 1.0 1.0
+etj_simplePlayersColor  | [any color](../getting_started.md/#color-system) | 1.0 1.0 1.0
 
 Sets the color of other players when [`etj_drawSimplePlayers`](etjump_cvars.md/#etj_drawsimpleplayers) is enabled.
 
@@ -2309,7 +2316,7 @@ This can be used independently, without enabling [`etj_snapHUDHLActive`](etjump_
 ## etj_snapHUDColor1
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_snapHUDColor1       | [any color](../index.md#color-system) | 0.0 1.0 1.0 0.75
+etj_snapHUDColor1       | [any color](../getting_started.md/#color-system) | 0.0 1.0 1.0 0.75
 
 Sets the primary color of velocity snapping HUD.
 
@@ -2318,7 +2325,7 @@ Sets the primary color of velocity snapping HUD.
 ## etj_snapHUDColor2
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_snapHUDColor2       | [any color](../index.md#color-system) | 0.05 0.05 0.05 0.1
+etj_snapHUDColor2       | [any color](../getting_started.md/#color-system) | 0.05 0.05 0.05 0.1
 
 Sets the secondary color of velocity snapping HUD.
 
@@ -2363,7 +2370,7 @@ Toggles highlighting currently active snapzone with a different color.
 ## etj_snapHUDHLColor1
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_snapHUDHLColor1     | [any color](../index.md#color-system) | 1.0 0.5 1.0 0.75
+etj_snapHUDHLColor1     | [any color](../getting_started.md/#color-system) | 1.0 0.5 1.0 0.75
 
 Sets the primary highlight color of velocity snapping HUD.
 
@@ -2372,7 +2379,7 @@ Sets the primary highlight color of velocity snapping HUD.
 ## etj_snapHUDHLColor2
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_snapHUDHLColor2     | [any color](../index.md#color-system) | 1.0 0.5 1.0 0.1
+etj_snapHUDHLColor2     | [any color](../getting_started.md/#color-system) | 1.0 0.5 1.0 0.1
 
 Sets the secondary highlight color of velocity snapping HUD.
 
@@ -2460,7 +2467,7 @@ Controls ETJump speed meter transparency.
 ## etj_speedColor
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_speedColor          | [any color](../index.md#color-system) | White
+etj_speedColor          | [any color](../getting_started.md/#color-system) | White
 
 Sets ETJump speed meter color.
 
@@ -2583,7 +2590,7 @@ Sets vertical position of the ETJump speed meter.
 ## etj_strafeQualityColor
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_strafeQualityColor  | [any color](../index.md#color-system) | 1.0 1.0 1.0 1.0
+etj_strafeQualityColor  | [any color](../getting_started.md/#color-system) | 1.0 1.0 1.0 1.0
 
 Sets color of the strafe quality display.
 
@@ -2679,7 +2686,7 @@ This is mainly useful on maps which disable jump delay, to give audible feedback
 ## etj_upmoveMeterGraphColor
 Cvar                      | Values        | Default
 --------------------------|:--------------|-------------
-etj_upmoveMeterGraphColor | [any color](../index.md#color-system) | mdgrey
+etj_upmoveMeterGraphColor | [any color](../getting_started.md/#color-system) | mdgrey
 
 Sets color of the upmove meter graph.
 
@@ -2697,7 +2704,7 @@ Sets height of the upmove meter graph.
 ## etj_upmoveMeterGraphOnGroundColor
 Cvar                              | Values        | Default
 ----------------------------------|:--------------|-------------
-etj_upmoveMeterGraphOnGroundColor | [any color](../index.md#color-system) | Green
+etj_upmoveMeterGraphOnGroundColor | [any color](../getting_started.md/#color-system) | Green
 
 Sets color of the "on ground" bar on the upmove meter graph.
 
@@ -2706,7 +2713,7 @@ Sets color of the "on ground" bar on the upmove meter graph.
 ## etj_upmoveMeterGraphOutlineColor
 Cvar                              | Values        | Default
 ----------------------------------|:--------------|-------------
-etj_upmoveMeterGraphOutlineColor  | [any color](../index.md#color-system) | White
+etj_upmoveMeterGraphOutlineColor  | [any color](../getting_started.md/#color-system) | White
 
 Sets color of the upmove meter graph border.
 
@@ -2724,7 +2731,7 @@ Sets width of upmove meter graph border.
 ## etj_upmoveMeterGraphPostJumpColor
 Cvar                              | Values        | Default
 ----------------------------------|:--------------|-------------
-etj_upmoveMeterGraphPostJumpColor | [any color](../index.md#color-system) | Red
+etj_upmoveMeterGraphPostJumpColor | [any color](../getting_started.md/#color-system) | Red
 
 Sets color of the "post jump" bar on the upmove meter graph.
 
@@ -2733,7 +2740,7 @@ Sets color of the "post jump" bar on the upmove meter graph.
 ## etj_upmoveMeterGraphPreJumpColor
 Cvar                              | Values        | Default
 ----------------------------------|:--------------|-------------
-etj_upmoveMeterGraphPreJumpColor  | [any color](../index.md#color-system) | Blue
+etj_upmoveMeterGraphPreJumpColor  | [any color](../getting_started.md/#color-system) | Blue
 
 Sets color of the "pre jump" bar on the upmove meter graph.
 
@@ -2790,7 +2797,7 @@ Due to `pmove_msec 8`, it's recommended to use values divisible by **8**.
 ## etj_upmoveMeterTextColor
 Cvar                     | Values        | Default
 -------------------------|:--------------|-------------
-etj_upmoveMeterTextColor | [any color](../index.md#color-system) | White
+etj_upmoveMeterTextColor | [any color](../getting_started.md/#color-system) | White
 
 Sets color of the upmove meter text elements.
 
