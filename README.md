@@ -25,16 +25,7 @@ pip install -r docs/requirements.txt
 
 ### Building the documentation
 
-For building, there are two main options: `make` and `sphinx-autobuild`.
-
-#### Using make
-1. Install [make](https://www.gnu.org/software/make)
-2. Navigate to the `docs` directory and build the documentation
-```sh
-cd docs
-make html
-```
-4. Open `docs/_build/html/index.html` in your browser to view the pages
+For building, there are two main options: `sphinx-autobuild` and `make`.
 
 #### Using sphinx-autobuild (recommended)
 1. Install [sphinx-autobuild](https://pypi.org/project/sphinx-autobuild/)
@@ -46,6 +37,15 @@ pip install sphinx-autobuild
 sphinx-autobuild docs docs/_build/html
 ```
 3. This will start an HTTP server at http://127.0.0.1:8000 and monitors changes in the `docs` directory. Whenever you make changes to the pages, `sphinx-autobuild` will rebuild the documentation automatically, allowing for much faster workflow.
+
+#### Using make
+1. Install [make](https://www.gnu.org/software/make)
+2. Navigate to the `docs` directory and build the documentation
+```sh
+cd docs
+make html
+```
+4. Open `docs/_build/html/index.html` in your browser to view the pages
 
 ### Adding new pages
 
