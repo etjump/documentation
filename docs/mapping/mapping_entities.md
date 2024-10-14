@@ -586,7 +586,7 @@ Check players tracker values and activate targeted entities if conditions are me
 
 ---
 
-Check players tracker values, fire targetsed entities if conditions are met and modify the players tracker values afterwards.
+Check players tracker values, fire targeted entities if conditions are met and modify the players tracker values afterwards.
 
 ```{eval-rst}
 +----------------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
