@@ -37,5 +37,5 @@ Server setup <server/server_setup>
 
 Getting started <mapping/getting_started>
 Mapping entities <mapping/mapping_entities>
-Mapscriptng <mapping/mapscripting>
+Mapscripting <mapping/mapscripting>
 ```
