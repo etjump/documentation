@@ -202,7 +202,7 @@ This script action **must** be called via an entity that passes activator data!
 
 ## etjump_manager
 
-Acts as an entry point for mapscript. If a map contains no `script_multiplayer` or any entities with a `scriptname` set, you can use this script block to access mapscripting in a map, e.g. for spawning entities using [create]. This is only present in maps which do not provide `script_multiplayer` or entities with a `scriptname` set.
+Acts as an entry point for mapscript. If a map contains no `script_multiplayer` or any entities with a `scriptname` set, you can use this script block to access mapscripting in a map, e.g. for spawning entities using [`create`](mapscripting.md/#create). This is only present in maps which do not provide `script_multiplayer` or entities with a `scriptname` set.
 
 ---
 
