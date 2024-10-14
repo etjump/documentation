@@ -52,7 +52,7 @@ ETJump includes an improved color parsing system for cvars that expect color val
 
 Format                       | Example value
 :----------------------------|:------------------------
-string                       | white, black, green etc.1
+string                       | white, black, green etc.
 normalized `<r> <g> <b> [a]` | 1.0 0.5 0.75 0.33
 full `<r> <g> <b> [a]`       |  255 128 191
 hex color                    |  #ff80bf, 0xff80bf

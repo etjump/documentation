@@ -18,12 +18,12 @@ This page is a work in progress. The old "Getting Started" page was split into t
 Overbounce is a bug that originates from Quake III Arena. When an overbounce happens, instead of clipping your velocity when landing on ground, the game instead projects all the velocity to a different direction based on your movement input and horizontal velocity. This allows players to retain their velocity and project it to another direction when landing on a surface.
 ```
 
-Overbounce detector shows you if you can overbounce from the surface you're currently aiming at. The detector can display whether you need to jump or fall to the surface, to perform an overbounce. It can be enabled with the [`etj_drawOB`](client/etjump_cvars.md/#etj_drawob) cvar.
+Overbounce detector shows you if you can overbounce from your current position to the surface you're aiming at. The detector can display whether you need to jump or fall to the surface, to perform an overbounce. It can be enabled with the [`etj_drawOB`](client/etjump_cvars.md/#etj_drawob) cvar.
 
 * **F** will be shown if you need to **Fall** onto the surface
 * **J** will be shown if you need to **Jump** onto the surface
 
-It is also possible to display "sticky" overbounces by setting `etj_drawOB` value to **2**. Sticky overbounces are just like regular overbounces, except they require your starting position to be slightly (< 0.25u) off the ground. The game does always place you exactly on top of a ground plane, but instead sometimes places you hovering ever so slightly off the ground. Sticky overbounces detect this - if you see an **S** along with **F** and/or **J** on the overbounce detector, that means you can perform an overbounce on the surface by managing to set your current position slightly off the ground. Once you manage to do that, the **S** symbol disappears and you should just see the regular **F** and/or **J** symbol.
+It is also possible to display "sticky" overbounces by setting `etj_drawOB` value to **2**. Sticky overbounces are just like regular overbounces, except they require your starting position to be slightly (< 0.25u) off the ground. The game doesn't always place you exactly on top of a ground plane, but instead sometimes leaves you hovering ever so slightly off the ground. The sticky overbounce detector monitors this - if you see an **S** along with **F** and/or **J** on the overbounce detector, that means you can perform an overbounce on the surface by managing to set your current position slightly off the ground. Once you manage to do that, the **S** symbol disappears and you should just see the regular **F** and/or **J** symbol.
 
 Performing an overbounce does not require anything special, it happens "automatically". However, many maps that employ overbounce tricks require you to manipulate your velocity and inputs such that most of the velocity is getting projected up. This is usually performed by jumping to a corner (to nullify horizontal velocity) and pressing `+strafe` and moving the mouse very slowly to gain a fraction of a unit of speed to the direction of the mouse movement. The speed of the movement determines how much of the velocity is being projected up vs horizontally - with slower movement, more velocity is being projected up rather than horizontally.
 
@@ -240,6 +240,8 @@ The upmove meter has extensive customization.
 * [etj_upmoveMeterTextSize](client/etjump_cvars.md#etj_upmovemetertextsize)
 * [etj_upmoveMeterTextX](client/etjump_cvars.md#etj_upmovemetertextx)
 
+---
+
 ## Clip, Trigger & Slick drawing
 
 [ETe engine](https://github.com/etfdevs/ETe) includes a basic support for drawing clip brushes, trigger brushes and slick surfaces. ETJump offers cvar unlockers for these features with the cvars `etj_drawClips`, `etj_drawTriggers` and `etj_drawSlicks`.
@@ -262,3 +264,5 @@ ETJump provides some additional shaders that can be used for drawing. Note that 
   * Allows setting __3__ different transparency levels, __1__ being most opaque (equivalent to the built-in shader), as well as __6__ different colors (red, green, blue, yellow, magenta, cyan). For example, `tcRenderShader2c` would be a medium tranparency (__2__) shader with cyan (__c__) color.
 
 Note that since this feature is built into ETe engine and we merely provide cvar unlockers, ETJump has no real control over it's development. Keep an eye out for ETe updates for possible improvements and fixes!
+
+---
