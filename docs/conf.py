@@ -6,8 +6,10 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
+from datetime import date
+
 project = 'ETJump'
-copyright = '2024, ETJump Team'
+copyright = f'{date.today().year}, ETJump Team'
 author = 'ETJump Team'
 release = '3.2.2'
 
