@@ -1,6 +1,8 @@
 # List of ETJump client commands
 Below is a list of all available ETJump related console commands for players.
 
+---
+
 ## ad_save
 `ad_save [name]`
 
@@ -88,6 +90,20 @@ Alias for `callvote`.
 
 ---
 
+## enc_say, enc_say_team, enc_say_buddy, enc_say_admin
+`enc_say <message>`  
+`enc_say_team <message>`  
+`enc_say_buddy <message>`  
+`enc_say_admin <message>`
+
+Send a quote-printable encoded message to global, team, fireteam or [admin chat](../server/admin_system.md/#admin-chat), respectively.
+
+```{seealso}
+[Quoted-printable - Wikipedia](https://en.wikipedia.org/wiki/Quoted-printable)
+``` 
+
+---
+
 ## extraTrace
 `extraTrace`
 
@@ -148,6 +164,17 @@ Interrupts your currently active timerun.
 
 ---
 
+## listsavepos
+`listsavepos`
+
+Lists all valid savepos files in `etjump/savepos` directory.
+
+```{hint}
+If manually adding a savepos file to the directory while the game is running, make sure to reload the files using [`readsavepos`](client_commands.md/#readsavepos).
+```
+
+---
+
 ## listspawnpt
 `listspawnpt`
 
@@ -163,13 +190,34 @@ Loads a previously saved position. Possible slots **0**-**2**. If no slot is giv
 ---
 
 ## loadcheckpoints 
-`loadcheckpoints <run name> [rank]`
+`loadcheckpoints <run name> [rank]`  
+`loadcheckpoints -r <run name> [-rk <rank>]`  
+`loadcheckpoints --run <run name> [--rank <rank>]`
 
 Loads timerun checkpoints for comparison for given timerun. If `[rank]` isn't specified, defaults to rank 1 time. Loaded checkpoints can be cleared by specifying `-1` as rank.
 
 ```{tip}
 `<run name>` supports partial name matching, the exact run name isn't required.
 ```
+
+---
+
+## loadpos
+`loadpos [name]`
+
+Loads a given savepos file. If `[name]` isn't given, defaults to `default`.
+
+```{note}
+Cheats must be enabled in order to use this command.
+```
+
+---
+
+## ma, say_admin
+`ma <message>`  
+`say_admin <message>`
+
+Sends a message to [admin chat](../server/admin_system.md/#admin-chat).
 
 ---
 
@@ -221,6 +269,7 @@ Prints information about the portal gun.
 
 ## rankings
 `rankings [season]`  
+`rankings [-s <season>] [-p <page>] [-ps <page size>]`  
 `rankings [--season <season>] [--page <page>] [--page-size <page size>]`
 
 Prints timerun rankings. If no parameters are given, prints top **20** overall rankings.
@@ -231,6 +280,7 @@ Prints timerun rankings. If no parameters are given, prints top **20** overall r
 `records [run name]`  
 `records <map name> <run name>`  
 `records <season> <map name> <run name>`  
+`records [-s <season>] [-m <map name>] [-r <run name>] [-p <page>] [-ps <page size>]`  
 `records [--season <season>] [--map <map name>] [--run <run name>] [--page <page>] [--page-size <page size>]`
 
 Prints timerun records with given parameters. If no arguments are given, prints top **3** records for each run in the current map. If `[run name]` is given, prints top **20** records for the given run. If `[season]` isn't specifed, prints overall records.
@@ -242,6 +292,13 @@ Prints timerun records with given parameters. If no arguments are given, prints 
 ```{note}
 `ranks`, `reconds`, `times` and `top` are all valid aliases for this command.
 ```
+
+---
+
+## readsavepos
+`readsavepos`
+
+Reloads all savepos files in `etjump/savepos` directory.
 
 ---
 
@@ -284,6 +341,30 @@ Casts a vote for the map specified by `<number>` in an ongoing Rock The Vote.
 `save [slot]`
 
 Saves current position. Possible slots **0**-**2**. If no slot is given, slot is **0**.
+
+---
+
+## savepos
+`savepos [name] [flags (0-3)]`
+
+Saves your current position, angles, velocity, stance and timerun state to a savepos file. If `[name]` isn't set, defaults to `default`. If only one argument is given, and the argument is a single number, it is treated as a flag. `[flags]` is a bitflag value with the following options.
+
+* **1** reset velocity to 0
+* **2** reset pitch angle to 0
+
+```{hint}
+The positions are saved into `etjump/savepos/name.dat`.
+```
+
+This works fully client-sided, meaning it's possible to use this command while playing back a demo.
+
+```{note}
+Timerun state can only be saved from demos recorded in ETJump 3.3.0 or newer. For demos recorded prior to that, the position will save normally, but loading it won't restore the timerun state.
+```
+
+```{seealso}
+[`loadpos`](client_commands.md/#loadpos)
+```
 
 ---
 

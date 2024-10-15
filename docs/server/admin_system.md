@@ -13,6 +13,8 @@ Admins can configure the levels and their commands, as well as some other additi
 
 User data is stored in the [`user database`](server_cvars.md/#g_userconfig). The server generates a unique ETJump ID for each new player that visits the server, and stores it in this database. It also contains any bans issued on the server, and any custom, client-specific configurations, such as greeting and title.
 
+## Permission system
+
 Access to admin commands is controlled by flags. The table below lists all available command flags, and the commands that they offer.
 
 ```{note}
@@ -39,9 +41,39 @@ P    | [`passvote`](admin_system.md/#passvote)
 r    | [`restart`](admin_system.md/#restart)
 R    | [`rename`](admin_system.md/#rename)
 s    | [`setlevel`](admin_system.md/#setlevel)
+S    | [`access to adminchat`](admin_system.md/#admin-chat)
 T    | [`add-season`](admin_system.md/#add-season) [`delete-season`](admin_system.md/#delete-season) [`edit-season`](admin_system.md/#edit-season)
 v    | [`moverscale`](admin_system.md/#moverscale)
 V    | [`tokens`](admin_system.md/#tokens)
+
+---
+
+## Admin chat
+
+Any player with the `S` command flag has access to admin chat. This is a chat system which is isolated from the rest of the chat on the server. Anyone with the flag `S` can both see and send messages to the chat.
+
+Players can send messages to admin chat via the chat window by selecting "Admin" as the destination. If the player does not have permissions to send messages to admin chat, the message is simply dropped entirely.
+
+![adminchat box](../img/adminchat_box.png)
+
+```{tip}
+Messages to admin chat can also be sent from console with the following commands
+
+* [`enc_say_admin`](../client/client_commands.md/#enc_say-enc_say_team-enc_say_buddy-enc_say_admin)
+* [`ma`, `say_admin`](../client/client_commands.md/#ma-say_admin)
+```
+
+```{tip}
+Similar to team and fireteam chats, it's possible to create a bind that opens the chat window with "Admin" selected as destination, using the `adminChat` command. This isn't bound to anything by default.
+
+`bind <key> adminChat`
+```
+
+An admin chat is colored orange, and prefixed with a `>`.
+
+![adminchat example](../img/adminchat_example.png)
+
+If desired, admin chat can be disabled on the server with the [`g_adminChat`](server_cvars.md/#g_adminchat) cvar.
 
 ---
 
@@ -69,6 +101,7 @@ Admin commands support "auto-complete", so you don't have to type in the full na
 ---
 
 ### add-customvote
+`!add-customvote -n <name> -fn <callvote_text> -m <maps>`  
 `!add-customvote --name <name> --full-name <callvote_text> --maps <maps>`
 
 Adds a new custom map vote list. `<maps>` is a space separated list of maps to include in the list.
@@ -82,6 +115,7 @@ This command does not perfrom any validation on the list of maps provided, it is
 ---
 
 ### add-season
+`!add-season -n <name> -sd <YYYY-MM-DD> [-ed <YYYY-MM-DD>]`  
 `!add-season --name <name> --start-date <YYYY-MM-DD> [--end-date-exclusive <YYYY-MM-DD>]`
 
 Adds a new timerun season. If `[--end-date-exclusive]` isn't set, the season will be active until end date is added with [`!edit-season`](admin_system.md/#edit-season), or the season is deleted with [`delete-season`](admin_system.md/#delete-season).
@@ -135,6 +169,7 @@ Cancels currently active vote.
 ---
 
 ### delete-customvote
+`!delete-customvote -n <name>`  
 `!delete-customvote --name <name>`
 
 Deletes a custom map vote list. Name must be an exact match.
@@ -144,6 +179,7 @@ Deletes a custom map vote list. Name must be an exact match.
 ---
 
 ### delete-season
+`!delete-season -n <name>`  
 `!delete-season --name <name>`
 
 Deletes a timerun season. Name must be an exact match.
@@ -170,7 +206,8 @@ Deletes a level. Users who are currently set to deleted level will be set to lev
 ---
 
 ### edit-customvote
-`!edit-customvote --list <name> [--name <name>] [--full-name <callvote_text>] [--add-maps <maps>] [--remove-maps <maps>]`
+`!edit-customvote -l <list> [-n <name>] [-fn <callvote_text>] [-am <maps>] [-rm <maps>]`  
+`!edit-customvote --list <list> [--name <name>] [--full-name <callvote_text>] [--add-maps <maps>] [--remove-maps <maps>]`
 
 Edits an existing custom map vote list.
 
@@ -179,6 +216,7 @@ Edits an existing custom map vote list.
 ---
 
 ### edit-season
+`!edit-season -n <name> [-sd <YYYY-MM-DD>] [-ed <YYYY-MM-DD>]`  
 `!edit-season --name <name> [--start-date <YYYY-MM-DD>] [--end-date <YYYY-MM-DD>]`
 
 Edits an existing timerun season.
@@ -348,7 +386,9 @@ Lists users that are registered on servers user database. A single page fits **2
 ---
 
 ### loadcheckpoints
-`!loadcheckpoints <run name> [rank]`
+`!loadcheckpoints <run name> [rank]`  
+`!loadcheckpoints -r <run name> [-rk <rank>]`  
+`!loadcheckpoints --run <run name> [--rank <rank>]`
 
 Loads timerun checkpoints for comparison for given timerun. If `[rank]` isn't specified, defaults to rank 1 time. Loaded checkpoints can be cleared by specifying `-1` as rank.
 
@@ -450,6 +490,7 @@ Rock the Vote cannot be passed using this command.
 
 ### rankings
 `!rankings [season]`  
+`!rankings [-s <season>] [-p <page>] [-ps <page size>]`  
 `!rankings [--season <season>] [--page <page>] [--page-size <page size>]`
 
 Prints timerun rankings. If no parameters are given, prints top **20** overall rankings.
@@ -462,6 +503,7 @@ Prints timerun rankings. If no parameters are given, prints top **20** overall r
 `!records [run name]`  
 `!records <map name> <run name>`  
 `!records <season> <map name> <run name>`  
+`!records [-s <season>] [-m <map name>] [-r <run name>] [-p <page>] [-ps <page size>]`  
 `!records [--season <season>] [--map <map name>] [--run <run name>] [--page <page>] [--page-size <page size>]`
 
 Prints timerun records with given parameters. If no arguments are given, prints top **3** records for each run in the current map. If `[run name]` is given, prints top **20** records for the given run. If `[season]` isn't specifed, prints overall records.

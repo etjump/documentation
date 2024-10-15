@@ -185,6 +185,24 @@ Switching to spectators will also adjust the bindings in order to preserve `foll
 
 ---
 
+## etj_autoSpec
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_autoSpec            | 0 or 1        | 0
+
+Automatically follow players when idling as a spectator.
+
+---
+
+## etj_autoSpecDelay
+Cvar                    | Values               | Default
+:-----------------------|:---------------------|:------------
+etj_autoSpecDelay       | any positive integer | 10000
+
+Time in milliseconds the player has to be idle in free spec before automatically following the next player.
+
+---
+
 ## etj_CGaz1Color1
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
@@ -390,6 +408,19 @@ Cvar                    | Values        | Default
 etj_chatPosY            | any integer   | 0
 
 Sets vertical offset of the chat.
+
+---
+
+## etj_chatReplay
+Cvar                    | values        | default
+:-----------------------|:--------------|:------------
+etj_chatReplay          | 0 or 1        | 1
+
+Toggle latest chat messages from the server after connecting, on map start or after performing a `vid_restart`.
+
+```{note}
+Disabling this cvar does **not** exclude any messages you send from appearing in chat replay sent to other players.
+```
 
 ---
 
@@ -841,7 +872,7 @@ Draws clock.
 ## etj_drawConnectionIssues
 Cvar                     | Values        | Default
 :------------------------|:--------------|:------------
-etj_drawConnectionIssues | 0 or 1       | 1
+etj_drawConnectionIssues | 0 or 1        | 1
 
 Toggles connection interrupted text if there are connection problems. Useful for high ping players.
 
@@ -994,6 +1025,24 @@ Toggles drawing the overbounce watcher. Overbounce watcher allows you to save po
 
 ---
 
+## etj_drawPlayerBBox
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_drawPlayerBBox      | bitflag       | 0
+
+Toggles drawing the bounding box of players.
+
+* **0** off
+* **1** draw bbox on yourself
+* **2** draw bbox on other players
+* **4** draw bbox on fireteam members
+
+```{seealso}
+[`etj_playerBBoxBottomOnly`](etjump_cvars.md/#etj_playerbboxbottomonly)
+```
+
+---
+
 ## etj_drawProneIndicator
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
@@ -1004,6 +1053,15 @@ Draw prone area indicator.
 * **1** always draw the icon.
 * **2** only draw the icon when outside of noprone brush.
 * **3** only draw the icon when inside of noprone brush.
+
+---
+
+## etj_drawRecordingStatus
+Cvar                     | Values        | Default
+:------------------------|:--------------|:------------
+etj_drawRecordingStatus  | 0 or 1        | 1
+
+Toggles drawing the demo/wav recording status message.
 
 ---
 
@@ -1096,12 +1154,13 @@ This is a cvar unlocker for `r_drawSlicks`.
 ## etj_drawSnapHUD
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_drawSnapHUD         | 0 - 2         | 0
+etj_drawSnapHUD         | 0 - 3         | 0
 
 Draws velocity snapping HUD.
 
 * **1** Draw full snapzones
 * **2** Draw only edges of snapzones
+* **3** Draw borders only instead of solid rectangles
 
 ---
 
@@ -1676,6 +1735,24 @@ Sets the vertical position of the pressed keys view.
 
 ---
 
+## etj_lagometerAlpha
+Cvar                    | values        | default
+:-----------------------|:-------------:|-------------
+etj_lagometerAlpha      | 0.0 - 1.0     | 1.0
+
+Sets transparency of the lagometer.
+
+---
+
+## etj_lagometerShader
+Cvar                    | values        | default
+:-----------------------|:-------------:|-------------
+etj_lagometerShader     | 0 or 1        | 1
+
+Toggles drawing the background shader on the lagometer.
+
+---
+
 ## etj_lagometerX
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
@@ -2005,6 +2082,76 @@ Optimizes playerstate prediction for much faster prediction and better performan
 
 ---
 
+## etj_playerBBoxBottomOnly
+Cvar                     | Values        | Default
+:------------------------|:--------------|:------------
+etj_playerBBoxBottomOnly | bitflag       | 0
+
+Toggles drawing only the bottom of the bbox when [`etj_drawPlayerBBox`](etjump_cvars.md/#etj_drawplayerbbox) is enabled.
+
+* **0** off (full bbox)
+* **1** draw only bottom on yourself
+* **2** draw only bottom on other players
+* **4** draw only bottom on fireteam members
+
+---
+
+## etj_playerBBoxColorSelf
+Cvar                     | Values        | Default
+:------------------------|:--------------|:------------
+etj_playerBBoxColorSelf  | [any color](../getting_started.md/#color-system) | 1.0 0.0 0.0 0.5
+
+Sets color of the player bbox on yourself.
+
+```{note}
+This might not work correctly if using a custom shader set via [`etj_playerBBoxShader`](etjump_cvars.md/#etj_playerbboxshader).
+```
+
+---
+
+## etj_playerBBoxColorOther
+Cvar                     | Values        | Default
+:------------------------|:--------------|:------------
+etj_playerBBoxColorOther | [any color](../getting_started.md/#color-system) | 0.0 1.0 0.0 0.5
+
+Sets color of the player bbox on other players.
+
+```{note}
+This might not work correctly if using a custom shader set via [`etj_playerBBoxShader`](etjump_cvars.md/#etj_playerbboxshader).
+```
+
+---
+
+## etj_playerBBoxColorFireteam
+Cvar                        | Values        | Default
+:---------------------------|:--------------|:------------
+etj_playerBBoxColorFireteam | [any color](../getting_started.md/#color-system) | 0.0 0.0 1.0 0.5
+
+Sets color of the player bbox on fireteam members.
+
+```{note}
+This might not work correctly if using a custom shader set via [`etj_playerBBoxShader`](etjump_cvars.md/#etj_playerbboxshader).
+```
+
+---
+
+## etj_playerBBoxShader
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_playerBBoxShader    | shadername    | bbox_nocull
+
+Sets shader used for drawing the player bbox.
+
+```{hint}
+You will likely want to use a shader here which disables culling, otherwise you won't be able to see the bbox on yourself since you're looking at it from inside out.
+```
+
+```{note}
+The default shader is included in ETJump.
+``` 
+
+---
+
 ## etj_playerOpacity
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
@@ -2168,6 +2315,28 @@ Changes the way Field of View is calculated.
 
 ```{seealso}
 [Field of view in video games - Wikipedia](https://en.wikipedia.org/wiki/Field_of_view_in_video_games#Field_of_view_scaling_methods)
+```
+
+---
+
+## etj_recordingStatusX
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_recordingStatusX    | any value     | 2
+
+Sets horizontal positions of the demo/wav recording status message.
+
+---
+
+## etj_recordingStatusY
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_recordingStatusY    | any value     | 9
+
+Sets vertical positions of the demo/wav recording status message.
+
+```{note}
+This replaces the ETMain cvar `cg_recording_statusline`.
 ```
 
 ---

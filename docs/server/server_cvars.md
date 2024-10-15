@@ -3,6 +3,19 @@ Below is a list of all ETJump related cvars (console variables) for server confi
 
 ---
 
+## g_adminChat
+Name                    | values        | default
+:-----------------------|:--------------|:------------
+g_adminChat             | 0 or 1        | 1
+
+Toggles adminchat functionality on the server.
+
+```{seealso}
+[Admin chat](admin_system.md/#admin-chat)
+```
+
+---
+
 ## g_adminLog
 Name                    | values        | default
 :-----------------------|:--------------|:------------
@@ -13,6 +26,15 @@ Currently does nothing.
 ```{todo}
 Make this log admin commands.
 ```
+
+---
+
+## g_allowSpeclock
+Name                    | values        | default
+:-----------------------|:--------------|:------------
+g_allowSpeclock         | 0 or 1        | 1
+
+Toggles whether players are allowed to use [`speclock`](../client/client_commands.md/#speclock-specunlock).
 
 ---
 
@@ -104,6 +126,15 @@ Allow players to highlight other players in chat using `@name@`.
 
 ---
 
+## g_chatReplayMaxMessageAge
+Name                      | values               | default
+:-------------------------|:---------------------|:------------
+g_chatReplayMaxMessageAge | any positive ingeter | 0
+
+Maximum age for a chat replay message to be considered valid. If the message is older than the time specified here, it will not be included in the chat replay. Value **0** means messages never expire, and are always sent regardless of how old they are.
+
+---
+
 ## g_customMapVotesFile
 Name                    | values        | default
 :-----------------------|:--------------|:------------
@@ -119,15 +150,6 @@ Name                    | values        | default
 g_dailyLogs             | 0 or 1        | 1
 
 Whether to log everything in a single file or change the file daily.
-
----
-
-## g_debugTimeruns
-Name                    | values        | default
-:-----------------------|:--------------|:------------
-g_debugTimeruns         | 0 or 1        | 0
-
-Toggles timerun debugging. When enabled, allows players to use cheats during timeruns, but records are not saved.
 
 ---
 
