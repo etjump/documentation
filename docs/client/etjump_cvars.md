@@ -1737,7 +1737,7 @@ Sets the vertical position of the pressed keys view.
 
 ## etj_lagometerAlpha
 Cvar                    | Values        | Default
-:-----------------------|:-------------:|-------------
+:-----------------------|:--------------|:------------
 etj_lagometerAlpha      | 0.0 - 1.0     | 1.0
 
 Sets transparency of the lagometer.
@@ -1746,7 +1746,7 @@ Sets transparency of the lagometer.
 
 ## etj_lagometerShader
 Cvar                    | Values        | Default
-:-----------------------|:-------------:|-------------
+:-----------------------|:--------------|:------------
 etj_lagometerShader     | 0 or 1        | 1
 
 Toggles drawing the background shader on the lagometer.
@@ -2097,8 +2097,8 @@ Toggles drawing only the bottom of the bbox when [`etj_drawPlayerBBox`](etjump_c
 ---
 
 ## etj_playerBBoxColorSelf
-Cvar                     | Values        | Default
-:------------------------|:--------------|:------------
+Cvar                     | Values                                           | Default
+:------------------------|:-------------------------------------------------|:------------
 etj_playerBBoxColorSelf  | [any color](../getting_started.md/#color-system) | 1.0 0.0 0.0 0.5
 
 Sets color of the player bbox on yourself.
@@ -2110,8 +2110,8 @@ This might not work correctly if using a custom shader set via [`etj_playerBBoxS
 ---
 
 ## etj_playerBBoxColorOther
-Cvar                     | Values        | Default
-:------------------------|:--------------|:------------
+Cvar                     | Values                                           | Default
+:------------------------|:-------------------------------------------------|:------------
 etj_playerBBoxColorOther | [any color](../getting_started.md/#color-system) | 0.0 1.0 0.0 0.5
 
 Sets color of the player bbox on other players.
@@ -2123,8 +2123,8 @@ This might not work correctly if using a custom shader set via [`etj_playerBBoxS
 ---
 
 ## etj_playerBBoxColorFireteam
-Cvar                        | Values        | Default
-:---------------------------|:--------------|:------------
+Cvar                        | Values                                           | Default
+:---------------------------|:-------------------------------------------------|:------------
 etj_playerBBoxColorFireteam | [any color](../getting_started.md/#color-system) | 0.0 0.0 1.0 0.5
 
 Sets color of the player bbox on fireteam members.
