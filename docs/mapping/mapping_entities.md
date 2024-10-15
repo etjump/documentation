@@ -86,10 +86,10 @@ Uses targeted entities upon activation.
 
 **Keys**
 
-| Key    | Value        | Default | Description                  |
-| :----- | :----------- | :------ | :--------------------------- |
-| noise  | path to .wav |         | Sound to play on activation. |
-| volume | any integer  | 255     | Volume of activation sound.  |
+| Key    | Value                | Default | Description                  |
+| :----- | :------------------- | :------ | :--------------------------- |
+| noise  | path to .wav         |         | Sound to play on activation. |
+| volume | any positive integer | 255     | Volume of activation sound.  |
 
 **Spawnflags**
 
@@ -105,11 +105,11 @@ Explodes hand and rifle grenades and fires target(s) upon impact.
 
 **Keys**
 
-| Key    | Value        | Default | Description                                    |
-| :----- | :----------- | :------ | :--------------------------------------------- |
-| scale  | any value    | 1.0     | Scales the knockback given from the explosion. |
-| noise  | path to .wav |         | Sound to play on activation.                   |
-| volume | any integer  | 255     | Volume of activation sound.                    |
+| Key    | Value                | Default | Description                                    |
+| :----- | :------------------- | :------ | :--------------------------------------------- |
+| scale  | any value            | 1.0     | Scales the knockback given from the explosion. |
+| noise  | path to .wav         |         | Sound to play on activation.                   |
+| volume | any positive integer | 255     | Volume of activation sound.                    |
 
 **Spawnflags**
 
@@ -169,10 +169,10 @@ Activates targeted entities if player's velocity is between the lower and upper 
 
 **Keys**
 
-| Key         | Value       | Default | Description                                                 |
-| :---------- | :---------- | :------ | :---------------------------------------------------------- |
-| lower_limit | any integer | 0       | Fires targets if activators speed is higher than specified. |
-| upper_limit | any integer | 0       | Fires targets if activators speed is lower than specified.  |
+| Key         | Value              | Default | Description                                                 |
+| :---------- | :----------------- | :------ | :---------------------------------------------------------- |
+| lower_limit | any positive value | 0       | Fires targets if activators speed is higher than specified. |
+| upper_limit | any positive value | 0       | Fires targets if activators speed is lower than specified.  |
 
 **Spawnflags**
 
@@ -299,7 +299,7 @@ Fires targets if activator has fired less or equal amount of portals than specif
 
 | Key        | Value       | Default | Description                                                              |
 | :--------- | :---------- | :------ | :----------------------------------------------------------------------- |
-| maxportals | any integer | -100      | Maximum number of portals client is allowed to fire to activate targets. |
+| maxportals | any integer | -1      | Maximum number of portals client is allowed to fire to activate targets. |
 
 **Spawnflags**
 
@@ -364,10 +364,10 @@ Removes activators existing portals.
 
 **Keys**
 
-| Key    | Value        | Default | Description                               |
-| :----- | :----------- | :------ | :---------------------------------------- |
-| noise  | path to .wav | nosound | WAV file to play when portal are removed. |
-| volume | any integer  | 255     | Volume of the activation sound.           |
+| Key    | Value                | Default | Description                               |
+| :----- | :------------------- | :------ | :---------------------------------------- |
+| noise  | path to .wav         | nosound | WAV file to play when portal are removed. |
+| volume | any positive integer | 255     | Volume of the activation sound.           |
 
 **Spawnflags**
 
@@ -414,10 +414,10 @@ Scales activator's velocity.
 
 **Keys**
 
-| Key   | Value       | Default | Description                                                         |
-| :---- | :---------- | :------ | :------------------------------------------------------------------ |
-| scale | any value   | 1.0     | Scaling factor for activators speed.                                |
-| time  | any integer | 0       | Time in seconds for constant speed scale when `spawnflag 1` is set. |
+| Key   | Value                | Default | Description                                                         |
+| :---- | :------------------- | :------ | :------------------------------------------------------------------ |
+| scale | any value            | 1.0     | Scaling factor for activators speed.                                |
+| time  | any positive integer | 0       | Time in seconds for constant speed scale when `spawnflag 1` is set. |
 
 **Spawnflags**
 
@@ -431,7 +431,7 @@ When `spawnflag 1` is set, `scale` is limited to **0.25 - 3.0**.
 
 ---
 
-\## target_set_health
+## target_set_health
 Sets activators health to specified value.
 
 **Keys**
@@ -439,7 +439,7 @@ Sets activators health to specified value.
 | Key    | Value                | Default | Description                                                   |
 | :----- | :------------------- | :------ | :------------------------------------------------------------ |
 | health | any positive integer | 100     | Value to set health to.                                       |
-| wait   | any integer          | 1000    | Delay in milliseconds between activations by the same player. |
+| wait   | any positive integer | 1000    | Delay in milliseconds between activations by the same player. |
 
 **Spawnflags**
 
@@ -455,10 +455,10 @@ Starts a timerun for the activator.
 
 **Keys**
 
-| Key         | Value     | Default | Description                                                 |
-| :---------- | :-------- | :------ | :---------------------------------------------------------- |
-| name        | any text  | default | Name of the run.                                            |
-| speed_limit | any value | 700     | Maximum speed the activator can have when starting the run. |
+| Key         | Value              | Default | Description                                                 |
+| :---------- | :----------------- | :------ | :---------------------------------------------------------- |
+| name        | any text           | default | Name of the run.                                            |
+| speed_limit | any positive value | 700     | Maximum speed the activator can have when starting the run. |
 
 **Spawnflags**
 
@@ -522,10 +522,10 @@ Teleports player to target location.
 
 **Keys**
 
-| Key      | Value        | Default | Description                                           |
-| :------- | :----------- | :------ | :---------------------------------------------------- |
-| outspeed | any integer  | 0       | Fixed speed at which activators exits the teleporter. |
-| noise    | path to .wav | nosound | Sound to play on activation.                          |
+| Key      | Value                 | Default | Description                                           |
+| :------- | :-------------------- | :------ | :---------------------------------------------------- |
+| outspeed | any positive integer  | 0       | Fixed speed at which activators exits the teleporter. |
+| noise    | path to .wav          | nosound | Sound to play on activation.                          |
 
 **Spawnflags**
 
@@ -607,7 +607,7 @@ Check players tracker values, fire targeted entities if conditions are met and m
 +----------------+--------------+                                                                                                                                                                                       |
 | tracker_set_if | 5            |                                                                                                                                                                                       |
 +----------------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| tracker_gt     | 2,2          | Tracker value on index 1 must greater than 2. If true, activates targets and sets players tracker value on index 4 to 5.                                                              |
+| tracker_gt     | 2,2          | Tracker value on index 2 must greater than 2. If true, activates targets and sets players tracker value on index 4 to 5.                                                              |
 +----------------+--------------+                                                                                                                                                                                       |
 | tracker_set_if | 4,5          |                                                                                                                                                                                       |
 +----------------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -645,11 +645,11 @@ Pushes activator towards `target` or `angle(s)`. This entity is client side pred
 
 **Keys**
 
-| Key   | Value        | Default | Description                                                         |
-| :---- | :----------- | :------ | :------------------------------------------------------------------ |
-| speed | any integer  | 1000    | Speed at which player is launched. No effect if aimed at an entity. |
-| noise | path to .wav | nosound | Sound to play on activation.                                        |
-| wait  | any integer  | 100     | Milliseconds to wait before re-activation.                          |
+| Key   | Value                | Default | Description                                                         |
+| :---- | :------------------- | :------ | :------------------------------------------------------------------ |
+| speed | any integer          | 1000    | Speed at which player is launched. No effect if aimed at an entity. |
+| noise | path to .wav         | nosound | Sound to play on activation.                                        |
+| wait  | any positive integer | 100     | Milliseconds to wait before re-activation.                          |
 
 **Spawnflags**
 
@@ -784,26 +784,26 @@ This entity does not disappear when picked up, and does not need to be manually 
 
 **Keys**
 
-| Key             | Value             | Default | Description                                                                                                                                                                           |
-| :-------------- | :---------------- | :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| nodrop          | 0 or  1           | 0       | Enable/disable nodrop. **0** Items are not dropped inside `surfaceparm nodrop`. **1** items are only dropped inside `surfaceparm nodrop`.                                             |
-| noexplosives    | 0 - 2             | 0       | Disables explosives. **0** explosives are allowed. **1** no explosive weapons. **2** no dynamite.                                                                                     |
-| nofalldamage    | 0 - 2             | 0       | Enable/disable fall damage. **0** Fall damage disabled only on `surfaceparm nodamage` **1** Fall damage enabled only on `surfaceparm nodamage` **2** Fall damage disabled everywhere. |
-| noftnoghost     | 0 or 1            | 0       | Disable players' ability to toggle collision between fireteam members.                                                                                                                |
-| noghost         | 0 or 1            | 0       | Disables player ghosting (nonsolid players). Overrides `g_ghostPlayers` server cvar.                                                                                                  |
-| nogod           | 0 or 1            | 0       | Disables god mode.                                                                                                                                                                    |
-| nogoto          | 0 or 1            | 0       | Disables goto.                                                                                                                                                                        |
-| nojumpdelay     | 0 or 1            | 0       | Enable/disable jump delay. **0** No jump delay only on `surfaceparm monsterslicknorth` **1** Jump delay only on `surfaceparm monsterslicknorth`.                                      |
-| nonoclip        | 0 or 1            | 0       | Enable/disable noclip. **0** Don't allow noclip inside `surfaceparm donotenterlarge` **1** Only allow noclip inside `surfaceparm donotenterlarge`.                                    |
-| nosave          | 0 or 1            | 0       | Enable/disable save. **0** Don't allow save inside `surfaceparm clusterportal` brushes **1** Only allow save inside `surfaceparm clusterportal` brushes.                              |
-| nooverbounce    | 0 or 1            | 0       | Enable/disable overbounces. **0** Don't allow overbounces on `surfaceparm monsterslicksouth` **1** Only allow overbounces on `surfaceparm monsterslicksouth`.                         |
-| noprone         | 0 or 1            | 0       | Enable/disable prone. **0** Don't allow prone inside `surfaceparm donotenter` brushes **1** Only allow prone inside `surfaceparm donotenter` brushes.                                 |
-| nowallbug       | 0 or 1            | 0       | Toggles whether players can accelerate while stuck in a wall.                                                                                                                         |
-| portalgun_spawn | 0 or 1            | 0       | Toggles whether players should spawn with a portal gun.                                                                                                                               |
-| portalsurfaces  | 0 or 1            | 1       | Enable/disable portalsurfaces. **0** Only allow portals on `surfaceparm monsterslickeast` **1** Don't allow portals on `surfaceparm monsterslickeast`.                                |
-| portalteam      | 0 - 2             | 0       | If set to **0**, players can only go to own portals. If set to **1**, players can also go to fireteam mates' portals. If set to **2**, anyone can go to anyones portals.              |
-| limitedsaves    | any integer       | 0       | If set to higher than 0, saves are limited to the set value.                                                                                                                          |
-| strictsaveload  | bitflag or string | 0       | Limits save and load by given conditions. **1/move** cannot save while moving **2/dead** cannot save/load while dead. Combine strings with `\|` (eg. `move \| dead`).                 |
+| Key             | Value                | Default | Description                                                                                                                                                                           |
+| :-------------- | :------------------- | :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| nodrop          | 0 or  1              | 0       | Enable/disable nodrop. **0** Items are not dropped inside `surfaceparm nodrop`. **1** items are only dropped inside `surfaceparm nodrop`.                                             |
+| noexplosives    | 0 - 2                | 0       | Disables explosives. **0** explosives are allowed. **1** no explosive weapons. **2** no dynamite.                                                                                     |
+| nofalldamage    | 0 - 2                | 0       | Enable/disable fall damage. **0** Fall damage disabled only on `surfaceparm nodamage` **1** Fall damage enabled only on `surfaceparm nodamage` **2** Fall damage disabled everywhere. |
+| noftnoghost     | 0 or 1               | 0       | Disable players' ability to toggle collision between fireteam members.                                                                                                                |
+| noghost         | 0 or 1               | 0       | Disables player ghosting (nonsolid players). Overrides `g_ghostPlayers` server cvar.                                                                                                  |
+| nogod           | 0 or 1               | 0       | Disables god mode.                                                                                                                                                                    |
+| nogoto          | 0 or 1               | 0       | Disables goto.                                                                                                                                                                        |
+| nojumpdelay     | 0 or 1               | 0       | Enable/disable jump delay. **0** No jump delay only on `surfaceparm monsterslicknorth` **1** Jump delay only on `surfaceparm monsterslicknorth`.                                      |
+| nonoclip        | 0 or 1               | 0       | Enable/disable noclip. **0** Don't allow noclip inside `surfaceparm donotenterlarge` **1** Only allow noclip inside `surfaceparm donotenterlarge`.                                    |
+| nosave          | 0 or 1               | 0       | Enable/disable save. **0** Don't allow save inside `surfaceparm clusterportal` brushes **1** Only allow save inside `surfaceparm clusterportal` brushes.                              |
+| nooverbounce    | 0 or 1               | 0       | Enable/disable overbounces. **0** Don't allow overbounces on `surfaceparm monsterslicksouth` **1** Only allow overbounces on `surfaceparm monsterslicksouth`.                         |
+| noprone         | 0 or 1               | 0       | Enable/disable prone. **0** Don't allow prone inside `surfaceparm donotenter` brushes **1** Only allow prone inside `surfaceparm donotenter` brushes.                                 |
+| nowallbug       | 0 or 1               | 0       | Toggles whether players can accelerate while stuck in a wall.                                                                                                                         |
+| portalgun_spawn | 0 or 1               | 0       | Toggles whether players should spawn with a portal gun.                                                                                                                               |
+| portalsurfaces  | 0 or 1               | 1       | Enable/disable portalsurfaces. **0** Only allow portals on `surfaceparm monsterslickeast` **1** Don't allow portals on `surfaceparm monsterslickeast`.                                |
+| portalteam      | 0 - 2                | 0       | If set to **0**, players can only go to own portals. If set to **1**, players can also go to fireteam mates' portals. If set to **2**, anyone can go to anyones portals.              |
+| limitedsaves    | any positive integer | 0       | If set to higher than 0, saves are limited to the set value.                                                                                                                          |
+| strictsaveload  | bitflag or string    | 0       | Limits save and load by given conditions. **1/move** cannot save while moving **2/dead** cannot save/load while dead. Combine strings with `\|` (eg. `move \| dead`).                 |
 
 **Spawnflags**
 
