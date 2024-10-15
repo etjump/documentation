@@ -3084,6 +3084,10 @@ movie_changeFovBasedOnSpeed |0 or 1         | 0
 
 Toggles adjusting FOV based on speed.
 
+```{note}
+Only works in demo playback.
+```
+
 ---
 
 ## movie_fovIncreasePerFrame
@@ -3102,10 +3106,6 @@ movie_fovMax            | any positive value | 140
 
 Maximum value FOV can increase to.
 
-```{note}
-Values outside of **90-160** require `developer 1`.
-```
-
 ---
 
 ## movie_fovMaxSpeed
@@ -3123,10 +3123,6 @@ Cvar                    | Values             | Default
 movie_fovMin            | any positive value | 90
 
 Minimum value FOV can decrease to.
-
-```{note}
-Values outside of **90-160** require `developer 1`.
-```
 
 ---
 
