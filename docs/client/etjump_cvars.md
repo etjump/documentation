@@ -4,22 +4,24 @@ Below is a list of all ETJump related cvars (console variables) available for pl
 ---
 
 ## b_demo_lookat
-Name                    | values        | default
-------------------------|:-------------:|-------------
-b_demo_lookat           | any integer   | -1
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+b_demo_lookat           | -1 - 1024     | -1
 
 Specifies an entity to focus freecam at on demo playback. **-1** disables focus.
 
-_Note: this cvar shares it's name with the ETPro variant for Camtrace 3D compatibility._
+```{note}
+This cvar shares it's name with the equivalent ETPro cvar for compatibility with Camtrace 3D scripts.
+```
 
 ---
 
 ## etj_accelAlign
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_accelAlign          | 0 - 2         | 0
 
-Set the alignment acceleration meter.
+Sets the alignment of the acceleration meter.
 
 * **0** Center
 * **1** Left align
@@ -28,94 +30,95 @@ Set the alignment acceleration meter.
 ---
 
 ## etj_accelAlpha
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_accelAlpha          | 0.0 - 1.0     | 1.0
 
-Sets alpha of acceleration meter.
+Sets the alpha of the acceleration meter.
 
 ---
 
 ## etj_accelColor
-Name                    | values                                | default
+Cvar                    | Values                                | Default
 ------------------------|:-------------------------------------:|-------------
-etj_accelColor          | [any color](../index.md#color-system) | white
+etj_accelColor          | [any color](../getting_started.md/#color-system) | white
 
-Sets color of acceleration meter.
+Sets the color of the acceleration meter.
 
-_Note: use [`etj_accelAlpha`](etjump_cvars.md/#etj_accelalpha) to set alpha._
+```{note}
+Use [`etj_accelAlpha`](etjump_cvars.md/#etj_accelalpha) to set alpha.
+```
 
 ---
 
 ## etj_accelColorUsesAccel
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_accelColorUsesAccel | 0 - 2         | 0
 
-Changes acceleration meter color to represent acceleration or deceleration.
+Changes the acceleration meter color to represent acceleration or deceleration.
 
 * **1** simple, green if accelerating, red if decelerating, white if no input
-* **2** advanced, takes into account per vector and current movement direction
+* **2** advanced, takes into account per vector acceleration and current movement direction
     * green - optimal acceleration
     * yellow - suboptimal acceleration relative to movement direction
     * red - no acceleration towards movement direction
     * white - no input
 
-_Note: due to inaccuracies in interpolation, advanced coloring is disabled while spectating and in demo playback, and simple acceleration coloring is used instead._
+```{note}
+Due to inaccuracies in interpolation, advanced coloring is automatically disabled while spectating and during demo playback, and simple acceleration coloring is used instead.
+```
 
 ---
 
 ## etj_accelShadow
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_accelShadow         | 0 or 1        | 1
 
-Toggle shadow on acceleration meter.
+Toggles shadow on the acceleration meter.
 
 ---
 
 ## etj_accelSize
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_accelSize           | any value     | 3
 
-Sets size of acceleration meter.
+Sets the size of the acceleration meter.
 
 ---
 
 ## etj_accelX
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_accelSize           | any value     | 320
 
-Sets X position of acceleration meter.
+Sets the horizontal position of the acceleration meter.
 
 ---
 
 ## etj_accelY
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_accelSize           | any value     | 340
 
-Sets Y position of acceleration meter.
+Sets the vertical position of the acceleration meter.
 
 ---
 
 ## etj_ad_savePBOnly
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_ad_savePBOnly       | 0 or 1        | 0
 
-Whether or not autodemo should save a demo when finishing a timerun.
-
-* **0** save all demos.
-* **1** save only personal bests.
+Toggles whether [`etj_autodemo`](etjump_cvars.md/#etj_autodemo) saves all timerun demos, or only new personal bests.
 
 ---
 
 ## etj_ad_stopDelay
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_ad_stopDelay        | 0 - 10000     | 2000
 
 Time in milliseconds to delay the stopping and saving of autodemo when a timerun ends.
@@ -123,8 +126,8 @@ Time in milliseconds to delay the stopping and saving of autodemo when a timerun
 ---
 
 ## etj_ad_targetPath
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_ad_targetPath       | any string    | autodemo
 
 Folder inside `demos` folder to store saved autodemo recordings in.
@@ -132,8 +135,8 @@ Folder inside `demos` folder to store saved autodemo recordings in.
 ---
 
 ## etj_altScoreboard
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_altScoreboard       | 0 - 3         | 0
 
 Changes the scoreboard to an alternative one.  
@@ -145,8 +148,8 @@ Changes the scoreboard to an alternative one.
 ---
 
 ## etj_autoDemo
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_autoDemo            | 0 - 2         | 0
 
 Automatically start recording a demo whenever player loads (unless a timerun is active) or spawns.
@@ -154,13 +157,15 @@ Automatically start recording a demo whenever player loads (unless a timerun is 
 * **1** enabled only for maps with a timerun.
 * **2** enabled for all maps.
 
-_Note: Autodemo will keep a maximum of 20 temp demos, located in `demos/temp` before it starts overwriting them._
+```{note}
+Autodemo records a circular buffer of 20 demos, located in `demos/temp`. The naming starts from `temp_01.dm_84` and progresses to `temp_20.dm_84`, after which it starts overwriting demos starting again from `temp_01.dm_84`.
+```
 
 ---
 
 ## etj_autoLoad
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_autoLoad            | 0 or 1        | 1
 
 Automatically load into last saved position when joining a team.
@@ -168,82 +173,88 @@ Automatically load into last saved position when joining a team.
 ---
 
 ## etj_autoPortalBinds
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_autoPortalBinds     | 0 or 1        | 1
 
-Automatically bind `+attack2` to `weapalt` key and back when equipping/unequipping portal gun.
+Automatically bind `+attack2` to current `weapalt` key and back when equipping/unequipping portal gun.
 
-_Note: switching to spectators will also adjust the bindings in order to preserve `followprev` functtionality of `weapalt`._
+```{note}
+Switching to spectators will also adjust the bindings in order to preserve `followprev` functionality of `weapalt`.
+```
 
 ---
 
 ## etj_CGaz1Color1
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_CGaz1Color1         | [any color](../index.md#color-system) | 0.75 0.75 0.75 0.75
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_CGaz1Color1         | [any color](../getting_started.md/#color-system) | 0.75 0.75 0.75 0.75
 
-Sets the no accel zone color of CGaz HUD **1**.
+Sets color of the no accel zone in CGaz HUD **1**.
 
 ---
 
 ## etj_CGaz1Color2
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_CGaz1Color2         | [any color](../index.md#color-system) | 0.0 1.0 0.0 0.75
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_CGaz1Color2         | [any color](../getting_started.md/#color-system) | 0.0 1.0 0.0 0.75
 
-Sets the minimum angle color of CGaz HUD **1**.
+Sets color of the minimum angle in CGaz HUD **1**.
 
 ---
 
 ## etj_CGaz1Color3
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_CGaz1Color3         | [any color](../index.md#color-system) | 0.0 0.2 0.0 0.75
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_CGaz1Color3         | [any color](../getting_started.md/#color-system) | 0.0 0.2 0.0 0.75
 
-Sets the accel zone color of CGaz HUD **1**.
+Sets color of the accel zone in CGaz HUD **1**.
 
 ---
 
 ## etj_CGaz1Color4
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_CGaz1Color4         | [any color](../index.md#color-system) | 1.0 1.0 0.0 0.75
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_CGaz1Color4         | [any color](../getting_started.md/#color-system) | 1.0 1.0 0.0 0.75
 
-Sets the max angle color of CGaz HUD **1**.
+Sets color of the max angle in CGaz HUD **1**.
 
 ---
 
 ## etj_CGaz1DrawSnapZone
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_CGaz1DrawSnapZone   | 0 or 1        | 0
 
 Extends minline drawing on CGaz 1 to the end of the current snap zone.
 
+```{note}
+This uses [`etj_CGazFov`](etjump_cvars.md/#etj_cgazfov) to determine the snapzone positions. It's meant to be used standalone, without using [`etj_drawSnapHUD`](etjump_cvars.md/#etj_drawsnaphud). If CGaz and snaphud FOVs do not match, the drawing appears misaligned compared to the snaphud, though it is still correct.
+```
+
 ---
 
 ## etj_CGaz2Color1
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_CGaz2Color1          | [any color](../index.md#color-system) | 1.0 0.0 0.0 1.0
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_CGaz2Color1          | [any color](../getting_started.md/#color-system) | 1.0 0.0 0.0 1.0
 
-Set the primary color of CGaz HUD **2**.
+Sets primary color of CGaz HUD **2**.
 
 ---
 
 ## etj_CGaz2Color2
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_CGaz2Color2          | [any color](../index.md#color-system) | 0.0 1.0 1.0 1.0
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_CGaz2Color2          | [any color](../getting_started.md/#color-system) | 0.0 1.0 1.0 1.0
 
-Set the secondary color of CGaz HUD **2**.
+Sets secondary color of CGaz HUD **2**.
 
 ---
 
 ## etj_CGaz2FixedSpeed
-Name                    | values             | default
-------------------------|:------------------:|-------------
+Cvar                    | Values             | Default
+------------------------|:-------------------|-------------
 etj_CGaz2FixedSpeed     | any positive value | 0
 
 When set to higher than **0**, CGaz 2 will be drawn as if the player had the set amount of speed, instead of being adjusted by players real speed.
@@ -251,8 +262,8 @@ When set to higher than **0**, CGaz 2 will be drawn as if the player had the set
 ---
 
 ## etj_CGaz2NoVelocityDir
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_CGaz2NoVelocityDir  | 0 - 2         | 0
 
 Controls drawing of velocity direction line on CGaz 2.
@@ -263,8 +274,8 @@ Controls drawing of velocity direction line on CGaz 2.
 ---
 
 ## etj_CGaz2WishDirFixedSpeed
-Name                       | values             | default
----------------------------|:------------------:|-------------
+Cvar                       | Values             | Default
+---------------------------|:-------------------|-------------
 etj_CGaz2WishDirFixedSpeed | any positive value | 0
 
 When set to higher than **0**, CGaz 2 wishdir line length will be scaled to match player speed, similar to [`etj_CGaz2FixedSpeed`](#etj_cgaz2fixedspeed).
@@ -272,8 +283,8 @@ When set to higher than **0**, CGaz 2 wishdir line length will be scaled to matc
 ---
 
 ## etj_CGaz2WishDirUniformLength
-Name                          | values             | default
-------------------------------|:------------------:|-------------
+Cvar                          | Values             | Default
+------------------------------|:-------------------|-------------
 etj_CGaz2WishDirUniformLength | 0 or 1             | 0
 
 If set, CGaz2 wishdir line will be uniformly scaled regardless of player inputs (e.g. `+forward` & `+moveright` length is same as just `+forward`).
@@ -281,26 +292,26 @@ If set, CGaz2 wishdir line will be uniformly scaled regardless of player inputs 
 ---
 
 ## etj_CGazFov
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_CGazFov             | 0 - 179       | 0
 
-Sets the FOV of CGaz HUD **1**. **0** means use your current in-game FOV.
+Sets FOV of CGaz HUD **1**. Value **0** uses your current in-game FOV.
 
 ---
 
 ## etj_CGazHeight
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_CGazHeight          | any integer   | 20
 
-Height of the CGaz HUD **1**.
+Sets height of CGaz HUD **1**.
 
 ---
 
 ## etj_CGazOnTop
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_CGazOnTop           | 0 or 1        | 0
 
 Toggles drawing of CGaz HUD on top of Snaphud.
@@ -308,83 +319,83 @@ Toggles drawing of CGaz HUD on top of Snaphud.
 ---
 
 ## etj_CGazTrueness
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_CGazTrueness        | bitflag       | 2
 
-Set "trueness" flags on CGaz HUD.
+Sets "trueness" flags on CGaz HUD.
 
-* **1** Show upmove influence
-* **2** Show true groundzones (CGaz 1 only)
+* **1** show upmove influence
+* **2** show true groundzones (CGaz 1 only)
 
 ---
 
 ## etj_CGazY
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_CGazY               | any integer   | 240
 
-Vertical position of CGaz HUD **1**.
+Sets vertical position of CGaz HUD **1**.
 
 ---
 
 ## etj_chatAlpha
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_chatAlpha           | 0.0 - 1.0     | 1.0
 
-Set chat transparency.
+Sets alpha for chat messages.
 
 ---
 
 ## etj_chatBackgroundAlpha
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_chatBackgroundAlpha | 0.0 - 1.0     | 0.33
 
-Controls chat box background transparency.
+Sets alpha for the chat background gradient.
 
 ---
 
 ## etj_chatFlags
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_chatFlags           | 0 or 1        | 1
 
-Toggles chat flags.
+Toggles drawing of team flags on chat messages.
 
 ---
 
 ## etj_chatLineWidth
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_chatLineWidth       | 1 - 200       | 62
 
-Set number of characters on one line of chat before linebreak happens.
+Sets number of characters on one line of chat before a linebreak happens.
 
 ---
 
 ## etj_chatPosX
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_chatPosX            | any integer   | 0
 
-Chat box horizontal offset.
+Sets horizontal offset of the chat.
 
 ---
 
 ## etj_chatPosY
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_chatPosY            | any integer   | 0
 
-Chat box vertical offset.
+Sets vertical offset of the chat.
 
 ---
 
 ## etj_chatScale
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_chatScale           | any value     | 1.0
 
 Scales the chat size.
@@ -392,17 +403,17 @@ Scales the chat size.
 ---
 
 ## etj_chatShadow
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_chatShadow          | 0 or 1        | 0
 
-Draw shadow on chat.
+Toggles shadow on chat messages.
 
 ---
 
 ## etj_checkpointsCount
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_checkpointsCount    | 1-5           | 3
 
 How many checkpoints timers to draw.
@@ -410,218 +421,242 @@ How many checkpoints timers to draw.
 ---
 
 ## etj_checkpointsPopup
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_checkpointsPopup    | 0 or 1        | 1
 
-Toggle checkpoint popup on screen when hitting a checkpoint.
+Toggles checkpoint popup on screen when hitting a checkpoint.
 
-_Note: This does not require the regular checkpoint timer to be visible._
+```{tip}
+This functions independently of [`etj_drawCheckpoints`](etjump_cvars.md/#etj_drawcheckpoints).
+```
 
 ---
 
 ## etj_checkpointsPopupDuration
-Name                         | values        | default
------------------------------|:-------------:|-------------
+Cvar                         | Values        | Default
+-----------------------------|:--------------|-------------
 etj_checkpointsPopupDuration | any integer   | 1000
 
-How long in milliseconds the checkpoint popup stays on screen.
+How long in milliseconds a checkpoint popup stays on screen.
 
 ---
 
 ## etj_checkpointsPopupSize
-Name                     | values        | default
--------------------------|:-------------:|-------------
+Cvar                     | Values        | Default
+-------------------------|:--------------|-------------
 etj_checkpointsPopupSize | any value     | 2
 
-Sets the size of the checkpoint popup.
+Sets size of a checkpoint popup.
 
 ---
 
 ## etj_checkpointsPopupShadow
-Name                       | values        | default
----------------------------|:-------------:|-------------
+Cvar                       | Values        | Default
+---------------------------|:--------------|-------------
 etj_checkpointsPopupShadow | 0 or 1        | 1
 
-Draw shadow on checkpoint popup.
+Toggles drawing shadow on checkpoint popups.
 
 ---
 
 ## etj_checkpointsPopupX
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_checkpointsPopupX   | any value     | 320
 
-Sets X position of checkpoint popup.
+Sets horizontal position of a checkpoint popup.
 
 ---
 
 ## etj_checkpointsPopupY
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_checkpointsPopupY   | any value     | 200
 
-Sets Y position of checkpoint popup.
+Sets vertical position of a checkpoint popup.
 
 ---
 
 ## etj_checkpointsShadow
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_checkpointsShadow   | 0 or 1        | 1
 
-Draw shadow on checkpoint timer.
+Toggles shadow on the checkpoint timer.
 
 ---
 
 ## etj_checkpointsSize
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_checkpointsSize     | any value     | 2
 
-Sets the size of checkpoint timer.
+Sets size of the checkpoint timer.
 
 ---
 
 ## etj_checkpointsStyle
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_checkpointsStyle    | 0 or 1        | 0
 
-Sets the style of checkpoint timer.
+Sets style of the checkpoint timer.
 
 * **0** relative time
 * **1** absolute time
 
+```{note}
+If you have not previously set a record on the current timerun, or haven't [loaded checkpoints for comparison](client_commands.md/#loadcheckpoints), absolute time is always displayed.
+```
+
 ---
 
 ## etj_checkpointsX
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_checkpointsSizeX    | any value     | 320
 
-Sets the X position of checkpoint timer.
+Sets horizontal position of the checkpoint timer.
 
-_Note: Checkpoint timer must be in detached mode (`etj_drawCheckpoints 2`) to adjust the position._
+```{note}
+Checkpoint timer must be in detached mode (`etj_drawCheckpoints 2`) to adjust the position.
+```
 
 ---
 
 ## etj_checkpointsY
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_checkpointsSizeY    | any value     | 380
 
-Sets the Y position of checkpoint timer.
+Sets vertical position of the checkpoint timer.
 
-_Note: Checkpoint timer must be in detached mode (`etj_drawCheckpoints 2`) to adjust the position._
-
----
-
-## etj_CHS1Info**X**
-Where **X** stands for integer of **1** to **8** specifing text position on the circle.
-See full list of parameters [here](../index.md#chs).
+```{note}
+Checkpoint timer must be in detached mode (`etj_drawCheckpoints 2`) to adjust the position.
+```
 
 ---
 
-## etj_CHS2Info**X**
-Where **X** stands for integer of **1** to **8** specifing text position in the list.
-See full list of parameters [here](../index.md#chs).
+## etj_CHS1Info1-8
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_CHS1Info1-8         | [chs info value](../advanced_features.md/#chs) | 0
+
+Sets CHS **1** info of the given slot to display the given info value.
+
+---
+
+## etj_CHS2Info1-8
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_CHS2Info1-8         | [chs info value](../advanced_features.md/#chs) | 0
+
+Sets CHS **2** info of the given slot to display the given info value.
 
 ---
 
 ## etj_CHS2PosX
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_CHS2PosX            | any integer   | 0
 
-Set horizontal offset of CHS2.
+Sets horizontal offset of CHS2.
 
 ---
 
 ## etj_CHS2PosY
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_CHS2PosY            | any integer   | 0
 
-Set vertical offset of CHS2.
+Sets vertical offset of CHS2.
 
 ---
 
 ## etj_CHSAlpha
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_CHSAlpha            | 0.0 - 1.0     | 1.0
 
-Set transparency of CHS.
+Sets alpha of the CHS.
 
 ---
 
 ## etj_CHSColor
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_CHSColor            | [any color](../index.md#color-system) | 1.0 1.0 1.0
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_CHSColor            | [any color](../getting_started.md/#color-system) | 1.0 1.0 1.0
 
-Set color of CHS.
+Sets the color of CHS.
+
+```{note}
+Alpha is controlled by [`etj_CHSAlpha`](etjump_cvars.md/#etj_chsalpha).
+```
 
 ---
 
 ## etj_CHSShadow
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_CHSShadow           | 0 or 1        | 0
 
-Draw shadow on CHS.
+Toggles shadow on CHS.
 
 ---
 
 ## etj_CHSUseFeet
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_CHSUseFeet          | 0 or 1        | 0
 
-Shift Z origin to feet level for positional calculations.
+Toggles shifting z-origin used by CHS to feet level for positional calculations.
 
 ---
 
 ## etj_clear
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_clear               | 0 or 1        | 0
 
-Force screen clear with pink color when drawing void. Unlocked version of `r_clear`.
+Force screen clear with pink color when drawing void.
+
+```{hint}
+This is a cvar unlocker for `r_clear`.
+```
 
 ---
 
 ## etj_consoleAlpha
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_consoleAlpha        | 0.0 - 1.0     | 1.0
 
-Set transparency of console. Changing requires `vid_restart`.
+Sets alpha of the console.
 
 ---
 
 ## etj_consoleColor
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_consoleColor        | [any color](../index.md#color-system) | 0.0 0.0 0.0
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_consoleColor        | [any color](../getting_started.md/#color-system) | 0.0 0.0 0.0
 
-Change console background color when `etj_consoleShader` is set to **0**. Changing requires `vid_restart`.
+Sets the console background color when [`etj_consoleShader`](etjump_cvars.md/#etj_consoleshader) is set to **0**.
 
 ---
 
 ## etj_consoleShader
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_consoleShader       | 0 or 1        | 1
 
-Toggle console background shader. Changing requires `vid_restart`.
+Toggles console background shader.
 
 ---
 
 ## etj_crosshairOutline
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_crosshairOutline    | 0 or 1        | 1
 
 Toggles drawing of outline on ETJump crosshairs.
@@ -629,62 +664,70 @@ Toggles drawing of outline on ETJump crosshairs.
 ---
 
 ## etj_crosshairScaleX
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_crosshairScaleX     | -5 - 5        | 1.0
 
-Sets horizontal scaling of crosshair.
+Sets the horizontal scaling of the crosshair.
+
+```{tip}
+This works on all crosshairs, not just the ETJump-exclusive crosshairs.
+```
 
 ---
 
 ## etj_crosshairScaleY
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_crosshairScaleY     | -5 - 5        | 1.0
 
-Sets vertical scaling of crosshair.
+Sets the vertical scaling of the crosshair.
+
+```{tip}
+This works on all crosshairs, not just the ETJump-exclusive crosshairs.
+```
 
 ---
 
 ## etj_crosshairThickness
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_crosshairThickness  | 0 - 5         | 1.0
 
-Sets line thickness of ETJump crosshairs.
+Sets the line thickness of ETJump crosshairs.
 
 ---
 
 ## etj_demo_freecamspeed
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_demo_freecamspeed   | any integer   | 800
 
 Sets freecam movement speed in demo playback.
 
 ---
 
-## etj_demo_rollspeed
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_demo_rollspeed      | any integer   | 140
-
-Sets freecam `ROLL` turn speed in demo playback.
-
----
-
 ## etj_demo_pitchturnspeed
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_demo_pitchturnspeed | any integer   | 140
 
 Sets freecam `PITCH` turn speed in demo playback.
 
 ---
 
+## etj_demo_rollspeed
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_demo_rollspeed      | any integer   | 140
+
+Sets freecam `ROLL` turn speed in demo playback.
+
+---
+
 ## etj_demo_yawturnspeed
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_demo_yawturnspeed   | any integer   | 140
 
 Sets freecam `YAW` turn speed in demo playback.
@@ -692,38 +735,42 @@ Sets freecam `YAW` turn speed in demo playback.
 ---
 
 ## etj_drawAccel
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_drawAccel           | 0 or 1        | 0
 
-Toggle drawing of acceleration values on x/y axes.
+Toggles drawing of acceleration values on x/y axes.
 
 ---
 
 ## etj_drawBanners
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_drawBanners         | 0 or 1        | 1
 
-Toggle drawing of banner prints.
+Toggles drawing of banner prints.
 
 ---
 
 ## etj_drawCGaz
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_drawCGaz            | bitflag       | 0
 
-Draws the CGaz HUD. Has 2 [different variations](../index.md#cgaz-strafeometer).
+Draws the CGaz HUDs. Has 2 [different variations](../advanced_features.md/#cgaz-hud).
+
+* **0** off
+* **1** draw DeFRaG style CGaz HUD
+* **2** draw ETJump/TJMod style CGaz HUD
 
 ---
 
 ## etj_drawCheckpoints
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_drawCheckpoints     | 0 - 2        | 1
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_drawCheckpoints     | 0 - 2         | 1
 
-Draws checkpoint timer.
+Draws the checkpoint timer.
 
 * **1** below runtimer 
 * **2** detached
@@ -731,36 +778,58 @@ Draws checkpoint timer.
 ---
 
 ## etj_drawCHS1
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_drawCHS1            | 0 or 1        | 0
 
-Draws crosshair stats 1. [More info](../index.md#chs).
+Draws crosshair stats 1.
+
+```{seealso}
+[Crosshair stats](../advanced_features.md/#chs)
+```
 
 ---
 
 ## etj_drawCHS2
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_drawCHS2            | 0 - 2         | 0
 
-Draws crosshair stats 2. Value **2** aligns text to the right. [More info](../index.md#chs).
+Draws crosshair stats 2. Value **2** aligns text to the right.
+
+
+```{seealso}
+[Crosshair stats](../advanced_features.md/#chs)
+```
 
 ---
 
 ## etj_drawClips
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_drawClips           | 0 or 1        | 0
 
-Toggle clip brush drawing. Unlocked version of `r_drawClips`. Requires [ETe client](https://github.com/etfdevs/ETe) release from Sep 10th 2022 or newer. [More info](../index.md#clip-trigger-slick-drawing).
+Toggle clip brush drawing. 
+
+```{note}
+Requires [ETe client](https://github.com/etfdevs/ETe) from Sep 10th 2022 or newer.
+```
+
+```{hint}
+This is a cvar unlocker for `r_drawClips`.
+```
+
+```{seealso}
+[Clip, trigger and slick drawing](../advanced_features.md/#clip-trigger--slick-drawing).
+
+```
 
 ---
 
 ## etj_drawClock
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_drawClock           | 0 - 2        | 1
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_drawClock           | 0 - 2         | 1
 
 Draws clock. 
 
@@ -770,8 +839,8 @@ Draws clock.
 ---
 
 ## etj_drawConnectionIssues
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                     | Values        | Default
+:------------------------|:--------------|:------------
 etj_drawConnectionIssues | 0 or 1       | 1
 
 Toggles connection interrupted text if there are connection problems. Useful for high ping players.
@@ -779,17 +848,21 @@ Toggles connection interrupted text if there are connection problems. Useful for
 ---
 
 ## etj_drawFoliage
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_drawFoliage         | 0 or 1        | 1
 
-Draws foliage. Unlocked version of `r_drawfoliage`.
+Toggles drawing of foliage.
+
+```{hint}
+This is a cvar unlocker for `r_drawfoliage`.
+```
 
 ---
 
 ## etj_drawJumpSpeeds
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_drawJumpSpeeds      | 0 or 1        | 1
 
 Draws last 10 jump speeds.
@@ -797,8 +870,8 @@ Draws last 10 jump speeds.
 ---
 
 ## etj_drawKeys
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_drawKeys            | 0 - 5         | 1
 
 Draws pressed keys. There are five different keysets available:
@@ -812,38 +885,42 @@ Draws pressed keys. There are five different keysets available:
 ---
 
 ## etj_drawLeaves
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_drawLeaves          | 0 or 1        | 1
 
-Draws leaves on trees and bushes. Functionality relies on a fixed set of shaders, and only works on stock ET shaders.
+Toggles the drawing of leaves on trees and bushes.
+
+```{note}
+The functionality of this cvar relies on a fixed set of shaders, defined in ETJump source code. It only works for stock assets included in `pak0.pk3`.
+```
 
 ---
 
 ## etj_drawMaxSpeed
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_drawMaxSpeed        | 0 or 1        | 0
 
-Draws your max speed from last load.
+Toggles drawing your max speed since previous [`load`](client_commands.md/#load) whenever you use `load`.
 
 ---
 
 ## etj_drawMessageTime
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_drawMessageTime     | 0 - 2         | 2
 
-Draw when a message was sent. 
+Draws timestamps on chat messages.
 
-* **1** for `hours:minutes` format 
-* **2** for `hours:minutes:seconds` format.
+* **1** for `HH:MM` format 
+* **2** for `HH:MM:SS` format.
 
 ---
 
 ## etj_drawNoclipIndicator
-Name                     | values        | default
--------------------------|:-------------:|-------------
+Cvar                     | Values        | Default
+-------------------------|:--------------|-------------
 etj_drawNoclipIndicator  | 0 - 3         | 3
 
 Draw no-noclip area indicator.
@@ -855,37 +932,41 @@ Draw no-noclip area indicator.
 ---
 
 ## etj_drawNoJumpDelay
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_drawNoJumpDelay     | 0 or 1        | 0
 
-Draw no jump delay surface detector.
+Toggles drawing the no jump delay surface detector.
 
-Symbol shown is different depending on the maps usage of worldspawn key `nojumpdelay`.
+The symbol shown by this detector depends on the value of `nojumpdelay` worldspawn key.
 
-* **ND** when aiming at surface without jump delay while `nojumpdelay` is **0**.
-* **D** when aiming at surface with jump delay while `nojumpdelay` is **1**.
+* **ND** when aiming at surface without jump delay when `nojumpdelay` is **0**.
+* **D** when aiming at surface with jump delay when `nojumpdelay` is **1**.
 
 ---
 
 ## etj_drawNotify
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_drawNotify          | 0 or 1        | 0
 
-Draw console output on top left of screen. Unlocked version of `con_drawNotify`.
+Toggles drawing the console output at the top left of the screen.
+
+```{hint}
+This is a cvar unlocker for `con_drawNotify`.
+```
 
 ---
 
 ## etj_drawOB
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_drawOB              | 0 - 2         | 0
 
-Draws overbounce meter.
+Draws overbounce detector.
 
-* **1** simple overbounce meter 
-* **2** predict sticky overbounces
+* **1** detects regular jump and fall overbounces
+* **2** also detects sticky overbounces
 
 Symbols meaning:
 
@@ -894,26 +975,28 @@ Symbols meaning:
 * **B** below ob
 * **S** sticky ob
 
-_Note: sticky overbounces are never drawn on surfaces that are on the exact same height as you are currently, as it is always possible to get a sticky OB in such cases, and drawing it would mostly just be distracting._
+```{note}
+Sticky overbounces are never drawn on surfaces that are on the exact same height as you are currently. It is always possible to get a sticky overbounce in such cases, and drawing it would mostly just be distracting.
+```
 
 ---
 
 ## etj_drawObWatcher
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_drawObWatcher       | 0 or 1        | 1
 
-Draws overbounce watcher. Allows you to save position and when you are about to hit overbounce on that surface, the detector will show `OB` without having to actually aim at the saved surface.
+Toggles drawing the overbounce watcher. Overbounce watcher allows you to save position(s) that you want to monitor, and displays `OB` when you would land an overbounce on the saved position.
 
-* `ob_save` will save your current coordinates.
-* `ob_load` will load saved coordinates.
-* `ob_reset` resets currently displayed coordinates so nothing will be displayed.
+```{seealso}
+[`ob_save`, `ob_load`, `ob_reset`, `ob_list`](client_commands.md/#ob_save-ob_load-ob_reset-ob_list)
+```
 
 ---
 
 ## etj_drawProneIndicator
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_drawProneIndicator  | 0 - 3         | 3
 
 Draw prone area indicator.
@@ -925,18 +1008,22 @@ Draw prone area indicator.
 ---
 
 ## etj_drawRunTimer
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_drawRunTimer        | 0 or 1        | 1
 
-Draws the timerun timer. Doesn't draw anything if the server or map doesn't enable timeruns.
+Toggles drawing the timerun timer. Does not draw if the map has no timeruns.
+
+```{seealso}
+[`etj_runTimerAutoHide`](etjump_cvars.md/#etj_runtimerautohide)
+```
 
 ---
 
 ## etj_drawSaveIndicator
 
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_drawSaveIndicator   | 0 - 3         | 3
 
 Draw save area indicator.
@@ -949,46 +1036,66 @@ Draw save area indicator.
 
 ## etj_drawScoreboardInactivity
 
-Name                         | values        | default
------------------------------|:-------------:|-------------
+Cvar                         | Values        | Default
+-----------------------------|:--------------|-------------
 etj_drawScoreboardInactivity | 0 or 1        | 1
 
-Draw an idle indicator on scoreboard for clients who haven't registered an input for **3** minutes.
+Toggles drawing an idle indicator on scoreboard for clients who haven't registered an input for **3** minutes.
+
+```{note}
+Due to the way the game engine handles input, chatting does not reqister as an input, which might cause inaccuracy with this cvar.
+```
 
 ---
 
 ## etj_drawSimplePlayers
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_drawSimplePlayers   | 0 or 1        | 0
 
 Toggles alternative drawing of other players. When enabled, a single shader is used to draw other players.
 
-![Example](../img/etj_ghostPlayersAlt_example.png).
-
 ---
 
 ## etj_drawSlick
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_drawSlick           | 0 or 1        | 1
 
-Draw slick detector. Draws `S` symbol if you are aiming at slick surface.
+Toggles drawing slick detector. Draws `S` symbol if you are aiming at slick surface.
+
+```{tip}
+This also works for surfaces that are too steep to stand on.
+```
 
 ---
 
 ## etj_drawSlicks
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_drawSlicks          | 0 or 1        | 0
 
-Toggle slick surface drawing. Works for surfaces with `surfaceparm slick` and angle slicks. Unlocked version of `r_drawSlicks`. Requires [ETe client](https://github.com/etfdevs/ETe) release from Sep 10th 2022 or newer. [More info](../index.md#clip-trigger-slick-drawing).
+Toggle slick surface drawing. Works for the same surfaces that are detected by [`etj_drawSlick`](etjump_cvars.md/#etj_drawslick).
+
+
+```{note}
+Requires [ETe client](https://github.com/etfdevs/ETe) from Sep 10th 2022 or newer.
+```
+
+```{hint}
+This is a cvar unlocker for `r_drawSlicks`.
+```
+
+```{seealso}
+[Clip, trigger and slick drawing](../advanced_features.md/#clip-trigger--slick-drawing).
+
+```
 
 ---
 
 ## etj_drawSnapHUD
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_drawSnapHUD         | 0 - 2         | 0
 
 Draws velocity snapping HUD.
@@ -999,8 +1106,8 @@ Draws velocity snapping HUD.
 ---
 
 ## etj_drawSpectatorInfo
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_drawSpectatorInfo   | 0 - 3         | 0
 
 Draws a list of people spectating you. Idle spectators are drawn with sligtly transparent colors.
@@ -1012,11 +1119,11 @@ Draws a list of people spectating you. Idle spectators are drawn with sligtly tr
 ---
 
 ## etj_drawspeed
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_drawspeed           | 0 - 2         | 1
 
-Draws original ETPub-style speedometer, **2** additionally draws max speed, that can be reset with `resetmaxspeed` command.
+Draws original ETPro-style speed meter on the right side of the screen.
 
 * **1** draw speed
 * **2** draw speed + maxspeed
@@ -1024,11 +1131,11 @@ Draws original ETPub-style speedometer, **2** additionally draws max speed, that
 ---
 
 ## etj_drawSpeed2
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_drawSpeed2          | 0 - 9         | 1
 
-Draws ETJump speedometer under the corsshair. Has several drawing options:
+Draws ETJump speed meter. Has several drawing options:
 
 * **1** draws **current speed**
 * **2** draws **speed** and **max speed** nearby  
@@ -1046,38 +1153,55 @@ And several options to represent **speed** and **max speed**
 ---
 
 ## etj_drawStrafeQuality
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_drawStrafeQuality   | 0 or 1        | 0
 
-Toggles drawing of strafe quality meter.
+Toggles drawing of the strafe quality meter.
 
 ---
 
 ## etj_drawTokens
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_drawTokens          | 0 or 1        | 1
 
 Toggles drawing of collectible tokens.
 
+```{seealso}
+[`!tokens`](../server/admin_system.md/#tokens)
+```
+
 ---
 
 ## etj_drawTriggers
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_drawTriggers        | 0 or 1        | 0
 
-Toggle trigger brush drawing. Unlocked version of `r_drawTriggers`. Requires [ETe client](https://github.com/etfdevs/ETe) release from Sep 10th 2022 or newer. [More info](../index.md#clip-trigger-slick-drawing).
+Toggles drawing of trigger brushes.
+
+```{note}
+Requires [ETe client](https://github.com/etfdevs/ETe) from Sep 10th 2022 or newer.
+```
+
+```{hint}
+This is a cvar unlocker for `r_drawTriggers`.
+``` 
+
+```{seealso}
+[Clip, trigger and slick drawing](../advanced_features.md/#clip-trigger--slick-drawing).
+
+```
 
 ---
 
 ## etj_drawUpmoveMeter
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_drawUpmoveMeter     | bitflag       | 0
 
-Draws upmove meter.
+Draws the upmove meter.
 
 * **0** Off
 * **1** Graph
@@ -1086,17 +1210,17 @@ Draws upmove meter.
 ---
 
 ## etj_enableTimeruns
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_enableTimeruns      | 0 or 1        | 1
 
-Toggles timeruns. Having **0** means don't activate any timerun timers on timerun supported map.
+Toggles whether timeruns are enabled for the player.
 
 ---
 
 ## etj_expandedMapAlpha
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_expandedMapAlpha    | 0.0 - 1.0     | 0.7
 
 Set transparency of expanded command map (`+mapexpand`).
@@ -1104,22 +1228,22 @@ Set transparency of expanded command map (`+mapexpand`).
 ---
 
 ## etj_explosivesShake
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_explosivesShake     | 0 - 3         | 3
 
 Controls screenshake from explosives.
 
 * **0** disables screenshakes
-* **1** disables for own explosives 
-* **2** disables for other player's explosives
-* **3** default behaviour
+* **1** screenshakes only from explosives by other players 
+* **2** screenshakes only from explosives by yourself
+* **3** screenshakes from all explosives
 
 ---
 
 ## etj_extraTrace
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_extraTrace          | bitflags      | 0
 
 Toggles tracing of playerclips on various detectors.
@@ -1133,49 +1257,51 @@ Toggles tracing of playerclips on various detectors.
 * **64** CHS 16
 * **128** CHS 53
 
-The bitflags values can be listed in console with the command `/extraTrace`.
+```{tip}
+You can see the list of values in-game with the [`extraTrace`](client_commands.md/#extratrace) command.
+```
 
 ---
 
 ## etj_fireteamAlpha
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_fireteamAlpha       | 0.0 - 1.0     | 1.0
 
-Set transparency of fireteam.
+Sets alpha of the fireteam overlay.
 
 ---
 
 ## etj_fireteamPosX
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_fireteamPosX        | any integer   | 0
 
-Set horizontal offset of fireteam.
+Sets horizontal offset of the fireteam overlay.
 
 ---
 
 ## etj_fireteamPosY
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_fireteamPosY        | any integer   | 0
 
-Set vertical offset of fireteam.
+Sets vertical offset of the fireteam overlay.
 
 ---
 
 ## etj_fixedCompassShader
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_fixedCompassShader  | 0 or 1        | 0
 
-Toggle overriding the shader used for compass in the map with a fixed, default shader which ensures that the corners of the compass will be correctly cropped. Original image is still used for drawing. This is mostly unnoticeable when enabled, but since it overrides the shader, it will break certain special command map shaders, such as the animated compass of Skacharohuth.
+Toggles overriding the shader used for compass in the map with a fixed, default shader which ensures that the corners of the compass will be correctly cropped. Original image is still used for drawing. This is mostly unnoticeable when enabled, but since it overrides the shader, it can possibly break certain special command map shaders.
 
 ---
 
 ## etj_fixedCushionSteps
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_fixedCushionSteps   | 0 or 1        | 0
 
 Toggles playing correct step sounds when landing on a cushion brush.
@@ -1183,17 +1309,21 @@ Toggles playing correct step sounds when landing on a cushion brush.
 ---
 
 ## etj_flareSize
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_flareSize           | any value     | 40
 
-Sets the size of flares and coronas. Unlocked version of `r_flareSize`.
+Sets the size of flares and coronas.
+
+```{hint}
+This is a cvar unlocker for `r_flareSize`.
+```
 
 ---
 
 ## etj_foostepVolume
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_foostepVolume       | any value     | 1.0
 
 Scales the volume of footsteps and landing sounds.
@@ -1201,17 +1331,17 @@ Scales the volume of footsteps and landing sounds.
 ---
 
 ## etj_FPSMeterUpdateInterval
-Name                       | values        | default
----------------------------|:-------------:|-------------
-etj_FPSMeterUpdateInterval | any integer   | 250
+Cvar                       | Values                 | Default
+---------------------------|:-----------------------|-------------
+etj_FPSMeterUpdateInterval | any positive integer   | 250
 
-Sets the update interval of FPS meter in milliseconds.
+Sets the update interval of FPS meter in milliseconds. Set to **0** to update every frame (vanilla behavior).
 
 ---
 
 ## etj_gunSway
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_gunSway             | 0 or 1        | 1
 
 Toggles gun idle/movement sway and landing bobbing.
@@ -1219,224 +1349,264 @@ Toggles gun idle/movement sway and landing bobbing.
 ---
 
 ## etj_hide
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_hide                | 0 or 1        | 1
 
-Toggle whether to hide other players when they get too close.
+Toggles hiding of other players when they get too close.
+
+```{seealso}
+[`etj_hideDistance`](etjump_cvars.md/#etj_hidedistance)
+```
 
 ---
 
 ## etj_hideDistance
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_hideDistance        | any integer   | 128
+Cvar                    | Values                 | Default
+:-----------------------|:-----------------------|:------------
+etj_hideDistance        | any positive integer   | 128
 
 How close a player has to be to be hidden from view.
 
 ---
 
 ## etj_hideFadeRange
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_hideFadeRange       | any integer   | 200
 
-Additional range added to `etj_hideDistance` where other players start to fade before disappearing completely.
+Additional range added to [`etj_hideDistance`](etjump_cvars.md/#etj_hidedistance) where other players start to fade before disappearing completely.
+
+```{note}
+This is an addition to the distance specified by `etj_hideDistance`. With default values, players start fading out at **328** units distance, and gradually fade out until completely hidden at **128** units.
+```
 
 ---
 
 ## etj_hideMe
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_hideMe              | 0 or 1        | 0
 
-Hides yourself from other players view.
+Toggles hiding yourself from other players.
+
+```{note}
+When this cvar is enabled, along with your player model, several other aspects of your gameplay are also hidden from others.
+
+* Corpses left by you
+* Compass/map icon
+* Bullet tracers & impacts
+* Eject brass
+* Sounds produces by movement-related events
+* Weapon sounds
+* Item pickup sounds
+```
 
 ---
 
 ## etj_highlight
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_highlight           | 0 or 1        | 1
 
-Highlights chat messages if your name was mentioned.
+Toggles highlighting chat messages if your name was mentioned.
 
 ---
 
 ## etj_highlightSound
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_highlightSound      | path to .wav  | sound/world/beeper.wav
 
-Sound that plays when your name was mentioned in the chat. Server must have the specified .wav file.
+Sound that plays when your name was mentioned in the chat.
+
+```{note}
+If a server is running `sv_pure 1`, the sound must be present in the files on the server.
+```
 
 ---
 
 ## etj_highlightText
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_highlightText       | any string    | "^3> ^z"
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_highlightText       | any string    | ^3> ^z
 
-Prefix of the highlighted chat message.
+Prefix applied to a chat message where your name is mentioned.
 
 ---
 
 ## etj_HUD_chargeBar
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_HUD_chargeBar       | 0 or 1        | 1
 
-Toggle chargebar.
+Toggles drawing the charge bar.
 
 ---
 
 ## etj_HUD_fatigueBar
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_HUD_fatigueBar      | 0 or 1        | 1
 
-Toggle fatigue bar.
+Toggles drawing the fatigue bar.
 
 ---
 
 ## etj_HUD_fireteam
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_HUD_fireteam        | 0 or 1        | 1
 
-Toggle fireteam.
+Toggles drawing the fireteam overlay.
 
 ---
 
 ## etj_HUD_healthBar
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_HUD_healthBar       | 0 or 1        | 1
 
-Toggle health bar.
+Toggles drawing the health bar.
 
 ---
 
 ## etj_HUD_playerHead
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_HUD_playerHead      | 0 or 1        | 0
 
-Toggle player head.
+Toggles drawing the player head.
 
 ---
 
 ## etj_HUD_playerHealth
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_HUD_playerHealth    | 0 or 1        | 0
 
-Toggle player health.
+Toggles drawing the player health text.
 
 ---
 
 ## etj_HUD_popup
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_HUD_popup           | 0 - 2         | 1
 
-Toggles drawing of popup messages.
+Controls drawing of popup messages.
 
+* **0** don't draw popup messages
 * **1** draw left-aligned
 * **2** draw right-aligned
 
 ---
 
 ## etj_HUD_weaponIcon
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_HUD_weaponIcon      | 0 or 1        | 1
 
-Toggle weapon icon.
+Toggles drawing of the weapon icon.
 
 ---
 
 ## etj_HUD_xpInfo
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_HUD_xpInfo          | 0 or 1        | 0
 
-Toggle xp info.
+Toggles drawing of xp info.
 
 ---
 
 ## etj_itemPickupText
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_itemPickupText      | 0 or 1        | 1
 
-Draw text when item is picked up.
+Toggles item pickup messages.
 
 ---
 
 ## etj_jumpSpeedsColor
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_jumpSpeedsColor     | [any color](../index.md#color-system) | 1.0 1.0 1.0 1.0
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_jumpSpeedsColor     | [any color](../getting_started.md/#color-system) | 1.0 1.0 1.0 1.0
 
-Set the color of jump speeds display. Also used as a color for label text.
+Sets the color of jump speeds display. Also used as a color for label text.
 
-_Note: When `etj_jumpSpeedsShowDiff` is enabled, this color will be used for jumps that are equal speed to previous one._
+```{tip}
+When [`etj_jumpSpeedsShowDiff`](etjump_cvars.md/#etj_jumpspeedsshowdiff) is enabled, this color will be used for jumps that are equal speed to the previous one.
+```
 
 ---
 
 ## etj_jumpSpeedsFasterColor
-Name                      | values        | default
---------------------------|:-------------:|-------------
-etj_jumpSpeedsFasterColor | [any color](../index.md#color-system) | 0.0 1.0 0.0 1.0
+Cvar                      | Values        | Default
+--------------------------|:--------------|-------------
+etj_jumpSpeedsFasterColor | [any color](../getting_started.md/#color-system) | 0.0 1.0 0.0 1.0
 
-Set the color to use for a jump that was faster than previous jump on jump speeds display.
+Sets the color to use for a jump that was faster than previous jump on jump speeds display.
+
+```{note}
+No effect unless [`etj_jumpSpeedsShowDiff`](etjump_cvars.md/#etj_jumpspeedsshowdiff) is enabled.
+```
 
 ---
 
 ## etj_jumpSpeedsMinSpeed
-Name                      | values        | default
---------------------------|:-------------:|-------------
+Cvar                      | Values        | Default
+--------------------------|:--------------|-------------
 etj_jumpSpeedsMinSpeed    | any integer   | 0
 
-When set to higher than **0**, any jump slower than the set value will be colored with `etj_jumpSpeedsSlowerColor`. Works independently of `etj_jumpSpeedsShowDiff`.
+When set to higher than **0**, any jump slower than the set value will be colored with [`etj_jumpSpeedsSlowerColor`](etjump_cvars.md/#etj_jumpspeedsslowercolor).
+
+```{tip}
+This can be used independently, without enabling [`etj_jumpSpeedsShowDiff`](etjump_cvars.md/#etj_jumpspeedsshowdiff).
+```
 
 ---
 
 ## etj_jumpSpeedsShadow
-Name                      | values        | default
---------------------------|:-------------:|-------------
+Cvar                      | Values        | Default
+--------------------------|:--------------|-------------
 etj_jumpSpeedsShadow      | 0 or 1        | 1
 
-Draw shadow on jump speeds display.
+Toggles shadow drawing on the jump speeds display.
 
 ---
 
 ## etj_jumpSpeedsShowDiff
-Name                      | values        | default
---------------------------|:-------------:|-------------
+Cvar                      | Values        | Default
+--------------------------|:--------------|-------------
 etj_jumpSpeedsShowDiff    | 0 or 1        | 0
 
-Toggle coloring jump speeds with `etj_jumpSpeedsFasterColor`/`etj_jumpSpeedsSlowerColor` depending on if a jump was faster or slower than previous one.
+Toggles coloring jump speeds with [`etj_jumpSpeedsFasterColor`](etjump_cvars.md/#etj_jumpspeedsfastercolor) and [`etj_jumpSpeedsSlowerColor`](etjump_cvars.md/#etj_jumpspeedsslowercolor) if a jump was faster or slower than the previous jump, respectively.
 
 ---
 
 ## etj_jumpSpeedsSlowerColor
-Name                      | values        | default
---------------------------|:-------------:|-------------
-etj_jumpSpeedsSlowerColor | [any color](../index.md#color-system) | 1.0 0.0 0.0 1.0
+Cvar                      | Values        | Default
+--------------------------|:--------------|-------------
+etj_jumpSpeedsSlowerColor | [any color](../getting_started.md/#color-system) | 1.0 0.0 0.0 1.0
 
-Set the color to use for a jump that was slower than previous jump on jump speeds display.
+Sets the color to use for a jump that was slower than previous jump on jump speeds display.
+
+```{note}
+No effect unless [`etj_jumpSpeedsShowDiff`](etjump_cvars.md/#etj_jumpspeedsshowdiff) is enabled.
+```
 
 ---
 
 ## etj_jumpSpeedsStyle
-Name                      | values        | default
---------------------------|:-------------:|-------------
+Cvar                      | Values        | Default
+--------------------------|:--------------|-------------
 etj_jumpSpeedsStyle       | bitflag       | 0
 
-Set various drawing options for jump speeds display.
+Sets the drawing style of jump speeds display.
 
+* **0** default (vertical list with 2 columns, label, latest jump last)
 * **1** draw horizontal list
 * **2** hide label text
 * **4** reversed list (latest jump first)
@@ -1444,169 +1614,187 @@ Set various drawing options for jump speeds display.
 ---
 
 ## etj_jumpSpeedsX
-Name                      | values        | default
---------------------------|:-------------:|-------------
+Cvar                      | Values        | Default
+--------------------------|:--------------|-------------
 etj_jumpSpeedsX           | any value     | 0
 
-X offset of jump speeds display.
+Sets horizontal offset of the jump speeds display.
 
 ---
 
 ## etj_jumpSpeedsY
-Name                      | values        | default
---------------------------|:-------------:|-------------
+Cvar                      | Values        | Default
+--------------------------|:--------------|-------------
 etj_jumpSpeedsX           | any value     | 0
 
-Y offset of jump speeds display.
+Sets vertical offset of the jump speeds display.
 
 ---
 
 ## etj_keysColor
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_keysColor           | [any color](../index.md#color-system) | White
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_keysColor           | [any color](../getting_started.md/#color-system) | White
 
-Set the color of pressed keys view.
+Sets the color of the pressed keys view.
 
 ---
 
 ## etj_keysShadow
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_keysShadow          | 0 or 1        | 0
 
-Draw shadow on pressed keys view.
+Toggles drawing of shadow on the pressed keys view.
 
 ---
 
 ## etj_keysSize
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_keysSize            | any integer   | 48
 
-Set the size of pressed keys view.
+Sets the size of the pressed keys view.
 
 ---
 
 ## etj_keysX
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_keysX               | any integer   | 610
 
-Set the horizontal position of pressed keys view.
+Sets the horizontal position of the pressed keys view.
 
 ---
 
 ## etj_keysY
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_keysY               | any integer   | 220
 
-Set the vertical position of pressed keys view.
+Sets the vertical position of the pressed keys view.
 
 ---
 
 ## etj_lagometerX
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_lagometerX          | any integer   | 0
 
-Set horizontal offset of lagometer.
+Sets horizontal offset of the lagometer.
 
 ---
 
 ## etj_lagometerY
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_lagometerY          | any integer   | 0
 
-Set vertical offset of lagometer.
+Sets vertical offset of the lagometer.
 
 ---
 
 ## etj_lightmap
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_lightmap            | 0-3           | 0
 
-Draw lightmaps on surfaces that have one. Unlocked version of `r_lightmap`.
+Draws lightmaps on lightmapped surfaces instead of regular textures.
 
+* **0** off
 * **1** draws regular lightmaps.
-* **2** draws temperature colored lightmaps (`vid_restart` required).
-* **3** draws inverted temperature colored lightmaps (`vid_restart` required).
+* **2** draws temperature colored lightmaps.
+* **3** draws inverted temperature colored lightmaps.
+
+```{note}
+Values **2** and **3** require a `vid_restart` to apply.
+```
+
+```{hint}
+This is a cvar unlocker for `r_lightmap`.
+```
 
 ---
 
 ## etj_loadviewangles
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_loadviewangles      | 0 or 1        | 1
 
-Load view angles whenever you load.
+Toggles restoring the saved viewangles whenever you use [`load`](client_commands.md/#load).
+
+```{note}
+Loading to a prone stance always forces viewangles to be restored.
+```
 
 ---
 
 ## etj_logBanner
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_logBanner           | 0 or 1        | 1
 
-Prints banner text into the console.
+Toggles printing of banners to the console.
 
 ---
 
 ## etj_loopedSounds
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_loopedSounds        | 0 or 1        | 1
 
-Enable playback of looped sounds in maps.
+Toggles playback of looped sounds in maps.
 
 ---
 
 ## etj_maxSpeedDuration
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_maxSpeedDuration    | any integer   | 2000
 
-How long in milliseconds your max speed from last load will be visible when `etj_drawMaxSpeed` is enabled.
+How long in milliseconds your max speed from last load will be visible when [`etj_drawMaxSpeed`](etjump_cvars.md/#etj_drawmaxspeed) is enabled.
 
 ---
 
 ## etj_maxSpeedX
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_maxSpeedX           | any integer   | 320
 
-Horizontal location of `etj_drawMaxSpeed`.
+Sets horizontal position of the max speed meter.
 
 ---
 
 ## etj_maxSpeedY
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_maxSpeedY           | any integer   | 300
 
-Vertical location of `etj_drawMaxSpeed`.
+Sets vertical position of the max speed meter.
 
 ---
 
 ## etj_menuSensitivity
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_menuSensitivity     | any value     | 1.0
 
-Sets mouse sensitivity for menus.
+Scales mouse sensitivity in menus.
+
+```{note}
+[ET: Legacy](https://www.etlegacy.com/) uses the mouse sensitivity set by the operating system while in menus, so this cvar's value will feel a bit different if using it compared to other engines.
+```
 
 ---
 
 ## etj_muzzleFlash
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_muzzleFlash         | 0 - 3         | 1
 
-Controls muzzleflash drawing.
+Controls drawing of muzzle flashes.
 
+* **0** never draw
 * **1** always draw
 * **2** draw only for other players
 * **3** draw only for yourself
@@ -1614,8 +1802,8 @@ Controls muzzleflash drawing.
 ---
 
 ## etj_noActivateLean
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_noActivateLean      | 0 or 1        | 0
 
 Disables leaning when strafing and pressing `+activate` at the same time.
@@ -1623,26 +1811,26 @@ Disables leaning when strafing and pressing `+activate` at the same time.
 ---
 
 ## etj_noclipIndicatorX
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_noclipIndicatorX    | any value     | 615
 
-Sets X position of no-noclip indicator.
+Sets horizontal position of the no-noclip area indicator.
 
 ---
 
 ## etj_noclipIndicatorY
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_noclipIndicatorY    | any value     | 313
 
-Sets Y position of no-noclip indicator.
+Sets vertical position of the no-noclip area indicator.
 
 ---
 
 ## etj_noclipScale
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_noclipScale         | 0.1 - 20      | 1
 
 Scales the noclip speed.
@@ -1650,46 +1838,56 @@ Scales the noclip speed.
 ---
 
 ## etj_nofatigue
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_nofatigue           | 0 or 1        | 1
 
-Toggle nofatigue.
+Toggles permanent adrenaline, giving you unlimited stamina.
+
+```{tip}
+When this is enabled, all damage you take is halved, as adrenaline halves all damage taken.
+```
+
+```{note}
+[`g_nofatigue`](../server/server_cvars.md/#g_nofatigue) must be enabled on the server for this cvar to function.
+```
 
 ---
 
 ## etj_noJumpDelayX
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_noJumpDelayX        | any integer   | 290
 
-Set horizontal position of no jump delay detector.
+Sets horizontal position of the no jump delay detector.
 
 ---
 
 ## etj_noJumpDelayY
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_noJumpDelayY        | any integer   | 220
 
-Set vertical position of no jump delay detector.
+Sets vertical position of the no jump delay detector.
 
 ---
 
 ## etj_noPanzerAutoswitch
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_noPanzerAutoswitch  | 0 or 1        | 0
 
-Toggle automatic weapon switch after firing a panzerfaust.
+Toggles automatic weapon switch after firing a panzerfaust.
 
-_Note: autoswitch will occur when completely out of ammo regardless of this._
+```{note}
+Autoswitch will still occur even when this is enabled, if you're completely out of panzerfaust ammo.
+```
 
 ---
 
 ## etj_numPopups
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_numPopups           | 0 - 32        | 5
 
 Maximum amount of popups to display.
@@ -1697,80 +1895,88 @@ Maximum amount of popups to display.
 ---
 
 ## etj_obWatcherColor
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_obWatcherColor      | [any color](../index.md#color-system) | White
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_obWatcherColor      | [any color](../getting_started.md/#color-system) | White
 
-Set color of OB watcher.
+Sets color of the OB watcher.
 
 ---
 
 ## etj_obWatcherSize
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_obWatcherSize       | any integer   | 3
 
-Set size of OB watcher.
+Sets size of the OB watcher.
 
 ---
 
 ## etj_obWatcherX
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_obWatcherX          | any integer   | 100
 
-Set horizontal position of OB watcher.
+Sets horizontal position the of OB watcher.
 
 ---
 
 ## etj_obWatcherY
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_obWatcherY          | any integer   | 100
 
-Set vertical position of OB watcher.
+Sets vertical position of the OB watcher.
 
 ---
 
 ## etj_OBX
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_OBX                 | any integer   | 320
 
-Set horizontal position of OB detector.
+Sets horizontal position of the OB detector.
 
 ---
 
 ## etj_OBY
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_OBY                 | any integer   | 220
 
-Set vertical position of OB detector.
+Sets vertical position of the OB detector.
 
 ---
 
 ## etj_offsetFactor
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_offsetFactor        | any integer   | -1
 
-Set factor for `etj_offsetUnits` to control `polygonOffset` amount. Unlocked version of `r_offsetfactor`.
+Set factor for `etj_offsetUnits` to control `polygonOffset` amount.
+
+```{hint}
+This is a cvar unlocker for `r_offsetfactor`.
+```
 
 ---
 
 ## etj_offsetUnits
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_offsetUnits         | any integer   | -2
 
-Set distance from a shader with `polygonOffset` to the surface below it. Unlocked version of `r_offsetunits`.
+Set distance from a shader with `polygonOffset` to the surface below it.
+
+```{hint}
+This is a cvar unlocker for `r_offsetunits`.
+```
 
 ---
 
 ## etj_onRunStart
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_onRunStart          | any text      | 
 
 Set of commands to be executed on timerun start.
@@ -1778,46 +1984,48 @@ Set of commands to be executed on timerun start.
 ---
 
 ## etj_onRunEnd
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_onRunEnd            | any text      | 
 
 Set of commands to be executed on timerun end.
 
-_Note: also triggers on timerun interrupts._
+```{note}
+This is also executed on timerun interrupts.
+```
 
 ---
 
 ## etj_optimizePrediction
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_optimizePrediction  | 0 or 1        | 1
 
-Enables optimized playerstate prediction for improved playerstate prediction performance.
+Optimizes playerstate prediction for much faster prediction and better performance.
 
 ---
 
 ## etj_playerOpacity
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_playerOpacity       | 0.0 - 1.0     | 1.0
 
-Controls transparency level for player models. **1.0** is fully opaque.
+Controls transparency of player models.
 
 ---
 
 ## etj_popupAlpha
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_popupAlpha         | 0.0 - 1.0     | 1.0
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_popupAlpha          | 0.0 - 1.0     | 1.0
 
-Set transparency of popups.
+Sets transparency of popup messages.
 
 ---
 
 ## etj_popupFadeTime
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_popupFadeTime       | any integer   | 2500
 
 How long in milliseconds it takes for a popup to fade.
@@ -1825,108 +2033,121 @@ How long in milliseconds it takes for a popup to fade.
 ---
 
 ## etj_popupGrouped
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_popupGrouped        | 0 - 2         | 1
 
-Groups identical repetitive popup messages into one.
+Groups identical, consecutive popup messages into a single message with a counter at the end.
 
+* **0** off, print duplicates
 * **1** group popups, print duplicates in console.
 * **2** group popups and console prints.
 
 ---
 
 ## etj_popupPosX
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_popupPosX           | any integer   | 0
 
-Set horizontal offset of popups.
+Sets horizontal offset of popup messages.
 
 ---
 
 ## etj_popupPosY
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_popupPosY           | any integer   | 0
 
-Set vertical offset of popups.
+Sets vertical offset of popup messages.
 
 ---
 
 ## etj_popupShadow
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_popupShadow         | 0 or 1        | 0
 
-Draw shadow on popups.
+Toggles drawing shadow on popup messages.
 
 ---
 
 ## etj_popupStayTime
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_popupStayTime       | any integer   | 2000
+Cvar                    | Values               | Default
+:-----------------------|:---------------------|:------------
+etj_popupStayTime       | any positive integer | 2000
 
-How long in milliseconds it takes for a popup to start fading.
+How long in milliseconds a popup stays on screen before it starts fading out.
+
+```{seealso}
+[`etj_popupFadeTime`](etjump_cvars.md/#etj_popupfadetime)
+```
 
 ---
 
 ## etj_popupTime
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_popupTime           | any integer   | 1000
+Cvar                    | Values               | Default
+:-----------------------|:---------------------|:------------
+etj_popupTime           | any positive integer | 1000
 
-How long it takes for a popup to show on the sidebar in milliseconds.
+Minimum delay in milliseconds between popup messages. Value **0** will make make popup messages appear instantly.
 
 ---
 
 ## etj_predefineddemokeys
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_predefineddemokeys  | 0 or 1        | 1
 
-Use predefined demo keybindings in demo playback.
+Toggles using pre-defined demo keybindings during demo playback.
+
+```{note}
+When this is enabled, all other keybindings are disabled, even for keys which have no pre-defined keybinding associated with them.
+```
 
 ---
 
 ## etj_projection
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_projection          | 0 - 2         | 0
 
-Set projection type used for CGaz **1** and SnapHUD.
+Sets projection type used for CGaz **1** and SnapHUD.
 
 * **0** rectilinear
 * **1** cylindrical
 * **2** panini
 
+```{seealso}
+[Projections - PanoTools.org Wiki](https://wiki.panotools.org/Projections)
+```
+
 ---
 
 ## etj_proneIndicatorX
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_proneindicatorX     | any integer   | 615
 
-Set horizontal position of prone area indicator.
+Sets horizontal position of the prone area indicator.
 
 ---
 
 ## etj_proneIndicatorY
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_proneindicatorY     | any integer   | 338
 
-Set vertical position of prone area indicator.
+Sets vertical position of the prone area indicator.
 
 ---
 
 ## etj_quickFollow
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_quickFollow         | 0 - 2         | 2
 
-Spectate players by aiming at them and pressing `+activate`
+Enables spectating players by aiming at them and pressing `+activate`.
 
 * **1** enables quick follow.
 * **2** additionally draws a hint under player name.
@@ -1934,164 +2155,185 @@ Spectate players by aiming at them and pressing `+activate`
 ---
 
 ## etj_realFov
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_realFov             | 0 or 1        | 0
 
-Takes aspect ratio into account when calculating FOV. Enabling results in higher FOV on widescreen aspect ratio.
+Changes the way Field of View is calculated.
+
+* **0** vert- FOV (vanilla ET)
+  * horizontal FOV is fixed, vertical FOV is adjusted when aspect ratio changes
+* **1** hor+ FOV
+  * vertical FOV is fixed, horizontal FOV is adjusted when aspect ratio changes
+
+```{seealso}
+[Field of view in video games - Wikipedia](https://en.wikipedia.org/wiki/Field_of_view_in_video_games#Field_of_view_scaling_methods)
+```
 
 ---
 
 ## etj_runTimerAutoHide
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_runTimerAutoHide    | 0 or 1        | 1
 
-Automatically hides run timer if it's not being used.
+Toggles automatically hiding the timerun timer after a while if no timerun is active.
 
 ---
 
 ## etj_runTimerInactiveColor
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_runTimerInactiveColor | [any color](../index.md#color-system) | mdgrey
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_runTimerInactiveColor | [any color](../getting_started.md/#color-system) | mdgrey
 
-Set color of timerun timer when no timerun is active.
+Sets color of the timerun timer when no timerun is active.
 
 ---
 
 ## etj_runTimerShadow
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_runTimerShadow      | 0 or 1        | 0
 
-Toggles shadow under the run timer.
+Toggles drawing shadow on the timerun timer.
 
 ---
 
 ## etj_runTimerX
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_runTimerX           | any integer   | 320
 
-Changes run timer's horizontal position.
+Sets horizontal position of the timerun timer.
 
 ---
 
 ## etj_runTimerY
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_runTimerY           | any integer   | 380
 
-Changes run timer's vertical position.
+Sets vertical position of the timerun timer.
 
 ---
 
 ## etj_saveIndicatorX
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_saveIndicatorX      | any integer   | 615
 
-Set horizontal position of save zone indicator.
+Sets horizontal position of the save zone indicator.
 
 ---
 
 ## etj_saveIndicatorY
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_saveIndicatorY      | any integer   | 363
 
-Set vertical position of save zone indicator.
+Sets vertical position of the save zone indicator.
 
 ---
 
 ## etj_saveMsg
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_saveMsg             | any string    | ^7Saved
 
-Set the message to display when using `save`.
+Sets the message to display when using [`save`](client_commands.md/#save).
 
 ---
 
 ## etj_showTris
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_showTris            | 0 - 2         | 0
 
-Draws edges of triangles. Unlocked version of `r_showTris`. Functionality varies slightly depending on engine used.
+Draws edges of triangles. Functionality varies slightly depending on engine used.
 
-#### ET 2.60b
+### ET 2.60b
 * **1** draws triangle edges on your current POV.
 * **2** draws triangle edges on your current PVS.
 
-#### ET: Legacy
+### ET: Legacy
 * Same as **ET 2.60b**, except 2D elements are ignored (e.g. HUD).
 
-#### ETe
+### ETe
 * **1** draws triangle edges, excluding 2D elements.
 * **2** draws triangle edges, including 2D elements.
 * `r_trisMode` is used to toggle between POV/PVS drawing.
 
+```{hint}
+This is a cvar unlocker for `r_showtris`
+```
+
 ---
 
 ## etj_simplePlayersColor
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_simplePlayersColor  | [any color](../index.md#color-system) | 1.0 1.0 1.0
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_simplePlayersColor  | [any color](../getting_started.md/#color-system) | 1.0 1.0 1.0
 
-Changes player color when `etj_ghostPlayersAlt` is enabled.
+Sets the color of other players when [`etj_drawSimplePlayers`](etjump_cvars.md/#etj_drawsimpleplayers) is enabled.
+
+```{note}
+[`etj_playerOpacity`](etjump_cvars.md/#etj_playeropacity) can be used to set transparency.
+```
 
 ---
 
 ## etj_slickX
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_slickX              | any integer   | 315
 
-Changes slick detector's horizontal position.
+Sets horizontal position of the slick detector.
 
 ---
 
 ## etj_slickY
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_slickY              | any integer   | 220
 
-Changes slick detector's vertical position.
+Sets vertical position of the slick detector.
 
 ---
 
 ## etj_snapHUDActiveIsPrimary
-Name                       | values        | default
----------------------------|:-------------:|-------------
+Cvar                       | Values        | Default
+---------------------------|:--------------|-------------
 etj_snapHUDActiveIsPrimary | 0 or 1        | 0
 
 Toggles snaphud colors so that the zone you are aiming at will always be drawn with primary color.
 
+```{tip}
+This can be used independently, without enabling [`etj_snapHUDHLActive`](etjump_cvars.md/#etj_snaphudhlactive).
+```
+
 ---
 
 ## etj_snapHUDColor1
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_snapHUDColor1       | [any color](../index.md#color-system) | 0.0 1.0 1.0 0.75
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_snapHUDColor1       | [any color](../getting_started.md/#color-system) | 0.0 1.0 1.0 0.75
 
 Sets the primary color of velocity snapping HUD.
 
 ---
 
 ## etj_snapHUDColor2
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_snapHUDColor2       | [any color](../index.md#color-system) | 0.05 0.05 0.05 0.1
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_snapHUDColor2       | [any color](../getting_started.md/#color-system) | 0.05 0.05 0.05 0.1
 
 Sets the secondary color of velocity snapping HUD.
 
 ---
 
 ## etj_snapHUDEdgeThickness
-Name                     | values        | default
--------------------------|:-------------:|-------------
+Cvar                     | Values        | Default
+-------------------------|:--------------|-------------
 etj_snapHUDEdgeThickness | 1 - 128       | 10
 
 Thickness of snaphud edges when [`etj_drawSnapHUD`](etjump_cvars.md/#etj_drawsnaphud) is set to **2**.
@@ -2099,113 +2341,113 @@ Thickness of snaphud edges when [`etj_drawSnapHUD`](etjump_cvars.md/#etj_drawsna
 ---
 
 ## etj_snapHUDFov
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_snapHUDColor2       | 0 - 180       | 0
 
-Sets the FOV of the velocity snapping HUD. **0** means use your current in-game FOV.
+Sets the FOV of the velocity snapping HUD. Value **0** uses your current in-game FOV.
 
 ---
 
 ## etj_snapHUDHeight
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_snapHUDHeight       | any integer   | 10
 
-Changes the height of the velocity snapping HUD.
+Sets the height of the velocity snapping HUD.
 
 ---
 
 ## etj_snapHUDHLActive
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_snapHUDHLActive     | 0 or 1        | 0
 
-Highlights currently active snapzone with a different color.
+Toggles highlighting currently active snapzone with a different color.
 
 ---
 
 ## etj_snapHUDHLColor1
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_snapHUDHLColor1     | [any color](../index.md#color-system) | 1.0 0.5 1.0 0.75
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_snapHUDHLColor1     | [any color](../getting_started.md/#color-system) | 1.0 0.5 1.0 0.75
 
 Sets the primary highlight color of velocity snapping HUD.
 
 ---
 
 ## etj_snapHUDHLColor2
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_snapHUDHLColor2     | [any color](../index.md#color-system) | 1.0 0.5 1.0 0.1
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_snapHUDHLColor2     | [any color](../getting_started.md/#color-system) | 1.0 0.5 1.0 0.1
 
 Sets the secondary highlight color of velocity snapping HUD.
 
 ---
 
 ## etj_snapHUDOffsetY
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_snapHUDHeight       | any integer   | 0
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_snapHUDOffsetY      | any integer   | 0
 
-Changes Y-axis position of the velocity snapping HUD.
+Sets vertical offset of the velocity snapping HUD.
 
 ---
 
 ## etj_snapHUDTrueness
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_snapHUDTrueness     | bitflag       | 0
 
 Set "trueness" flags on velocity snapping HUD.
 
-* **1** Show upmove influence
-* **2** Show true groundzones
+* **1** show upmove influence
+* **2** show true groundzones
 
 ---
 
 ## etj_spectatorInfoShadow
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_spectatorInfoShadow | 0 or 1        | 1
 
-Toggles shadow on spectator list.
+Toggles drawing shadow on the spectator info list.
 
 ---
 
 ## etj_spectatorInfoSize
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_spectatorInfoSize   | any value     | 2.3
 
-Sets the font size of spectator list.
+Sets font size of spectator info list.
 
 ---
 
 ## etj_spectatorInfoX
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_spectatorInfoX      | any integer   | 320
 
-Changes horizontal position of spectator list.
+Sets horizontal position of the spectator info list.
 
 ---
 
 ## etj_spectatorInfoY
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_spectatorInfoY      | any integer   | 30
 
-Changes vectical position of spectator list.
+Sets vectical position of the spectator info list.
 
 ---
 
 ## etj_speedAlign
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_speedAlign          | 0 - 2         | 0
 
-Set the alignment of ETJump speedometer.
+Sets the alignment of ETJump speed meter.
 
 * **0** Center
 * **1** Left align
@@ -2214,58 +2456,62 @@ Set the alignment of ETJump speedometer.
 ---
 
 ## etj_speedAlpha
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_speedAlpha          | 0.0 - 1.0     | 1.0
 
-Controls ETJump speedometer transparency.
+Controls ETJump speed meter transparency.
 
 ---
 
 ## etj_speedColor
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_speedColor          | [any color](../index.md#color-system) | White
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_speedColor          | [any color](../getting_started.md/#color-system) | White
 
-Sets ETJump speedometer color.
+Sets ETJump speed meter color.
 
-_Note: use [`etj_speedAlpha`](etjump_cvars.md/#etj_speedalpha) to set alpha._
+```{note}
+Alpha is controlled with [`etj_speedAlpha`](etjump_cvars.md/#etj_speedalpha).
+```
 
 ---
 
 ## etj_speedColorUsesAccel
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_speedColorUsesAccel | 0 - 2         | 0
 
-Changes ETJump speedometer color to represent acceleration or deceleration.
+Changes ETJump speed meter color to represent acceleration or deceleration.
 
 * **1** simple, green if accelerating, red if decelerating, white if no input
-* **2** advanced, takes into account per vector and current movement direction
+* **2** advanced, takes into account per vector acceleration and current movement direction
     * green - optimal acceleration
     * yellow - suboptimal acceleration relative to movement direction
     * red - no acceleration towards movement direction
     * white - no input
 
-_Note: due to inaccuracies in interpolation, advanced coloring is disabled while spectating and in demo playback, and simple acceleration coloring is used instead._
+``` {note}
+Due to inaccuracies in interpolation, advanced coloring is automatically disabled while spectating and during demo playback, and simple acceleration coloring is used instead.
+```
 
 ---
 
 ## etj_speedinterval
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_speedinterval       | any integer   | 100
+Cvar                    | Values               | Default
+:-----------------------|:---------------------|:------------
+etj_speedinterval       | any positive integer | 100
 
-How often speedometer 1 gets updated in milliseconds.
+How often speed meter 1 gets updated in milliseconds.
 
 ---
 
 ## etj_speeds
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_speeds              | 0 - 7         | 0
 
-Output render statistics to console. Unlocked version of `r_speeds`.
+Output render statistics to console.
 
 Different values output following information:
 
@@ -2277,99 +2523,103 @@ Different values output following information:
 * **6** flares
 * **7** decals
 
+```{hint}
+This is a cvar unlocker for `r_speeds`.
+```
+
 ---
 
 ## etj_speedShadow
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_speedShadow         | 0 or 1        | 0
 
-Toggles shadow under the ETJump speedometer.
+Toggles drawing shadow on the ETJump speed meter.
 
 ---
 
 ## etj_speedSize
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_speedSize           | any integer   | 3
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_speedSize           | any value     | 3
 
-Set size of the ETJump speedometer.
+Sets size of the ETJump speed meter.
 
 ---
 
 ## etj_speedunit
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_speedunit           | 0 - 2         | 0
 
-Speedometer 1 speed measure units. 
+Sets speed meter 1 measuring units.
 
-* **0** for UPS 
-* **1** for MPH
-* **2** for KPH
+* **0** for units per second
+* **1** for miles per hour
+* **2** for kilometers per hour
 
 ---
 
 ## etj_speedX
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_speedX              | any integer   | 320
 
-Horizontal position of the ETJump speedometer.
+Sets horizontal position of the ETJump speed meter.
 
 ---
 
 ## etj_speedXYonly
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_speedXYonly         | 0 or 1        | 1
 
-Disables vertical speed from speedometer 1.
+Toggles measuring only vertical speed in speed meter 1.
 
 ---
 
 ## etj_speedY
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_speedY              | any integer   | 320
 
-Vertical position of the ETJump speedometer.
+Sets vertical position of the ETJump speed meter.
 
 ---
 
 ## etj_strafeQualityColor
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_strafeQualityColor  | [any color](../index.md#color-system) | 1.0 1.0 1.0 1.0
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_strafeQualityColor  | [any color](../getting_started.md/#color-system) | 1.0 1.0 1.0 1.0
 
-Set color of strafe quality display.
+Sets color of the strafe quality display.
 
 ---
 
 ## etj_strafeQualityShadow
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_strafeQualityShadow | 0 or 1        | 1
 
-Draw shadow on strafe quality display.
+Toggles drawing shadow on the strafe quality display.
 
 ---
 
 ## etj_strafeQualitySize
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_strafeQualitySize   | any value     | 3
 
-Set the size of strafe quality display.
+Sets the size of the strafe quality display.
 
 ---
 
 ## etj_strafeQualityStyle
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_strafeQualityStyle  | 0 - 2         | 0
 
-Set the style of strafe quality display.
+Sets the style of strafe quality display.
 
 * **0** `Strafe quality: <value>%`
 * **1** `<value>%`
@@ -2378,35 +2628,35 @@ Set the style of strafe quality display.
 ---
 
 ## etj_strafeQualityX
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_strafeQualityX      | any value     | 0
 
-X offset of strafe quality display.
+Sets horizontal offset of the strafe quality display.
 
 ---
 
 ## etj_strafeQualityY
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_strafeQualityY      | any value     | 0
 
-Y offset of strafe quality display.
+Sets vertical offset of the strafe quality display.
 
 ---
 
 ## etj_stretchCgaz
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_stretchCgaz         | 0 or 1        | 1
 
-Stretches CGaz when using widescreen aspect ratio.
+Toggles whether CGaz 2 is affected by widescreen correction. Value **1** disables widescreen correction and stretches the drawing from 4:3 aspect ratio.
 
 ---
 
 ## etj_touchPickupWeapons
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_touchPickupWeapons  | 0 - 2         | 0
 
 Automatically pick up weapons by touching them.
@@ -2414,161 +2664,175 @@ Automatically pick up weapons by touching them.
 * **1** only picks up weapons dropped by you or spawned in map.
 * **2** picks up all weapons.
 
-_Note: this cvar has no effect unless `cg_autoactivate` is set to **1**._
+```{note}
+You must enable `cg_autoactivate` for this cvar to work.
+```
 
 ---
 
 ## etj_uphillSteps
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_uphillSteps         | 0 or 1        | 1
 
-Play footsteps on very low landing speeds.
+Toggles playing sounds on very low landing speeds.
+
+```{tip}
+This is mainly useful on maps which disable jump delay, to give audible feedback on landing when jumping to higher elevation.
+```
 
 ---
 
 ## etj_upmoveMeterGraphColor
-Name                      | values        | default
---------------------------|:-------------:|-------------
-etj_upmoveMeterGraphColor | [any color](../index.md#color-system) | mdgrey
+Cvar                      | Values        | Default
+--------------------------|:--------------|-------------
+etj_upmoveMeterGraphColor | [any color](../getting_started.md/#color-system) | mdgrey
 
-Set the color of upmove meter graph.
+Sets color of the upmove meter graph.
 
 ---
 
 ## etj_upmoveMeterGraphH
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_upmoveMeterGraphH   | any value     | 80
 
-Set the height of upmove meter graph.
+Sets height of the upmove meter graph.
 
 ---
 
 ## etj_upmoveMeterGraphOnGroundColor
-Name                              | values        | default
-----------------------------------|:-------------:|-------------
-etj_upmoveMeterGraphOnGroundColor | [any color](../index.md#color-system) | Green
+Cvar                              | Values        | Default
+----------------------------------|:--------------|-------------
+etj_upmoveMeterGraphOnGroundColor | [any color](../getting_started.md/#color-system) | Green
 
-Set the color of "on ground" bar on upmove meter graph.
+Sets color of the "on ground" bar on the upmove meter graph.
 
 ---
 
 ## etj_upmoveMeterGraphOutlineColor
-Name                              | values        | default
-----------------------------------|:-------------:|-------------
-etj_upmoveMeterGraphOutlineColor  | [any color](../index.md#color-system) | White
+Cvar                              | Values        | Default
+----------------------------------|:--------------|-------------
+etj_upmoveMeterGraphOutlineColor  | [any color](../getting_started.md/#color-system) | White
 
-Set the color of upmove meter graph border.
+Sets color of the upmove meter graph border.
 
 ---
 
 ## etj_upmoveMeterGraphOutlineW
-Name                         | values        | default
------------------------------|:-------------:|-------------
+Cvar                         | Values        | Default
+-----------------------------|:--------------|-------------
 etj_upmoveMeterGraphOutlineW | any value     | 1
 
-Set the width of upmove meter graph border.
+Sets width of upmove meter graph border.
 
 ---
 
 ## etj_upmoveMeterGraphPostJumpColor
-Name                              | values        | default
-----------------------------------|:-------------:|-------------
-etj_upmoveMeterGraphPostJumpColor | [any color](../index.md#color-system) | Red
+Cvar                              | Values        | Default
+----------------------------------|:--------------|-------------
+etj_upmoveMeterGraphPostJumpColor | [any color](../getting_started.md/#color-system) | Red
 
-Set the color of "post jump" bar on upmove meter graph.
+Sets color of the "post jump" bar on the upmove meter graph.
 
 ---
 
 ## etj_upmoveMeterGraphPreJumpColor
-Name                              | values        | default
-----------------------------------|:-------------:|-------------
-etj_upmoveMeterGraphPreJumpColor  | [any color](../index.md#color-system) | Blue
+Cvar                              | Values        | Default
+----------------------------------|:--------------|-------------
+etj_upmoveMeterGraphPreJumpColor  | [any color](../getting_started.md/#color-system) | Blue
 
-Set the color of "pre jump" bar on upmove meter graph.
+Sets color of the "pre jump" bar on the upmove meter graph.
 
 ---
 
 ## etj_upmoveMeterGraphW
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_upmoveMeterGraphW   | any value     | 6
 
-Set the width of upmove meter graph.
+Sets width of the upmove meter graph.
 
 ---
 
 ## etj_upmoveMeterGraphX
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_upmoveMeterGraphX   | any value     | 8
 
-Set the X position of upmove meter graph.
+Sets horizontal position of the upmove meter graph.
 
-_Note: acts as a baseline position for text elements as well, even when graph isn't drawn._
+```{note}
+This is used as a baseline position for text elements as well, even if the graph drawing isn't enabled.
+```
 
 ---
 
 ## etj_upmoveMeterGraphY
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_upmoveMeterGraphY   | any value     | 8
 
-Set the Y position of upmove meter graph.
+Sets vertical position of the upmove meter graph.
 
-_Note: acts as a baseline position for text elements as well, even when graph isn't drawn._
+```{note}
+This is used as a baseline position for text elements as well, even if the graph drawing isn't enabled.
+```
 
 ---
 
 ## etj_upmoveMeterMaxDelay
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_upmoveMeterMaxDelay | any integer   | 360
 
 Set the maximum tracked value in milliseconds for each upmove meter element to display.
 
+```{tip}
+Due to `pmove_msec 8`, it's recommended to use values divisible by **8**.
+```
+
 ---
 
 ## etj_upmoveMeterTextColor
-Name                     | values        | default
--------------------------|:-------------:|-------------
-etj_upmoveMeterTextColor | [any color](../index.md#color-system) | White
+Cvar                     | Values        | Default
+-------------------------|:--------------|-------------
+etj_upmoveMeterTextColor | [any color](../getting_started.md/#color-system) | White
 
-Set the color of "pre jump" bar on upmove meter graph.
+Sets color of the upmove meter text elements.
 
 ---
 
 ## etj_upmoveMeterTextH
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_upmoveMeterTextH    | any value     | 12
 
-Set the vertical spacing of upmove meter text elements.
+Sets vertical spacing of upmove meter text elements.
 
 ---
 
 ## etj_upmoveMeterTextShadow
-Name                      | values        | default
---------------------------|:-------------:|-------------
+Cvar                      | Values        | Default
+--------------------------|:--------------|-------------
 etj_upmoveMeterTextShadow | 0 or 1        | 1
 
-Draw shadow on upmove meter text.
+Toggles drawing shadow on upmove meter text.
 
 ---
 
 ## etj_upmoveMeterTextSize
-Name                      | values        | default
---------------------------|:-------------:|-------------
+Cvar                      | Values        | Default
+--------------------------|:--------------|-------------
 etj_upmoveMeterTextSize   | any value     | 2
 
-Set the size of upmove meter text elements.
+Sets size of the upmove meter text elements.
 
 ---
 
 ## etj_upmoveMeterTextX
-Name                      | values        | default
---------------------------|:-------------:|-------------
+Cvar                      | Values        | Default
+--------------------------|:--------------|-------------
 etj_upmoveMeterTextX      | any value     | 6
 
 Set the horizontal distance of upmove meter text elements relative to the graph.
@@ -2576,22 +2840,28 @@ Set the horizontal distance of upmove meter text elements relative to the graph.
 ---
 
 ## etj_viewlog
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_viewlog             | 0 or 1        | 1
 
-Toggles an external console window, mainly used for copy pasting etc. Unlocked version of `viewlog`.
+Toggles external console window. Only works on Windows.
 
-_Note: ET: Legacy client requires you to start the game with `+set viewlog 1`, the console window cannot be created while the game is running._
+```{note}
+ET: Legacy client requires you to start the game with `+set viewlog 1`, the console window cannot be created or re-created if closed while the game is running.
+```
+
+```{hint}
+This is a cvar unlocker for `viewlog`.
+```
 
 ---
 
 ## etj_viewPlayerPortals
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_viewPlayerPortals   | 0 - 2         | 1
 
-Toggles other players portals. 
+Controls drawing of other players' portals.
 
 * **0** don't show
 * **1** always show
@@ -2600,35 +2870,47 @@ Toggles other players portals.
 ---
 
 ## etj_weaponVolume
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_weaponVolume        | 0.0 - 1.0     | 1
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_weaponVolume        | any value     | 1.0
 
-Set the volume of weapon-related sounds.
+Scales volume of weapon-related sounds.
 
 ---
 
 ## etj_wolfFog
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 etj_wolfFog             | 0 or 1        | 1
 
-Draws fog. Unlocked version of `r_wolffog`.
+Toggles drawing of fog.
+
+```{hint}
+This is a cvar unlocker for `r_wolffog`
+```
 
 ---
 
 ## etj_zFar
-Name                    | values        | default
-------------------------|:-------------:|-------------
-etj_zFar                | any integer   | 0
+Cvar                    | Values               | Default
+:-----------------------|:---------------------|:------------
+etj_zFar                | any positive integer | 0
 
-Set draw distance. Setting this to **0** uses maps `farplanedist` value. Unlocked version of `r_zfar`.
+Sets the draw distance of the world. Value **0** let's the map control draw distance.
+
+```{note}
+Some maps set `_farplanedist` worldspawn key (such as Radar and Railgun), which caps the maximum draw distance, regardless of the value of this cvar.
+```
+
+```{hint}
+This is a cvar unlocker for `r_zfar`
+```
 
 ---
 
 ## movie_changeFovBasedOnSpeed
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 movie_changeFovBasedOnSpeed |0 or 1     | 0
 
 Toggles adjusting FOV based on speed.
@@ -2636,8 +2918,8 @@ Toggles adjusting FOV based on speed.
 ---
 
 ## movie_fovIncreasePerFrame
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 movie_fovIncreasePerFrame | any integer | 1
 
 How many units FOV should change per frame.
@@ -2645,19 +2927,21 @@ How many units FOV should change per frame.
 ----
 
 ## movie_fovMax
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 movie_fovMax            | any integer   | 140
 
 Maximum value FOV can increase to.
 
-_Note: values outside of **90-160** require `developer 1`._
+```{note}
+Values outside of **90-160** require `developer 1`.
+```
 
 ---
 
 ## movie_fovMaxSpeed
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 movie_fovMaxSpeed       | any integer   | 1200
 
 UPS value at which maximum FOV is reached.
@@ -2665,21 +2949,21 @@ UPS value at which maximum FOV is reached.
 ---
 
 ## movie_fovMin
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 movie_fovMin            | any integer   | 90
 
 Minimum value FOV can decrease to.
 
-_Note: values outside of **90-160** require `developer 1`._
+```{note}
+Values outside of **90-160** require `developer 1`.
+```
 
 ---
 
 ## movie_fovMinSpeed
-Name                    | values        | default
-------------------------|:-------------:|-------------
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
 movie_fovMinSpeed       | any integer   | 400
 
 UPS value at which minimum FOV is reached.
-
----
