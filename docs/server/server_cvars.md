@@ -4,7 +4,7 @@ Below is a list of all ETJump related cvars (console variables) for server confi
 ---
 
 ## g_adminChat
-Name                    | values        | default
+Name                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_adminChat             | 0 or 1        | 1
 
@@ -30,7 +30,7 @@ Make this log admin commands.
 ---
 
 ## g_allowSpeclock
-Name                    | values        | default
+Name                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_allowSpeclock         | 0 or 1        | 1
 
@@ -127,7 +127,7 @@ Allow players to highlight other players in chat using `@name@`.
 ---
 
 ## g_chatReplayMaxMessageAge
-Name                      | values               | default
+Name                      | Values               | Default
 :-------------------------|:---------------------|:------------
 g_chatReplayMaxMessageAge | any positive ingeter | 0
 

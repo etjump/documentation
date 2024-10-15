@@ -412,7 +412,7 @@ Sets vertical offset of the chat.
 ---
 
 ## etj_chatReplay
-Cvar                    | values        | default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 etj_chatReplay          | 0 or 1        | 1
 
@@ -1736,7 +1736,7 @@ Sets the vertical position of the pressed keys view.
 ---
 
 ## etj_lagometerAlpha
-Cvar                    | values        | default
+Cvar                    | Values        | Default
 :-----------------------|:-------------:|-------------
 etj_lagometerAlpha      | 0.0 - 1.0     | 1.0
 
@@ -1745,7 +1745,7 @@ Sets transparency of the lagometer.
 ---
 
 ## etj_lagometerShader
-Cvar                    | values        | default
+Cvar                    | Values        | Default
 :-----------------------|:-------------:|-------------
 etj_lagometerShader     | 0 or 1        | 1
 
