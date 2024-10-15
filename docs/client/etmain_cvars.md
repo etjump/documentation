@@ -5,8 +5,8 @@ The following ETMain cvars have been modified or extended by ETJump.
 ---
 
 ## cg_autoswitch
-Name                    | values        | default
-:-----------------------|:-------------:|:------------
+Name                    | Values        | Default
+:-----------------------|:--------------|:------------
 cg_autoswitch           | bitflag       | 0
 
 Controls the behavior of automatic weapon switching.
@@ -23,9 +23,9 @@ ETJump has added additional control to the behavior of this cvar.
 ---
 
 ## cg_centertime
-Name                    | values        | default
-:-----------------------|:-------------:|:------------
-cg_centertime           | any value     | 5
+Name                    | Values             | Default
+:-----------------------|:-------------------|:------------
+cg_centertime           | any positive value | 5
 
 Defines how long center prints stay on screen. 
 
@@ -36,9 +36,9 @@ ETJump has removed cheat protection from this cvar.
 ---
 
 ## cg_crosshairSize
-Name                    | values        | default
-:-----------------------|:-------------:|:------------
-cg_crosshairSize        | any value     | 48
+Name                    | Values             | Default
+:-----------------------|:-------------------|:------------
+cg_crosshairSize        | any positive value | 48
 
 Sets size of the crosshair.
 
@@ -49,8 +49,8 @@ ETJump allows using floating point values for this cvar.
 ---
 
 ## cg_crosshairX
-Name                    | values        | default
-:-----------------------|:-------------:|:------------
+Name                    | Values        | Default
+:-----------------------|:--------------|:------------
 cg_crosshairX           | any value     | 0
 
 Sets horizontal offset for the crosshair. 
@@ -62,8 +62,8 @@ ETJump allows using floating point values for this cvar.
 ---
 
 ## cg_crosshairY
-Name                    | values        | default
-:-----------------------|:-------------:|:------------
+Name                    | Values        | Default
+:-----------------------|:--------------|:------------
 cg_crosshairY           | any value     | 0
 
 Sets vertical offset for the crosshair.
@@ -75,8 +75,8 @@ ETJump allows using floating point values for this cvar.
 ---
 
 ## cg_drawCrosshair
-Name                    | values        | default
-:-----------------------|:-------------:|:------------
+Name                    | Values        | Default
+:-----------------------|:--------------|:------------
 cg_drawCrosshair        | 0 - 16        | 1
 
 Sets the crosshair variant to draw.
@@ -97,8 +97,8 @@ ETJump has added crosshairs **10-16**.
 ---
 
 ## cg_drawWeaponIconFlash
-Name                    | values        | default
-:-----------------------|:-------------:|:------------
+Name                    | Values        | Default
+:-----------------------|:--------------|:------------
 cg_drawWeaponIconFlash  | 0 - 2         | 0
 
 Draws weapon icon with different colors depending on state of weapon.
@@ -119,8 +119,8 @@ ETJump has added value **2**, which mimics ETPro/legacy behavior for the weapon 
 ---
 
 ## cg_gunX/Y/Z
-Name                    | values        | default
-:-----------------------|:-------------:|:------------
+Name                    | Values        | Default
+:-----------------------|:--------------|:------------
 cg_gunX/Y/Z             | any value     | 0
 
 Moves gun viewmodel on X/Y/Z axes, respectively. 
@@ -132,8 +132,8 @@ ETJump has removed cheat protection from these cvars.
 ---
 
 ## cg_lagometer
-Name                    | values        | default
-:-----------------------|:-------------:|:------------
+Name                    | Values        | Default
+:-----------------------|:--------------|:------------
 cg_lagometer            | 0 - 2         | 0
 
 Draws lagometer, showing connection quality to server.
@@ -148,9 +148,9 @@ ETJump has added value **2**.
 ---
 
 ## cg_showmiss
-Name                    | values        | default
-:-----------------------|:-------------:|:------------
-cg_showmiss             | bitflags      | 0
+Name                    | Values        | Default
+:-----------------------|:--------------|:------------
+cg_showmiss             | bitflag       | 0
 
 Outputs prediction related events and errors to console.
 
@@ -167,8 +167,8 @@ ETJump has changed this cvar to a bitflag, and added values **2**, **8** and **1
 ---
 
 ## cg_skybox
-Name                    | values        | default
-:-----------------------|:-------------:|:------------
+Name                    | Values        | Default
+:-----------------------|:--------------|:------------
 cg_skybox               | 0 or 1        | 1
 
 Toggles drawing of skyportal skyboxes.
@@ -180,8 +180,8 @@ ETJump has removed cheat protection from this cvar.
 ---
 
 ## cg_teamChatHeight
-Name                    | values        | default
-:-----------------------|:-------------:|:------------
+Name                    | Values        | Default
+:-----------------------|:--------------|:------------
 cg_teamChatHeight       | 0 - 64        | 8
 
 Sets the maximum number of chat lines to draw on screen.
