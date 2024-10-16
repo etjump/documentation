@@ -133,7 +133,9 @@ A brush model that spawns portalgun portals shot on it always on the same positi
 
 **Keys**
 
-*None*
+| Key         | Value    | Default | Description                                                                                             |
+| :---------- | :------- | :------ | :------------------------------------------------------------------------------------------------------ |
+| portalsize  | 0 - 512  | 0       | Sets the size of the portal created on the surfaces of this entity. **0** uses the default portal size. |
 
 **Spawnflags**
 
@@ -225,7 +227,7 @@ Gives activator targeted items. Must target actual entites in the map. Standard 
 
 ## target_ftrelay
 
-Works like `target_relay` but activates the entities for everyone in the player's current fireteam, not just the player.
+Works like `target_relay` but also activates the entities for everyone in the players fireteam.
 
 **Keys**
 
@@ -233,10 +235,17 @@ Works like `target_relay` but activates the entities for everyone in the player'
 
 **Spawnflags**
 
-*None*
+| Spawnflag | Description                                                  |
+| :-------: | :----------------------------------------------------------- |
+| 1         | Only fires targets if activated by an Axis player.           |
+| 2         | Only fires targets if activated by an Allied player.         |
+| 4         | Fire all targeted entities instead of picking one at random. |
+| 8         | Only fires targets if activator is timerunning.              |
+| 16        | Only fires targets if activator is **not** timerunning.      |
+| 32        | Only fires for other members of the activators fireteam.     |
 
 ```{caution}
-Fires a random target instead of all targets. The target is randomly picked for each fireteam member.
+If `spawnflag 4` isn't set, fires a random target instead of all targets. The target is randomly picked for each fireteam member.
 ```
 
 ---
@@ -453,16 +462,17 @@ Starts a timerun for the activator.
 
 **Spawnflags**
 
-| Spawnflag | Description                                          |
-| :-------: | :--------------------------------------------------- |
-| 1         | Run resets on team change.                           |
-| 2         | Run resets on death.                                 |
-| 4         | Run resets only wnen reaching the end.               |
-| 8         | Run resets if client sets `pmove_fixed 0`.           |
-| 16        | Disables `backup` and extra save slots.              |
-| 32        | Cannot pickup explosive weeapons.                    |
-| 64        | Cannot pickup portal gun.                            |
-| 128       | Disables `save`, run is reset if client uses `load`. |
+| Spawnflag | Description                                                                    |
+| :-------: | :----------------------------------------------------------------------------- |
+| 1         | Run resets on team change.                                                     |
+| 2         | Run resets on death.                                                           |
+| 4         | Run resets only wnen reaching the end.                                         |
+| 8         | Run resets if client sets `pmove_fixed 0`.                                     |
+| 16        | Disables `backup` and extra save slots.                                        |
+| 32        | Cannot pickup explosive weeapons.                                              |
+| 64        | Cannot pickup portal gun.                                                      |
+| 128       | Disables `save`, run is reset if client uses `load`.                           |
+| 256       | Allow players to toggle collision between fireteam members during the timerun. |
 
 By default, timeruns are reset on team change, death, or if client sets `pmove_fixed 0`. If **ANY** spawnflags are set, you must explicitly specify the reset conditions.
 
@@ -519,13 +529,14 @@ Teleports player to target location.
 
 **Spawnflags**
 
-| Spawnflag | Description                                                                            |
-| :-------: | :------------------------------------------------------------------------------------- |
-| 1         | Reset activators speed.                                                                |
-| 2         | Convert activators speed towards destination angles.                                   |
-| 4         | Convert angle and speed relative to destination while preserving yaw angle.            |
-| 8         | Convert angle and speed relative to destination while preserving yaw and pitch angles. |
-| 16        | Apply **160ms** long knockback event after teleportation (Quake 3 behavior).           |
+| Spawnflag | Description                                                                                                     |
+| :-------: | :-------------------------------------------------------------------------------------------------------------- |
+| 1         | Reset activators speed.                                                                                         |
+| 2         | Convert activators speed towards destination angles.                                                            |
+| 4         | Convert angle and speed relative to destination while preserving yaw angle.                                     |
+| 8         | Convert angle and speed relative to destination while preserving yaw and pitch angles.                          |
+| 16        | Apply **160ms** long knockback event after teleportation (Quake 3 behavior).                                    |
+| 32        | Disable +1u z-offset applied at teleport destination, as well as relative z-offset applied by spawnflags 4 & 8. |
 
 ---
 
@@ -612,6 +623,22 @@ Check players tracker values, fire targeted entities if conditions are met and m
 
 ---
 
+## trigger_multiple
+
+Activates targets when touched.
+
+**Keys**
+
+*None*
+
+**Spawnflags**
+
+| Spawnflag | Description                                |
+| :-------: | :----------------------------------------- |
+| 4096      | Cannot be activated by noclipping players. |
+
+---
+
 ## trigger_push
 
 Pushes activator towards `target` or `angle(s)`. This entity is client side predicted.
@@ -633,6 +660,53 @@ Pushes activator towards `target` or `angle(s)`. This entity is client side pred
 
 ---
 
+## trigger_teleport_client
+Teleports player to target location. This entity is client side predicted.
+
+**Keys**
+
+| Key      | Value                | Default | Description                                           |
+| :------- | :------------------- | :------ | :---------------------------------------------------- |
+| outspeed | any positive integer | 0       | Fixed speed at which activators exits the teleporter. |
+| noise    | path to .wav         | nosound | Sound to play on activation.                          |
+
+**Spawnflags**
+
+| Spawnflag | Description                                                             |
+| :-------: | :---------------------------------------------------------------------- |
+| 1         | Reset activators speed.                                                 |
+| 2         | Convert activators speed towards destination angles.                    |
+| 16        | Apply **160ms** long knockback event after teleportation (Q3 behavior). |
+| 32        | Disable +1u z-offset applied at teleport destination.                   |
+
+```{note}
+Unlike regular teleporters, this entity does not support random target picking if targeting multiple entities. If multiple targets are present, same target is picked every time.
+```
+
+```{caution}
+The BSP leaf that the destination lies in will be added to the PVS whenever this trigger is present in the players' PVS. Take this into consideration with things like skyboxes.
+```
+
+---
+
+## weapon_fg42, weapon_flamethrower, weapon_magicammo, weapon_magicammo2, weapon_mobile_mg42, weapoon_mortar
+
+**Keys**
+
+*None*
+
+**Spawnflags**
+
+| Spawnflag | Description                                                     |
+| :-------: | :-------------------------------------------------------------- |
+| 2         | Spins around it's axis.                                         |
+
+```{note}
+Technically this is not a new spawnflag, but ETJump has fixed it not working on these entities.
+```
+
+---
+
 ## weapon_grenadelauncher
 
 Spawns an Axis hand grenade at the location.
@@ -648,6 +722,7 @@ Spawns an Axis hand grenade at the location.
 | Spawnflag | Description                                                     |
 | :-------: | :-------------------------------------------------------------- |
 | 1         | Spawns on the entitys location and does not fall to the ground. |
+| 2         | Spins around it's axis.                                         |
 | 4         | Bobs up and down.                                               |
 
 ```{note}
@@ -671,6 +746,7 @@ Spawns an Allied hand grenade at the location.
 | Spawnflag | Description                                                     |
 | :-------: | :-------------------------------------------------------------- |
 | 1         | Spawns on the entitys location and does not fall to the ground. |
+| 2         | Spins around it's axis.                                         |
 | 4         | Bobs up and down.                                               |
 
 ```{note}
@@ -713,6 +789,7 @@ This entity does not disappear when picked up, and does not need to be manually 
 | nodrop          | 0 or  1              | 0       | Enable/disable nodrop. **0** Items are not dropped inside `surfaceparm nodrop`. **1** items are only dropped inside `surfaceparm nodrop`.                                             |
 | noexplosives    | 0 - 2                | 0       | Disables explosives. **0** explosives are allowed. **1** no explosive weapons. **2** no dynamite.                                                                                     |
 | nofalldamage    | 0 - 2                | 0       | Enable/disable fall damage. **0** Fall damage disabled only on `surfaceparm nodamage` **1** Fall damage enabled only on `surfaceparm nodamage` **2** Fall damage disabled everywhere. |
+| noftnoghost     | 0 or 1               | 0       | Disable players' ability to toggle collision between fireteam members.                                                                                                                |
 | noghost         | 0 or 1               | 0       | Disables player ghosting (nonsolid players). Overrides `g_ghostPlayers` server cvar.                                                                                                  |
 | nogod           | 0 or 1               | 0       | Disables god mode.                                                                                                                                                                    |
 | nogoto          | 0 or 1               | 0       | Disables goto.                                                                                                                                                                        |

@@ -10,8 +10,8 @@ ETJump adds new scripting actions, events and entities for mapscripting. Below i
 create
 {
     <classname> <value>
-    [key1] <value>
-    [key2] <value>
+    [key1 <value>]
+    [key2 <value>]
     ...
 }
 ```
@@ -200,6 +200,61 @@ This script action **must** be called via an entity that passes activator data!
 
 ---
 
+## delete
+
+```
+delete
+{
+    <key> <value>
+    [key2 <value>]
+    [key3 <value>]
+    ...
+}
+```
+
+Deletes all entities in the map matching the key(s)/value(s) pairs.
+
+```{hint}
+Unlike [`create`](mapscripting.md/#create), this does not need to be called in a `spawn` action of an entity.
+```
+
+```{note}
+If defining multiple key/value pairs, an entity must match all of them in order to be deleted.
+```
+
+```{caution}
+This currently does not support all entity keys available across entities. For a list of supported keys, see [here](https://github.com/etjump/etjump/blob/d75422cb0d81be51575dffa5121079547a68a867/src/game/g_spawn.cpp#L84-L175).
+```
+
+### Examples
+
+Deleting any entity with `origin` set to `100 100 100`
+
+```
+myscriptblock
+{
+    delete
+    {
+        origin "100 100 100"
+    }
+}
+```
+
+Deleting any entity with `spawnflags 4` and `targetname t1`
+
+```
+myscriptblock
+{
+    delete
+    {
+        spawnflags "4"
+        targetname "t1"
+    }
+}
+```
+
+---
+
 ## etjump_manager
 
 Acts as an entry point for mapscript. If a map contains no `script_multiplayer` or any entities with a `scriptname` set, you can use this script block to access mapscripting in a map, e.g. for spawning entities using [`create`](mapscripting.md/#create). This is only present in maps which do not provide `script_multiplayer` or entities with a `scriptname` set.
@@ -225,6 +280,37 @@ Kills the player as if they used `/kill` command.
 ```{caution}
 This script action **must** be called via an entity that passes activator data!
 ```
+
+---
+
+## playsound
+
+`playsound <sound> [looping|private] [volume <value>]`
+
+`playsound` in ETJump supports `private` keyword, which only plays the sound to the activator instead of globally.
+
+```{note}
+`private` cannot be combined with `looping`.
+```
+
+```{caution}
+This script action **must** be called via an entity that passes activator data!
+```
+
+---
+
+## set
+```
+set
+{
+    <key> <value>
+    [key2 <value>]
+    [key3 <value>]
+    ...
+}
+```
+
+`set` in ETJump has a special key `classname_nospawn`, which can be used to change an entitys `classname` without calling the spawn function again. This allows changing the entity's type outside of any `spawn` script blocks, with the restiction that any setup that the entity normally performs while spawning is not run.
 
 ---
 
