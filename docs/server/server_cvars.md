@@ -4,7 +4,7 @@ Below is a list of all ETJump related cvars (console variables) for server confi
 ---
 
 ## g_adminChat
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_adminChat             | 0 or 1        | 1
 
@@ -17,7 +17,7 @@ Toggles adminchat functionality on the server.
 ---
 
 ## g_adminLog
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_adminLog              | filename      | adminsystem.log
 
@@ -30,7 +30,7 @@ Make this log admin commands.
 ---
 
 ## g_allowSpeclock
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_allowSpeclock         | 0 or 1        | 1
 
@@ -39,7 +39,7 @@ Toggles whether players are allowed to use [`speclock`](../client/client_command
 ---
 
 ## g_autoRtv
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_autoRtv               | 0 - 1440      | 0
 
@@ -48,7 +48,7 @@ Sets the interval for calling automatic Rock The Vote, in minutes.
 ---
 
 ## g_banner1-5
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_banner1               | any text      | ETJump
 g_banner2               | any text      | A Wolfenstein: Enemy Territory Trickjump Modification
@@ -61,7 +61,7 @@ Sets text for banners displayed on the server.
 ---
 
 ## g_bannerLocation
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_bannerLocation        | 0 - 3         | 1
 
@@ -75,7 +75,7 @@ Sets the location where banners are printed.
 ---
 
 ## g_bannerTime
-Name                    | Values               | Default
+Cvar                    | Values               | Default
 :-----------------------|:---------------------|:------------
 g_bannerTime            | any positive integer | 60000
 
@@ -84,7 +84,7 @@ How often in milliseconds to print banners.
 ---
 
 ## g_banners
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_banners               | 0 or 1        | 1
 
@@ -93,7 +93,7 @@ Toggles the banner system.
 ---
 
 ## g_blockCheatCvars
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_blockCheatCvars       | bitflag       | 0
 
@@ -105,7 +105,7 @@ Blocks usage of certain cvars that can be used to cheat. If the rules are violat
 ---
 
 ## g_blockedMaps
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_blockedMaps           | map names     | 
 
@@ -118,7 +118,7 @@ Does not perform validation for mapnames.
 ---
 
 ## g_chatOptions
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_chatOptions           | 0 or 1        | 1
 
@@ -126,17 +126,38 @@ Allow players to highlight other players in chat using `@name@`.
 
 ---
 
-## g_chatReplayMaxMessageAge
-Name                      | Values               | Default
-:-------------------------|:---------------------|:------------
-g_chatReplayMaxMessageAge | any positive ingeter | 0
+## g_chatReplay
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+g_chatReplay            | 0 or 1        | 1
 
-Maximum age for a chat replay message to be considered valid. If the message is older than the time specified here, it will not be included in the chat replay. Value **0** means messages never expire, and are always sent regardless of how old they are.
+Toggles chat replay functionality. When enabled, global chat messages are logged to `chatreplay.json` file and replayed to the clients when they connect, on map changes and on `vid_restart`.
+
+```{note}
+Chat messages are still stored in the chat replay file when this is disabled.
+```
+
+```{seealso}
+[`g_chatReplayMaxMessageAge`](server_cvars.md/#g_chatreplaymaxmessageage)
+```
+
+---
+
+## g_chatReplayMaxMessageAge
+Cvar                      | Values               | Default
+:-------------------------|:---------------------|:------------
+g_chatReplayMaxMessageAge | any positive integer | 5
+
+Maximum age in minutes for a chat replay message to be included in the replay sent to clients when they connect to a server for the first time. **0** means always send every message, regardless of how old they are.
+
+```{note}
+This has no effect on messages that are sent after a client has connected. Any message sent after the client's session has started will always be replayed to them upon `vid_restart` or map change.
+```
 
 ---
 
 ## g_customMapVotesFile
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_customMapVotesFile    | filename      | customvotes.json
 
@@ -145,7 +166,7 @@ Filename for the custom map votes file.
 ---
 
 ## g_dailyLogs
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_dailyLogs             | 0 or 1        | 1
 
@@ -154,7 +175,7 @@ Whether to log everything in a single file or change the file daily.
 ---
 
 ## g_debugTrackers
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_debugTrackers         | 0 or 1        | 0
 
@@ -167,7 +188,7 @@ Timerun records are not saved when tracker debugging is enabled.
 ---
 
 ## g_disableVoteAfterMapChange
-Name                        | Values               | Default
+Cvar                        | Values               | Default
 :---------------------------|:---------------------|:------------
 g_disableVoteAfterMapChange | any positive integer | 30000
 
@@ -176,7 +197,7 @@ How long players must wait to vote again in milliseconds after map changes.
 ---
 
 ## g_enableVote
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_enableVote            | 0 or 1        | 1
 
@@ -185,7 +206,7 @@ Toggles voting.
 ---
 
 ## g_floodlimit
-Name                    | Values               | Default
+Cvar                    | Values               | Default
 :-----------------------|:---------------------|:------------
 g_floodlimit            | any positive integer | 5
 
@@ -194,7 +215,7 @@ How many times can player send a message fast before flood protection kicks in.
 ---
 
 ## g_floodprotection
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_floodprotection       | 0 or 1        | 1
 
@@ -203,7 +224,7 @@ Toggles flood protection.
 ---
 
 ## g_floodwait
-Name                    | Values               | Default
+Cvar                    | Values               | Default
 :-----------------------|:---------------------|:------------
 g_floodwait             | any positive integer | 768
 
@@ -212,7 +233,7 @@ Time in milliseconds to allow player to send messages again.
 ---
 
 ## g_ghostPlayers
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_ghostPlayers          | 0 or 1        | 1
 
@@ -221,7 +242,7 @@ Toggles whether players can go through each other.
 ---
 
 ## g_goto
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_goto                  | 0 or 1        | 1
 
@@ -230,7 +251,7 @@ Toggles [`goto`](../client/client_commands.md/#goto).
 ---
 
 ## g_levelConfig
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_levelConfig           | filename      | levels.cfg
 
@@ -239,7 +260,7 @@ File to store admin system levels in.
 ---
 
 ## g_mapDatabase
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_mapDatabase           | filename      | maps.dat
 
@@ -248,7 +269,7 @@ File where information about maps is stored (eg. playtime).
 ---
 
 ## g_mapScriptDir
-Name                    | Values         | Default
+Cvar                    | Values         | Default
 :-----------------------|:---------------|:------------
 g_mapScriptDir          | directory name | mapscripts
 
@@ -257,7 +278,7 @@ Directory to load custom map scripts from.
 ---
 
 ## g_maxConnsPerIP
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_maxConnsPerIP         | any integer   | 2
 
@@ -270,7 +291,7 @@ How many clients can connect from a single IP address.
 ---
 
 ## g_motdFile
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_motdFile              | filename      | motd.json
 
@@ -279,7 +300,7 @@ File that sets the message of the day.
 ---
 
 ## g_moverScale
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_moverScale            | 0.1 - 5.0     | 1.0
 
@@ -292,7 +313,7 @@ Scales movement speed of entities following spline paths (typically vehicles) by
 ---
 
 ## g_mute
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_mute                  | bitflag       | 0
 
@@ -305,7 +326,7 @@ Sets restrictions to apply to muted players.
 ---
 
 ## g_nameChangeInterval
-Name                    | Values               | Default
+Cvar                    | Values               | Default
 :-----------------------|:---------------------|:------------
 g_nameChangeInterval    | any positive integer | 60
 
@@ -314,7 +335,7 @@ How often in seconds is the name change limit reset.
 ---
 
 ## g_nameChangeLimit
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_nameChangeLimit       | any integer   | 5
 
@@ -323,7 +344,7 @@ How many times a player can change their name before getting kicked for spam.
 ---
 
 ## g_noclip
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_noclip                | 0 or 1        | 0
 
@@ -336,7 +357,7 @@ Toggles whether players have access to `noclip` command.
 ---
 
 ## g_nofatigue
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_nofatigue             | 0 or 1        | 1
 
@@ -345,7 +366,7 @@ Toggles whether players can have access to permanent adrenaline with the [`etj_n
 ---
 
 ## g_oss
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_oss                   | bitflag       | 399
 
@@ -376,7 +397,7 @@ This is a read-only cvar and should not be set by server administrators. ETJump 
 ---
 
 ## g_portalDebug
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_portalDebug           | 0 or 1        | 0
 
@@ -385,7 +406,7 @@ Toggles drawing of portal activation boxes.
 ---
 
 ## g_portalMode
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_portalMode            | 0 or 1        | 1
 
@@ -401,7 +422,7 @@ This can be overridden on per-map basis with the `portalgun_spawn` [`worldspawn 
 ---
 
 ## g_rtvMaxMaps
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_rtvMaxMaps            | 2 - 9         | 5
 
@@ -410,7 +431,7 @@ Sets the amount of maps to include in a Rock The Vote.
 ---
 
 ## g_save
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_save                  | 0 or 1        | 1
 
@@ -419,7 +440,7 @@ Toggles players access to [`save`](../client/client_commands.md/#save) and [`loa
 ---
 
 ## g_spectatorVote
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_spectatorVote         | 0 - 2         | 0
 
@@ -436,7 +457,7 @@ Only spectators who participate in voting are taken into account by `vote_percen
 ---
 
 ## g_timerunsDatabase
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_timerunsDatabase      | filename      | timeruns.db
 
@@ -449,7 +470,7 @@ As of ETJump 3.0.0, this is no longer used to store any timerun records. It is o
 ---
 
 ## g_timeruns2Database
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_timeruns2Database     | filename      | timeruns.v2.db
 
@@ -458,7 +479,7 @@ File to store new timerun records in.
 ---
 
 ## g_tokensMode
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_tokensMode            | 0 or 1        | 1
 
@@ -467,7 +488,7 @@ Enables players to use [`!tokens`](admin_system.md/#tokens) command to add colle
 ---
 
 ## g_tokensPath
-Name                    | Values         | Default
+Cvar                    | Values         | Default
 :-----------------------|:---------------|:------------
 g_tokensPath            | directory name | tokens
 
@@ -476,7 +497,7 @@ Directory where tokens information is stored.
 ---
 
 ## g_userConfig
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_userConfig            | filename      | users.db
 
@@ -485,7 +506,7 @@ File to store the user database in.
 ---
 
 ## g_voteCooldown
-Name                    | Values               | Default
+Cvar                    | Values               | Default
 :-----------------------|:---------------------|:------------
 g_voteCooldown          | any positive integer | 15
 
@@ -494,7 +515,7 @@ How long in seconds a player must wait after their previous vote to call another
 ---
 
 ## g_weapons
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_weapons               | 0 or 1        | 1
 
@@ -503,7 +524,7 @@ Toggles whether players spawn with weapons or just knife.
 ---
 
 ## vote_allow_autoRtv
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 vote_allow_rtv          | 0 or 1        | 1
 
@@ -512,7 +533,7 @@ Toggles whether players can vote for changing the interval of automatic Rock The
 ---
 
 ## vote_allow_randommap
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 vote_allow_randommap    | 0 or 1        | 1
 
@@ -521,7 +542,7 @@ Toggles whether players can vote for a random map.
 ---
 
 ## vote_allow_rtv
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 vote_allow_rtv          | 0 or 1        | 1
 
@@ -530,7 +551,7 @@ Toggles whether players can vote for Rock The Vote.
 ---
 
 ## vote_minRtvDuration
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 vote_minRtvDuration     | 1000 - 29000  | 15000
 
@@ -539,7 +560,7 @@ Minimum time in milliseconds Rock The Vote must active before passing.
 ---
 
 ## vote_minVoteDuration
-Name                    | Values        | Default
+Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 vote_minVoteDuration    | 1000 - 29000  | 5000
 

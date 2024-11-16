@@ -125,6 +125,15 @@ Time in milliseconds to delay the stopping and saving of autodemo when a timerun
 
 ---
 
+## etj_ad_stopInSpec
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_ad_stopInSpec       | 0 or 1        | 1
+
+Toggles whether currently recorded autodemo temp demo is automatically stopped when the player joins spectators.
+
+---
+
 ## etj_ad_targetPath
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
@@ -200,6 +209,19 @@ Cvar                    | Values               | Default
 etj_autoSpecDelay       | any positive integer | 10000
 
 Time in milliseconds the player has to be idle in free spec before automatically following the next player.
+
+---
+
+## etj_autoSprint
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_autoSprint          | 0 or 1        | 0
+
+Automatically sprint instead of run.
+
+```{tip}
+When enabled, the behavior of `+sprint` key is flipped - pressing the key enables running instead of sprinting.
+```
 
 ---
 
@@ -1461,14 +1483,27 @@ When this cvar is enabled, along with your player model, several other aspects o
 * Item pickup sounds
 ```
 
+```{note}
+If the player is in a fireteam with [`noghost`](./client_commands.md/#fireteam) enabled, `etj_hideMe` is automatically disabled.
+```
+
 ---
 
 ## etj_highlight
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_highlight           | 0 or 1        | 1
+etj_highlight           | bitflag       | 1
 
 Toggles highlighting chat messages if your name was mentioned.
+
+* **0** off
+* **1** highlight the message and play a sound
+* **2** flash the game window if minimized (ET: Legacy only)
+  * If this is set, the game window also flashes on incoming private messages
+
+```{seealso}
+[`etj_highlightSound`](etjump_cvars.md/#etj_highlightsound)
+```
 
 ---
 
@@ -2469,6 +2504,30 @@ Sets vertical position of the slick detector.
 
 ---
 
+## etj_smoothAngles
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_smoothAngles        | 0 or 1        | 1
+
+Enables pmove-independent viewangle updates. When enabled, clients viewangle updates are not limited to `pmove_msec` intervals (8ms by default), but can be updated each frame that the client renders, allowing for smoother gameplay.
+
+```{note}
+This does not affect physics calculations, they are still performed with viewangles calculated at `pmove_msec` intervals.
+```
+
+```{note}
+The functionality is disabled in the following scenarios:
+* spectating
+* demo playback
+* `pmove_fixed 0`
+* prone
+* using set weapons (mobile mg42, mortar)
+* mounted mg42/tank
+* wounded state
+```
+
+---
+
 ## etj_snapHUDActiveIsPrimary
 Cvar                       | Values        | Default
 ---------------------------|:--------------|:------------
@@ -2478,6 +2537,19 @@ Toggles snaphud colors so that the zone you are aiming at will always be drawn w
 
 ```{tip}
 This can be used independently, without enabling [`etj_snapHUDHLActive`](etjump_cvars.md/#etj_snaphudhlactive).
+```
+
+---
+
+## etj_snapHUDBorderThickness
+Cvar                       | Values        | Default
+---------------------------|:--------------|:------------
+etj_snapHUDBorderThickness | 0.1 - 10.0    | 1
+
+Sets the thickness of snaphud borders when [`etj_drawSnapHUD`](etjump_cvars.md/#etj_drawsnaphud) is set to **3**.
+
+```{note}
+The maximum value is also capped to [`etj_snapHUDHeight`](etjump_cvars.md/#etj_snaphudheight) * 2, to avoid the borders from "bleeding over".
 ```
 
 ---
@@ -3016,7 +3088,7 @@ etj_viewlog             | 0 or 1        | 1
 Toggles external console window. Only works on Windows.
 
 ```{note}
-ET: Legacy client requires you to start the game with `+set viewlog 1`, the console window cannot be created or re-created if closed while the game is running.
+If playing with ET: Legacy client, you must use version **2.83.0** or newer to be able to create the console window while the game is running. Older versions require you to start the game with `+set viewlog 1`, the console window cannot be created or re-created if closed while the game is running.
 ```
 
 ```{hint}

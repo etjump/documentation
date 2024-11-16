@@ -143,6 +143,28 @@ You can send private messages to other players by typing `/m <name|clientnum> <m
 
 ```{note}
 Private messages are sent to all players who's name match `<name>` partially. If you want to make sure you're only sending the message to a single client, it's safer to use `<clientnum>`.
+
+If playing with ET: Legacy client, you can enable window flashing for incoming private messages if the game is minimized by setting the bit **2** on [`etj_highlight`](client/etjump_cvars.md/#etj_highlight).
+```
+
+---
+
+## Fireteams
+Fireteams in ETJump are team-agnostic, meaning there are no restrictions on which team the members of the fireteam are allowed to be in. Fireteams provide additional functionality to the gameplay by allowing players to enable features only for the members of the fireteam.
+
+### Rules
+
+Fireteam members can set "rules" amongst themselves. The available rules are following:
+
+* `noghost` - fireteam members can toggle player collision between the members.
+* `savelimit` - fireteam members can limit the number of [`save`](client/client_commands.md/#save) commands each member is allowed to use.
+
+### Teamjump mode
+
+When teamjump mode is enabled, [`target_ftrelay`](mapping/mapping_entities.md/#target_ftrelay) entity activates targets for each of the fireteam members.
+
+```{seealso}
+[`fireteam`](client/client_commands.md/#fireteam)
 ```
 
 ---
