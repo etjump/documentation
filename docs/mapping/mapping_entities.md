@@ -70,9 +70,10 @@ When a button is used, it moves some distance in the direction of it's angles, t
 
 **Keys**
 
-| Key   | Value        | Default                         | Description                                                             |
-| :---- | :----------- | :------------------------------ | :---------------------------------------------------------------------- |
-| noise | path to .wav | sound/movers/switches/butn2.wav | Sound to play on activation. Use `nosound` to disable sound completely. |
+| Key        | Value           | Default                         | Description                                                                     |
+| :--------- | :-------------- | :------------------------------ | :------------------------------------------------------------------------------ |
+| noise      | path to .wav    | sound/movers/switches/butn2.wav | Sound to play on activation. Use `nosound` to disable sound completely.         |
+| cursorhint | cursorhint name |                                 | Sets a custom cursorhint for the button. If not set, defaults to `HINT_BUTTON`. |
 
 **Spawnflags**
 

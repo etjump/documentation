@@ -6,11 +6,7 @@ Below is a list of all available ETJump related console commands for players.
 ## ad_save
 `ad_save [name]`
 
-Saves the current temp demo recorded by autodemo with the given name. The manually saved autodemo naming format is `playername_map_name[DD-MM-YY-HHMMSS]`. If no name is given, defaults to `demo`.
-
-```{note}
-This only saves the latest temp demo recorded with [`etj_autoDemo`](etjump_cvars.md/#etj_autodemo). If you are manually recording a demo and use this command, it will take the latest `temp/temp_N.dm_84` and save that. The manually recorded demo will be saved normally into whatever folder you're recording into, with the name it was recorded with.
-```
+Saves the current temp demo recorded with [`etj_autoDemo`](etjump_cvars.md/#etj_autodemo) with the given name. The manually saved autodemo naming format is `playername_map_name[DD-MM-YY-HHMMSS]`. If no name is given, defaults to `demo`.
 
 ---
 
@@ -108,6 +104,20 @@ Send a quote-printable encoded message to global, team, fireteam or [admin chat]
 `extraTrace`
 
 Prints the list of bitflag values for [`etj_extraTrace`](etjump_cvars.md/#etj_extratrace).
+
+---
+
+## fireteam
+`fireteam rules <rule> <value>`  
+`fireteam tj|teamjump <on|1> <off|0>`  
+
+Executes fireteam actions. Can only be set by the fireteam admin.
+
+Enabling teamjump mode is required for [`target_ftrelay`](../mapping/mapping_entities.md/#target_ftrelay) to activate targets for each fireteam member.
+
+Available rules:
+* `noghost <on|1> <off|0>` - toggles player collision between fireteam members
+* `savelimit <limit (-1 - 100|reset)>` - sets savelimit for fireteam members. `-1` means no limit. `reset` restores all the available saves for each member.
 
 ---
 

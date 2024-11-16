@@ -4,6 +4,15 @@ ETJump adds new scripting actions, events and entities for mapscripting. Below i
 
 ---
 
+## changemodel
+`changemodel <path/to/model.md3>`
+
+Changes the entitys model to the given model.
+
+```{tip}
+This script action is present in ETMain but only works for brush entities using `model2` key. ETJump allows this to be used to change models of `misc_gamemodel` entities as well.
+```
+
 ## create
 
 ```
