@@ -47,13 +47,13 @@ Both [Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=mj
 
 ---
 
-## ETJump mapping assets
+## Assets
 
 ETJump assets include entities and shaders that are useful when creating maps for ETJump.
 You can get the assets from [ETJump mapping repository](https://github.com/etjump/mapping).
 
 ---
 
-## ETJump mapping entities
+## Mapping entities
 
-While creating your map, you most likely want to use entities provided by ETJump. Along with explanations provided in entity file, you can check the documentation on how to use ETJump specific entities. See the full list {doc}`here <mapping_entities>`.
+While creating your map, you most likely want to use entities provided by ETJump. Along with explanations provided in entity file, you can check the documentation on how to use ETJump specific entities. See the full list [here](mapping_entities.md).

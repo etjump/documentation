@@ -21,10 +21,14 @@ Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_adminLog              | filename      | adminsystem.log
 
-Currently does nothing.
+Enables logging of certain admin events to the specified log file.
 
-```{todo}
-Make this log admin commands.
+```{note}
+If [`g_dailyLogs`](#g_dailylogs) is enabled, the log name is ignored and the logs are created daily to `logs` directory, prefixed with `admin-`.
+```
+
+```{seealso}
+[Admin system logging](admin_system.md/#admin-system-logging)
 ```
 
 ---
@@ -170,7 +174,11 @@ Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_dailyLogs             | 0 or 1        | 1
 
-Whether to log everything in a single file or change the file daily.
+Whether to log everything in a single file or change the file daily. The log file will be written to `logs` directory.
+
+```{note}
+When enabled, this also enables daily logging for [`g_adminLog`](#g_adminlog).
+```
 
 ---
 

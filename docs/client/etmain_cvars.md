@@ -36,9 +36,9 @@ ETJump has removed cheat protection from this cvar.
 ---
 
 ## cg_crosshairSize
-Cvar                    | Values             | Default
-:-----------------------|:-------------------|:------------
-cg_crosshairSize        | any positive value | 48
+Cvar                    | Values                                                         | Default
+:-----------------------|:---------------------------------------------------------------|:------------
+cg_crosshairSize        | [size (-256 - 256)](../getting_started.md/#size--scale-system) | 48
 
 Sets size of the crosshair.
 

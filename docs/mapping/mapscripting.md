@@ -13,6 +13,15 @@ Changes the entitys model to the given model.
 This script action is present in ETMain but only works for brush entities using `model2` key. ETJump allows this to be used to change models of `misc_gamemodel` entities as well.
 ```
 
+---
+
+## changeskin
+`changeskin <path/to/file.skin>`
+
+Changes the entitys skin to the given skin.
+
+---
+
 ## create
 
 ```
