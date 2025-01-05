@@ -81,9 +81,9 @@ Toggles shadow on the acceleration meter.
 ---
 
 ## etj_accelSize
-Cvar                    | Values             | Default
-:-----------------------|:-------------------|:------------
-etj_accelSize           | any positive value | 3
+Cvar                    | Values                                                     | Default
+:-----------------------|:-----------------------------------------------------------|:------------
+etj_accelSize           | [size (0 - 10)](../getting_started.md/#size--scale-system) | 3
 
 Sets the size of the acceleration meter.
 
@@ -447,9 +447,9 @@ Disabling this cvar does **not** exclude any messages you send from appearing in
 ---
 
 ## etj_chatScale
-Cvar                    | Values            | Default
-:-----------------------|:------------------|:------------
-etj_chatScale           | any positive value| 1.0
+Cvar                    | Values                                                     | Default
+:-----------------------|:-----------------------------------------------------------|:------------
+etj_chatScale           | [scale (0 - 5)](../getting_started.md/#size--scale-system) | 1.0
 
 Scales the chat size.
 
@@ -488,7 +488,7 @@ This functions independently of [`etj_drawCheckpoints`](etjump_cvars.md/#etj_dra
 
 ## etj_checkpointsPopupDuration
 Cvar                         | Values               | Default
------------------------------|:---------------------|-------------
+:----------------------------|:---------------------|:------------
 etj_checkpointsPopupDuration | any positive integer | 1000
 
 How long in milliseconds a checkpoint popup stays on screen.
@@ -496,9 +496,9 @@ How long in milliseconds a checkpoint popup stays on screen.
 ---
 
 ## etj_checkpointsPopupSize
-Cvar                     | Values             | Default
--------------------------|:-------------------|-------------
-etj_checkpointsPopupSize | any positive value | 2
+Cvar                     | Values                                                     | Default
+:------------------------|:-----------------------------------------------------------|:------------
+etj_checkpointsPopupSize | [size (0 - 10)](../getting_started.md/#size--scale-system) | 2
 
 Sets size of a checkpoint popup.
 
@@ -506,7 +506,7 @@ Sets size of a checkpoint popup.
 
 ## etj_checkpointsPopupShadow
 Cvar                       | Values        | Default
----------------------------|:--------------|:------------
+:--------------------------|:--------------|:------------
 etj_checkpointsPopupShadow | 0 or 1        | 1
 
 Toggles drawing shadow on checkpoint popups.
@@ -541,9 +541,9 @@ Toggles shadow on the checkpoint timer.
 ---
 
 ## etj_checkpointsSize
-Cvar                    | Values             | Default
-:-----------------------|:-------------------|:------------
-etj_checkpointsSize     | any positive value | 2
+Cvar                    | Values                                                     | Default
+:-----------------------|:-----------------------------------------------------------|:------------
+etj_checkpointsSize     | [size (0 - 10)](../getting_started.md/#size--scale-system) | 2
 
 Sets size of the checkpoint timer.
 
@@ -713,32 +713,6 @@ Cvar                    | Values        | Default
 etj_crosshairOutline    | 0 or 1        | 1
 
 Toggles drawing of outline on ETJump crosshairs.
-
----
-
-## etj_crosshairScaleX
-Cvar                    | Values        | Default
-:-----------------------|:--------------|:------------
-etj_crosshairScaleX     | -5 - 5        | 1.0
-
-Sets the horizontal scaling of the crosshair.
-
-```{tip}
-This works on all crosshairs, not just the ETJump-exclusive crosshairs.
-```
-
----
-
-## etj_crosshairScaleY
-Cvar                    | Values        | Default
-:-----------------------|:--------------|:------------
-etj_crosshairScaleY     | -5 - 5        | 1.0
-
-Sets the vertical scaling of the crosshair.
-
-```{tip}
-This works on all crosshairs, not just the ETJump-exclusive crosshairs.
-```
 
 ---
 
@@ -1744,9 +1718,9 @@ Toggles drawing of shadow on the pressed keys view.
 ---
 
 ## etj_keysSize
-Cvar                    | Values               | Default
-:-----------------------|:---------------------|:------------
-etj_keysSize            | any positive integer | 48
+Cvar                    | Values                                                      | Default
+:-----------------------|:------------------------------------------------------------|:------------
+etj_keysSize            | [size (0 - 256)](../getting_started.md/#size--scale-system) | 48
 
 Sets the size of the pressed keys view.
 
@@ -2016,9 +1990,9 @@ Sets color of the OB watcher.
 ---
 
 ## etj_obWatcherSize
-Cvar                    | Values             | Default
-:-----------------------|:-------------------|:------------
-etj_obWatcherSize       | any positive value | 3
+Cvar                    | Values                                                     | Default
+:-----------------------|:-----------------------------------------------------------|:------------
+etj_obWatcherSize       | [size (0 - 10)](../getting_started.md/#size--scale-system) | 3
 
 Sets size of the OB watcher.
 
@@ -2656,12 +2630,12 @@ Toggles drawing shadow on the spectator info list.
 
 ---
 
-## etj_spectatorInfoSize
-Cvar                    | Values             | Default
-:-----------------------|:-------------------|:------------
-etj_spectatorInfoSize   | any positive value | 2.3
+## etj_spectatorInfoScale
+Cvar                    | Values                                                     | Default
+:-----------------------|:-----------------------------------------------------------|:------------
+etj_spectatorInfoScale  | [scale (0 - 5)](../getting_started.md/#size--scale-system) | 1.0
 
-Sets font size of spectator info list.
+Scales the font size of spectator info list.
 
 ---
 
@@ -2780,9 +2754,9 @@ Toggles drawing shadow on the ETJump speed meter.
 ---
 
 ## etj_speedSize
-Cvar                    | Values             | Default
-:-----------------------|:-------------------|:------------
-etj_speedSize           | any positive value | 3
+Cvar                    | Values                                                     | Default
+:-----------------------|:-----------------------------------------------------------|:------------
+etj_speedSize           | [size (0 - 10)](../getting_started.md/#size--scale-system) | 3
 
 Sets size of the ETJump speed meter.
 
@@ -2847,9 +2821,9 @@ Toggles drawing shadow on the strafe quality display.
 ---
 
 ## etj_strafeQualitySize
-Cvar                    | Values             | Default
-:-----------------------|:-------------------|:------------
-etj_strafeQualitySize   | any positive value | 3
+Cvar                    | Values                                                     | Default
+:-----------------------|:-----------------------------------------------------------|:------------
+etj_strafeQualitySize   | [size (0 - 10)](../getting_started.md/#size--scale-system) | 3
 
 Sets the size of the strafe quality display.
 
@@ -3063,9 +3037,10 @@ Toggles drawing shadow on upmove meter text.
 ---
 
 ## etj_upmoveMeterTextSize
-Cvar                      | Values             | Default
---------------------------|:-------------------|:------------
-etj_upmoveMeterTextSize   | any positive value | 2
+Cvar                    | Values                                                     | Default
+:-----------------------|:-----------------------------------------------------------|:------------
+etj_upmoveMeterTextSize | [size (0 - 10)](../getting_started.md/#size--scale-system) | 2
+
 
 Sets size of the upmove meter text elements.
 

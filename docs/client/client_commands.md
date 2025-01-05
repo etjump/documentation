@@ -10,6 +10,13 @@ Saves the current temp demo recorded with [`etj_autoDemo`](etjump_cvars.md/#etj_
 
 ---
 
+## adminChat
+`adminChat`
+
+Opens the chat interface with admin chat selected as the message destination.
+
+---
+
 ## await
 `await <frames> <command1> | [command2] | [command3]...`  
 
@@ -409,6 +416,17 @@ Prints a list of clients who are allowed to spectate you while speclocked.
 `specunlock`
 
 Locks/unlocks you from spectators. When locked, use `specinvite/specuninvite` to invite/uninvite clients to spectate you.
+
+---
+
+## toggleETJumpSettings
+`toggleETJumpSettings`
+
+Toggles the ETJump settings menu.
+
+```{hint}
+This is simply a shortcut to open `ETJump -> Settings -> General/Gameplay` page. The sole purpose of this command is to be able to bind the settings menu toggle to a key.
+```
 
 ---
 

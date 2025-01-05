@@ -54,6 +54,8 @@ Any player with the `S` command flag has access to admin chat. This is a chat sy
 
 Players can send messages to admin chat via the chat window by selecting "Admin" as the destination. If the player does not have permissions to send messages to admin chat, the message is simply dropped entirely.
 
+Admin chats are excluded from standard log files - they are logged into the [admin log](#admin-system-logging).
+
 ![adminchat box](../img/adminchat_box.png)
 
 ```{tip}
@@ -64,7 +66,7 @@ Messages to admin chat can also be sent from console with the following commands
 ```
 
 ```{tip}
-Similar to team and fireteam chats, it's possible to create a bind that opens the chat window with "Admin" selected as destination, using the `adminChat` command. This isn't bound to anything by default.
+Similar to team and fireteam chats, it's possible to create a bind that opens the chat window with "Admin" selected as destination, using the [`adminChat`](../client/client_commands.md/#adminchat) command. This isn't bound to anything by default.
 
 `bind <key> adminChat`
 ```
@@ -74,6 +76,16 @@ An admin chat is colored orange, and prefixed with a `>`.
 ![adminchat example](../img/adminchat_example.png)
 
 If desired, admin chat can be disabled on the server with the [`g_adminChat`](server_cvars.md/#g_adminchat) cvar.
+
+---
+
+## Admin system logging
+
+By default, servers log certain admin-related events to a log file specified in [`g_adminLog`](server_cvars.md/#g_adminlog) cvar (unless [`g_dailyLogs`](server_cvars.md/#g_dailylogs) is enabled, in which case a new log file will be created daily). When enabled, the following events are logged:
+
+* Admin chat
+* Usage of admin commands with flags `b`, `C`, `A`, `k`, `m`, `P`, `R`, `s`, `T` and `c`
+* Authentication related events (potential GUID/HWID spoofs, rejected connections)
 
 ---
 
@@ -457,7 +469,7 @@ Displays the latest maps added to the server, sorted from oldest to newest. If `
 **Flag:** a
 
 ```{note}
-If a map has been on the server previously but later removed, it has already been registered to the servers map database and won't be displayed as the newest map if re-added back.
+If a map has been on the server previously but later removed, it has already been registered to the servers map database and won't be displayed as the newest map if re-added.
 ```
 
 ---

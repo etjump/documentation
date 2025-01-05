@@ -64,3 +64,18 @@ This color system will work with any mod-sided cvar (generally anything that sta
 ```{note}
 Some elements have a separate "color" and "alpha" cvars. In these cases, the alpha component is ignored on the "color" cvar parsing. Such cases are documented in the [cvar documentation](client/etjump_cvars.md).
 ```
+
+---
+
+## Size & scale system
+Any cvar that expects a size or scale value for drawing accepts either one or two values. If one value is given, size/scale is applied uniformly. If two values are given, size/scale is applied individually to X/Y axes, respectively. Below is a table with some examples.
+
+Cvar                    | Values        | Explanation
+:-----------------------|:--------------|:----------------------------------------------------------------
+cg_crosshairSize        | 32            | `cg_crosshairSize` is set to `32x32` size
+etj_keysSize            | 32 24         | `etj_keysSize` is set to `32x24` size
+etj_chatScale           | 0.7 0.8       | `etj_chatScale` is scaled by `0.7` on X axis and `0.8` on Y axis
+
+```{note}
+Unless mentioned otherwise, all size and scale values accept floating point values.
+```

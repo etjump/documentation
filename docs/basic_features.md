@@ -112,7 +112,7 @@ Keyset                                              | Value
 You can teleport to a location of another player on the server by using the [`goto`](client/client_commands.md/#goto) command. Similarly, you can teleport other players to your location using the [`call`](client/client_commands.md/#call-iwant) command.
 
 ```{note}
-By default, you are not allowed to target any players with these commands. A player must consent to being targeted by `goto/call` by using the [`nogoto`](client/client_commands.md/#nogoto) and [`nocall`](client/client_commands.md/#nocall)
+By default, you are not allowed to target any players with these commands. A player must consent to being targeted by `goto/call` by using the [`nogoto`](client/client_commands.md/#nogoto) and [`nocall`](client/client_commands.md/#nocall) commands, respectively.
 ```
 
 ---

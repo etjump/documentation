@@ -77,7 +77,9 @@ When a button is used, it moves some distance in the direction of it's angles, t
 
 **Spawnflags**
 
-*None*
+| Spawnflag | Description                                                              |
+| :-------: | :----------------------------------------------------------------------- |
+| 16        | Displays a progress bar with cursorhint until re-activation is possible. |
 
 ---
 
@@ -94,9 +96,10 @@ Uses targeted entities upon activation.
 
 **Spawnflags**
 
-| Spawnflag | Description                       |
-| :-------: | :-------------------------------- |
-| 8         | Pass activator data to mapscript. |
+| Spawnflag | Description                                                              |
+| :-------: | :----------------------------------------------------------------------- |
+| 8         | Pass activator data to mapscript.                                        |
+| 16        | Displays a progress bar with cursorhint until re-activation is possible. |
 
 ---
 
@@ -212,6 +215,22 @@ A timerun can have a maximum of **16** checkpoints attached to it.
 
 ---
 
+## target_delay
+
+Fires off targets after a delay.
+
+**Keys**
+
+*None*
+
+**Spawnflags**
+
+| Spawnflag | Description                      |
+| :-------: | :------------------------------- |
+| 1         | `wait` is unique to each client. |
+
+---
+
 ## target_give
 
 Gives activator targeted items. Must target actual entites in the map. Standard class restrictions apply when giving weapons (eg. cannot give `weapon_panzerfaust` to a medic).
@@ -263,7 +282,7 @@ Initalizes player into a freshly spawned state
 
 | Spawnflag | Description                       |
 | :-------: | :-------------------------------- |
-| 1         | Keep currennt health.             |
+| 1         | Keep current health.              |
 | 2         | Keep current ammo.                |
 | 4         | Keep current weapons.             |
 | 8         | Keep portal gun.                  |
@@ -470,7 +489,7 @@ Starts a timerun for the activator.
 | 4         | Run resets only wnen reaching the end.                                         |
 | 8         | Run resets if client sets `pmove_fixed 0`.                                     |
 | 16        | Disables `backup` and extra save slots.                                        |
-| 32        | Cannot pickup explosive weeapons.                                              |
+| 32        | Cannot pickup explosive weapons.                                               |
 | 64        | Cannot pickup portal gun.                                                      |
 | 128       | Disables `save`, run is reset if client uses `load`.                           |
 | 256       | Allow players to toggle collision between fireteam members during the timerun. |
@@ -690,7 +709,7 @@ The BSP leaf that the destination lies in will be added to the PVS whenever this
 
 ---
 
-## weapon_fg42, weapon_flamethrower, weapon_magicammo, weapon_magicammo2, weapon_mobile_mg42, weapoon_mortar
+## weapon_fg42, weapon_flamethrower, weapon_magicammo, weapon_magicammo2, weapon_mobile_mg42, weapon_mortar
 
 **Keys**
 
@@ -788,7 +807,7 @@ This entity does not disappear when picked up, and does not need to be manually 
 | Key             | Value                | Default | Description                                                                                                                                                                           |
 | :-------------- | :------------------- | :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | nodrop          | 0 or  1              | 0       | Enable/disable nodrop. **0** Items are not dropped inside `surfaceparm nodrop`. **1** items are only dropped inside `surfaceparm nodrop`.                                             |
-| noexplosives    | 0 - 2                | 0       | Disables explosives. **0** explosives are allowed. **1** no explosive weapons. **2** no dynamite.                                                                                     |
+| noexplosives    | 0 - 2                | 0       | Disables explosives. **0** explosives are allowed. **1** no explosive weapons. **2** no explosive weapons or dynamite.                                                                |
 | nofalldamage    | 0 - 2                | 0       | Enable/disable fall damage. **0** Fall damage disabled only on `surfaceparm nodamage` **1** Fall damage enabled only on `surfaceparm nodamage` **2** Fall damage disabled everywhere. |
 | noftnoghost     | 0 or 1               | 0       | Disable players' ability to toggle collision between fireteam members.                                                                                                                |
 | noghost         | 0 or 1               | 0       | Disables player ghosting (nonsolid players). Overrides `g_ghostPlayers` server cvar.                                                                                                  |
