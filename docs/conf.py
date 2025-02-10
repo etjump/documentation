@@ -24,7 +24,6 @@ myst_links_external_new_tab = True
 myst_heading_anchors = 3
 todo_include_todos = True
 
-
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
@@ -34,10 +33,4 @@ html_css_files = ['custom.css']
 html_logo = "img/etjump-logo.svg"
 html_theme_options = {
     "sidebar_hide_name": True,
-    # Respect users choices for browser fonts, dark theme inherits these too
-    "light_css_variables": {
-        "font-stack": "sans-serif",
-        "font-stack--monospace": "monospace",
-        "font-stack--headings": "serif",
-    },
 }
