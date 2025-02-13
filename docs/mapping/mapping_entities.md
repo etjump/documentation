@@ -641,6 +641,14 @@ Check players tracker values, fire targeted entities if conditions are met and m
 `tracker_not_eq` acts as an "or" condition, meaning if specifying multiple indices, none of the specified values can match the activators tracker values.
 ```
 
+### Debugging trackers
+
+Keeping track of tracker values and testing out the logic can become quite complex and time consuming on larger maps. To help out with this, there are few tools available.
+
+* [`g_debugTrackers`](../server/server_cvars.md/#g_debugtrackers) can be set to print out all tracker changes, and gain access to debug commands
+* [`tracker_set`](../client/client_commands.md/#tracker_set) can be used to set your tracker values (`g_debugTrackers 1` required)
+* [`tracker_print`](../client/client_commands.md/#tracker_print) can be used to print out your tracker values (`g_debugTrackers 1` required)
+
 ---
 
 ## trigger_multiple
