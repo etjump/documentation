@@ -207,6 +207,47 @@ Depending on the map and server settings, portalgun might be disabled, as it's q
 
 ---
 
+## Timeruns
+
+Some maps feature timeruns. They work exactly as you'd expect - go from start to finish as fast as possible. Timerun records are saved on the server and can be viewed using the [`ranks`](client/client_commands.md/#ranks-records-times-top) command. There is no central, mod-wide database for records - each server has it's own records database.
+
+Timeruns might also contain checkpoints. These are optional and are used to simply give better indication to the player how well their run is going. Finishing a timerun does not require hitting checkpoints in a particular order, nor do you have to hit all of them (though these can be enforced by the map via other means such as [trackers](mapping/mapping_entities.md/#target_tracker-and-trigger_tracker)).
+
+Timeruns can be viewed as the "competitive" side of ETJump. Because of this, there are several restrictions with them.
+
+```{note}
+If cheats are enabled, timeruns start normally, but records are not saved. The restrictions below do not apply when cheats are enabled.
+```
+
+* Timerun records are not saved when [tracker debugging](server/server_cvars.md/#g_debugtrackers) is enabled.
+* Timeruns cannot be started if player is noclipping or using godmode, and neither can be used during a timerun.
+* Timeruns cannot be started if player has used `noclip` or [`setoffset`](client/client_commands.md/#setoffset), set `pmove_fixed 0` or enabled [`fireteam noghost`](client/client_commands.md/#fireteam) without respawning afterwards.
+  * `pmove_fixed 0` and/or `fireteam noghost` might be allowed on some timeruns.
+* Timeruns cannot be started if player has non-zero roll angles.
+
+In addition to the above, a timerun might pose additional restrictions on it via entity spawnflags, see [`target_starttimer`](mapping/mapping_entities.md/#target_starttimer-and-trigger_starttimer) for details.
+
+Starting a timerun also performs several actions to the player in order to prevent cheating.
+
+```{note}
+The actions mentioned below are not performed if cheats are enabled.
+```
+
+* Removes explosive weapons and flamethrower.
+* Removes all projectiles and mines of the activator.
+* Removes portalgun and clears any existing portals.
+* Clears all save slots and backups (unless the timeruns specifies `NO_SAVE` spawnflag) that were made during a previous timerun.
+
+### Rankings
+
+Timeruns award points for completion. The ranking system, like timerun records, is per-server, no global leaderboards are available. The rankings can be viewed using the [`rankings`](client/client_commands.md/#rankings) command. Points are awarded using the [EESystem](https://docs.google.com/forms/d/e/1FAIpQLSczfUVq5sPQlYcDLw9rY6MxodMBdIiM0HuPdocgksLR3NDtgw/viewform), made for the DeFRaG World Cup (minus the Nascar clause). This system, unlike regular ELO ranking, encourages players to participate in as many timeruns as possible, rather than to focus on getting a perfect run on few runs and "protect" their ranking by not playing unless they are sure they can perform well on a run.
+
+### Seasons
+
+The timerun system supports "seasons". These can be managed on a server by admins, using [`!add-season`](server/admin_system.md/#add-season), [`!edit-season`](server/admin_system.md/#edit-season) and [`!delete-season`](server/admin_system.md/#delete-season) commands. Seasons include a start date, and optional end date, and store their own timerun records and rankings. This system can be used to for example host timed competitons.
+
+---
+
 ## Custom votes
 ETJump offers a per-server custom vote system, which allows server owners and priviledged admins to add, edit and delete lists with specific maps on them. These lists can be voted by players via the in-game menu, or via console using `callvote <randommap|rtv> <name>` command.
 

@@ -242,6 +242,32 @@ The upmove meter has extensive customization.
 
 ---
 
+## Special autoexec configs
+
+ETJump supports two special types of autoexec configs - map-specific autoexec and team-specifc autoexec. These configs can be put in either `etjump` or `etmain` directory, thought the former is recommended in order to not accidentally use these configs in other mods.
+
+### Map autoexecs
+
+These configs will be executed upon loading a specific map. For example, `autoexec_radar.cfg` would be executed whenever `radar` is loaded. For any map that has no map-specific config present, `autoexec_default.cfg` will be loaded if available.
+
+Because regular `autoexec.cfg` is only loaded upon initial startup, this is useful for restoring settings to defaults after a specific map autoexec has changed them. For example, a player might want to disable fastsky for `fueldump` but enable it for all other maps. This can be achieved by creating `autoexec_fueldump.cfg` which sets `r_fastsky 0`, and `autoexec_default.cfg` which sets `r_fastsky 1`. Any time `fueldump` is played, fastsky will be turned off, but any other map will turn it back on.
+
+```{tip}
+Map-specific autoexecs are supported on both client and server.
+```
+
+### Team autoexecs
+
+These configs are executed whenever a player joins team. Supported config names are following.
+
+* `autoexec_axis.cfg` - executed whenever player joins the Axis team.
+* `autoexec_allies.cfg` - executed whenever player joins the Allied team.
+* `autoexec_spectator.cfg` - executed whenever player joins Spectators.
+
+These can be used to for example use a different set of key bindings or HUD settings for playing and spectating.
+
+---
+
 ## Clip, Trigger & Slick drawing
 
 [ETe engine](https://github.com/etfdevs/ETe) includes a basic support for drawing clip brushes, trigger brushes and slick surfaces. ETJump offers cvar unlockers for these features with the cvars `etj_drawClips`, `etj_drawTriggers` and `etj_drawSlicks`.
@@ -258,9 +284,9 @@ The shaders used for drawing are constructed in place by ETe. They can however b
 
 ETJump provides some additional shaders that can be used for drawing. Note that using these shaders for `r_drawClipsShader` will disable the distinction between different clip types.
 
-### `tcRenderShader_nocull`
+* `tcRenderShader_nocull`
    * Identical to the built-in shader used by ETe, except it will disable culling on the shader, so looking at a clip brush for example will also draw the other side of the brush. 
-### `tcRenderShader<1|2|3><r|g|b|y|m|c>`
+* `tcRenderShader<1|2|3><r|g|b|y|m|c>`
   * Allows setting __3__ different transparency levels, __1__ being most opaque (equivalent to the built-in shader), as well as __6__ different colors (red, green, blue, yellow, magenta, cyan). For example, `tcRenderShader2c` would be a medium tranparency (__2__) shader with cyan (__c__) color.
 
 Note that since this feature is built into ETe engine and we merely provide cvar unlockers, ETJump has no real control over it's development. Keep an eye out for ETe updates for possible improvements and fixes!

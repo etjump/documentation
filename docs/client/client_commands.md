@@ -293,7 +293,7 @@ Prints timerun rankings. If no parameters are given, prints top **20** overall r
 
 ---
 
-## ranks, records, times top
+## ranks, records, times, top
 `records [run name]`  
 `records <map name> <run name>`  
 `records <season> <map name> <run name>`  
