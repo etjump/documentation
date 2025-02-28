@@ -283,6 +283,12 @@ g_mapScriptDir          | directory name | mapscripts
 
 Directory to load custom map scripts from.
 
+```{note}
+Custom mapscripts should be **all lowercase**, even if the map name has uppercase letters. ETJump forces all map names to be lowercase, which means that on Linux systems (which is most likely the case for servers) the filename must be all lowercase as well.
+
+Historically, it was possible to load a map with incorrect case sensitivity, e.g.`/map OASIS`, which could unexpectedly cause custom mapscripts to stop loading on Linux, because the map name no longer matched the script name with case sensitivity. Because most servers run on Linux, where this would cause problems, the mod forces everything to be lowercase for consistency, regardless of how the map was loaded, or how the map name is written.
+```
+
 ---
 
 ## g_maxConnsPerIP
