@@ -8,6 +8,40 @@ Entities which originate from ETMain only list the modifications that ETJump off
 
 ---
 
+## corona
+
+**Keys**
+
+*None*
+
+**Spawnflags**
+
+*None*
+
+```{tip}
+* If this entity does not contain `scriptname` or `targetname` keys, and has no `spawnflags` set, it is considered "static" and will not count towards the map entity limit.
+* You may place up to **1024** static coronas in a map.
+```
+
+---
+
+## dlight
+
+**Keys**
+
+*None*
+
+**Spawnflags**
+
+*None*
+
+```{tip}
+* If this entity does not contain `scriptname` or `targetname` keys, and has no `spawnflags` set, it is considered "static" and will not count towards the map entity limit.
+* You may place up to **1024** static dlights in a map. Note however that the renderer cannot display more than **32** dlights at any given time.
+```
+
+---
+
 ## etjump_game_manager
 
 Automatically spawned on a map with no `script_multiplayer` or any entity with a `scriptname` set. Provides access to mapscripting for any map, regardless of existing entities. This is effectively the same as `script_multiplayer`.
@@ -231,17 +265,33 @@ Fires off targets after a delay.
 
 ---
 
-## target_give
+## target_ft_setrules
 
-Gives activator targeted items. Must target actual entites in the map. Standard class restrictions apply when giving weapons (eg. cannot give `weapon_panzerfaust` to a medic).
+Sets rules for the activator's fireteam.
 
 **Keys**
 
-*None*
+| Key                 | Value               | Default | Description                                                                                                                                                                  |
+| :------------------ | :------------------ | :------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| savelimit           | -1 - 100 or `reset` |         | Sets the savelimit for the fireteam. `reset` will restore saves as per current savelimit setting.                                                                            |
+| noghost             | 0 or 1              |         | Enable/disable collision between fireteam members.                                                                                                                           |
+| teamjumpmode        | 0 or 1              |         | Enable/disable teamjump mode for the fireteam.                                                                                                                               |
+| leader_only_message | any text            |         | Text to print if activated by a member who is not the leader of the fireteam, if `spawnflag 1` is set. You may use `%s` in the text to print out the fireteam leader's name. |
 
 **Spawnflags**
 
-*None*
+| Spawnflag | Description                                        |
+| :-------: | :------------------------------------------------- |
+| 1         | Only the fireteam leader may activate this entity. |
+
+```{note}
+* You must explicitly set the keys for any changes you want to make to the fireteam rules. If a key is not set, the default value(s) will not be applied.
+* Activating this entity will bypass any restrictions imposed by the corresponding [worldspawn keys](#worldspawn). This allows mappers to control precisely where fireteam rules are changed in a map.
+```
+
+```{seealso}
+[`fireteam`](../client/client_commands.md/#fireteam)
+```
 
 ---
 
@@ -267,6 +317,20 @@ Works like `target_relay` but also activates the entities for everyone in the pl
 ```{caution}
 If `spawnflag 4` isn't set, fires a random target instead of all targets. The target is randomly picked for each fireteam member.
 ```
+
+---
+
+## target_give
+
+Gives activator targeted items. Must target actual entites in the map. Standard class restrictions apply when giving weapons (eg. cannot give `weapon_panzerfaust` to a medic).
+
+**Keys**
+
+*None*
+
+**Spawnflags**
+
+*None*
 
 ---
 
@@ -308,6 +372,28 @@ Stops any active timerun without setting a record.
 **Spawnflags**
 
 *None*
+
+---
+
+## target_laser
+
+When activated, fires a laser. You can either set a target or a direction.
+
+**Keys**
+
+| Key        | Value                | Default | Description                                                              |
+| :--------- | :------------------- | :------ | :----------------------------------------------------------------------- |
+| damage     | any positive integer | 1       | Damage to deal to an entity which cuts off the laser.                    |
+
+**Spawnflags**
+
+*None*
+
+```{note}
+* In ETMain, this entity had a bug where it would not damage client number 0. This has been fixed in ETJump.
+* You may also use `dmg` key to set the damage - `damage` is a key added in ETJump as that is more conventional for entities that deal damage.
+* [`etj_noFatigue`](../client/etjump_cvars.md/#etj-nofatigue) will halve the damage dealt by this entity to players.
+```
 
 ---
 
@@ -469,6 +555,39 @@ Sets activators health to specified value.
 
 ---
 
+## target_spawn_relay
+A passive entity that fires it's targets when a player spawns.
+
+**Keys**
+
+| Key        | Value                   | Default | Description                                                                                                                                  |
+| :--------- | :---------------------- | :------ | :------------------------------------------------------------------------------------------------------------------------------------------- |
+| team       | axis\|allies\|spectator |         | Comma-separated list of teams which a player has to spawn into for this entity to fire. If empty, fires for all teams, including spectators. |
+| scriptname | any text                |         | Optional, script block to run when fired. This will carry activator data to mapscript. `activate axis/allies` is also supported.             |
+
+**Spawnflags**
+
+*None*
+
+```{note}
+* You do not need to explicitly target this entity, it is fired automatically.
+* You may only have one `target_spawn_relay` per team. You may have multiple entities, but a team name cannot be used in more than one entity.
+* This does not fire on revives, only on fresh spawns.
+```
+
+### Usage
+
+This entity can be a bit hard to grasp initially with it's relatively complex rules, so here's a bit more thorough explanation.
+
+* You can place this entity anywhere in the playable area in your map. You **do not** need to target this entity with anything, it is automatically activated whenever a player spawns (think of `script_multiplayer`, which automatically "activates" the mapscript at the start of the map).
+* If you do not specify value for the `team` key, the entity will fire for all teams, including spectators. This means that you may not place additional `target_spawn_relay` entities in your map, due to the rule of one spawn relay per team.
+* In order to fire different entities for a given team, place multiple `target_spawn_relay` entities with a specific team in your map.
+  * An example setup for firing a specific relay for Axis and Allies, and another for spectators:
+    * `target_spawn_relay` #1 with `team axis,allies` - this fires for Axis & Allied players.
+    * `target_spawn_relay` #2 with `team spectator` - this fires for spectators.
+* You do not need to specify a relay for all teams - for example you can place a single `target_spawn_relay` with `team axis,allies` in your map, which fires only for Axis and Allies players. In this case, nothing fires for spectators.
+
+---
 ## target_starttimer and trigger_starttimer
 
 Starts a timerun for the activator.
@@ -576,20 +695,21 @@ Valid range for tracker indices is **1 - 50**.
 
 **Keys**
 
-| Key                 | Value                | Default | Description                                                                                                                                              |
-| :------------------ | :------------------- | :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| tracker_eq          | *see examples below* |         | Tracker activates targets if specified tracker value matches the player's tracker value.                                                                 |
-| tracker_not_eq      | *see examples below* |         | Tracker activates targets if specified tracker value does not match the player's tracker value.                                                          |
-| tracker_gt          | *see examples below* |         | Tracker activates targets if player's tracker value is greater than specified value.                                                                     |
-| tracker_lt          | *see examples below* |         | Tracker activates targets if player's tracker value is less than the specified value.                                                                    |
-| tracker_set         | *see examples below* |         | Tracker sets player's tracker value to the specified value.                                                                                              |
-| tracker_set_if      | *see examples below* |         | Tracker sets player's tracker value to the specified value if conditions from `tracker_eq`, `tracker_not_eq`, `tracker_gt` or `tracker_lt` are met.      |
-| tracker_inc         | *see examples below* |         | Tracker increases player's tracker value by the specified value.                                                                                         |
-| tracker_inc_if      | *see examples below* |         | Tracker increases player's tracker value by the specified value if conditions from `tracker_eq`, `tracker_not_eq`, `tracker_gt` or `tracker_lt` are met. |
-| tracker_bit_set     | *see examples below* |         | Tracker sets players tracker bit to specified value.                                                                                                     |
-| tracker_bit_reset   | *see examples below* |         | Tracker resets players tracker bit.                                                                                                                      |
-| tracker_bit_is_set  | *see examples below* |         | Tracker activates targets if player's tracker bit is set.                                                                                                |
-| tracker_bit_not_set | *see examples below* |         | Tracker activates targets if player's tracker bit is not set.                                                                                            |
+| Key                 | Value                | Default | Description                                                                                                                                                      |
+| :------------------ | :------------------- | :------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| tracker_eq          | *see examples below* |         | Tracker activates targets if specified tracker value matches the player's tracker value.                                                                         |
+| tracker_not_eq_any  | *see examples below* |         | Tracker activates targets if any of the specified tracker value(s) does not match the player's tracker value(s).                                                 |
+| tracker_not_eq_all  | *see examples below* |         | Tracker activates targets if all of the specified tracker value(s) do not match the player's tracker value(s).                                                   |
+| tracker_gt          | *see examples below* |         | Tracker activates targets if player's tracker value is greater than specified value.                                                                             |
+| tracker_lt          | *see examples below* |         | Tracker activates targets if player's tracker value is less than the specified value.                                                                            |
+| tracker_set         | *see examples below* |         | Tracker sets player's tracker value to the specified value.                                                                                                      |
+| tracker_set_if      | *see examples below* |         | Tracker sets player's tracker value to the specified value if conditions from `tracker_eq`, `tracker_not_eq_any/all`, `tracker_gt` or `tracker_lt` are met.      |
+| tracker_inc         | *see examples below* |         | Tracker increases player's tracker value by the specified value.                                                                                                 |
+| tracker_inc_if      | *see examples below* |         | Tracker increases player's tracker value by the specified value if conditions from `tracker_eq`, `tracker_not_eq_any/all`, `tracker_gt` or `tracker_lt` are met. |
+| tracker_bit_set     | *see examples below* |         | Tracker sets players tracker bit to specified value.                                                                                                             |
+| tracker_bit_reset   | *see examples below* |         | Tracker resets players tracker bit.                                                                                                                              |
+| tracker_bit_is_set  | *see examples below* |         | Tracker activates targets if player's tracker bit is set.                                                                                                        |
+| tracker_bit_not_set | *see examples below* |         | Tracker activates targets if player's tracker bit is not set.                                                                                                    |
 
 **Spawnflags**
 
@@ -620,25 +740,29 @@ Check players tracker values and activate targeted entities if conditions are me
 Check players tracker values, fire targeted entities if conditions are met and modify the players tracker values afterwards.
 
 ```{eval-rst}
-+----------------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Keys           | Value        | Explanation                                                                                                                                                                           |
-+================+==============+=======================================================================================================================================================================================+
-| tracker_eq     | 4            | Tracker value on index 1 must be 4. If true, activates targets and sets players tracker value on index 1 to 5.                                                                        |
-+----------------+--------------+                                                                                                                                                                                       |
-| tracker_set_if | 5            |                                                                                                                                                                                       |
-+----------------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| tracker_gt     | 2,2          | Tracker value on index 2 must greater than 2. If true, activates targets and sets players tracker value on index 4 to 5.                                                              |
-+----------------+--------------+                                                                                                                                                                                       |
-| tracker_set_if | 4,5          |                                                                                                                                                                                       |
-+----------------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| tracker_not_eq | 1,2|2,2|3,2  | Tracker values on indices 1, 2 and 3 must not be 2. If true, activates targets and increases tracker value on index 1 by 1, index 2 by 5 and decreases tracker value on index 3 by 2. |
-+----------------+--------------+                                                                                                                                                                                       |
-| tracker_inc_if | 1,1|2,5|3,-2 |                                                                                                                                                                                       |
-+----------------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++--------------------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Keys               | Value        | Explanation                                                                                                                                                                           |
++====================+==============+=======================================================================================================================================================================================+
+| tracker_eq         | 4            | Tracker value on index 1 must be 4. If true, activates targets and sets players tracker value on index 1 to 5.                                                                        |
++--------------------+--------------+                                                                                                                                                                                       |
+| tracker_set_if     | 5            |                                                                                                                                                                                       |
++--------------------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| tracker_gt         | 2,2          | Tracker value on index 2 must greater than 2. If true, activates targets and sets players tracker value on index 4 to 5.                                                              |
++--------------------+--------------+                                                                                                                                                                                       |
+| tracker_set_if     | 4,5          |                                                                                                                                                                                       |
++--------------------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| tracker_not_eq_all | 1,2|2,2|3,2  | Tracker values on indices 1, 2 and 3 must not be 2. If true, activates targets and increases tracker value on index 1 by 1, index 2 by 5 and decreases tracker value on index 3 by 2. |
++--------------------+--------------+                                                                                                                                                                                       |
+| tracker_inc_if     | 1,1|2,5|3,-2 |                                                                                                                                                                                       |
++--------------------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| tracker_not_eq_any | 1,2|2,2|3,2  | Tracker values must not be 2 on indices 1, 2 or 3. If true, activates targets and increases tracker value on index 1 by 1, index 2 by 5 and decreases tracker value on index 3 by 2.  |
++--------------------+--------------+                                                                                                                                                                                       |
+| tracker_inc_if     | 1,1|2,5|3,-2 |                                                                                                                                                                                       |
++--------------------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ```
 
 ```{note}
-`tracker_not_eq` acts as an "or" condition, meaning if specifying multiple indices, none of the specified values can match the activators tracker values.
+`tracker_not_eq_any` and `tracker_not_eq_all` cannot be used at the same time on a single tracker entity.
 ```
 
 ### Debugging trackers
@@ -789,7 +913,9 @@ Spawns a portal gun at the location.
 
 **Keys**
 
-*None*
+| Key        | Value        | Default | Description                                                           |
+| :--------- | :------------| :------ | :-------------------------------------------------------------------- |
+| noise      | path to .wav |         | Overrides the default item pickup sound when the entity is picked up. |
 
 **Spawnflags**
 
@@ -812,26 +938,30 @@ This entity does not disappear when picked up, and does not need to be manually 
 
 **Keys**
 
-| Key             | Value                | Default | Description                                                                                                                                                                           |
-| :-------------- | :------------------- | :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| nodrop          | 0 or  1              | 0       | Enable/disable nodrop. **0** Items are not dropped inside `surfaceparm nodrop`. **1** items are only dropped inside `surfaceparm nodrop`.                                             |
-| noexplosives    | 0 - 2                | 0       | Disables explosives. **0** explosives are allowed. **1** no explosive weapons. **2** no explosive weapons or dynamite.                                                                |
-| nofalldamage    | 0 - 2                | 0       | Enable/disable fall damage. **0** Fall damage disabled only on `surfaceparm nodamage` **1** Fall damage enabled only on `surfaceparm nodamage` **2** Fall damage disabled everywhere. |
-| noftnoghost     | 0 or 1               | 0       | Disable players' ability to toggle collision between fireteam members.                                                                                                                |
-| noghost         | 0 or 1               | 0       | Disables player ghosting (nonsolid players). Overrides `g_ghostPlayers` server cvar.                                                                                                  |
-| nogod           | 0 or 1               | 0       | Disables god mode.                                                                                                                                                                    |
-| nogoto          | 0 or 1               | 0       | Disables goto.                                                                                                                                                                        |
-| nojumpdelay     | 0 or 1               | 0       | Enable/disable jump delay. **0** No jump delay only on `surfaceparm monsterslicknorth` **1** Jump delay only on `surfaceparm monsterslicknorth`.                                      |
-| nonoclip        | 0 or 1               | 0       | Enable/disable noclip. **0** Don't allow noclip inside `surfaceparm donotenterlarge` **1** Only allow noclip inside `surfaceparm donotenterlarge`.                                    |
-| nosave          | 0 or 1               | 0       | Enable/disable save. **0** Don't allow save inside `surfaceparm clusterportal` brushes **1** Only allow save inside `surfaceparm clusterportal` brushes.                              |
-| nooverbounce    | 0 or 1               | 0       | Enable/disable overbounces. **0** Don't allow overbounces on `surfaceparm monsterslicksouth` **1** Only allow overbounces on `surfaceparm monsterslicksouth`.                         |
-| noprone         | 0 or 1               | 0       | Enable/disable prone. **0** Don't allow prone inside `surfaceparm donotenter` brushes **1** Only allow prone inside `surfaceparm donotenter` brushes.                                 |
-| nowallbug       | 0 or 1               | 0       | Toggles whether players can accelerate while stuck in a wall.                                                                                                                         |
-| portalgun_spawn | 0 or 1               | 0       | Toggles whether players should spawn with a portal gun.                                                                                                                               |
-| portalsurfaces  | 0 or 1               | 1       | Enable/disable portalsurfaces. **0** Only allow portals on `surfaceparm monsterslickeast` **1** Don't allow portals on `surfaceparm monsterslickeast`.                                |
-| portalteam      | 0 - 2                | 0       | If set to **0**, players can only go to own portals. If set to **1**, players can also go to fireteam mates' portals. If set to **2**, anyone can go to anyones portals.              |
-| limitedsaves    | any positive integer | 0       | If set to higher than 0, saves are limited to the set value.                                                                                                                          |
-| strictsaveload  | bitflag or string    | 0       | Limits save and load by given conditions. **1/move** cannot save while moving **2/dead** cannot save/load while dead. Combine strings with `\|` (eg. `move \| dead`).                 |
+| Key                | Value                | Default | Description                                                                                                                                                                           |
+| :----------------- | :------------------- | :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| nodrop             | 0 or  1              | 0       | Enable/disable nodrop. **0** Items are not dropped inside `surfaceparm nodrop`. **1** items are only dropped inside `surfaceparm nodrop`.                                             |
+| noexplosives       | 0 - 2                | 0       | Disables explosives. **0** explosives are allowed. **1** no explosive weapons. **2** no explosive weapons or dynamite.                                                                |
+| nofalldamage       | 0 - 2                | 0       | Enable/disable fall damage. **0** Fall damage disabled only on `surfaceparm nodamage` **1** Fall damage enabled only on `surfaceparm nodamage` **2** Fall damage disabled everywhere. |
+| noftnoghost        | 0 or 1               | 0       | Disable players' ability to toggle collision between fireteam members.                                                                                                                |
+| noftsavelimit      | 0 or 1               | 0       | Disable players' ability to set savelimit for the fireteam.                                                                                                                           |
+| noftteamjumpmode   | 0 or 1               | 0       | Disable players' ability to toggle teamjump mode for the fireteam.                                                                                                                    |
+| noghost            | 0 or 1               | 0       | Disables player ghosting (nonsolid players). Overrides `g_ghostPlayers` server cvar.                                                                                                  |
+| nogod              | 0 or 1               | 0       | Disables god mode.                                                                                                                                                                    |
+| nogoto             | 0 or 1               | 0       | Disables goto.                                                                                                                                                                        |
+| nojumpdelay        | 0 or 1               | 0       | Enable/disable jump delay. **0** No jump delay only on `surfaceparm monsterslicknorth` **1** Jump delay only on `surfaceparm monsterslicknorth`.                                      |
+| nonoclip           | 0 or 1               | 0       | Enable/disable noclip. **0** Don't allow noclip inside `surfaceparm donotenterlarge` **1** Only allow noclip inside `surfaceparm donotenterlarge`.                                    |
+| nosave             | 0 or 1               | 0       | Enable/disable save. **0** Don't allow save inside `surfaceparm clusterportal` brushes **1** Only allow save inside `surfaceparm clusterportal` brushes.                              |
+| nooverbounce       | 0 or 1               | 0       | Enable/disable overbounces. **0** Don't allow overbounces on `surfaceparm monsterslicksouth` **1** Only allow overbounces on `surfaceparm monsterslicksouth`.                         |
+| noprone            | 0 or 1               | 0       | Enable/disable prone. **0** Don't allow prone inside `surfaceparm donotenter` brushes **1** Only allow prone inside `surfaceparm donotenter` brushes.                                 |
+| nowallbug          | 0 or 1               | 0       | Toggles whether players can accelerate while stuck in a wall.                                                                                                                         |
+| overbounce_players | 0 - 2                | 0       | Controls whether overbounces from top of other players are allowed. **0** no change, controlled by `nooverbounce` **1** always allowed **2** never allowed                            |
+| portalgun_spawn    | 0 or 1               | 1       | Toggles whether players should spawn with a portal gun.                                                                                                                               |
+| portalsurfaces     | 0 or 1               | 1       | Enable/disable portalsurfaces. **0** Only allow portals on `surfaceparm monsterslickeast` **1** Don't allow portals on `surfaceparm monsterslickeast`.                                |
+| portalpredict      | 0 or 1               | 0       | Toggles whether client side predicted portal teleports are always enabled, regadless of server settings.                                                                              |
+| portalteam         | 0 - 2                | 0       | If set to **0**, players can only go to own portals. If set to **1**, players can also go to fireteam mates' portals. If set to **2**, anyone can go to anyones portals.              |
+| limitedsaves       | any positive integer | 0       | If set to higher than 0, saves are limited to the set value.                                                                                                                          |
+| strictsaveload     | bitflag or string    | 0       | Limits save and load by given conditions. **1/move** cannot save while moving **2/dead** cannot save/load while dead. Combine strings with `\|` (eg. `move \| dead`).                 |
 
 **Spawnflags**
 
@@ -990,4 +1120,4 @@ Activates targets when touched.
 | Spawnflag | Description                                                 |
 | :-------: | :---------------------------------------------------------- |
 | 512       | Activates every server frame.                               |
-| 2048      | Acitavtes for all touching clients with unique wait cycles. |
+| 2048      | Activates for all touching clients with unique wait cycles. |

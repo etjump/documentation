@@ -218,7 +218,7 @@ Upmove meter can be enabled with the cvar [`etj_drawUpmoveMeter`](client/etjump_
 * Time spend on ground OR time `+moveup` was held before landing (bottom element)
 
 ```{note}
-Because servers run at `sv_fps 20`, this is only fully accurate while playing. It's not possible to approximate the jump timings precisely while spectating or playing back demos, because user commands are received at **50ms** intervals instead of __8ms__. Spectating someone or playing a demo will display a rough approximation.
+If a server is running at the default `sv_fps 20`, this is only fully accurate while playing. It's not possible to approximate the jump timings precisely while spectating or playing back demos, because user commands are received at **50ms** intervals instead of __8ms__. Spectating someone or playing a demo will display a rough approximation.
 ```
 
 The upmove meter has extensive customization.
@@ -290,3 +290,97 @@ ETJump provides some additional shaders that can be used for drawing. Note that 
   * Allows setting __3__ different transparency levels, __1__ being most opaque (equivalent to the built-in shader), as well as __6__ different colors (red, green, blue, yellow, magenta, cyan). For example, `tcRenderShader2c` would be a medium tranparency (__2__) shader with cyan (__c__) color.
 
 Note that since this feature is built into ETe engine and we merely provide cvar unlockers, ETJump has no real control over it's development. Keep an eye out for ETe updates for possible improvements and fixes!
+
+---
+
+## Savepos & loadpos
+
+In addition to regular [`save`](client/client_commands.md/#save) and [`load`](client/client_commands.md/#load) ETJump provides [`savepos`](client/client_commands.md/#savepos) and [`loadpos`](client/client_commands.md/#loadpos) commands. These are specialized versions of `save/load`, and are intended for offline practice.
+
+Just like regular `save`, `savepos` will save your current position. However, it will also by default store your current speed, and your current timerun state if a timerun is active. Using `loadpos`, you can load this state exactly as it was, maintaining your speed and timerun state. This allows you to practice timerun sections, or just a jump in general, from a consistent starting position. While `savepos` can be used at any time, `loadpos` can only be used if cheats are enabled.
+
+Positions stored by `savepos` are stored locally in a file in `etjump/savepos/filename.dat` (defaults to `default.dat`). Because `savepos` works entirely from data available to your client, it is also possible to save positions from demo playback. Timerun state can also be saved from demos.
+
+The savepos file is a standard JSON file, meaning it's possible to also edit it by hand to produce a slightly different scenario than what was saved initially. This however is **not officially supported** - in case of issues with manually edited files, please do not file a bug report, unless the issue can be replicated without manual editing.
+
+```json
+{
+   "mapname" : "origami",
+   "name" : "default",
+   "position" : {
+      "angles" : [ 18.072509765625, 6.5313720703125, 0.0 ],
+      "origin" : [ 9875.3330078125, 3511.01953125, 255.843017578125 ],
+      "stance" : 0,
+      "velocity" : [ 841.0, -280.0, -84.0 ]
+   },
+   "timerunInfo" : {
+      "checkpointIndicesHit" : [
+         true,
+         true,
+         true,
+         false,
+         false,
+         false,
+         false,
+         false,
+         false,
+         false,
+         false,
+         false,
+         false,
+         false,
+         false,
+         false
+      ],
+      "checkpoints" : [
+         19832,
+         51032,
+         87224,
+         -1,
+         -1,
+         -1,
+         -1,
+         -1,
+         -1,
+         -1,
+         -1,
+         -1,
+         -1,
+         -1,
+         -1,
+         -1
+      ],
+      "currentRunTimer" : 96880,
+      "previousRecord" : 151360,
+      "previousRecordCheckpoints" : [
+         16928,
+         46088,
+         80216,
+         -1,
+         -1,
+         -1,
+         -1,
+         -1,
+         -1,
+         -1,
+         -1,
+         -1,
+         -1,
+         -1,
+         -1,
+         -1
+      ],
+      "runName" : "Medium"
+   }
+}
+```
+
+```{note}
+* Timerun state cannot be saved from demos recorded prior to ETJump 3.3.0. Saving just your position and speed is still supported from older demos.
+* Saved positions are tied to a specific map, and the mod prevents you from loading a position that was saved in a different map that you are currently playing.
+```
+
+```{seealso}
+* [`savepos`](client/client_commands.md/#savepos)
+* [`loadpos`](client/client_commands.md/#loadpos)
+```

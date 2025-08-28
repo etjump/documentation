@@ -24,7 +24,7 @@ g_adminLog              | filename      | adminsystem.log
 Enables logging of certain admin events to the specified log file.
 
 ```{note}
-If [`g_dailyLogs`](#g_dailylogs) is enabled, the log name is ignored and the logs are created daily to `logs` directory, prefixed with `admin-`.
+If [`g_dailyLogs`](#g_dailylogs) is enabled, the log name is ignored and the logs are created daily to `logs` directory, with `-admin` suffix.
 ```
 
 ```{seealso}
@@ -142,7 +142,7 @@ Chat messages are still stored in the chat replay file when this is disabled.
 ```
 
 ```{seealso}
-[`g_chatReplayMaxMessageAge`](server_cvars.md/#g_chatreplaymaxmessageage)
+[`g_chatReplayMaxMessageAge`](server_cvars.md/#g-chatreplaymaxmessageage)
 ```
 
 ---
@@ -177,7 +177,7 @@ g_dailyLogs             | 0 or 1        | 1
 Whether to log everything in a single file or change the file daily. The log file will be written to `logs` directory.
 
 ```{note}
-When enabled, this also enables daily logging for [`g_adminLog`](#g_adminlog).
+When enabled, this also enables daily logging for [`g_adminLog`](#g-adminlog).
 ```
 
 ---
@@ -375,7 +375,7 @@ Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_nofatigue             | 0 or 1        | 1
 
-Toggles whether players can have access to permanent adrenaline with the [`etj_nofatigue`](../client/etjump_cvars.md/#etj_nofatigue) cvar.
+Toggles whether players can have access to permanent adrenaline with the [`etj_nofatigue`](../client/etjump_cvars.md/#etj-nofatigue) cvar.
 
 ---
 
@@ -410,15 +410,6 @@ This is a read-only cvar and should not be set by server administrators. ETJump 
 
 ---
 
-## g_portalDebug
-Cvar                    | Values        | Default
-:-----------------------|:--------------|:------------
-g_portalDebug           | 0 or 1        | 0
-
-Toggles drawing of portal activation boxes.
-
----
-
 ## g_portalMode
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
@@ -431,6 +422,21 @@ Toggles restricted portalgun mode.
 
 ```{note}
 This can be overridden on per-map basis with the `portalgun_spawn` [`worldspawn key`](../mapping/mapping_entities.md/#worldspawn).
+```
+
+---
+
+## g_portalPredict
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+g_portalPredict         | 0 or 1        | 0
+
+Toggles client side predicted portal teleports.
+
+```{note}
+* This can be overridden on per-map basis with the `portalpredict` [worldspawn key](../mapping/mapping_entities.md/#worldspawn).
+* By default this is votable by clients, as it can cause visual issues in some maps.
+  * Voting can be disabled by [`vote_allow_portalPredict`](#vote-allow-portalpredict)
 ```
 
 ---
@@ -478,7 +484,7 @@ g_timerunsDatabase      | filename      | timeruns.db
 File to store old timerun records in.
 
 ```{note}
-As of ETJump 3.0.0, this is no longer used to store any timerun records. It is only used to migrate records from old timerun database schema to the new one. New timerun records are saved into the file specified [`g_timeruns2Database`](server_cvars.md/#g_timeruns2database)
+As of ETJump 3.0.0, this is no longer used to store any timerun records. It is only used to migrate records from old timerun database schema to the new one. New timerun records are saved into the file specified [`g_timeruns2Database`](server_cvars.md/#g-timeruns2database)
 ```
 
 ---
@@ -543,6 +549,15 @@ Cvar                    | Values        | Default
 vote_allow_rtv          | 0 or 1        | 1
 
 Toggles whether players can vote for changing the interval of automatic Rock The Vote.
+
+---
+
+## vote_allow_portalPredict
+Cvar                     | Values        | Default
+:------------------------|:--------------|:------------
+vote_allow_portalPredict | 0 or 1        | 1
+
+Toggles whether players can vote to toggle client side predicted portal teleports.
 
 ---
 

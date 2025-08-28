@@ -205,6 +205,33 @@ To ease the portalgun usage, you can use [`etj_autoPortalBinds`](client/etjump_c
 Depending on the map and server settings, portalgun might be disabled, as it's quite exploitable on a lot of maps.
 ```
 
+### Portal gun mechanics
+After placing two portals, touching a portal will teleport you to the other portal you have placed. Any speed you have at the time of teleportation will be transfered to the exit portal, and an additional **50ups** speed boost is given.
+
+```{note}
+The transfered speed includes **all** speed, not just horizontal or vertical!
+```
+
+Because the transfered speed is the total amount of speed on all axes, this has implications on how portals behave on certain scenarios. For example, falling from the same height (meaning identical vertical speed) with 0ups horizontal speed will result in less speed at the exit portal, compared to falling with 500ups horizontal speed. This can be a highly influential factor on some portal jumps!
+
+Some maps restrict the surfaces where portals can be placed. This is usually done by visual indicators by the mapper, however there is no standard, built-in way to see which surface accepts a portal. Maps might also deploy [`func_portaltarget`](mapping/mapping_entities.md/#func_portaltarget) entities. These are special entities intended to make portal jumps more consistent, by always centering a portal on a surface, regardless of where the portal was fired exactly.
+
+### Other players' portals
+
+Normally, players are only able to use their own portals. However, this can be changed by a map with the usage of [`portalteam` worldspawn key](mapping/mapping_entities.md/#worldspawn).
+
+* If `portalteam` is set to **1**, you can also use portals placed by your fireteam members
+* If `portalteam` is set to **2**, you can use any portals placed by anyone
+
+Both portals are still required to be shot by the same player for the teleportation to work. For example, player A cannot shoot a primary portal which would teleport them out a secondary portal placed by player B.
+
+When `portalteam` is enabled, you may not shoot portals on places where another player has already placed a portal, if you are able to also use that portal. In practice, this means that with `portalteam 1`, you cannot overlap portals with your fireteam members, and with `portalteam 2`, you can never overlap portals with any other player. This is to help ambiguity on which portal gets activated, if two portals were overlapping.
+
+```{tip}
+* Portals fired by other players display in different colors - blue portals are drawn in green, red portals in yellow.
+* To avoid confusion with which portals you can use, [`etj_viewPlayerPortals 0`](client/etjump_cvars.md/#etj-viewplayerportals) will display only the portals that you are able to use.
+```
+
 ---
 
 ## Timeruns
@@ -304,4 +331,52 @@ It's possible to configure RTV to be automatically called by the server at speci
 ```{tip}
 * Auto RTV interval does not progress if the server is empty or nobody is playing. Only after a player joins a team for the first time during a map, the timer starts progressing, and keeps going until the interval is reached.
 * Auto RTV interval voting can be turned off with [`vote_allowAutoRtv`](server/server_cvars.md/#vote_allow_autortv), leaving the setting to be configured only by the server owners.
+```
+
+---
+
+## Quick connect menu
+In the main menu, players may add up to 5 servers to the quick connect window. This provides easy, 1-click connect to a saved server. The list shows the server name, current map and player count for each server.
+
+![quickconnect menu](img/quickconnect_menu.png)
+
+```{note}
+The list is not automatically refreshed upon starting the game.
+```
+
+You may also give a custom name for a server on the list. If left empty, the list will default to the hostname of the server. If the server is password protected, you can set a password for the server as well.
+
+![quickconnect add server](img/quickconnect_add.png)
+
+The `quickconnect.dat` is a standard JSON file, so it can be edited by hand outside of the game. This however is **not officially supported** - in case of issues, please do not file a bug report unless the issue can be replicated by editing the file in-game.
+
+```json
+[
+   {
+      "customName" : "",
+      "ip" : "et.etjump.com",
+      "password" : "",
+      "serverName" : "^9|^7999^9| Trickjump^7!^9"
+   },
+   {
+      "customName" : "ETJump Dev Server",
+      "ip" : "et.etjump.com:27961",
+      "password" : "",
+      "serverName" : "^7ETJump ^gPublic DEV Server"
+   },
+   {
+      "customName" : "",
+      "ip" : "84.200.135.3:27963",
+      "password" : "",
+      "serverName" : "^8ETc^4|^7ETJump ^9350+ Maps #1"
+   }
+]
+```
+
+```{tip}
+If you ever need to backup your quick connect server data, the saved servers are stored in `etjump/quickconnect.dat`.
+```
+
+```{caution}
+If you ever want to share the `quickconnect.dat` file with someone, be aware that any passwords you have saved for the servers are stored in plaintext in this file!
 ```

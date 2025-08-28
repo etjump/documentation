@@ -93,6 +93,29 @@ Alias for `callvote`.
 
 ---
 
+## demoQueue
+`demoQueue [command]`
+
+Starts an automated demo playback of all demos from a directory specified by [`etj_demoQueueDir`](etjump_cvars.md/#etj-demoqueuedir) cvar.
+
+Available commands:
+
+* `start` - starts the playback.
+* `stop` - stops the playback.
+  * Due to limitations with communicating with the engine, this must be used to stop the playback, hitting ESC will simply skip to the next demo.
+* `restart` - restarts the playback from the beginning.
+* `next` - skips to next demo.
+* `previous` - go back to previous demo.
+* `goto <index>` - skips to a specified demo in the queue.
+* `status` - prints information about the current state of the queue.
+* `help [command]` - prints usage information, or help text for a given command.
+
+```{note}
+Performing a `vid_restart` while the playback is active will break the playback, due to communication limitations with the engine.
+```
+
+---
+
 ## enc_say, enc_say_team, enc_say_buddy, enc_say_admin
 `enc_say <message>`  
 `enc_say_team <message>`  
@@ -117,10 +140,13 @@ Prints the list of bitflag values for [`etj_extraTrace`](etjump_cvars.md/#etj_ex
 ## fireteam
 `fireteam rules <rule> <value>`  
 `fireteam tj|teamjump <on|1> <off|0>`  
+`fireteam countdown [seconds (1-10)]`  
 
-Executes fireteam actions. Can only be set by the fireteam admin.
+Executes fireteam actions. `rules` and `teamjump` can only be set by the fireteam admin.
 
 Enabling teamjump mode is required for [`target_ftrelay`](../mapping/mapping_entities.md/#target_ftrelay) to activate targets for each fireteam member.
+
+`countdown` will perform an automated countdown in fireteam chat from the given `seconds` value. This can be used to coordinate timings on teamjumps. If `seconds` is not given, the default value will be taken from [`etj_fireteamCountdownLength`](./etjump_cvars.md/#etj-fireteamcountdownlength) cvar.
 
 Available rules:
 * `noghost <on|1> <off|0>` - toggles player collision between fireteam members
@@ -226,6 +252,10 @@ Loads a given savepos file. If `[name]` isn't given, defaults to `default`.
 
 ```{note}
 Cheats must be enabled in order to use this command.
+```
+
+```{seealso}
+[`savepos`](#savepos)
 ```
 
 ---
