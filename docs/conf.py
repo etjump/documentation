@@ -11,7 +11,7 @@ from datetime import date
 project = 'ETJump'
 copyright = f'{date.today().year}, ETJump Team'
 author = 'ETJump Team'
-release = '3.4.0'
+release = '3.4.1'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

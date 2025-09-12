@@ -199,6 +199,10 @@ A static brushmodel that does nothing by itself. Activates targets when hurt if 
 | :-------: | :---------------------------------------------------------- |
 | 8         | Disable random **500-1000ms** wait added on top of `delay`. |
 
+```{note}
+In ETJump, this entity cannot be killed under normal gameplay circumstances if the `PAIN` spawnflag is set.
+```
+
 ---
 
 ## target_activate_if_velocity
@@ -392,7 +396,7 @@ When activated, fires a laser. You can either set a target or a direction.
 ```{note}
 * In ETMain, this entity had a bug where it would not damage client number 0. This has been fixed in ETJump.
 * You may also use `dmg` key to set the damage - `damage` is a key added in ETJump as that is more conventional for entities that deal damage.
-* [`etj_noFatigue`](../client/etjump_cvars.md/#etj-nofatigue) will halve the damage dealt by this entity to players.
+* [`etj_noFatigue`](../client/etjump_cvars.md/#etj_nofatigue) will halve the damage dealt by this entity to players.
 ```
 
 ---

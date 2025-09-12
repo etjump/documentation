@@ -96,7 +96,7 @@ Alias for `callvote`.
 ## demoQueue
 `demoQueue [command]`
 
-Starts an automated demo playback of all demos from a directory specified by [`etj_demoQueueDir`](etjump_cvars.md/#etj-demoqueuedir) cvar.
+Starts an automated demo playback of all demos from a directory specified by [`etj_demoQueueDir`](etjump_cvars.md/#etj_demoqueuedir) cvar.
 
 Available commands:
 
@@ -146,7 +146,7 @@ Executes fireteam actions. `rules` and `teamjump` can only be set by the firetea
 
 Enabling teamjump mode is required for [`target_ftrelay`](../mapping/mapping_entities.md/#target_ftrelay) to activate targets for each fireteam member.
 
-`countdown` will perform an automated countdown in fireteam chat from the given `seconds` value. This can be used to coordinate timings on teamjumps. If `seconds` is not given, the default value will be taken from [`etj_fireteamCountdownLength`](./etjump_cvars.md/#etj-fireteamcountdownlength) cvar.
+`countdown` will perform an automated countdown in fireteam chat from the given `seconds` value. This can be used to coordinate timings on teamjumps. If `seconds` is not given, the default value will be taken from [`etj_fireteamCountdownLength`](./etjump_cvars.md/#etj_fireteamcountdownlength) cvar.
 
 Available rules:
 * `noghost <on|1> <off|0>` - toggles player collision between fireteam members

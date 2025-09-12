@@ -46,7 +46,7 @@ etj_accelColor          | [any color](../getting_started.md/#color-system) | whi
 Sets the color of the acceleration meter.
 
 ```{note}
-Use [`etj_accelAlpha`](etjump_cvars.md/#etj-accelalpha) to set alpha.
+Use [`etj_accelAlpha`](etjump_cvars.md/#etj_accelalpha) to set alpha.
 ```
 
 ---
@@ -112,7 +112,7 @@ Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 etj_ad_savePBOnly       | 0 or 1        | 0
 
-Toggles whether [`etj_autodemo`](etjump_cvars.md/#etj-autodemo) saves all timerun demos, or only new personal bests.
+Toggles whether [`etj_autodemo`](etjump_cvars.md/#etj_autodemo) saves all timerun demos, or only new personal bests.
 
 ---
 
@@ -269,7 +269,7 @@ etj_CGaz1DrawSnapZone   | 0 or 1        | 0
 Extends minline drawing on CGaz 1 to the end of the current snap zone.
 
 ```{note}
-This uses [`etj_CGazFov`](etjump_cvars.md/#etj-cgazfov) to determine the snapzone positions. It's meant to be used standalone, without using [`etj_drawSnapHUD`](etjump_cvars.md/#etj-drawsnaphud). If CGaz and snaphud FOVs do not match, the drawing appears misaligned compared to the snaphud, though it is still correct.
+This uses [`etj_CGazFov`](etjump_cvars.md/#etj_cgazfov) to determine the snapzone positions. It's meant to be used standalone, without using [`etj_drawSnapHUD`](etjump_cvars.md/#etj_drawsnaphud). If CGaz and snaphud FOVs do not match, the drawing appears misaligned compared to the snaphud, though it is still correct.
 ```
 
 ---
@@ -318,7 +318,7 @@ Cvar                       | Values             | Default
 ---------------------------|:-------------------|-------------
 etj_CGaz2WishDirFixedSpeed | any positive value | 0
 
-When set to higher than **0**, CGaz 2 wishdir line length will be scaled to match player speed, similar to [`etj_CGaz2FixedSpeed`](#etj-cgaz2fixedspeed).
+When set to higher than **0**, CGaz 2 wishdir line length will be scaled to match player speed, similar to [`etj_CGaz2FixedSpeed`](#etj_cgaz2fixedspeed).
 
 ---
 
@@ -481,7 +481,7 @@ etj_checkpointsPopup    | 0 or 1        | 1
 Toggles checkpoint popup on screen when hitting a checkpoint.
 
 ```{tip}
-This functions independently of [`etj_drawCheckpoints`](etjump_cvars.md/#etj-drawcheckpoints).
+This functions independently of [`etj_drawCheckpoints`](etjump_cvars.md/#etj_drawcheckpoints).
 ```
 
 ---
@@ -644,7 +644,7 @@ etj_CHSColor            | [any color](../getting_started.md/#color-system) | 1.0
 Sets the color of CHS.
 
 ```{note}
-Alpha is controlled by [`etj_CHSAlpha`](etjump_cvars.md/#etj-chsalpha).
+Alpha is controlled by [`etj_CHSAlpha`](etjump_cvars.md/#etj_chsalpha).
 ```
 
 ---
@@ -694,7 +694,7 @@ Cvar                    | Values                                           | Def
 :-----------------------|:-------------------------------------------------|:------------
 etj_consoleColor        | [any color](../getting_started.md/#color-system) | 0.0 0.0 0.0
 
-Sets the console background color when [`etj_consoleShader`](etjump_cvars.md/#etj-consoleshader) is set to **0**.
+Sets the console background color when [`etj_consoleShader`](etjump_cvars.md/#etj_consoleshader) is set to **0**.
 
 ---
 
@@ -1047,7 +1047,7 @@ Toggles drawing the bounding box of players.
 * **4** draw bbox on fireteam members
 
 ```{seealso}
-[`etj_playerBBoxBottomOnly`](etjump_cvars.md/#etj-playerbboxbottomonly)
+[`etj_playerBBoxBottomOnly`](etjump_cvars.md/#etj_playerbboxbottomonly)
 ```
 
 ---
@@ -1093,7 +1093,7 @@ etj_drawRunTimer        | 0 or 1        | 1
 Toggles drawing the timerun timer. Does not draw if the map has no timeruns.
 
 ```{seealso}
-[`etj_runTimerAutoHide`](etjump_cvars.md/#etj-runtimerautohide)
+[`etj_runTimerAutoHide`](etjump_cvars.md/#etj_runtimerautohide)
 ```
 
 ---
@@ -1463,7 +1463,7 @@ Cvar                    | Values               | Default
 :-----------------------|:---------------------|:------------
 etj_hideFadeRange       | any positive integer | 200
 
-Additional range added to [`etj_hideDistance`](etjump_cvars.md/#etj-hidedistance) where other players start to fade before disappearing completely.
+Additional range added to [`etj_hideDistance`](etjump_cvars.md/#etj_hidedistance) where other players start to fade before disappearing completely.
 
 ```{note}
 This is an addition to the distance specified by `etj_hideDistance`. With default values, players start fading out at **328** units distance, and gradually fade out until completely hidden at **128** units.
@@ -1500,10 +1500,12 @@ When this cvar is enabled, along with your player model, several other aspects o
 * Sounds produces by movement-related events
 * Weapon sounds
 * Item pickup sounds
+* Portalgun portals and trails
 ```
 
 ```{note}
-If the player is in a fireteam with [`noghost`](./client_commands.md/#fireteam) enabled, `etj_hideMe` is automatically disabled.
+* If the player is in a fireteam with [`noghost`](./client_commands.md/#fireteam) enabled, `etj_hideMe` is automatically disabled.
+* If the `portalteam` [worldspawn key](../mapping/mapping_entities.md/#worldspawn) is set, your portals are not hidden for the players that can use them.
 ```
 
 ---
@@ -1521,7 +1523,7 @@ Toggles highlighting chat messages if your name was mentioned.
   * If this is set, the game window also flashes on incoming private messages
 
 ```{seealso}
-[`etj_highlightSound`](etjump_cvars.md/#etj-highlightsound)
+[`etj_highlightSound`](etjump_cvars.md/#etj_highlightsound)
 ```
 
 ---
@@ -1591,10 +1593,10 @@ etj_HUD_noLerp          | bitflag       | 0
 
 Disables interpolation from various HUD elements.
 
-* **1** - [`etj_drawSpeed2`](etjump_cvars.md/#etj-drawspeed2)
-* **2** - [`etj_drawCGaz`](etjump_cvars.md/#etj-drawcgaz)
-* **4** - [`etj_drawSnapHUD`](etjump_cvars.md/#etj-drawsnaphud)
-* **8** - [`etj_drawStrafeQuality`](etjump_cvars.md/#etj-drawstrafequality)
+* **1** - [`etj_drawSpeed2`](etjump_cvars.md/#etj_drawspeed2)
+* **2** - [`etj_drawCGaz`](etjump_cvars.md/#etj_drawcgaz)
+* **4** - [`etj_drawSnapHUD`](etjump_cvars.md/#etj_drawsnaphud)
+* **8** - [`etj_drawStrafeQuality`](etjump_cvars.md/#etj_drawstrafequality)
 
 ```{tip}
 These HUD elements are all updated based off physics values. When `pmove_fixed` is enabled, physics are updated at **8ms** (125FPS) intervals. This means that if you play at over 125FPS, certain frames that your client draws are meaningless when it comes to physics. During these frames, the values presented by the cvars are interpolated, and do not reflect what is actually happening in physics calculations.
@@ -1670,7 +1672,7 @@ etj_jumpSpeedsColor     | [any color](../getting_started.md/#color-system) | 1.0
 Sets the color of jump speeds display. Also used as a color for label text.
 
 ```{tip}
-When [`etj_jumpSpeedsShowDiff`](etjump_cvars.md/#etj-jumpspeedsshowdiff) is enabled, this color will be used for jumps that are equal speed to the previous one.
+When [`etj_jumpSpeedsShowDiff`](etjump_cvars.md/#etj_jumpspeedsshowdiff) is enabled, this color will be used for jumps that are equal speed to the previous one.
 ```
 
 ---
@@ -1683,7 +1685,7 @@ etj_jumpSpeedsFasterColor | [any color](../getting_started.md/#color-system) | 0
 Sets the color to use for a jump that was faster than previous jump on jump speeds display.
 
 ```{note}
-No effect unless [`etj_jumpSpeedsShowDiff`](etjump_cvars.md/#etj-jumpspeedsshowdiff) is enabled.
+No effect unless [`etj_jumpSpeedsShowDiff`](etjump_cvars.md/#etj_jumpspeedsshowdiff) is enabled.
 ```
 
 ---
@@ -1693,10 +1695,10 @@ Cvar                      | Values               | Default
 --------------------------|:---------------------|:------------
 etj_jumpSpeedsMinSpeed    | any positive integer | 0
 
-When set to higher than **0**, any jump slower than the set value will be colored with [`etj_jumpSpeedsSlowerColor`](etjump_cvars.md/#etj-jumpspeedsslowercolor).
+When set to higher than **0**, any jump slower than the set value will be colored with [`etj_jumpSpeedsSlowerColor`](etjump_cvars.md/#etj_jumpspeedsslowercolor).
 
 ```{tip}
-This can be used independently, without enabling [`etj_jumpSpeedsShowDiff`](etjump_cvars.md/#etj-jumpspeedsshowdiff).
+This can be used independently, without enabling [`etj_jumpSpeedsShowDiff`](etjump_cvars.md/#etj_jumpspeedsshowdiff).
 ```
 
 ---
@@ -1715,7 +1717,7 @@ Cvar                      | Values        | Default
 --------------------------|:--------------|:------------
 etj_jumpSpeedsShowDiff    | 0 or 1        | 0
 
-Toggles coloring jump speeds with [`etj_jumpSpeedsFasterColor`](etjump_cvars.md/#etj-jumpspeedsfastercolor) and [`etj_jumpSpeedsSlowerColor`](etjump_cvars.md/#etj-jumpspeedsslowercolor) if a jump was faster or slower than the previous jump, respectively.
+Toggles coloring jump speeds with [`etj_jumpSpeedsFasterColor`](etjump_cvars.md/#etj_jumpspeedsfastercolor) and [`etj_jumpSpeedsSlowerColor`](etjump_cvars.md/#etj_jumpspeedsslowercolor) if a jump was faster or slower than the previous jump, respectively.
 
 ---
 
@@ -1727,7 +1729,7 @@ etj_jumpSpeedsSlowerColor | [any color](../getting_started.md/#color-system) | 1
 Sets the color to use for a jump that was slower than previous jump on jump speeds display.
 
 ```{note}
-No effect unless [`etj_jumpSpeedsShowDiff`](etjump_cvars.md/#etj-jumpspeedsshowdiff) is enabled.
+No effect unless [`etj_jumpSpeedsShowDiff`](etjump_cvars.md/#etj_jumpspeedsshowdiff) is enabled.
 ```
 
 ---
@@ -1899,7 +1901,7 @@ Toggles printing of center prints to the console.
 ```{note}
 * Several spammy center prints, such as dynamite arming, are excluded from the prints.
 * Save messages are never printed.
-* Identical, consecutive messages are only logged if the previous message has disappeared from the screen. This timeout is controlled by [`cg_centertime`](etmain_cvars.md/#cg-centertime) cvar.
+* Identical, consecutive messages are only logged if the previous message has disappeared from the screen. This timeout is controlled by [`cg_centertime`](etmain_cvars.md/#cg_centertime) cvar.
 ```
 
 ---
@@ -1918,7 +1920,7 @@ Cvar                    | Values               | Default
 :-----------------------|:---------------------|:------------
 etj_maxSpeedDuration    | any positive integer | 2000
 
-How long in milliseconds your max speed from last load will be visible when [`etj_drawMaxSpeed`](etjump_cvars.md/#etj-drawmaxspeed) is enabled.
+How long in milliseconds your max speed from last load will be visible when [`etj_drawMaxSpeed`](etjump_cvars.md/#etj_drawmaxspeed) is enabled.
 
 ---
 
@@ -2015,7 +2017,7 @@ When this is enabled, all damage you take is halved, as adrenaline halves all da
 ```
 
 ```{note}
-[`g_nofatigue`](../server/server_cvars.md/#g-nofatigue) must be enabled on the server for this cvar to function.
+[`g_nofatigue`](../server/server_cvars.md/#g_nofatigue) must be enabled on the server for this cvar to function.
 ```
 
 ---
@@ -2194,7 +2196,7 @@ Cvar                     | Values        | Default
 :------------------------|:--------------|:------------
 etj_playerBBoxBottomOnly | bitflag       | 0
 
-Toggles drawing only the bottom of the bbox when [`etj_drawPlayerBBox`](etjump_cvars.md/#etj-drawplayerbbox) is enabled.
+Toggles drawing only the bottom of the bbox when [`etj_drawPlayerBBox`](etjump_cvars.md/#etj_drawplayerbbox) is enabled.
 
 * **0** off (full bbox)
 * **1** draw only bottom on yourself
@@ -2211,7 +2213,7 @@ etj_playerBBoxColorSelf  | [any color](../getting_started.md/#color-system) | 1.
 Sets color of the player bbox on yourself.
 
 ```{note}
-This might not work correctly if using a custom shader set via [`etj_playerBBoxShader`](etjump_cvars.md/#etj-playerbboxshader).
+This might not work correctly if using a custom shader set via [`etj_playerBBoxShader`](etjump_cvars.md/#etj_playerbboxshader).
 ```
 
 ---
@@ -2224,7 +2226,7 @@ etj_playerBBoxColorOther | [any color](../getting_started.md/#color-system) | 0.
 Sets color of the player bbox on other players.
 
 ```{note}
-This might not work correctly if using a custom shader set via [`etj_playerBBoxShader`](etjump_cvars.md/#etj-playerbboxshader).
+This might not work correctly if using a custom shader set via [`etj_playerBBoxShader`](etjump_cvars.md/#etj_playerbboxshader).
 ```
 
 ---
@@ -2237,7 +2239,7 @@ etj_playerBBoxColorFireteam | [any color](../getting_started.md/#color-system) |
 Sets color of the player bbox on fireteam members.
 
 ```{note}
-This might not work correctly if using a custom shader set via [`etj_playerBBoxShader`](etjump_cvars.md/#etj-playerbboxshader).
+This might not work correctly if using a custom shader set via [`etj_playerBBoxShader`](etjump_cvars.md/#etj_playerbboxshader).
 ```
 
 ---
@@ -2334,7 +2336,7 @@ etj_popupStayTime       | any positive integer | 2000
 How long in milliseconds a popup stays on screen before it starts fading out.
 
 ```{seealso}
-[`etj_popupFadeTime`](etjump_cvars.md/#etj-popupfadetime)
+[`etj_popupFadeTime`](etjump_cvars.md/#etj_popupfadetime)
 ```
 
 ---
@@ -2564,10 +2566,10 @@ Cvar                    | Values                                           | Def
 :-----------------------|:-------------------------------------------------|:------------
 etj_simplePlayersColor  | [any color](../getting_started.md/#color-system) | 1.0 1.0 1.0
 
-Sets the color of other players when [`etj_drawSimplePlayers`](etjump_cvars.md/#etj-drawsimpleplayers) is enabled.
+Sets the color of other players when [`etj_drawSimplePlayers`](etjump_cvars.md/#etj_drawsimpleplayers) is enabled.
 
 ```{note}
-[`etj_playerOpacity`](etjump_cvars.md/#etj-playeropacity) can be used to set transparency.
+[`etj_playerOpacity`](etjump_cvars.md/#etj_playeropacity) can be used to set transparency.
 ```
 
 ---
@@ -2622,7 +2624,7 @@ etj_snapHUDActiveIsPrimary | 0 or 1        | 0
 Toggles snaphud colors so that the zone you are aiming at will always be drawn with primary color.
 
 ```{tip}
-This can be used independently, without enabling [`etj_snapHUDHLActive`](etjump_cvars.md/#etj-snaphudhlactive).
+This can be used independently, without enabling [`etj_snapHUDHLActive`](etjump_cvars.md/#etj_snaphudhlactive).
 ```
 
 ---
@@ -2635,7 +2637,7 @@ etj_snapHUDBorderThickness | 0.1 - 10.0    | 1
 Sets the thickness of snaphud borders when [`etj_drawSnapHUD`](etjump_cvars.md/#etj_drawsnaphud) is set to **3**.
 
 ```{note}
-The maximum value is also capped to [`etj_snapHUDHeight`](etjump_cvars.md/#etj-snaphudheight) * 2, to avoid the borders from "bleeding over".
+The maximum value is also capped to [`etj_snapHUDHeight`](etjump_cvars.md/#etj_snaphudheight) * 2, to avoid the borders from "bleeding over".
 ```
 
 ---
@@ -2663,7 +2665,7 @@ Cvar                     | Values        | Default
 -------------------------|:--------------|:------------
 etj_snapHUDEdgeThickness | 1 - 128       | 10
 
-Thickness of snaphud edges when [`etj_drawSnapHUD`](etjump_cvars.md/#etj-drawsnaphud) is set to **2**.
+Thickness of snaphud edges when [`etj_drawSnapHUD`](etjump_cvars.md/#etj_drawsnaphud) is set to **2**.
 
 ---
 
@@ -2825,7 +2827,7 @@ etj_speedColor          | [any color](../getting_started.md/#color-system) | Whi
 Sets ETJump speed meter color.
 
 ```{note}
-Alpha is controlled with [`etj_speedAlpha`](etjump_cvars.md/#etj-speedalpha).
+Alpha is controlled with [`etj_speedAlpha`](etjump_cvars.md/#etj_speedalpha).
 ```
 
 ---
