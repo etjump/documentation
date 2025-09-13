@@ -229,7 +229,7 @@ When `portalteam` is enabled, you may not shoot portals on places where another 
 
 ```{tip}
 * Portals fired by other players display in different colors - blue portals are drawn in green, red portals in yellow.
-* To avoid confusion with which portals you can use, [`etj_viewPlayerPortals 0`](client/etjump_cvars.md/#etj-viewplayerportals) will display only the portals that you are able to use.
+* To avoid confusion with which portals you can use, [`etj_viewPlayerPortals 0`](client/etjump_cvars.md/#etj_viewplayerportals) will display only the portals that you are able to use.
 ```
 
 ---

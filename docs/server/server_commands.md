@@ -26,7 +26,7 @@ Usage requires the map to be loaded with `developer 1` set.
 
 `generateCustomvotes`
 
-Generates a sample custom map vote file with the name specified in [`g_customMapVotesFile`](./server_cvars.md#g-custommapvotesfile).
+Generates a sample custom map vote file with the name specified in [`g_customMapVotesFile`](./server_cvars.md#g_custommapvotesfile).
 
 ---
 
@@ -54,4 +54,4 @@ The state is logged in the server log file.
 
 `readCustomvotes`
 
-Reloads custom vote file specified in [`g_customMapVotesFile`](./server_cvars.md#g-custommapvotesfile).
+Reloads custom vote file specified in [`g_customMapVotesFile`](./server_cvars.md#g_custommapvotesfile).
