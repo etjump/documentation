@@ -340,10 +340,6 @@ In the main menu, players may add up to 5 servers to the quick connect window. T
 
 ![quickconnect menu](img/quickconnect_menu.png)
 
-```{note}
-The list is not automatically refreshed upon starting the game.
-```
-
 You may also give a custom name for a server on the list. If left empty, the list will default to the hostname of the server. If the server is password protected, you can set a password for the server as well.
 
 ![quickconnect add server](img/quickconnect_add.png)

@@ -1766,6 +1766,15 @@ Sets vertical offset of the jump speeds display.
 
 ---
 
+## etj_jumpSpeedsTextSize
+Cvar                      | Values                                                        | Default
+--------------------------|:--------------------------------------------------------------|:------------
+etj_jumpSpeedsTextSize    | [size (0.1 - 1.0)](../getting_started.md/#size--scale-system) | 2
+
+Sets text size of the jump speeds display.
+
+---
+
 ## etj_keysColor
 Cvar                    | Values                                           | Default
 :-----------------------|:-------------------------------------------------|:------------
