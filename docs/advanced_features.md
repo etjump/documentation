@@ -152,6 +152,8 @@ Both HUDs have extensive customization options.
 * [`etj_CGaz1Color3`](client/etjump_cvars.md#etj_cgaz1color3)
 * [`etj_CGaz1Color4`](client/etjump_cvars.md#etj_cgaz1color4)
 * [`etj_CGaz1DrawSnapZone`](client/etjump_cvars.md#etj_cgaz1drawsnapzone)
+* [`etj_CGaz1DrawMidLine`](client/etjump_cvars.md#etj_cgaz1drawmidline)
+* [`etj_CGaz1MidLineColor`](client/etjump_cvars.md#etj_cgaz1midlinecolor)
 * [`etj_CGazFov`](client/etjump_cvars.md#etj_cgazfov)
 * [`etj_CGazHeight`](client/etjump_cvars.md#etj_cgazheight)
 * [`etj_CGazOnTop`](client/etjump_cvars.md/#etj_cgazontop)
@@ -164,9 +166,13 @@ Both HUDs have extensive customization options.
 * [`etj_CGaz2Color1`](client/etjump_cvars.md/#etj_cgaz2color1)
 * [`etj_CGaz2Color2`](client/etjump_cvars.md/#etj_cgaz2color2)
 * [`etj_CGaz2FixedSpeed`](client/etjump_cvars.md/#etj_cgaz2fixedspeed)
+* [`etj_CGaz2HighRes`](client/etjump_cvars.md/#etj_cgaz2highres)
 * [`etj_CGaz2NoVelocityDir`](client/etjump_cvars.md/#etj_cgaz2novelocitydir)
+* [`etj_CGaz2Thickness1`](client/etjump_cvars.md/#etj_cgaz2thickness1)
+* [`etj_CGaz2Thickness2`](client/etjump_cvars.md/#etj_cgaz2thickness2)
 * [`etj_CGaz2WishDirFixedSpeed`](client/etjump_cvars.md/#etj_cgaz2wishdirfixedspeed)
 * [`etj_CGaz2WishDirUniformLength`](client/etjump_cvars.md/#etj_cgaz2wishdiruniformlength)
+* [`etj_CGaz2Y`](client/etjump_cvars.md/#etj_cgaz2y)
 * [`etj_CGazTrueness`](client/etjump_cvars.md/#etj_cgaztrueness)
 * [`etj_stretchCgaz`](client/etjump_cvars.md/#etj_stretchcgaz)
 ```
@@ -177,7 +183,7 @@ The CGaz HUD alone is not able to fully visualize how acceleration behaves. For 
 
 ## Velocity Snapping HUD
 
-Velocity snapping HUD can be enabled with the cvar `etj_drawSnapHUD`. It lets you see the zones at which all acceleration is snapped to the same value/direction. This tool should be combined with [etj_drawCGaz](client/etjump_cvars.md/#etj_drawcgaz), to visualize the correct yaw angle for acceleration to occur.
+Velocity snapping HUD can be enabled with the cvar [`etj_drawSnapHUD`](client/etjump_cvars.md/#etj_drawsnaphud). It lets you see the zones at which all acceleration is snapped to the same value/direction. This tool should be combined with [etj_drawCGaz](client/etjump_cvars.md/#etj_drawcgaz), to visualize the correct yaw angle for acceleration to occur.
 
 The snaphud is conceptually simple. By keeping your crosshair in between the border of the current snapzone, and the CGaz minimum line, acceleration is maximized. The exact positioning of your crosshair doesn't matter, as long as the "in between" condition is met. The amount of acceleration gained depends on how small the gap between minimum CGaz line and edge of a snapzone is: the smaller the gap, the higher the acceleration.
 
@@ -383,4 +389,6 @@ The savepos file is a standard JSON file, meaning it's possible to also edit it 
 ```{seealso}
 * [`savepos`](client/client_commands.md/#savepos)
 * [`loadpos`](client/client_commands.md/#loadpos)
+* [`listsavepos`](client/client_commands.md/#listsavepos)
+* [`readsavepos`](client/client_commands.md/#readsavepos)
 ```

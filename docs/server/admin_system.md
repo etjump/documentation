@@ -180,6 +180,21 @@ Cancels currently active vote.
 
 ---
 
+### comparecheckpoints
+`!comparecheckpoints <run name> [rank-1] <rank-2>`  
+`!comparecheckpoints [-s <season name>] [-m <map name>] -r <run name> [-rk1 <rank>] -rk2 <rank>`  
+`!comparecheckpoints [--season <season name>] [--map <map name>] --run <run name> [--rank-1 <rank>] --rank-2 <rank>`
+
+Compare checkpoint times between two runs. If `rank-1` is omitted, defaults to rank 1 time.
+
+**Flag:** a
+
+```{tip}
+`<season name>`, `<map name>` and `<run name>` support partial matching.
+```
+
+---
+
 ### delete-customvote
 `!delete-customvote -n <name>`  
 `!delete-customvote --name <name>`
@@ -349,6 +364,23 @@ Lists all levels configured on the server. If `[level]` is specified, prints det
 Lists all active bans on the server. A single page fits **10** bans.
 
 **Flag:** L
+
+---
+
+### listcheckpoints
+`!listcheckpoints <run name> [rank]`  
+`!listcheckpoints <map name> <run name> <rank>`  
+`!listcheckpoints <season name> <map name> <run name> <rank>`  
+`!listcheckpoints [-s <season name>] [-m <map name>] -r <run name> [-rk <rank>]`  
+`!listcheckpoints [--season <season name>] [--map <map name>] --run <run name> [--rank <rank>]`  
+
+Lists checkpoint times from the given run. If `rank` is omitted, defaults to **1**.
+
+**Flag:** a
+
+```{tip}
+`<season name>`, `<map name>` and `<run name>` support partial matching.
+```
 
 ---
 

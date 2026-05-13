@@ -10,6 +10,15 @@ Saves the current temp demo recorded with [`etj_autoDemo`](etjump_cvars.md/#etj_
 
 ---
 
+## addCustomCommand
+`addCustomCommand <name> <command> [page (1-5)] [slot (1-8)]`  
+`addCustomCommand -n <name> -c <command> [-p <page (1-5)>] [-s <slot (1-8)>]`  
+`addCustomCommand --name <name> --command <command> [--page <page (1-5)>] [--slot <slot (1-8)>]`  
+
+Adds a new custom command to the custom command menu. If `page` is omitted, defaults to first page with a free slot. If `slot` is omitted, defaults to first free slot on given page.
+
+---
+
 ## adminChat
 `adminChat`
 
@@ -55,12 +64,13 @@ Prints the list of available CHS info fields to the console.
 ---
 
 ## class
-`class <class> [weapon]`
+`class <class> [primary] [secondary]`
 
-Changes players class. If no weapon is given, uses the default weapon for the class.
+Changes players class. If `primary` and/or `secondary` is omitted, uses the default weapon(s) for the class.
 
 * Possible classes are **s**, **e**, **m**, **f** and **c**.
-* Possible weapons are **1**-**7**.
+* Possible primary weapons are **1**-**7** (class-dependant).
+* Possible secondary weapons are single pistol (**1**) or akimbo pistols (**2**).
 
 ```{tip}
 You can see all the available class/weapon combinations in the console by executing this command without any arguments.
@@ -79,6 +89,19 @@ Removes saved slots on both teams.
 
 ---
 
+## comparecheckpoints
+`comparecheckpoints <run name> [rank-1] <rank-2>`  
+`comparecheckpoints [-s <season name>] [-m <map name>] -r <run name> [-rk1 <rank>] -rk2 <rank>`  
+`comparecheckpoints [--season <season name>] [--map <map name>] --run <run name> [--rank-1 <rank>] --rank-2 <rank>`
+
+Compare checkpoint times between two runs. If `rank-1` is omitted, defaults to rank 1 time.
+
+```{tip}
+`<season name>`, `<map name>` and `<run name>` support partial matching.
+```
+
+---
+
 ## customvotes, listinfo
 `customvotes [list]`
 
@@ -90,6 +113,14 @@ Lists all callvote custom map vote lists. If `[list]` is given, lists the maps o
 `cv <vote command> [arguments]`
 
 Alias for `callvote`.
+
+---
+
+## deleteCustomCommand
+`deleteCustomCommand <page (1-5)> [slot (1-8)]`  
+`deleteCustomCommand --page <page (1-5)> [--slot <slot (1-8)>]`  
+
+Deletes a custom command from given page & slot. If `slot` is omitted, deletes the last command on the given `page`.
 
 ---
 
@@ -113,6 +144,15 @@ Available commands:
 ```{note}
 Performing a `vid_restart` while the playback is active will break the playback, due to communication limitations with the engine.
 ```
+
+---
+
+## editCustomCommand
+`editCustomCommand <page (1-5)> <slot (1-8)>`  
+`editCustomCommand -p <page (1-5)> -s <slot (1-8)> -n <name> -c <command>`  
+`editCustomCommand --page <page (1-5)> --slot <slot (1-8)> --name <name> --command <command>`  
+
+Edits a custom command at given page and slot.
 
 ---
 
@@ -153,6 +193,16 @@ Available rules:
 * `savelimit <limit (-1 - 100|reset)>` - sets savelimit for fireteam members. `-1` means no limit. `reset` restores all the available saves for each member.
 
 ---
+
+## generateCustomCommandsFile
+`generateCustomCommandsFile [-f]`  
+`generateCustomCommandsFile [--force]`
+
+Generates an example file for [custom command menu](../basic_features.md/#custom-command-menu). If the file exists, `--force` must be used to overwrite the existing file.
+
+```{note}
+The example file will always be generated using the default filename (`custom_commands.dat`), regardless of [`etj_ccMenu_filename`](etjump_cvars.md/#etj_ccmenu_filename) cvar value.
+```
 
 ## goto
 `goto <name|clientnum>`
@@ -204,6 +254,28 @@ This functions the same way as `cycle`, but supports floating point values.
 `interruptRun`
 
 Interrupts your currently active timerun.
+
+---
+
+## listcheckpoints
+`listcheckpoints <run name> [rank]`  
+`listcheckpoints <map name> <run name> <rank>`  
+`listcheckpoints <season name> <map name> <run name> <rank>`  
+`listcheckpoints [-s <season name>] [-m <map name>] -r <run name> [-rk <rank>]`  
+`listcheckpoints [--season <season name>] [--map <map name>] --run <run name> [--rank <rank>]`  
+
+Lists checkpoint times from the given run. If `rank` is omitted, defaults to **1**.
+
+```{tip}
+`<season name>`, `<map name>` and `<run name>` support partial matching.
+```
+
+---
+
+## listCustomCommands
+`listCustomCommands [page (1-5)]`
+
+Lists saved custom commands in the currently loaded custom command file. If `page` is given, lists only commands from that page.
 
 ---
 
@@ -283,6 +355,19 @@ Prints the ETJump version the server is running.
 
 ---
 
+## moveCustomCommand
+`moveCustomCommand <from-page (1-5)> <from-slot (1-8)> <to-page (1-5)> [to-slot (1-8)]`  
+`moveCustomCommand -fp <page (1-5)> -fs <slot (1-8)> -tp <page (1-5)> [-ts <slot (1-8)>]`  
+`moveCustomCommand --from-page <page (1-5)> --from-slot <slot (1-8)> --to-page <page (1-5)> [--to-slot <slot (1-8)>]`  
+
+Moves a command from the give slot/page to another page/slot. If `to-slot` is omitted, defaults to first free slot on the given page. If `to-slot` on the targeted page already has a command in it, the commands will be swapped.
+
+```{note}
+Swapping commands only happens if `--to-slot` argument is explicitly given. If the targeted page is full, the move fails, unless the target slot is specified (which will swap the commands between from/to pages/slots).
+```
+
+---
+
 ## nocall
 `nocall`
 
@@ -307,10 +392,39 @@ Manages overbounce watcher coordinates. `ob_save [name]` will save a coordinate 
 
 ---
 
+## openCustomCommandMenu
+`openCustomCommandMenu [page (1-5)]`
+
+Toggles the custom command menu. If `page` is given, opens directly to the specified page.
+
+---
+
 ## portal
 `portal`
 
 Prints information about the portal gun.
+
+---
+
+## printDemoCompatInfo
+`printDemoCompatInfo`
+
+Prints currently active compatibility settings during demo playback.
+
+---
+
+## printMapCustomizationInfo
+`printMapCustomizationInfo`
+
+Prints the SHA-1 hashes of custom mapscript and/or custom entity file, currently running on the server.
+
+```{note}
+The hashes are calculated with `LF` line endings. If you are comparing the hashes to files you have locally, make sure they are saved with `LF` line endings as well.
+```
+
+```{tip}
+This can be used during demo playback (starting with demos recorded in ETJump 3.5.0) to display the hashes of the files that were loaded on the server, when the demo was recorded.
+```
 
 ---
 
@@ -339,6 +453,13 @@ Prints timerun records with given parameters. If no arguments are given, prints 
 ```{note}
 `ranks`, `reconds`, `times` and `top` are all valid aliases for this command.
 ```
+
+---
+
+## readCustomCommands
+`readCustomCommands`
+
+Parses custom command menu from the file pointed to by [`etj_ccMenu_filename`](etjump_cvars.md/#etj_ccmenu_filename). You must execute this command to reload changes to the menu when editing the file by hand, outside the game.
 
 ---
 

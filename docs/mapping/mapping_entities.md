@@ -205,6 +205,42 @@ In ETJump, this entity cannot be killed under normal gameplay circumstances if t
 
 ---
 
+## func_static_client
+
+A static brushmodel that does nothing by itself. Similar to `func_static`, except the state of this entity (visible/hidden) is unique for each client. When the entity is hidden for a client, they will ignore collision with it.
+
+**Keys**
+
+| Key         | Value              | Default | Description                                                                           |
+| :---------- | :----------------- | :------ | :------------------------------------------------------------------------------------ |
+| model2      | path/to/model.md3  |         | Optional `.md3` model to draw instead. Use an origin brush to set the model origin.   |
+| offModel    | path/to/model.md3  |         | Alternative model to draw when the brush is in "off" state.                           |
+| offShader   | path/to/shader     |         | Alternative shader to use when the brush is in "off" state.                           |
+| target      | targetname(s)      |         | Targets to fire when hurt, if `spawnflag 2` is set.                                   |
+| scriptname  | scriptblock        |         | Script block to execute when hurt, if `spawnflag 2` is set. Calls the `pain` trigger. |
+
+**Spawnflags**
+
+| Spawnflag | Description                                                                                     |
+| :-------: | :---------------------------------------------------------------------------------------------- |
+| 1         | Start the entity in "off" state.                                                                |
+| 2         | Activate targets when the entity takes damage.                                                  |
+| 4         | Gib the activator if they are inside the entity when it turns solid.                            |
+| 8         | Sync the state of this entity for all fireteam members, when fireteam teamjump mode is enabled. |
+| 16        | Delete activators portals that are inside the entity, when it turns solid.                      |
+
+```{note}
+* This must be activated via an entity that passes on the activator data.
+* If set, `model2` will always take precedence over `offShader`.
+* When `model2` is set, the brushes that are part of the entity will act as the clipping model. They will inherit the surface/content properties of the brushes, meaning they will be nonsolid if using `common/nodraw`, only block players if using `common/clip` etc.
+* If neither `offModel` or `offShader` are set, the brush will simply become invisible when turned off.
+* `offShader` uses a single shader for all surfaces of every brush included in the entity. If you need more fine-tuned control over the shaders, consider using `offModel` instead.
+* If portals are fired onto the entity when it's visible, they will be deleted when it's turned off.
+* When `spawflag 2` is set, the entity must be visible for it to take damage. Damage dealt by non-player entities (e.g. `shooter_rocket`) is ignored, only a client may damage the entity.
+```
+
+---
+
 ## target_activate_if_velocity
 
 Activates targeted entities if player's velocity is between the lower and upper velocity limit.
@@ -448,6 +484,31 @@ Pushes activator towards `target` or `angle(s)`.
 | :-------: | :---------------------------- |
 | 2         | Horizontal speed is additive. |
 | 4         | Vertical speed is additive.   |
+
+---
+
+## target_random
+
+Fires targets based off a random chance or number.
+
+**Keys**
+
+| Key        | Value                | Default | Description                                                                     |
+| :--------- | :------------------- | :------ | :------------------------------------------------------------------------------ |
+| chance     | any positive integer | 1       | The chance of targets being fired.                                              |
+| total      | any positive integer | 1       | Total possible outcomes.                                                        |
+| scriptname | scriptblock          |         | Script block to execute when fired. Calls the `activate (allies/axis)` trigger. |
+
+**Spawnflags**
+
+| Spawnflag | Description                                                           |
+| :-------: | :-------------------------------------------------------------------- |
+| 1         | `chance` is the exact number that must be rolled for targets to fire. |
+
+```{note}
+* The chance is calculated by rolling a random number between 1 - `total`. If the resulting number is less or equal to `chance`, targets are fired.
+* `chance` cannot be higher than `total`.
+```
 
 ---
 

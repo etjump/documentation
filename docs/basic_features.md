@@ -275,6 +275,42 @@ The timerun system supports "seasons". These can be managed on a server by admin
 
 ---
 
+## Custom command menu
+
+Custom command menu is a vsay-style menu that can hold up to **40** custom commands, split across **5** pages. The menu can be accessed with [`openCustomCommandMenu`](client/client_commands.md/#opencustomcommandmenu) console command. Anything that you can type as a command/cvar into console, or bind to a key, can be made accessible via this menu. This effectively gives you 40 extra key binds behind a single key binding. It's ideal for things that are "not commonly used enough to warrant a dedicated keybind" but "used often enough that they are annoying to type to console".
+
+![custom command menu](img/custom_command_menu.jpg)
+
+The custom commands are stored in `etjump/custom_commands.dat` file by default. You may customize the filename with [`etj_ccMenu_filename`](client/etjump_cvars.md/#etj_ccmenu_filename) cvar. A `.dat` extension will be automatically appedned to the value of the cvar. Changing this cvar will automatically reload and parse the file that was given as a name, meaning you can easily swap between different custom command files, should you desire.
+
+The custom command file is configured in TOML language. It is a simple markup language, that uses `[headers]`, accompanied by `key = "value"` pairs. The file from the example screenshot above looks like this:
+
+```toml
+[page-1]
+name-1 = "Join ^iAxis"
+command-1 = "team r 1"
+name-2 = "Join ^dAllies"
+command-2 = "team b 1"
+name-3 = "Join ^oSpectators"
+command-3 = "team s"
+name-4 = "Max FPS 125/250/333"
+command-4 = "toggle com_maxFPS 125 250 333"
+```
+
+You can use the console command [`generateCustomCommandsFile`](client/client_commands.md/#generatecustomcommandsfile) to generate an example file. Editing the file outside of the game is fully supported, provided you follow the TOML language syntax. You may also use console commands to add, edit, delete and move commands. When editing the file by hand, you must use [`readCustomCommands`](client/client_commands.md/#readcustomcommands) console command to reload your changes.
+
+```{seealso}
+* [`etj_ccMenu_autoClose`](client/etjump_cvars.md/#etj_ccmenu_autoclose)
+* [`etj_ccMenu_rememberPage`](client/etjump_cvars.md/#etj_ccmenu_rememberpage)
+* [`addCustomCommand`](client/client_commands.md/#addcustomcommand)
+* [`editCustomCommand`](client/client_commands.md/#editcustomcommand)
+* [`moveCustomCommand`](client/client_commands.md/#movecustomcommand)
+* [`deleteCustomCommand`](client/client_commands.md/#deletecustomcommand)
+* [`listCustomCommands`](client/client_commands.md/#listcustomcommands)
+```
+
+---
+
 ## Custom votes
 ETJump offers a per-server custom vote system, which allows server owners and priviledged admins to add, edit and delete lists with specific maps on them. These lists can be voted by players via the in-game menu, or via console using `callvote <randommap|rtv> <name>` command.
 

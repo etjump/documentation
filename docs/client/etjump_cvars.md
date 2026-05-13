@@ -143,6 +143,23 @@ Folder inside `demos` folder to store saved autodemo recordings in.
 
 ---
 
+## etj_altCursor
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_altCursor           | 0 - 2         | 0
+
+Sets alternative mouse cursor to draw in the UI.
+
+* **0** - default cursor
+* **1** - Notwaita Black
+* **2** - Notwaita White
+
+```{seealso}
+[Notwaita cursor theme](https://gitlab.com/donut2/notwaita-cursor-theme)
+```
+
+---
+
 ## etj_altScoreboard
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
@@ -225,6 +242,37 @@ When enabled, the behavior of `+sprint` key is flipped - pressing the key enable
 
 ---
 
+## etj_ccMenu_autoClose
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_ccMenu_autoClose    | 0 or 1        | 1
+
+Toggles whether the [custom command menu](../basic_features.md/#custom-command-menu) automatically closes when a command is executed.
+
+---
+
+## etj_ccMenu_filename
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_ccMenu_filename     | filename      | custom_commands
+
+Filename to store and parse [custom commands](../basic_features.md/#custom-command-menu) from. A `.dat` extension will automatically be applied to the cvar value.
+
+```{tip}
+You can use forward slahes in the filename (e.g. `config/custom_commands`) to place the file inside a sub-directory.
+```
+
+---
+
+## etj_ccMenu_rememberPage
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_ccMenu_rememberPage | 0 or 1        | 0
+
+Toggles whether the [custom command menu](../basic_features.md/#custom-command-menu) opens back to the last used page.
+
+---
+
 ## etj_CGaz1Color1
 Cvar                    | Values                                           | Default
 :-----------------------|:-------------------------------------------------|:------------
@@ -261,6 +309,19 @@ Sets color of the max angle in CGaz HUD **1**.
 
 ---
 
+## etj_CGaz1DrawMidLine
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_CGaz1DrawMidLine    | 0 or 1        | 0
+
+Toggles drawing a line in-between min and max angle lines of CGaz HUD **1**.
+
+```{note}
+This is not a meaningful line for physics calculations, it is simply a helper line for orientation.
+```
+
+---
+
 ## etj_CGaz1DrawSnapZone
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
@@ -274,12 +335,29 @@ This uses [`etj_CGazFov`](etjump_cvars.md/#etj_cgazfov) to determine the snapzon
 
 ---
 
+## etj_CGaz1MidLineColor
+Cvar                    | Values                                           | Default
+:-----------------------|:-------------------------------------------------|:------------
+etj_CGaz1MidLineColor   | [any color](../getting_started.md/#color-system) | 1.0 0.5 0.0 0.75
+
+Sets color of the mid line in CGaz HUD **1**.
+
+```{seealso}
+[`etj_CGaz1DrawMidLine`](#etj_cgaz1drawmidline)
+```
+
+---
+
 ## etj_CGaz2Color1
 Cvar                    | Values                                           | Default
 :-----------------------|:-------------------------------------------------|:------------
 etj_CGaz2Color1         | [any color](../getting_started.md/#color-system) | 1.0 0.0 0.0 1.0
 
 Sets primary color of CGaz HUD **2**.
+
+```{note}
+When [`etj_CGaz2HighRes`](#etj_cgaz2highres) is enabled, the alpha value is slightly inaccurate for diagonal lines, depending on the line thickness.
+```
 
 ---
 
@@ -289,6 +367,10 @@ Cvar                    | Values                                           | Def
 etj_CGaz2Color2         | [any color](../getting_started.md/#color-system) | 0.0 1.0 1.0 1.0
 
 Sets secondary color of CGaz HUD **2**.
+
+```{note}
+When [`etj_CGaz2HighRes`](#etj_cgaz2highres) is enabled, the alpha value is slightly inaccurate for diagonal lines, depending on the line thickness.
+```
 
 ---
 
@@ -301,6 +383,19 @@ When set to higher than **0**, CGaz 2 will be drawn as if the player had the set
 
 ---
 
+## etj_CGaz2HighRes
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_CGaz2HighRes        | 0 or 1        | 0
+
+Enables high-resolution, anti-aliased drawing for CGaz 2.
+
+```{caution}
+This may cause rendering bugs on some clients. It's recommended to only use this on ET: Legacy and ETe (**April 14th 2026** and newer).
+```
+
+---
+
 ## etj_CGaz2NoVelocityDir
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
@@ -310,6 +405,32 @@ Controls drawing of velocity direction line on CGaz 2.
 
 * **1** never draw velocity direction line
 * **2** draw only while under wishspeed
+
+---
+
+## etj_CGaz2Thickness1
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_CGaz2Thickness1     | 0.1 - 100.0   | 2.0
+
+Sets the thickness of velocity direction line(s) on CGaz 2.
+
+```{note}
+Only affects the line thickness when [`etj_CGaz2HighRes`](#etj_cgaz2highres) is enabled.
+```
+
+---
+
+## etj_CGaz2Thickness2
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_CGaz2Thickness2     | 0.1 - 100.0   | 2.0
+
+Sets the thickness of wishdir line on CGaz 2.
+
+```{note}
+Only affects the line thickness when [`etj_CGaz2HighRes`](#etj_cgaz2highres) is enabled.
+```
 
 ---
 
@@ -328,6 +449,15 @@ Cvar                          | Values             | Default
 etj_CGaz2WishDirUniformLength | 0 or 1             | 0
 
 If set, CGaz2 wishdir line will be uniformly scaled regardless of player inputs (e.g. `+forward` & `+moveright` length is same as just `+forward`).
+
+---
+
+## etj_CGaz2Y
+Cvar                          | Values             | Default
+------------------------------|:-------------------|-------------
+etj_CGaz2Y                    | 0.0 - 480.0        | 240
+
+Sets vertical position of CGaz HUD **2**.
 
 ---
 
@@ -373,7 +503,7 @@ Sets "trueness" flags on CGaz HUD.
 ## etj_CGazY
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_CGazY               | any integer   | 240
+etj_CGazY               | 0.0 - 480.0   | 240
 
 Sets vertical position of CGaz HUD **1**.
 
@@ -722,6 +852,15 @@ Cvar                    | Values        | Default
 etj_crosshairThickness  | 0 - 5         | 1.0
 
 Sets the line thickness of ETJump crosshairs.
+
+---
+
+## etj_cursorSize
+Cvar                    | Values                                                      | Default
+:-----------------------|:------------------------------------------------------------|:------------
+etj_cursorSize          | [size (8 - 128)](../getting_started.md/#size--scale-system) | 32
+
+Sets the size of the mouse cursor in menus.
 
 ---
 
@@ -2160,12 +2299,29 @@ This is a cvar unlocker for `r_offsetunits`.
 
 ---
 
+## etj_onDemoPlaybackEnd
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_onDemoPlaybackEnd   | any string    | 
+
+Set of commands to be executed on demo playback end.
+
+```{note}
+Performing a `vid_restart` during demo playback is considered both stopping and (re)starting demo playback. The command(s) defined by this cvar will execute when the `vid_restart` starts the restart process.
+```
+
+---
+
 ## etj_onDemoPlaybackStart
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 etj_onDemoPlaybackStart | any string    | 
 
 Set of commands to be executed on demo playback start.
+
+```{note}
+Performing a `vid_restart` during demo playback is considered both stopping and (re)starting demo playback. The command(s) defined by this cvar will execute once the `vid_restart` has finished restarting.
+```
 
 ---
 
@@ -2497,6 +2653,15 @@ Cvar                    | Values        | Default
 etj_runTimerShadow      | 0 or 1        | 0
 
 Toggles drawing shadow on the timerun timer.
+
+---
+
+## etj_runTimerSize
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_runTimerSize        | 0.0 - 10.0    | 3
+
+Sets the size of the timerun timer.
 
 ---
 
