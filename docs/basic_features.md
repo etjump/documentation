@@ -281,7 +281,7 @@ Custom command menu is a vsay-style menu that can hold up to **40** custom comma
 
 ![custom command menu](img/custom_command_menu.jpg)
 
-The custom commands are stored in `etjump/custom_commands.dat` file by default. You may customize the filename with [`etj_ccMenu_filename`](client/etjump_cvars.md/#etj_ccmenu_filename) cvar. A `.dat` extension will be automatically appedned to the value of the cvar. Changing this cvar will automatically reload and parse the file that was given as a name, meaning you can easily swap between different custom command files, should you desire.
+The custom commands are stored in `etjump/custom_commands.dat` file by default. You may customize the filename with [`etj_ccMenu_filename`](client/etjump_cvars.md/#etj_ccmenu_filename) cvar. A `.dat` extension will be automatically appended to the value of the cvar. Changing this cvar will automatically reload and parse the file that was given as a name, meaning you can easily swap between different custom command files, should you desire.
 
 The custom command file is configured in TOML language. It is a simple markup language, that uses `[headers]`, accompanied by `key = "value"` pairs. The file from the example screenshot above looks like this:
 
@@ -312,7 +312,7 @@ You can use the console command [`generateCustomCommandsFile`](client/client_com
 ---
 
 ## Custom votes
-ETJump offers a per-server custom vote system, which allows server owners and priviledged admins to add, edit and delete lists with specific maps on them. These lists can be voted by players via the in-game menu, or via console using `callvote <randommap|rtv> <name>` command.
+ETJump offers a per-server custom vote system, which allows server owners and privileged admins to add, edit and delete lists with specific maps on them. These lists can be voted by players via the in-game menu, or via console using `callvote <randommap|rtv> <name>` command.
 
 It's possible to vote for a random map from a list, or call a [Rock The Vote](#rock-the-vote) with only maps from the specified list.
 
