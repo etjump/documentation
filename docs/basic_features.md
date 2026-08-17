@@ -299,9 +299,17 @@ command-4 = "toggle com_maxFPS 125 250 333"
 
 You can use the console command [`generateCustomCommandsFile`](client/client_commands.md/#generatecustomcommandsfile) to generate an example file. Editing the file outside of the game is fully supported, provided you follow the TOML language syntax. You may also use console commands to add, edit, delete and move commands. When editing the file by hand, you must use [`readCustomCommands`](client/client_commands.md/#readcustomcommands) console command to reload your changes.
 
+```{tip}
+* You may leave the name for the command blank - this will display the actual command as the name in the menu instead.
+* Besides **9** and **0**, you may also use left/right arrow keys to browse to previous/next page, respectively.
+```
+
 ```{seealso}
 * [`etj_ccMenu_autoClose`](client/etjump_cvars.md/#etj_ccmenu_autoclose)
+* [`etj_ccMenu_browseWithOpen`](client/etjump_cvars.md/#etj_ccmenu_browsewithopen)
 * [`etj_ccMenu_rememberPage`](client/etjump_cvars.md/#etj_ccmenu_rememberpage)
+* [`etj_ccMenu_showEmptyPages`](client/etjump_cvars.md/#etj_ccmenu_showemptypages)
+* [`etj_ccMenu_width`](client/etjump_cvars.md/#etj_ccmenu_width)
 * [`addCustomCommand`](client/client_commands.md/#addcustomcommand)
 * [`editCustomCommand`](client/client_commands.md/#editcustomcommand)
 * [`moveCustomCommand`](client/client_commands.md/#movecustomcommand)

@@ -30,7 +30,7 @@ Performing an overbounce does not require anything special, it happens "automati
 ```{tip}
 * Movement "sensitivity" when holding `+strafe` is controlled by the cvars `m_forward` and `m_side`
 * Most players prefer to use `m_side 0` to only allow performing overbounces directly forwards or backwards
-* These sensitivity values are framerate dependant - `m_forward 0.25` is twice as sensitive on **250FPS** compared to **125FPS**.
+* On ET 2.60b (and old versions of ET: Legacy and ETe), these values are framerate-dependant - `m_forward 0.25` is twice as sensitive on **250FPS** compared to **125FPS**. Newer versions of ET: Legacy and ETe have normalized the sensitivity values to match **125FPS** values.
 ```
 
 An overbounce cannot be performed if the user has exactly **0ups** horizontal speed, hence we must apply a miniscule amount of speed using `+strafe`. An exception to this are overbounces performed from water, which work by either proning or crouching, depending on how deep the water is.
@@ -48,18 +48,19 @@ CHS, or crosshair stats, is a feature that lets you display various statistics e
 
 ![etj_drawCHS1](img/etj_drawCHS1.gif)
 
-* [`etj_drawCHS2`](client/etjump_cvars.md/#etj_drawchs2), displays as a list.
+* [`etj_drawCHS2`](client/etjump_cvars.md/#etj_drawchs2) & [`etj_drawCHS3`](client/etjump_cvars.md/#etj_drawchs3), displays as a list.
 
 ![etj_drawCHS2](img/etj_drawCHS2.gif)
 
 ```{tip}
-You can make the text on `etj_drawCHS2` right-aligned by setting the value to **2**.
+You can make the text on `etj_drawCHS2/3` right-aligned by setting the value to **2**.
 ```
 
 Each position has 8 configurable cvars, that lets you pick the stat displayed on the corresponding position.
 
 * [`etj_CHS1Info1-8`](client/etjump_cvars.md/#etj_chs1info1-8) for CHS 1
-* [`etj_CHS2Info1-8`](client/etjump_cvars.md/#etj_chs2info1-8) for CHS 1
+* [`etj_CHS2Info1-8`](client/etjump_cvars.md/#etj_chs2info1-8) for CHS 2
+* [`etj_CHS3Info1-8`](client/etjump_cvars.md/#etj_chs3info1-8) for CHS 3
 
 The table below displays the possible values for each info position.
 
@@ -104,6 +105,11 @@ Value      | Stat displayed
 50         | jump x y z
 53         | plane angle z
 55         | last jump speed
+70         | upmove pre jump/on ground ms
+71         | upmove post jump ms
+72         | upmove full ms
+73         | upmove all values (pre/full/post)
+74         | upmove all values (post/full/pre)
 
 ```{tip}
 You can see this list in-game with the [`chs`](client/client_commands.md/#chs) command.
@@ -185,7 +191,7 @@ The CGaz HUD alone is not able to fully visualize how acceleration behaves. For 
 
 Velocity snapping HUD can be enabled with the cvar [`etj_drawSnapHUD`](client/etjump_cvars.md/#etj_drawsnaphud). It lets you see the zones at which all acceleration is snapped to the same value/direction. This tool should be combined with [etj_drawCGaz](client/etjump_cvars.md/#etj_drawcgaz), to visualize the correct yaw angle for acceleration to occur.
 
-The snaphud is conceptually simple. By keeping your crosshair in between the border of the current snapzone, and the CGaz minimum line, acceleration is maximized. The exact positioning of your crosshair doesn't matter, as long as the "in between" condition is met. The amount of acceleration gained depends on how small the gap between minimum CGaz line and edge of a snapzone is: the smaller the gap, the higher the acceleration.
+The snaphud is conceptually simple. By keeping your crosshair in between the border of the current snapzone, and the CGaz minimum line, acceleration is maximized. The exact positioning of your crosshair doesn't matter, as long as the "in between" condition is met. The amount of acceleration gained depends on how small the gap between minimum CGaz line and edge of a snapzone is: the smaller the gap, the higher the acceleration. In practice, this means that you are encouraged to stay on the current snapzone for as long as possible, to maximize acceleration.
 
 ![etj_drawSnapHUD](img/snaphud.png)
 
@@ -197,8 +203,17 @@ Because the exact position of your crosshair does not matter, you will often see
 
 ![snap example](img/snap.gif)
 
-The snaphud can be customized with the following cvars.
+### Cropping
 
+Some people might find it distracting that the snaphud spans across the entire screen. Because the parts that you are mostly interested in seeing are always on the side of your strafe direction, it's possible to set the snaphud drawing to partially crop against the current strafe direction with the [`etj_snapHUDCrop`](client/etjump_cvars.md/#etj_snaphudcrop) cvar. When this is enabled, snaphud no longer draws from the center of the screen to the edge, against your strafe direction. For example, if you are strafing left, anything from the center of the screen to the right edge will not draw, as seen in the image below.
+
+![snaphud cropping](img/snaphud_crop_left.jpg)
+
+You may offset the cropping points from the center and edge of the screen with the [`etj_snapHUDCropOffsets`](client/etjump_cvars.md/#etj_snaphudcropoffsets) cvar. This takes two values, center and edge offsets, respectively. It shifts the cropping points against the current strafe direction - if strafing left, cropping points are shifted to right and vice versa. The primary purpose of this is should be rather obvious, but it allows you to also create an interesting option for drawing the snaphud: you can make it effectively draw as non-fullscreen, by setting the cropping offsets such that the uncropped area is always centered, e.g. `etj_snapHUDCropOffsets 220 100`, pictured below.
+
+![centered snaphud cropping](img/snaphud_crop_center.jpg)
+
+```{seealso}
 * [`etj_snapHUDActiveIsPrimary`](client/etjump_cvars.md/#etj_snaphudactiveisprimary)
 * [`etj_snapHUDColor1`](client/etjump_cvars.md/#etj_snaphudcolor1)
 * [`etj_snapHUDColor2`](client/etjump_cvars.md/#etj_snaphudcolor2)
@@ -210,6 +225,7 @@ The snaphud can be customized with the following cvars.
 * [`etj_snapHUDHLColor2`](client/etjump_cvars.md/#etj_snaphudhlcolor2)
 * [`etj_snapHUDOffsetY`](client/etjump_cvars.md/#etj_snaphudoffsety)
 * [`etj_snapHUDTrueness`](client/etjump_cvars.md/#etj_snaphudtrueness)
+```
 
 ---
 

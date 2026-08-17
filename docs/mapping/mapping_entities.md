@@ -211,23 +211,27 @@ A static brushmodel that does nothing by itself. Similar to `func_static`, excep
 
 **Keys**
 
-| Key         | Value              | Default | Description                                                                           |
-| :---------- | :----------------- | :------ | :------------------------------------------------------------------------------------ |
-| model2      | path/to/model.md3  |         | Optional `.md3` model to draw instead. Use an origin brush to set the model origin.   |
-| offModel    | path/to/model.md3  |         | Alternative model to draw when the brush is in "off" state.                           |
-| offShader   | path/to/shader     |         | Alternative shader to use when the brush is in "off" state.                           |
-| target      | targetname(s)      |         | Targets to fire when hurt, if `spawnflag 2` is set.                                   |
-| scriptname  | scriptblock        |         | Script block to execute when hurt, if `spawnflag 2` is set. Calls the `pain` trigger. |
+| Key                       | Value              | Default     | Description                                                                                                                                       |
+| :------------------------ | :----------------- | :---------- | :------------------------------------------------------------------------------------------------------------------------------------------------ |
+| model2                    | path/to/model.md3  |             | Optional `.md3` model to draw instead. Use an origin brush to set the model origin.                                                               |
+| offModel                  | path/to/model.md3  |             | Alternative model to draw when the brush is in "off" state.                                                                                       |
+| offShader                 | path/to/shader     |             | Alternative shader to use when the brush is in "off" state.                                                                                       |
+| modelscale/modelscale_vec | any value(s)       | 1.0 1.0 1.0 | Scales the model on all axes or per-axis, if `model2` is used. Also applies to `offModel`.                                                        |
+| angle/angles              | Y angle/XYZ angles | 0           | Model angles if `model2` is used. Also applies to `offModel`.                                                                                     |
+| portalsize                | 0 - 512            | 0           | Size of a portal created on entity's surfaces, if `spawnflag 32` is set. **0** means default size.                                                |
+| target                    | targetname(s)      |             | Targets to fire when hurt, if `spawnflag 2` is set.                                                                                               |
+| scriptname                | scriptblock        |             | Script block for mapscripting. Calls `enabled/disabled (axis/allies)` triggers when the entity is toggled, `pain` if hurt & `spawnflag 2` is set. |
 
 **Spawnflags**
 
-| Spawnflag | Description                                                                                     |
-| :-------: | :---------------------------------------------------------------------------------------------- |
-| 1         | Start the entity in "off" state.                                                                |
-| 2         | Activate targets when the entity takes damage.                                                  |
-| 4         | Gib the activator if they are inside the entity when it turns solid.                            |
-| 8         | Sync the state of this entity for all fireteam members, when fireteam teamjump mode is enabled. |
-| 16        | Delete activators portals that are inside the entity, when it turns solid.                      |
+| Spawnflag | Description                                                                                                                                  |
+| :-------: | :------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1         | Start the entity in "off" state.                                                                                                             |
+| 2         | Activate targets when the entity takes damage.                                                                                               |
+| 4         | Gib the activator if they are inside the entity when it turns solid.                                                                         |
+| 8         | Sync the state of this entity for all fireteam members, when fireteam teamjump mode is enabled.                                              |
+| 16        | Delete activators portals that are inside the entity, when it turns solid.                                                                   |
+| 32        | Portals fired on this entity are always centered on it's surfaces (similar to [`func_portaltarget`](mapping_entities.md/#func_portaltarget). |
 
 ```{note}
 * This must be activated via an entity that passes on the activator data.

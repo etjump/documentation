@@ -11,11 +11,11 @@ Saves the current temp demo recorded with [`etj_autoDemo`](etjump_cvars.md/#etj_
 ---
 
 ## addCustomCommand
-`addCustomCommand <name> <command> [page (1-5)] [slot (1-8)]`  
-`addCustomCommand -n <name> -c <command> [-p <page (1-5)>] [-s <slot (1-8)>]`  
-`addCustomCommand --name <name> --command <command> [--page <page (1-5)>] [--slot <slot (1-8)>]`  
+`addCustomCommand <command> [name] [page (1-5)] [slot (1-8)]`  
+`addCustomCommand -c <command> [-n <name>] [-p <page (1-5)>] [-s <slot (1-8)>]`  
+`addCustomCommand --command <command> [--name <name>] [--page <page (1-5)>] [--slot <slot (1-8)>]`  
 
-Adds a new custom command to the custom command menu. If `page` is omitted, defaults to first page with a free slot. If `slot` is omitted, defaults to first free slot on given page.
+Adds a new custom command to the custom command menu. If `name` is omitted, the menu displays the stored command. If `page` is omitted, defaults to first page with a free slot. If `slot` is omitted, defaults to first free slot on given page.
 
 ---
 
@@ -149,8 +149,8 @@ Performing a `vid_restart` while the playback is active will break the playback,
 
 ## editCustomCommand
 `editCustomCommand <page (1-5)> <slot (1-8)>`  
-`editCustomCommand -p <page (1-5)> -s <slot (1-8)> -n <name> -c <command>`  
-`editCustomCommand --page <page (1-5)> --slot <slot (1-8)> --name <name> --command <command>`  
+`editCustomCommand -p <page (1-5)> -s <slot (1-8)> [-n <name>] [-c <command>]`  
+`editCustomCommand --page <page (1-5)> --slot <slot (1-8)> [--name <name>] [--command <command>]`  
 
 Edits a custom command at given page and slot.
 
@@ -178,6 +178,9 @@ Prints the list of bitflag values for [`etj_extraTrace`](etjump_cvars.md/#etj_ex
 ---
 
 ## fireteam
+`fireteam invite <clientname|clientnum>`  
+`fireteam invite <r|b|s>`  
+`fireteam invite <axis|allies|allied|spectator|spectators|all>`  
 `fireteam rules <rule> <value>`  
 `fireteam tj|teamjump <on|1> <off|0>`  
 `fireteam countdown [seconds (1-10)]`  
@@ -185,6 +188,8 @@ Prints the list of bitflag values for [`etj_extraTrace`](etjump_cvars.md/#etj_ex
 Executes fireteam actions. `rules` and `teamjump` can only be set by the fireteam admin.
 
 Enabling teamjump mode is required for [`target_ftrelay`](../mapping/mapping_entities.md/#target_ftrelay) to activate targets for each fireteam member.
+
+`invite` accepts special strings to invite multiple players. You can invite either team, all spectators, or just all clients on the server.
 
 `countdown` will perform an automated countdown in fireteam chat from the given `seconds` value. This can be used to coordinate timings on teamjumps. If `seconds` is not given, the default value will be taken from [`etj_fireteamCountdownLength`](./etjump_cvars.md/#etj_fireteamcountdownlength) cvar.
 
@@ -428,6 +433,17 @@ This can be used during demo playback (starting with demos recorded in ETJump 3.
 
 ---
 
+## privateMessage
+`privateMessage`
+
+Opens the private message menu. Messages sent via this menu are quote-printable encoded.
+
+```{seealso}
+[Quoted-printable - Wikipedia](https://en.wikipedia.org/wiki/Quoted-printable)
+```
+
+---
+
 ## rankings
 `rankings [season]`  
 `rankings [-s <season>] [-p <page>] [-ps <page size>]`  
@@ -467,6 +483,18 @@ Parses custom command menu from the file pointed to by [`etj_ccMenu_filename`](e
 `readsavepos`
 
 Reloads all savepos files in `etjump/savepos` directory.
+
+---
+
+## record-details
+`record-details <run name>`  
+`record-details <run name> <rank>`  
+`record-details <map name> <run name> <rank>`  
+`record-details <season name> <map name> <run name> <rank>`  
+`record-details -r <run name> [-s <season name>] [-m <map name] [-rk <rank>]`  
+`record-details --run <run name> [--season <season name>] [--map <map name] [--rank <rank>]`
+
+Prints detailed information about a timerun record. If `[rank]` is omitted, defaults to rank **1**. If `[season]` isn't specifed, prints overall records.
 
 ---
 

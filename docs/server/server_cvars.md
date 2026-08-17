@@ -276,6 +276,19 @@ File where information about maps is stored (eg. playtime).
 
 ---
 
+## g_mapAutoexecDir
+Cvar                    | Values         | Default
+:-----------------------|:---------------|:------------
+g_mapAutoexecDir        | directory name | 
+
+Directory inside `etjump` or `etmain` where [map-specific autoexec](../advanced_features.md/#map-autoexecs) configs are executed from. If not set, configs are executed from `etjump` or `etmain` directory.
+
+```{note}
+This controls how the server loads map-specific autoexec files. For client side cvar, see [`etj_mapAutoexecDir`](../client/etjump_cvars.md/#etj_mapautoexecdir).
+```
+
+---
+
 ## g_mapScriptDir
 Cvar                    | Values         | Default
 :-----------------------|:---------------|:------------
