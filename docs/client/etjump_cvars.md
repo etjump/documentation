@@ -66,7 +66,11 @@ Changes the acceleration meter color to represent acceleration or deceleration.
     * white - no input
 
 ```{note}
-Due to inaccuracies in interpolation, advanced coloring is automatically disabled while spectating and during demo playback, and simple acceleration coloring is used instead.
+Advanced coloring is automatically disabled and simple coloring is used instead under certain circumstances:
+* Player is spectating
+* On demo playback if:
+  * The demo was recorded while spectating
+  * The demo was recorded on a server not running at `sv_fps 125`
 ```
 
 ---
@@ -251,6 +255,15 @@ Toggles whether the [custom command menu](../basic_features.md/#custom-command-m
 
 ---
 
+## etj_ccMenu_browseWithOpen
+Cvar                      | Values        | Default
+:-------------------------|:--------------|:------------
+etj_ccMenu_browseWithOpen | 0 or 1        | 0
+
+If enabled, using [`openCustomCommandMenu`](client_commands.md/#opencustomcommandmenu) while the [custom command menu](../basic_features.md/#custom-command-menu) is already open, will browse to the next page instead of closing the menu.
+
+---
+
 ## etj_ccMenu_filename
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
@@ -259,7 +272,8 @@ etj_ccMenu_filename     | filename      | custom_commands
 Filename to store and parse [custom commands](../basic_features.md/#custom-command-menu) from. A `.dat` extension will automatically be applied to the cvar value.
 
 ```{tip}
-You can use forward slahes in the filename (e.g. `config/custom_commands`) to place the file inside a sub-directory.
+* You can use forward slahes in the filename (e.g. `config/custom_commands`) to place the file inside a sub-directory.
+* Changing this cvar value automatically resets the current active page to **1**.
 ```
 
 ---
@@ -270,6 +284,24 @@ Cvar                    | Values        | Default
 etj_ccMenu_rememberPage | 0 or 1        | 0
 
 Toggles whether the [custom command menu](../basic_features.md/#custom-command-menu) opens back to the last used page.
+
+---
+
+## etj_ccMenu_showEmptyPages
+Cvar                      | Values        | Default
+:-------------------------|:--------------|:------------
+etj_ccMenu_showEmptyPages | 0 or 1        | 0
+
+Toggles whether the [custom command menu](../basic_features.md/#custom-command-menu) shows empty pages while browsing.
+
+---
+
+## etj_ccMenu_width
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_ccMenu_width        | 204 - 620     | 204
+
+Sets the width of [custom command menu](../basic_features.md/#custom-command-menu).
 
 ---
 
@@ -331,7 +363,6 @@ Extends minline drawing on CGaz 1 to cover the currently active snapzone, disabl
 
 ```{note}
 * This uses [`etj_CGazFov`](etjump_cvars.md/#etj_cgazfov) to determine the snapzone positions. It's meant to be used standalone, without using [`etj_drawSnapHUD`](etjump_cvars.md/#etj_drawsnaphud). If CGaz and snaphud FOVs do not match, the drawing appears misaligned compared to the snaphud, though it is still correct.
-* The end of the snapzone has a very slight deviation from the actual snapzone end as CGaz FOV decreases, due to some internal inaccuracies with how CGaz and snaphud angles are calculated.
 ```
 
 ---
@@ -722,6 +753,15 @@ Checkpoint timer must be in detached mode (`etj_drawCheckpoints 2`) to adjust th
 
 ---
 
+## etj_CHS1DistanceScale
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_CHS1DistanceScale   | 0.25 - 10.0   | 1.0
+
+Scales the distance from crosshair to CHS1 info values.
+
+---
+
 ## etj_CHS1Info1-8
 Cvar                    | Values                                         | Default
 :-----------------------|:-----------------------------------------------|:------------
@@ -740,6 +780,24 @@ Sets CHS **2** info of the given slot to display the given info value.
 
 ---
 
+## etj_CHS3Info1-8
+Cvar                    | Values                                         | Default
+:-----------------------|:-----------------------------------------------|:------------
+etj_CHS3Info1-8         | [chs info value](../advanced_features.md/#chs) | 0
+
+Sets CHS **3** info of the given slot to display the given info value.
+
+---
+
+## etj_CHS2HideLabels
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_CHS2HideLabels      | 0 or 1        | 0
+
+Toggles labels for CHS2 info values.
+
+---
+
 ## etj_CHS2PosX
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
@@ -755,6 +813,33 @@ Cvar                    | Values        | Default
 etj_CHS2PosY            | any integer   | 0
 
 Sets vertical offset of CHS2.
+
+---
+
+## etj_CHS3HideLabels
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_CHS3HideLabels      | 0 or 1        | 0
+
+Toggles labels for CHS3 info values.
+
+---
+
+## etj_CHS3PosX
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_CHS3PosX            | any integer   | 0
+
+Sets horizontal offset of CHS3.
+
+---
+
+## etj_CHS3PosY
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_CHS3PosY            | any integer   | 0
+
+Sets vertical offset of CHS3.
 
 ---
 
@@ -921,6 +1006,13 @@ etj_drawAccel           | 0 or 1        | 0
 
 Toggles drawing of acceleration values on x/y axes.
 
+```{note}
+* Accel meter does not draw while spectating
+* Accel meter does not draw on demo playback on following scenarios:
+  * The demo was recorded while spectating
+  * The demo was recorded on a server not running at `sv_fps 125`
+```
+
 ---
 
 ## etj_drawBanners
@@ -978,6 +1070,22 @@ etj_drawCHS2            | 0 - 2         | 0
 Draws crosshair stats 2. Value **2** aligns text to the right.
 
 
+```{seealso}
+[Crosshair stats](../advanced_features.md/#chs)
+```
+
+---
+
+## etj_drawCHS3
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_drawCHS3            | 0 - 2         | 0
+
+Draws crosshair stats 3. Value **2** aligns text to the right.
+
+```{note}
+This is exactly the same as [`etj_drawCHS2`](etjump_cvars.md/#etj_drawchs2), it just provides another set of 8 stats that can be displayed anywhere else on on the screen.
+```
 ```{seealso}
 [Crosshair stats](../advanced_features.md/#chs)
 ```
@@ -1830,6 +1938,45 @@ No effect unless [`etj_jumpSpeedsShowDiff`](etjump_cvars.md/#etj_jumpspeedsshowd
 
 ---
 
+## etj_jumpSpeedsMaxJumps
+Cvar                      | Values               | Default
+--------------------------|:---------------------|:------------
+etj_jumpSpeedsMaxJumps    | 1 - 100              | 10
+
+Sets the number of jumps to display on the jump speeds display.
+
+```{tip}
+Up to 100 jump speeds are always recorded in the background - you can increase the displayed jumps at any point to see any jump speed from the current session, that was pushed out from the list due to draw limit at the time.
+```
+
+---
+
+## etj_jumpSpeedsMaxJumpsPerColumn
+Cvar                            | Values               | Default
+--------------------------------|:---------------------|:------------
+etj_jumpSpeedsMaxJumpsPerColumn | 1 - 100              | 5
+
+Sets the number of jumps to display on a column on the jump speeds display.
+
+```{note}
+Only affects vertical layout, see [`etj_jumpSpeedsStyle`](etjump_cvars.md/#etj_jumpspeedsstyle).
+```
+
+---
+
+## etj_jumpSpeedsMaxJumpsPerRow
+Cvar                         | Values               | Default
+-----------------------------|:---------------------|:------------
+etj_jumpSpeedsMaxJumpsPerRow | 1 - 100              | 10
+
+Sets the number of jumps to display on a row on the jump speeds display.
+
+```{note}
+Only affects horizontal layout, see [`etj_jumpSpeedsStyle`](etjump_cvars.md/#etj_jumpspeedsstyle).
+```
+
+---
+
 ## etj_jumpSpeedsMinSpeed
 Cvar                      | Values               | Default
 --------------------------|:---------------------|:------------
@@ -1858,6 +2005,19 @@ Cvar                      | Values        | Default
 etj_jumpSpeedsShowDiff    | 0 or 1        | 0
 
 Toggles coloring jump speeds with [`etj_jumpSpeedsFasterColor`](etjump_cvars.md/#etj_jumpspeedsfastercolor) and [`etj_jumpSpeedsSlowerColor`](etjump_cvars.md/#etj_jumpspeedsslowercolor) if a jump was faster or slower than the previous jump, respectively.
+
+---
+
+## etj_jumpSpeedsShowUpmove
+Cvar                      | Values        | Default
+--------------------------|:--------------|:------------
+etj_jumpSpeedsShowUpmove  | 0 or 1        | 0
+
+Toggles showing full upmove values next to jump speeds on the jump speeds display.
+
+```{tip}
+The upmove values are always recorded in the background if jump speeds display is enabled - you may toggle this at any point to view upmove values from any jump in the current session.
+```
 
 ---
 
@@ -2064,12 +2224,34 @@ Toggles playback of looped sounds in maps.
 
 ---
 
+## etj_mapAutoexecDir
+Cvar                    | Values               | Default
+:-----------------------|:---------------------|:------------
+etj_mapAutoexecDir      | directory name       |
+
+Directory inside `etjump` or `etmain` where [map-specific autoexec](../advanced_features.md/#map-autoexecs) configs are executed from. If not set, configs are executed from `etjump` or `etmain` directory.
+
+```{note}
+You may set this on server side via [`g_mapAutoexecDir`](../server/server_cvars.md/#g_mapautoexecdir).
+```
+
+---
+
 ## etj_maxSpeedDuration
 Cvar                    | Values               | Default
 :-----------------------|:---------------------|:------------
 etj_maxSpeedDuration    | any positive integer | 2000
 
 How long in milliseconds your max speed from last load will be visible when [`etj_drawMaxSpeed`](etjump_cvars.md/#etj_drawmaxspeed) is enabled.
+
+---
+
+## etj_maxSpeedPrecision
+Cvar                    | Values               | Default
+:-----------------------|:---------------------|:------------
+etj_maxSpeedPrecision   | 0 - 6                | 0
+
+Sets the decimal precision for max speed display when [`etj_drawMaxSpeed`](etjump_cvars.md/#etj_drawmaxspeed) is enabled.
 
 ---
 
@@ -2530,6 +2712,14 @@ Toggles drawing of portal activation boxes.
 
 ---
 
+## etj_portalTrailTime
+Cvar                    | Values               | Default
+:-----------------------|:---------------------|:------------
+etj_portalTrailTime     | 0 - 10000            | 400
+
+How long portal trails stay after firing, in milliseconds.
+
+---
 ## etj_predefineddemokeys
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
@@ -2835,6 +3025,36 @@ Sets the secondary color of velocity snapping HUD.
 
 ---
 
+## etj_snapHUDCrop
+Cvar                     | Values        | Default
+-------------------------|:--------------|:------------
+etj_snapHUDCrop          | 0 - 2         | 0
+
+Toggles cropping of velocity snapping HUD against current strafe direction.
+
+* **1** - crop when moving
+* **2** - crop always
+
+```{seealso}
+* [Snaphud cropping](../advanced_features.md#cropping)
+* [`etj_snapHUDCropOffsets`](etjump_cvars.md/#etj_snaphudcropoffsets)
+```
+
+---
+
+## etj_snapHUDCropOffsets
+Cvar                     | Values          | Default
+-------------------------|:----------------|:------------
+etj_snapHUDCropOffsets   | 0 - 320 0 - 320 | 0 0
+
+Offsets the cropping of velocity snapping HUD from the center and edge of the screen, respectively.
+
+```{note}
+* You must give this cvar two values, delimited by space.
+```
+
+---
+
 ## etj_snapHUDEdgeThickness
 Cvar                     | Values        | Default
 -------------------------|:--------------|:------------
@@ -3021,8 +3241,12 @@ Changes ETJump speed meter color to represent acceleration or deceleration.
     * red - no acceleration towards movement direction
     * white - no input
 
-``` {note}
-Due to inaccuracies in interpolation, advanced coloring is automatically disabled while spectating and during demo playback, and simple acceleration coloring is used instead.
+```{note}
+Advanced coloring is automatically disabled and simple coloring is used instead under certain circumstances:
+* Player is spectating
+* On demo playback if:
+  * The demo was recorded while spectating
+  * The demo was recorded on a server not running at `sv_fps 125`
 ```
 
 ---
@@ -3033,6 +3257,15 @@ Cvar                    | Values               | Default
 etj_speedinterval       | any positive integer | 100
 
 How often speed meter 1 gets updated in milliseconds.
+
+---
+
+## etj_speedPrecision
+Cvar                    | Values               | Default
+:-----------------------|:---------------------|:------------
+etj_speedPrecision      | 0 - 6                | 0
+
+Sets the decimal precision for ETJump speed meter.
 
 ---
 
