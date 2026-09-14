@@ -14,6 +14,10 @@ This page is a work in progress. The old "Getting Started" page was split into t
 ### Framerate independent physics
 You should always have `pmove_fixed` set to **1**. This is the de-facto standard for physics calculations in ETJump. This forces the game to calculate physics at exactly **8ms** intervals, regardless of you actual framerate, ensuring consistent behavior for acceleration and jump height.
 
+```{tip}
+If the game tells you that `pmove_fixed` is read only, try setting it via ETJump menus. This can sometimes happen when connecting to ETJump servers, while having another mod loaded. Normally `pmove_fixed` can only be set by the server, but in ETJump, it can be set by the client instead. Switching mods from non-ETJump to ETJump can sometimes leave the cvar in an incorrect state, causing this bug.
+```
+
 ```{caution}
 Do not use `pmove_fixed 1` while playing other mods! It negatively affects several aspects of regular gameplay, such as bullet spread.
 ```
