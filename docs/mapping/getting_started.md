@@ -4,7 +4,21 @@ Here you will find simple guide on how to start mapping for ETJump mod.
 
 ---
 
-## TL;DR
+## Automated setup
+
+You can use the [mapping setup tool](https://github.com/etjump/mapping-setup/releases) to automatically setup your mapping environment.
+This tool automatically downloads your chosen engine, latest ETJump, NetRadiant-custom and ETJump mapping assets for you in the directory of your choosing, giving you a complete environment to start mapping in a matter of minutes.
+See the [readme](https://github.com/etjump/mapping-setup/blob/main/README.md) for details on how the tool works.
+
+---
+
+## Manual setup
+
+If you prefer to setup everything manually, follow the steps below.
+
+---
+
+### TL;DR
 
 Already familiar with the setup, but just need a refresher of the order of the steps?
 
@@ -13,12 +27,6 @@ Already familiar with the setup, but just need a refresher of the order of the s
 * Install [ET Mapping SDK](https://aciz.etjump.com/downloads/et-mapping-sdk.zip)
 * Install [ETJump mapping assets](https://github.com/etjump/mapping)
 * (Optional) Install [ET extra assets](https://github.com/Aciz/ET-extra-assets)
-
----
-
-## Getting started
-
-This section explains the steps to follow in order to setup a proper mapping environment.
 
 ---
 
