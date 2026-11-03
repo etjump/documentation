@@ -25,7 +25,7 @@ Flag | Commands
 :----|:--------------------
 \*   | all commands
 /    | [`silent command execution`](admin_system.md/#silent-command-execution)
-a    | [`8ball`](admin_system.md/#8ball) [`admintest`](admin_system.md/#admintest) [`findmap`](admin_system.md/#findmap) [`help`](admin_system.md/#help) [`leastplayed`](admin_system.md/#leastplayed) [`listmaps`](admin_system.md/#listmaps) [`loadcheckpoints`](admin_system.md/#loadcheckpoints) [`mapinfo`](admin_system.md/#mapinfo) [`mostplayed`](admin_system.md/#mostplayed) [`newmaps`](admin_system.md/#newmaps) [`rankings`](admin_system.md/#rankings) [`records, ranks, times and top`](admin_system.md/#ranks-records-times-and-top) [`rtv`](admin_system.md/#rtv) [`seasons`](admin_system.md/#seasons) [`spectate`](admin_system.md/#spectate)
+a    | [`8ball`](admin_system.md/#8ball) [`admintest`](admin_system.md/#admintest) [`best-segments`](admin_system.md/#best-segments) [`best-segments-history`](admin_system.md/#best-segments-history) [`findmap`](admin_system.md/#findmap) [`help`](admin_system.md/#help) [`leastplayed`](admin_system.md/#leastplayed) [`list-removed-records`](admin_system.md/#list-removed-records) [`list-removed-segments`](admin_system.md/#list-removed-segments) [`listmaps`](admin_system.md/#listmaps) [`loadcheckpoints`](admin_system.md/#loadcheckpoints) [`mapinfo`](admin_system.md/#mapinfo) [`mostplayed`](admin_system.md/#mostplayed) [`newmaps`](admin_system.md/#newmaps) [`rankings`](admin_system.md/#rankings) [`record-history`](admin_system.md/#record-history) [`ranks, records, times and top`](admin_system.md/#ranks-records-times-and-top) [`remove-record`](admin_system.md/#remove-record) [`remove-segment`](admin_system.md/#remove-segment) [`restore-record`](admin_system.md/#restore-record) [`restore-segment`](admin_system.md/#restore-segment) [`rtv`](admin_system.md/#rtv) [`seasons`](admin_system.md/#seasons) [`spectate`](admin_system.md/#spectate)
 A    | [`addlevel`](admin_system.md/#addlevel) [`deletelevel`](admin_system.md/#deletelevel) [`editcommands`](admin_system.md/#editcommands) [`editlevel`](admin_system.md/#editlevel) [`edituser`](admin_system.md/#edituser) [`finduser`](admin_system.md/#finduser) [`levelinfo`](admin_system.md/#levelinfo) [`listusernames`](admin_system.md/#listusernames) [`listflags`](admin_system.md/#listflags) [`listusers`](admin_system.md/#listusers) [`userinfo`](admin_system.md/#userinfo)
 b    | [`ban`](admin_system.md/#ban) [`unban`](admin_system.md/#unban) 
 c    | [`add-customvote`](admin_system.md/#add-customvote) [`delete-customvote`](admin_system.md/#delete-customvote) [`edit-customvote`](admin_system.md/#edit-customvote)
@@ -201,6 +201,20 @@ Temporary bans do not currently expire during a map. If a ban timeout has expire
 
 ---
 
+### best-segments
+See the [`best-segments`](../client/client_commands.md/#best-segments) client command for usage.
+
+**Flag:** a
+
+---
+
+### best-segments-history
+See the [`best-segments-history`](../client/client_commands.md/#best-segments-history) client command for usage.
+
+**Flag:** a
+
+---
+
 ### cancelvote
 Cancels currently active vote.
 
@@ -209,24 +223,9 @@ Cancels currently active vote.
 ---
 
 ### comparecheckpoints
-Compare checkpoint times between two runs.
-
-`!comparecheckpoints <run name> [rank-1] <rank-2>`
+See the [`comparecheckpoints`](../client/client_commands.md/#comparecheckpoints) client command for usage.
 
 **Flag:** a
-
-{.option-table}
-Option                    | Description
-:-------------------------|:------------
--s, --season              | Name of the season.
--m, --map                 | Name of the map.
-**-r, --run**             | Name of the run.
--rk1, --rank-1            | The first rank to compare. Defaults to **1**.
-**-rk2, --rank-2**        | The second rank to compare.
-
-```{tip}
-`<season name>`, `<map name>` and `<run name>` support partial matching.
-```
 
 ---
 
@@ -510,25 +509,9 @@ The ban IDs may be incorrect if a player was banned or unbanned during the curre
 ---
 
 ### listcheckpoints
-Lists checkpoint times from the given run.
-
-`!listcheckpoints <run name> [rank]`  
-`!listcheckpoints <map name> <run name> <rank>`  
-`!listcheckpoints <season name> <map name> <run name> <rank>`
+See the [`listcheckpoints`](../client/client_commands.md/#listcheckpoints) client command for usage.
 
 **Flag:** a
-
-{.option-table}
-Option                    | Description
-:-------------------------|:------------
--s, --season              | Name of the season. Default is the overall season.
--m, --map                 | Name of the map. Default is the current map.
-**-r, --run**             | Name of the run.
--rk, --rank               | Rank to list checkpoints from. Default is rank **1**.
-
-```{tip}
-`<season name>`, `<map name>` and `<run name>` support partial matching.
-```
 
 ---
 
@@ -592,22 +575,24 @@ page                      | Page to display. A single page fits **20** users.
 
 ---
 
-### loadcheckpoints
-Loads timerun checkpoints for comparison for given timerun.
-
-`!loadcheckpoints <run name> [rank]`
+### list-removed-records
+See the [`list-removed-records`](../client/client_commands.md/#list-removed-records) client command for usage.
 
 **Flag:** a
 
-{.option-table}
-Option                    | Description
-:-------------------------|:------------
-**-r, --run**             | Name of the run.
--rk, --rank               | Rank to load. Defaults to **1**. Use `-1` to clear the loaded checkpoints.
+---
 
-```{tip}
-`<run name>` supports partial name matching, the exact run name isn't required.
-```
+### list-removed-segments
+See the [`list-removed-segments`](../client/client_commands.md/#list-removed-segments) client command for usage.
+
+**Flag:** a
+
+---
+
+### loadcheckpoints
+See the [`loadcheckpoints`](../client/client_commands.md/#loadcheckpoints) client command for usage.
+
+**Flag:** a
 
 ---
 
@@ -734,44 +719,37 @@ Rock the Vote cannot be passed using this command.
 ---
 
 ### rankings
-Prints timerun rankings. If no arguments are given, prints top **20** overall rankings.
-
-`!rankings [season]`
+See the [`rankings`](../client/client_commands.md/#rankings) client command for usage.
 
 **Flag:** a
-
-{.option-table}
-Option                    | Description
-:-------------------------|:------------
--s, --season              | Season to print rankings for.
--p, --page                | Page of rankings to print.
--ps, --page-size          | Number of rankings per page.
 
 ---
 
 ### ranks, records, times and top
-Prints timerun records with given parameters. If no arguments are given, prints top **3** records for each run in the current map.
+See the [`ranks, records, times, top`](../client/client_commands.md/#ranks-records-times-top) client command for usage.
 
-`records [run name]`  
-`records <map name> <run name>`  
-`records <season> <map name> <run name>`
+**Flag:** a
 
-{.option-table}
-Option                    | Description
-:-------------------------|:------------
--s, --season              | Season to print records for. Default is the overall season.
--m, --map                 | Map to print records for. Default is the current map.
--r, --run                 | Run to print records for.
--p, --page                | Page of records to print.
--ps, --page-size          | Number of records per page. Default is **20**.
+---
 
-```{tip}
-`<run name>`, `<map name>` and `<season>` support partial name matching.
-```
+### record-history
+See the [`record-history`](../client/client_commands.md/#record-history) client command for usage.
 
-```{note}
-`ranks`, `reconds`, `times` and `top` are all valid aliases for this command.
-```
+**Flag:** a
+
+---
+
+### remove-record
+See the [`remove-record`](../client/client_commands.md/#remove-record) client command for usage.
+
+**Flag:** a
+
+---
+
+### remove-segment
+See the [`remove-segment`](../client/client_commands.md/#remove-segment) client command for usage.
+
+**Flag:** a
 
 ---
 
@@ -798,6 +776,20 @@ This does not decrease the name change limit defined by [`g_nameChangeLimit`](se
 Restarts the current map.
 
 **Flag:** r
+
+---
+
+### restore-record
+See the [`restore-record`](../client/client_commands.md/#restore-record) client command for usage.
+
+**Flag:** a
+
+---
+
+### restore-segment
+See the [`restore-segment`](../client/client_commands.md/#restore-segment) client command for usage.
+
+**Flag:** a
 
 ---
 

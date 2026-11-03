@@ -66,6 +66,47 @@ slot                      | The backup slot to load (1-3). Defaults to **1**.
 
 ---
 
+## best-segments
+Prints best segments from a timerun.
+
+`best-segments <run name>`  
+`best-segments <map name> <run name>`  
+`best-segments <season name> <map name> <run name>`
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**-r, --run**             | Name of the run.
+-s, --season              | Name of the season.
+-m, --map                 | Name of the map. Default is the current map.
+-u, --user                | User ID of the user to print segments for. Default is your own user. Ignored if `-g` is given.
+-g, --global              | Prints the overall best times instead of your personal best times.
+
+---
+
+## best-segments-history
+Prints the history of a single best segment.
+
+`best-segments-history <run name> <segment>`  
+`best-segments-history <map name> <run name> <segment>`  
+`best-segments-history <season name> <map name> <run name> <segment>`
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+-s, --season              | Season to print the history from. A partial match prints every matching season. Default is the overall season.
+-m, --map                 | Map to print the history from. Default is the current map.
+**-r, --run**             | Run to print the history from.
+**-sg, --segment**        | The segment to print the history from.
+-u, --user                | User ID to print the history for. Default is your own user ID.
+-mr, --max-records        | Maximum number of records to show. Defaults to **20**. Use **0** to show all records.
+
+```{note}
+Historical progression for timerun segments is not recorded for any run prior to ETJump 3.7.0.
+```
+
+---
+
 ## call, iwant
 Teleports targeted player to you.
 
@@ -398,6 +439,49 @@ Lists all valid spawnpoints in the map. The value in **[brackets]** indicates th
 
 ---
 
+## list-removed-records
+Lists all records removed with the [`remove-record`](client_commands.md/#remove-record) command. With no filters, prints all removed records.
+
+`list-removed-records <user ID>`  
+`list-removed-records <map name> <user ID>`  
+`list-removed-records <map name> <run name> <user ID>`  
+`list-removed-records <season name> <map name> <run name> <user ID>`
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+-s, --season              | Name of the season.
+-m, --map                 | Name of the map.
+-r, --run                 | Name of the run.
+-u, --user                | ETJump ID of the user whose records to list.
+-rb, --removed-by         | ETJump ID of the admin who removed the records.
+-p, --page                | Page to display.
+-ps, --page-size          | Number of records per page.
+
+---
+
+## list-removed-segments
+Lists removed best timerun segments.
+
+`list-removed-segments <user ID>`  
+`list-removed-segments <map name> <user ID>`  
+`list-removed-segments <map name> <run name> <user ID>`  
+`list-removed-segments <season name> <map name> <run name> <user ID>`
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+-s, --season              | Only list removed segments from the given season.
+-m, --map                 | Only list removed segments from the given map.
+-r, --run                 | Only list removed segments from the given run.
+-sg, --segment            | Only list this segment.
+-u, --user                | Only list the segments belonging to this user ID.
+-rb, --removed-by         | Only list the segments removed by this user ID.
+-p, --page                | Which page of removed segments to show.
+-ps, --page-size          | How many segments to show per page. Default is **10**, max is **25**.
+
+---
+
 ## load
 Loads a previously saved position.
 
@@ -645,6 +729,80 @@ Option                    | Description
 
 ---
 
+## record-history
+Prints a user's record progression on a timerun.
+
+`record-history <run name>`  
+`record-history <map name> <run name>`  
+`record-history <season name> <map name> <run name>`  
+`record-history <season name> <map name> <run name> <user ID>`
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**-r, --run**             | Name of the run.
+-s, --season              | Name of the season. Default is the overall season.
+-m, --map                 | Name of the map.
+-u, --user                | User ID of the user whose history to print. Default is your own user.
+-mr, --max-records        | Maximum number of records to print. Defaults to **20**. Use **0** to print all records.
+
+```{note}
+Historical progression for timerun records is not recorded for any run prior to ETJump 3.7.0.
+```
+
+---
+
+## remove-record
+Removes a timerun record from the records table.
+
+`remove-record <run name>`  
+`remove-record <map name> <run name>`  
+`remove-record <season name> <map name> <run name>`
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**-r, --run**             | Name of the run.
+-s, --season              | Name of the season. If not given, defaults to the overall season, cascading to any other season holding a copy of the record.
+-m, --map                 | Name of the map.
+-u, --user                | User ID of the user whose record to remove.
+-re, --reason             | Reason for removing the record. Mandatory when removing other players' records, optional when removing your own.
+
+Any player can remove their own record on a run; administrators with the [`timerun management (T)`](../server/admin_system.md/#permission-system) admin flag can remove records from other players.
+
+```{note}
+* All parameters in this command must be an exact match, no partial/fuzzy matching is performed.
+* You can view all removed records with the [`list-removed-records`](client_commands.md/#list-removed-records) command.
+* Records removed by this command are stored in the removed records archive, and can be restored with the [`restore-record`](client_commands.md/#restore-record) command.
+```
+
+---
+
+## remove-segment
+Removes a recorded best timerun segment.
+
+`remove-segment <run name> <segment>`  
+`remove-segment <map name> <run name> <segment>`  
+`remove-segment <season name> <map name> <run name> <segment>`
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+-s, --season              | Season to remove the segment from. Default is the overall season, cascading to any other season holding a copy of the same segment.
+-m, --map                 | Map to remove the segment from. Default is the current map.
+**-r, --run**             | Run to remove the segment from.
+**-sg, --segment**        | The segment to remove.
+-u, --user                | User ID of the segment owner. Only administrators (flag `T`) can remove other players' segments. Default is your own user ID.
+-re, --reason             | Reason for the removal. Optional when removing your own segments, required when removing another player's segment.
+
+Removed segments are archived in the timerun database, not completely removed.
+
+Map and run names are matched exactly when possible. A partial name is accepted when it resolves to a single map or run.
+
+Administrators with the [`timerun management (T)`](../server/admin_system.md/#permission-system) admin flag can remove another player's segment by adding `--user <user ID> --reason <reason>`.
+
+---
+
 ## resetmaxspeed
 Resets the maximum speed displayed at speedmeter 1.
 
@@ -662,6 +820,40 @@ Queues reset for strafe quality display. This command is automatically executed 
 
 ## resetUpmoveMeter
 Resets the upmove meter display. This command is automatically executed upon death, team change, [`save`](client_commands.md/#save) and [`load`](client_commands.md/#load).
+
+---
+
+## restore-record
+Restores a removed timerun record.
+
+`restore-record <ID>`
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**-i, --id**              | The record ID to restore.
+-f, --force               | Forces the restoration in case of a conflict, moving the conflicting record to the removed records database in place of the restored one.
+
+When targeting a record that is present in multiple seasons, the restoration cascades and restores all the copies of the record present in other seasons.
+
+You can only restore records you have removed yourself, unless you have the [`timerun management (T)`](../server/admin_system.md/#permission-system) admin flag.
+
+---
+
+## restore-segment
+Restores a removed best timerun segment.
+
+`restore-segment <ID>`
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**-i, --id**              | The segment ID to restore.
+-f, --force               | Forces the restoration in case of a conflict, moving the conflicting segment to the removed segments database in place of the restored one.
+
+Restoring the default season's copy cascades and restores the copies of that same split present in other seasons. Targeting a specific season's copy restores only that season.
+
+You can only restore segments you have removed yourself, unless you have the [`timerun management (T)`](../server/admin_system.md/#permission-system) admin flag.
 
 ---
 
