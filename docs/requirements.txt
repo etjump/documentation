@@ -1,8 +1,8 @@
 # theme
-furo==2024.8.6
+furo==2025.12.19
 
 # markdown parser for sphinx
-myst-parser==4.0.0
+myst-parser==5.1.0
 
 # copy button for code blocks
 sphinx-copybutton==0.5.2
