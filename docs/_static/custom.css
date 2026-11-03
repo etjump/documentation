@@ -3,3 +3,9 @@ table.docutils {
     margin-left: 0 !important;
     margin-right: auto !important;
 }
+
+/* tables tagged with {.option-table}: keep the first column from wrapping. This is mainly used in command list pages. */
+table.option-table th:first-child,
+table.option-table td:first-child {
+    min-width: max-content;
+}

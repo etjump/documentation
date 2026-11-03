@@ -37,13 +37,14 @@ Unless a cvar explicitly defines the valid values with a range, these are the li
 
 ## Commands
 
-ETJump has many commands that are accessible to clients, either as [console commands](client/client_commands.md) or via the [admin system](server/admin_system.md). These commands often take in one ore more arguments. The way these arguments are presented in the documentation uses the following format:
+ETJump has many commands that are accessible to clients, either as [console commands](client/client_commands.md) or via the [admin system](server/admin_system.md). These commands often take in one or more arguments. The way these arguments are presented in the documentation uses the following format:
 
-* arguments in `<angle brackets>` or in plain text are **mandatory**.
-* arguments in `[square brackets]` are optional.
-* values separated with `|` are valid values for a given argument
-* values in `(parentheses)` specify a valid range of values for a given argument.
-  * values can be specified inside angle or square brackets, e.g. `<value (1-5)>` or `[value <a|b|c>]`.
+* Arguments in `<angle brackets>` or in plain text are **mandatory**.
+  * In the tables explaining the options for a command, a mandatory argument is **written in bold**.
+* Arguments in `[square brackets]` are optional.
+* Values separated with `|` are valid values for a given argument
+* Values in `(parentheses)` specify a valid range of values for a given argument.
+  * Values can be specified inside angle or square brackets, e.g. `<value (1-5)>` or `[value <a|b|c>]`.
 
 ```{note}
 In some examples, the valid values are broken down to separate examples to simplify reading.
@@ -59,5 +60,5 @@ Command                                                                         
 `!help [command]`                                                                         | Takes a single optional argument, `[command]`.
 `!loadcheckpoints <run name> [rank]`                                                      | Takes a single mandatory argument, `<run name>`, and an optional argument `[rank]`.
 `!moverscale <value (0.1-5.0)>`                                                           | Takes a single mandatory argument, `<value>`, which has a valid range of `(0.1-5.0)`
-`!add-season --name <name> --start-date <YYYY-MM-DD> [--end-date-exclusive <YYYY-MM-DD>]` | Takes two mandatory arguments, `--name <name>` and `--start-date <YYYY-MM-DD>`, and an optional argument `--end-date-exclusive`, which if given, requires a mandatory value `<YYYY-MM-DD>`.
+`!add-season -n <name> -sd <YYYY-MM-DD> [-ed <YYYY-MM-DD>]`                               | Takes two mandatory arguments, `-n <name>` and `-sd <YYYY-MM-DD>`, and an optional argument `-ed`, which if given, requires a mandatory value `<YYYY-MM-DD>`.
 `!tokens delete [easy\|e\|medium\|m\|hard\|h <number (1-32)>]`                            | Takes a single mandatory argument, `delete` and an optional argument with one of the values `easy\|e\|medium\|m\|hard\|h`, which if given, requires a mandatory value `<number>` in the range of `(1-32)`.

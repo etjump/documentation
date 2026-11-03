@@ -104,35 +104,52 @@ Admin commands support "auto-complete", so you don't have to type in the full na
 ---
 
 ### 8ball
-`!8ball <question>`
-
 8ball answers all your questions with three possible answers: yes, no and maybe.
 
+`!8ball <question>`
+
 **Flag:** a
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**question**              | The question to ask.
 
 ---
 
 ### add-customvote
-`!add-customvote -n <name> -fn <callvote_text> -m <maps>`  
-`!add-customvote --name <name> --full-name <callvote_text> --maps <maps>`
+Adds a new custom map vote list.
 
-Adds a new custom map vote list. `<maps>` is a space separated list of maps to include in the list.
+`!add-customvote -n <name> -fn <callvote_text> -m <map1 map2 map3 ...>`
 
 **Flag:** c
 
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**-n, --name**            | Name of the custom map vote list.
+**-fn, --full-name**      | Full name of the list, displayed on the callvote.
+**-m, --maps**            | Space separated list of maps to include in the list.
+
 ```{note}
-This command does not perfrom any validation on the list of maps provided, it is up to the user to provide a valid map names.
+This command does not perform any validation on the list of maps provided, it is up to the user to provide valid map names.
 ```
 
 ---
 
 ### add-season
-`!add-season -n <name> -sd <YYYY-MM-DD> [-ed <YYYY-MM-DD>]`  
-`!add-season --name <name> --start-date <YYYY-MM-DD> [--end-date-exclusive <YYYY-MM-DD>]`
+Adds a new timerun season.
 
-Adds a new timerun season. If `[--end-date-exclusive]` isn't set, the season will be active until end date is added with [`!edit-season`](admin_system.md/#edit-season), or the season is deleted with [`delete-season`](admin_system.md/#delete-season).
+`!add-season -n <name> -sd <YYYY-MM-DD> [-ed <YYYY-MM-DD>]`
 
 **Flag:** T
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**-n, --name**            | Name of the season.
+**-sd, --start-date**     | Start date of the season (`YYYY-MM-DD`).
+-ed, --end-date-exclusive | Exclusive end date of the season (`YYYY-MM-DD`). If not set, the season stays active until an end date is added with [`!edit-season`](admin_system.md/#edit-season), or the season is deleted with [`delete-season`](admin_system.md/#delete-season).
 
 ```{note}
 Season names are case insensitive.
@@ -141,17 +158,23 @@ Season names are case insensitive.
 ---
 
 ### addlevel
+Adds a new level.
+
 `!addlevel <level> [-cmds <commands>] [-greeting <greeting>] [-title <title>]`
 
-Adds a new level. Optionally you can use `-cmds`, `-greeting` and `-title` switches to set commands, greeting and title for the level.
-
 **Flag:** A
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**level**                 | The level to add.
+-cmds                     | Commands for the level.
+-greeting                 | Greeting for the level.
+-title                    | Title for the level.
 
 ---
 
 ### admintest
-`!admintest`
-
 Prints your admin level to everyone in the chat.
 
 **Flag:** a
@@ -159,11 +182,18 @@ Prints your admin level to everyone in the chat.
 ---
 
 ### ban
+Bans a player.
+
 `!ban <name|clientnum> [time (seconds)] [reason]`
 
-Bans a player. Optionally you can set a `[time]` for ban duration in seconds. No `[time]` means a permanent ban. Optionally you can also give a `[reason]` for the ban that will be printed to the banned user. Setting a `[reason]` requires setting `[time]` as well.
-
 **Flag:** b
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**name\|clientnum**       | The name or clientnum of the player to ban.
+time                      | Ban duration in seconds. If not given, the ban is permanent. Value **0** also means permanent.
+reason                    | Reason for the ban, printed to the banned user. Requires `time` to be given.
 
 ```{note}
 Temporary bans do not currently expire during a map. If a ban timeout has expired during current map on the server, the map must be changed for the banned client to be able to connect.
@@ -172,8 +202,6 @@ Temporary bans do not currently expire during a map. If a ban timeout has expire
 ---
 
 ### cancelvote
-`!cancelvote`
-
 Cancels currently active vote.
 
 **Flag:** C
@@ -181,13 +209,20 @@ Cancels currently active vote.
 ---
 
 ### comparecheckpoints
-`!comparecheckpoints <run name> [rank-1] <rank-2>`  
-`!comparecheckpoints [-s <season name>] [-m <map name>] -r <run name> [-rk1 <rank>] -rk2 <rank>`  
-`!comparecheckpoints [--season <season name>] [--map <map name>] --run <run name> [--rank-1 <rank>] --rank-2 <rank>`
+Compare checkpoint times between two runs.
 
-Compare checkpoint times between two runs. If `rank-1` is omitted, defaults to rank 1 time.
+`!comparecheckpoints <run name> [rank-1] <rank-2>`
 
 **Flag:** a
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+-s, --season              | Name of the season.
+-m, --map                 | Name of the map.
+**-r, --run**             | Name of the run.
+-rk1, --rank-1            | The first rank to compare. Defaults to **1**.
+**-rk2, --rank-2**        | The second rank to compare.
 
 ```{tip}
 `<season name>`, `<map name>` and `<run name>` support partial matching.
@@ -196,22 +231,30 @@ Compare checkpoint times between two runs. If `rank-1` is omitted, defaults to r
 ---
 
 ### delete-customvote
-`!delete-customvote -n <name>`  
-`!delete-customvote --name <name>`
+Deletes a custom map vote list.
 
-Deletes a custom map vote list. Name must be an exact match.
+`!delete-customvote -n <name>`
 
 **Flag:** c
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**-n, --name**            | Name of the list to delete. Must be an exact match.
 
 ---
 
 ### delete-season
-`!delete-season -n <name>`  
-`!delete-season --name <name>`
+Deletes a timerun season.
 
-Deletes a timerun season. Name must be an exact match.
+`!delete-season -n <name>`
 
 **Flag:** T
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**-n, --name**            | Name of the season to delete. Must be an exact match.
 
 ```{caution}
 This will delete all timerun records associated with the season!
@@ -224,31 +267,54 @@ Season names are case insensitive.
 ---
 
 ### deletelevel
+Deletes a level.
+
 `!deletelevel <level>`
 
-Deletes a level. Users who are currently set to deleted level will be set to level 0.
-
 **Flag:** A
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**level**                 | The level to delete.
+
+```{note}
+Users who are currently set to deleted level will be set to level 0.
+```
 
 ---
 
 ### edit-customvote
-`!edit-customvote -l <list> [-n <name>] [-fn <callvote_text>] [-am <maps>] [-rm <maps>]`  
-`!edit-customvote --list <list> [--name <name>] [--full-name <callvote_text>] [--add-maps <maps>] [--remove-maps <maps>]`
-
 Edits an existing custom map vote list.
 
+`!edit-customvote -l <list> [-n <name>] [-fn <callvote_text>] [-am <maps>] [-rm <maps>]`
+
 **Flag:** c
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**-l, --list**            | Name of the list to edit.
+-n, --name                | New name for the list.
+-fn, --full-name          | New full name of the list, displayed on the callvote.
+-am, --add-maps           | Space separated list of maps to add to the list.
+-rm, --remove-maps        | Space separated list of maps to remove from the list.
 
 ---
 
 ### edit-season
-`!edit-season -n <name> [-sd <YYYY-MM-DD>] [-ed <YYYY-MM-DD>]`  
-`!edit-season --name <name> [--start-date <YYYY-MM-DD>] [--end-date <YYYY-MM-DD>]`
-
 Edits an existing timerun season.
 
+`!edit-season -n <name> [-sd <YYYY-MM-DD>] [-ed <YYYY-MM-DD>]`
+
 **Flag:** T
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**-n, --name**            | Name of the season to edit.
+-sd, --start-date         | New start date for the season (`YYYY-MM-DD`).
+-ed, --end-date           | New end date for the season (`YYYY-MM-DD`).
 
 ```{note}
 Season names are case insensitive.
@@ -257,15 +323,24 @@ Season names are case insensitive.
 ---
 
 ### editcommands
+Edits commands for a level.
+
 `!editcommands <level> [+command] [-command]`
 
-Edits commands for a level. Adding a + before the command will add that command to the level, adding a - before the command will remove that command from the level. This does **not** use command flags, but rather explicit command names.
+**Flag:** A
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**level**                 | The level to edit.
++command                  | Adds the command to the level.
+-command                  | Removes the command from the level.
+
+This does **not** use command flags, but rather explicit command names.
 
 The following example adds kick and ban to level 5 and removes 8ball from the level 5
 
 `!editcommands 5 +kick +ban -8ball`
-
-**Flag:** A
 
 ```{todo}
 Verify that this actually works as it should. It interacts weirdly with the `Commands` field in the level config.
@@ -274,20 +349,40 @@ Verify that this actually works as it should. It interacts weirdly with the `Com
 ---
 
 ### editlevel
-`!editlevel <level> [-cmds <flags>] [-greeting <greeting>] [-title <title>] [-clear <cmds|greeting|title>]`
-
 Edits a level with given arguments.
 
+`!editlevel <level> [-cmds <flags>] [-greeting <greeting>] [-title <title>] [-clear <cmds|greeting|title>]`
+
 **Flag:** A
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**level**                 | The level to edit.
+-cmds                     | Command flags for the level.
+-greeting                 | Greeting for the level.
+-title                    | Title for the level.
+-clear                    | Clears the given field(s). Accepts `cmds`, `greeting` or `title`.
 
 ---
 
 ### edituser
-`!edituser <etjump ID> [-cmds <flags>] [-greeting <greeting>] [-title <title>] [-clear <cmds|greeting|title>]`
+Edits a user.
 
-Edits a user. These permissions and parameters override the regular permissions and parameters that the users' level provides.
+`!edituser <user ID> [-cmds <flags>] [-greeting <greeting>] [-title <title>] [-clear <cmds|greeting|title>]`
 
 **Flag:** A
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**user ID**               | The user ID of the user to edit.
+-cmds                     | Command flags for the user.
+-greeting                 | Greeting for the user.
+-title                    | Title for the user.
+-clear                    | Clears the given field(s). Accepts `cmds`, `greeting` or `title`.
+
+These permissions and parameters override the regular permissions and parameters that the users' level provides.
 
 ```{tip}
 This works even if the user is not connected to the server
@@ -296,87 +391,140 @@ This works even if the user is not connected to the server
 ---
 
 ### findmap
+Lists all maps on server matching `<mapname>`.
+
 `!findmap <mapname> [maps per row (1-5)]`
 
-Lists all maps on server matching `<mapname>`. If `[maps per row]` is set, will print the given amount of maps to each row (default **3**).
-
 **Flag:** a
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**mapname**               | Map name to search for.
+maps per row              | Number of maps to print per row (1-5). Defaults to **3**.
 
 ---
 
 ### finduser
-`!finduser <name>`
-
 Lists users that match the name.
 
+`!finduser <name>`
+
 **Flag:** A
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**name**                  | The name to search for.
 
 ---
 
 ### finger
+Prints name, original name, user ID, level and title of the targeted player.
+
 `!finger <name|clientnum>`
 
-Prints name, original name, ETJump ID, level and title of the targeted player.
-
 **Flag:** f
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**name\|clientnum**       | The targeted player.
 
 ---
 
 ### help
+Prints all available admin commands. If `[command]` is given, prints the manual for the given command.
+
 `!help [command]`
 
-Prints all available admin commands. if `[command]` is given, prints the manual for the given command.
-
 **Flag:** a
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+command                   | The command to print the manual for.
 
 ---
 
 ### kick
+Kicks target player.
+
 `!kick <name|clientnum> [timeout (seconds)] [reason]`
 
-Kicks target player. If `[timeout]` is given, the targeted player is unable to connect to the server for the duration. If `[reason]` is set, the kicked client will see this message when they get kicked.
-
 **Flag:** k
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**name\|clientnum**       | The player to kick.
+timeout                   | Duration in seconds during which the kicked player is unable to connect to the server.
+reason                    | Reason for the kick, shown to the kicked player.
 
 ---
 
 ### leastplayed
+Lists the least played maps on the server.
+
 `!leastplayed [count (1-100)]`
 
-Lists the least played maps on the server. If `[count]` isn't specified, defaults to **10** maps.
-
 **Flag:** a
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+count                     | Number of maps to list (1-100). Defaults to **10**.
 
 ---
 
 ### levelinfo
+Lists all levels configured on the server, or information about a specific level.
+
 `!levelinfo [level]`
 
-Lists all levels configured on the server. If `[level]` is specified, prints detailed information about the given level.
-
 **Flag:** A
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+level                     | If given, prints detailed information about the given level.
 
 ---
 
 ### listbans
+Lists all active bans on the server.
+
 `!listbans [page]`
 
-Lists all active bans on the server. A single page fits **10** bans.
-
 **Flag:** L
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+page                      | Page to display. A single page fits **10** bans.
+
+```{error}
+The ban IDs may be incorrect if a player was banned or unbanned during the current map. Changing the map will sync the IDs correctly.
+```
 
 ---
 
 ### listcheckpoints
+Lists checkpoint times from the given run.
+
 `!listcheckpoints <run name> [rank]`  
 `!listcheckpoints <map name> <run name> <rank>`  
-`!listcheckpoints <season name> <map name> <run name> <rank>`  
-`!listcheckpoints [-s <season name>] [-m <map name>] -r <run name> [-rk <rank>]`  
-`!listcheckpoints [--season <season name>] [--map <map name>] --run <run name> [--rank <rank>]`  
-
-Lists checkpoint times from the given run. If `rank` is omitted, defaults to **1**.
+`!listcheckpoints <season name> <map name> <run name> <rank>`
 
 **Flag:** a
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+-s, --season              | Name of the season. Default is the overall season.
+-m, --map                 | Name of the map. Default is the current map.
+**-r, --run**             | Name of the run.
+-rk, --rank               | Rank to list checkpoints from. Default is rank **1**.
 
 ```{tip}
 `<season name>`, `<map name>` and `<run name>` support partial matching.
@@ -385,8 +533,6 @@ Lists checkpoint times from the given run. If `rank` is omitted, defaults to **1
 ---
 
 ### listflags
-`!listflags`
-
 Lists command flags for each admin command.
 
 **Flag:** A
@@ -394,49 +540,70 @@ Lists command flags for each admin command.
 ---
 
 ### listmaps
+Lists all maps on the server.
+
 `!listmaps [maps per row (1-5)]`
 
-Lists all maps on the server. If `[maps per row]` isn't specified, defaults to **5**.
-
 **Flag:** a
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+maps per row              | Number of maps to print per row (1-5). Defaults to **5**.
 
 ---
 
 ### listplayers
-`!listplayers`
-
-Lists all players connected to the server, including their clientnum, ETJump ID, level and name.
+Lists all players connected to the server, including their clientnum, user ID, level and name.
 
 **Flag:** l
 
 ---
 
 ### listusernames
-`!listusernames <etjump id>`
+Lists all usernames registered for the given `<user ID>` on the server.
 
-Lists all usernames registered for the given `<etjump id>` on the server.
+`!listusernames <user ID>`
 
 **Flag:** A
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**user ID**               | The user ID to list usernames for.
+
+```{error}
+The user database currently fails to record a name for a user, if the name they have has already been saved and used by another user.
+```
 
 ---
 
 ### listusers
+Lists users that are registered on the server's user database.
+
 `!listusers [page]`
 
-Lists users that are registered on servers user database. A single page fits **20** users.
-
 **Flag:** A
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+page                      | Page to display. A single page fits **20** users.
 
 ---
 
 ### loadcheckpoints
-`!loadcheckpoints <run name> [rank]`  
-`!loadcheckpoints -r <run name> [-rk <rank>]`  
-`!loadcheckpoints --run <run name> [--rank <rank>]`
+Loads timerun checkpoints for comparison for given timerun.
 
-Loads timerun checkpoints for comparison for given timerun. If `[rank]` isn't specified, defaults to rank 1 time. Loaded checkpoints can be cleared by specifying `-1` as rank.
+`!loadcheckpoints <run name> [rank]`
 
 **Flag:** a
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**-r, --run**             | Name of the run.
+-rk, --rank               | Rank to load. Defaults to **1**. Use `-1` to clear the loaded checkpoints.
 
 ```{tip}
 `<run name>` supports partial name matching, the exact run name isn't required.
@@ -445,38 +612,58 @@ Loads timerun checkpoints for comparison for given timerun. If `[rank]` isn't sp
 ---
 
 ### map
-`!map <map name>`
-
 Changes to the specified map.
 
+`!map <map name>`
+
 **Flag:** M
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**map name**              | The map to change to. Must be an full match (case insensitive)
 
 ---
 
 ### mapinfo
+Prints information about a map.
+
 `!mapinfo [map]`
 
-Prints information about the current map. If `[map]` is specified, prints information about the specified map.
-
 **Flag:** a
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+map                       | Map to print information about. Default is the current map.
 
 ---
 
 ### mostplayed
+Lists the most played maps on the server.
+
 `!mostplayed [count (1-100)]`
 
-Lists the most played maps on the server. If `[count]` isn't specified, defaults to **10** maps.
-
 **Flag:** a
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+count                     | Number of maps to list (1-100). Defaults to **10**.
 
 ---
 
 ### moverscale
-`!moverscale <value (0.1-5.0)>`
-
 Scales movement speed of entities following spline paths (typically vehicles) by the given value.
 
+`!moverscale <value (0.1-5.0)>`
+
 **Flag:** v
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**value**                 | Movement speed scale (0.1-5.0).
 
 ```{seealso}
 [`g_moverScale`](server_cvars.md/#g_moverscale)
@@ -485,20 +672,30 @@ Scales movement speed of entities following spline paths (typically vehicles) by
 ---
 
 ### mute
-`!mute <name|clientnum>`
-
 Mutes the targeted player.
 
+`!mute <name|clientnum>`
+
 **Flag:** m
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**name\|clientnum**       | The name or clientnum of the player to mute.
 
 ---
 
 ### newmaps
+Displays the latest maps added to the server, sorted from oldest to newest.
+
 `!newmaps [count (1-50)]`
 
-Displays the latest maps added to the server, sorted from oldest to newest. If `[count]` isnt' specified, defaults to latest **5** maps.
-
 **Flag:** a
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+count                     | Number of maps to list (1-50). Defaults to **5**.
 
 ```{note}
 If a map has been on the server previously but later removed, it has already been registered to the servers map database and won't be displayed as the newest map if re-added.
@@ -507,11 +704,17 @@ If a map has been on the server previously but later removed, it has already bee
 ---
 
 ### noclip
+Enables `noclip`.
+
 `!noclip [name|clientnum] [count]`
 
-Enables `noclip`. If `[name|clientnum]` is specified, targeted player can use `noclip` once. If `[count]` is specified, allows targeted player to use noclip for the given number of times. Value **-1** allows unlimited use until the targeted player disconnects.
-
 **Flag:** N
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+name\|clientnum           | If given, the targeted player can use `noclip` once.
+count                     | Number of times the targeted player can use `noclip`. Value **-1** allows unlimited use until the targeted player disconnects.
 
 ```{note}
 This command has no effect if [`g_noclip`](server_cvars.md/#g_noclip) is set to **1**.
@@ -520,8 +723,6 @@ This command has no effect if [`g_noclip`](server_cvars.md/#g_noclip) is set to 
 ---
 
 ### passvote
-`!passvote`
-
 Forces currently active vote to pass.
 
 **Flag:** P
@@ -533,26 +734,36 @@ Rock the Vote cannot be passed using this command.
 ---
 
 ### rankings
-`!rankings [season]`  
-`!rankings [-s <season>] [-p <page>] [-ps <page size>]`  
-`!rankings [--season <season>] [--page <page>] [--page-size <page size>]`
+Prints timerun rankings. If no arguments are given, prints top **20** overall rankings.
 
-Prints timerun rankings. If no parameters are given, prints top **20** overall rankings.
+`!rankings [season]`
 
 **Flag:** a
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+-s, --season              | Season to print rankings for.
+-p, --page                | Page of rankings to print.
+-ps, --page-size          | Number of rankings per page.
 
 ---
 
 ### ranks, records, times and top
-`!records [run name]`  
-`!records <map name> <run name>`  
-`!records <season> <map name> <run name>`  
-`!records [-s <season>] [-m <map name>] [-r <run name>] [-p <page>] [-ps <page size>]`  
-`!records [--season <season>] [--map <map name>] [--run <run name>] [--page <page>] [--page-size <page size>]`
+Prints timerun records with given parameters. If no arguments are given, prints top **3** records for each run in the current map.
 
-Prints timerun records with given parameters. If no arguments are given, prints top **3** records for each run in the current map. If `[run name]` is given, prints top **20** records for the given run. If `[season]` isn't specifed, prints overall records.
+`records [run name]`  
+`records <map name> <run name>`  
+`records <season> <map name> <run name>`
 
-**Flag:** a
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+-s, --season              | Season to print records for. Default is the overall season.
+-m, --map                 | Map to print records for. Default is the current map.
+-r, --run                 | Run to print records for.
+-p, --page                | Page of records to print.
+-ps, --page-size          | Number of records per page. Default is **20**.
 
 ```{tip}
 `<run name>`, `<map name>` and `<season>` support partial name matching.
@@ -565,11 +776,17 @@ Prints timerun records with given parameters. If no arguments are given, prints 
 ---
 
 ### rename
+Renames the targeted player.
+
 `!rename <name|clientnum> <new name>`
 
-Renames the targeted player
-
 **Flag:** R
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**name\|clientnum**       | The name or clientnum of the player to rename.
+**new name**              | The new name for the player.
 
 ```{note}
 This does not decrease the name change limit defined by [`g_nameChangeLimit`](server_cvars.md/#g_namechangelimit), unless you're targeting yourself.
@@ -578,8 +795,6 @@ This does not decrease the name change limit defined by [`g_nameChangeLimit`](se
 ---
 
 ### restart
-`!restart`
-
 Restarts the current map.
 
 **Flag:** r
@@ -587,17 +802,20 @@ Restarts the current map.
 ---
 
 ### rtv
+Calls Rock the Vote.
+
 `!rtv [list]`
 
-Calls Rock the Vote. If [`list`] is given, calls Rock the Vote with maps only included in the specified custom map vote list.
-
 **Flag:** a
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+list                      | If given, limits the maps to the ones included in the specified custom map vote list.
 
 ---
 
 ### seasons
-`!seasons`
-
 Lists all timerun seasons on the server.
 
 **Flag:** a
@@ -605,40 +823,54 @@ Lists all timerun seasons on the server.
 ---
 
 ### setlevel
-`!setlevel <name|clientnum> <level>`  
-`!setlevel -id <etjump id> <level>`
-
 Sets adminlevel of the targeted player.
+
+`!setlevel <name|clientnum> <level>`  
+`!setlevel -id <user ID> <level>`
 
 **Flag:** s
 
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**name\|clientnum\|-id**  | The player to set the level for.
+**level**                 | The level to set.
+
 ```{tip}
-When using `-id <etjump id>`, the targeted player does not have to be connected to the server.
-``` 
+When using `-id <user ID>`, the targeted player does not have to be connected to the server.
+```
 
 ---
 
 ### spectate
+Switches your team to spectators.
+
 `!spectate [name|clientnum]`
 
-Switches your team to spectators. If `[name|clientnum]` is specified, starts following the given player.
-
 **Flag:** a
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+name\|clientnum           | If given, starts following the given player.
 
 ---
 
 ### tokens
+Creates, deletes or moves a collectible token with given arguments.
+
 `!tokens create <easy|e|medium|m|hard|h>`  
 `!tokens delete [easy|e|medium|m|hard|h <number (1-32)>]`  
 `!tokens move`
 
-Creates, deletes or moves a collectible token with given arguments.
-
-* `!tokens create` will create a token to your location with the given difficulty.
-* `!tokens delete` will delete a token closest to your location, or a specific token from given difficulty.
-* `!tokens move` will move the token closest to you to your current location.
-
 **Flag:** V
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+create                    | Creates a token at your location with the given difficulty.
+delete                    | Deletes the token closest to your location, or a specific token from the given difficulty.
+move                      | Moves the token closest to you to your current location.
 
 ```{note}
 [`g_tokensMode`](server_cvars.md/#g_tokensmode) must be set to **1** for these commands to work.
@@ -647,11 +879,16 @@ Creates, deletes or moves a collectible token with given arguments.
 ---
 
 ### unban
-`!unban <ban id>`
-
 Removes a ban with the given `<ban id>`.
 
+`!unban <ban id>`
+
 **Flag:** b
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**ban id**                | The ID of the ban to remove.
 
 ```{note}
 The unbanned player won't be able to connect to the server until the next time the map is changed.
@@ -660,27 +897,37 @@ The unbanned player won't be able to connect to the server until the next time t
 ---
 
 ### unmute
-`!unmute <name|clientnum>`
-
 Unmutes the targeted player.
 
+`!unmute <name|clientnum>`
+
 **Flag:** m
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**name\|clientnum**       | The player to unmute.
 
 ---
 
 ### userinfo
-`!userinfo <etjump id>`
-
 Prints information about the given user.
 
+`!userinfo <user ID>`
+
 **Flag:** A
+
+{.option-table}
+Option                    | Description
+:-------------------------|:------------
+**user ID**               | The user ID of the user to print information about.
 
 ---
 
 ### Silent command execution
-`/!command`
-
 Allows clients to execute any admin commands available to them silently, without having the typed command appear in chat.
+
+`/!command`
 
 **Flag:** /
 
