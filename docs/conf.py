@@ -19,10 +19,11 @@ release = '3.6.2'
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 extensions = ['myst_parser', 'sphinx_copybutton', 'sphinx.ext.todo']
-myst_enable_extensions = ['attrs_inline']
+myst_enable_extensions = ['attrs_inline', 'attrs_block']
 myst_links_external_new_tab = True
 myst_heading_anchors = 3
 todo_include_todos = True
+smartquotes = False
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
