@@ -7,7 +7,7 @@ ETJump adds new scripting actions, events and entities for mapscripting. Below i
 ## changemodel
 `changemodel <path/to/model.md3>`
 
-Changes the entitys model to the given model.
+Changes the entity's model to the given model.
 
 ```{tip}
 This script action is present in ETMain but only works for brush entities using `model2` key. ETJump allows this to be used to change models of `misc_gamemodel` entities as well.
@@ -18,7 +18,7 @@ This script action is present in ETMain but only works for brush entities using 
 ## changeskin
 `changeskin <path/to/file.skin>`
 
-Changes the entitys skin to the given skin.
+Changes the entity's skin to the given skin.
 
 ---
 
@@ -38,9 +38,9 @@ create
 The documentation of this script action is possibly lacking and inaccurate.
 ```
 
-Allows limited spawning of entities in a map. `create` must be called as a first thing inside `game_manager` -> `spawn` script action. If a map lacks `script_multiplayer` or the `game_manager` script block, it should be called at another entitys `spawn` block. If a map does not include a `script_multiplayer` entity and there are no entities with a `scriptname` set, ETJump automatically spawns an `etjump_game_manager` entity, which provides an entry point to the mapscript via `etjump_manager` scriptblock.
+Allows limited spawning of entities in a map. `create` must be called as a first thing inside `game_manager` -> `spawn` script action. If a map lacks `script_multiplayer` or the `game_manager` script block, it should be called at another entity's `spawn` block. If a map does not include a `script_multiplayer` entity and there are no entities with a `scriptname` set, ETJump automatically spawns an `etjump_game_manager` entity, which provides an entry point to the mapscript via `etjump_manager` scriptblock.
 
-Each entity must be given `classname` and `origin` keys, and additionally for `trigger_multiple_ext`, `trigger_starttimer_ext`, `trigger_checkpoint_ext`, `trigger_stoptimer_ext` and `func_fakebrush`, the brushmodel `mins` and `maxs` (and `contents` in case of `func_fakebrush`). Spawning of point entities generally works as if you would make them in map editor (just remember to set `origin` key manually), but spawning of brush entities is severly limited. Such limits include, but are not necessarily limited to:
+Each entity must be given `classname` and `origin` keys, and additionally for `trigger_multiple_ext`, `trigger_starttimer_ext`, `trigger_checkpoint_ext`, `trigger_stoptimer_ext` and `func_fakebrush`, the brushmodel `mins` and `maxs` (and `contents` in case of `func_fakebrush`). Spawning of point entities generally works as if you would make them in map editor (just remember to set `origin` key manually), but spawning of brush entities is severely limited. Such limits include, but are not necessarily limited to:
 
 * Only the following brush entities can be spawned without using an existing brush model from the map. Any other brush entity will spawn, but lack any volume and act as if they are point entities, even if `mins/maxs` are set.
     * `trigger_multiple_ext`
@@ -74,7 +74,7 @@ If the brushmodel you are reusing is visible at the same time as the original br
 ```
 
 ```{caution}
-When setting the `origin` key, the value is relative to the brushmodel you are reusing, meaning you are "moving" the brushmodel from its original postion rather than setting an absolute position.
+When setting the `origin` key, the value is relative to the brushmodel you are reusing, meaning you are "moving" the brushmodel from its original position rather than setting an absolute position.
 ```
 
 ```{hint}
@@ -83,7 +83,7 @@ Reusing another brushmodel does not remove the original, but rather duplicates i
 
 ### Examples
 
-Creating a new spawnpoint with a commmand map icon.
+Creating a new spawnpoint with a command map icon.
 
 ```
 game_manager
@@ -133,7 +133,7 @@ etjump_manager
 }
 ```
 
-Creating a `func_invisible_user` which activates a print, along with visible brushwork to indicate it's location.
+Creating a `func_invisible_user` which activates a print, along with visible brushwork to indicate its location.
 
 ```
 game_manager
@@ -209,7 +209,7 @@ These mapscript actions have been removed from ETJump as they can be used for ma
 Damages player by given amount.
 
 ```{note}
-If the player has `etj_nofatigue 1`, the damage is halved due to the constant adernaline the cvar gives to the player.
+If the player has `etj_nofatigue 1`, the damage is halved due to the constant adrenaline the cvar gives to the player.
 ```
 
 ```{caution}
@@ -273,6 +273,74 @@ myscriptblock
 
 ---
 
+## editentity
+
+```
+editentity
+{
+    match
+    {
+        <key/value pairs to match an entity/entities>
+    }
+
+    set
+    {
+        <key/value pairs to set to matched entities>
+    }
+}
+```
+
+Edits keys/values of an entity. This can be used to edit an entity which does not have a scriptname set, by finding the entity with the `match` block, followed by setting the keys via `set` block. The `match` block follows the same selection logic as [`delete`](mapscripting.md/#delete), matching any entity in the map with the given key/value pairs. This is mainly useful for making custom mapscripts for existing maps; you should never need this when creating new maps.
+
+```{note}
+This cannot be used to set a `scriptname` for an entity, as scriptnames are bound to the entities when the mapscript is read on map load.
+```
+
+### Examples
+
+Finding an entity with `origin 100 100 100` and setting its targetname to `foo`.
+
+```
+myscriptblock
+{
+    editentity
+    {
+        match
+        {
+            "origin" "100 100 100"
+        }
+
+        set
+        {
+            "targetname" "foo"
+        }
+    }
+}
+```
+
+Finding a `trigger_multiple` entity with `spawnflags 4096` and setting its `wait` to `2.5`.
+
+```
+myscriptblock
+{
+    editentity
+    {
+        match
+        {
+            "classname" "trigger_multiple"
+            "spawnflags" "4096"
+        }
+
+        set
+        {
+            "wait" "2.5"
+        }
+    }
+}
+```
+
+---
+
 ## etjump_manager
 
 Acts as an entry point for mapscript. If a map contains no `script_multiplayer` or any entities with a `scriptname` set, you can use this script block to access mapscripting in a map, e.g. for spawning entities using [`create`](mapscripting.md/#create). This is only present in maps which do not provide `script_multiplayer` or entities with a `scriptname` set.
@@ -284,7 +352,7 @@ Acts as an entry point for mapscript. If a map contains no `script_multiplayer` 
 `func_fakebrush` is a special brush entity that can be spawned via mapscripts. Historically it is used in ETPro to fix exploits in maps. It can act as a clip brush for example to prevent players from jumping out of the map, if the mapper has failed to clip the map properly. To spawn a `func_fakebrush`, you must set the following keys: `origin`, `mins`, `maxs` and `contents`.
 
 ```{hint}
-When `g_scriptDebug` is set to **1**, this entitys bounding box will be drawn in red.
+When `g_scriptDebug` is set to **1**, this entity's bounding box will be drawn in red.
 ```
 
 ---
@@ -328,7 +396,7 @@ set
 }
 ```
 
-`set` in ETJump has a special key `classname_nospawn`, which can be used to change an entitys `classname` without calling the spawn function again. This allows changing the entity's type outside of any `spawn` script blocks, with the restiction that any setup that the entity normally performs while spawning is not run.
+`set` in ETJump has a special key `classname_nospawn`, which can be used to change an entity's `classname` without calling the spawn function again. This allows changing the entity's type outside of any `spawn` script blocks, with the restriction that any setup that the entity normally performs while spawning is not run.
 
 ---
 
@@ -390,7 +458,7 @@ This script action **must** be called via an entity that passes activator data!
 Used for spawning a `trigger_checkpoint` entity. You must set `mins`, `maxs` and `origin` keys for this manually. Supports same entity keys and spawnflags as regular `target/trigger_checkpoint`.
 
 ```{hint}
-When `g_scriptDebug` is set to **1**, this entitys bounding box will be drawn in magenta.
+When `g_scriptDebug` is set to **1**, this entity's bounding box will be drawn in magenta.
 ```
 
 ---
@@ -422,7 +490,7 @@ mytrigger
 Used for spawning a `trigger_multiple` entity. You must set `mins`, `maxs` and `origin` keys for this manually. Supports same entity keys and spawnflags as regular `trigger_multiple`.
 
 ```{hint}
-When `g_scriptDebug` is set to **1**, this entitys bounding box will be drawn in green.
+When `g_scriptDebug` is set to **1**, this entity's bounding box will be drawn in green.
 ```
 
 ---
@@ -432,7 +500,7 @@ When `g_scriptDebug` is set to **1**, this entitys bounding box will be drawn in
 Used for spawning a `trigger_starttimer` entity. You must set `mins`, `maxs` and `origin` keys for this manually. Supports same entity keys and spawnflags as regular `target/trigger_starttimer`.
 
 ```{hint}
-When `g_scriptDebug` is set to **1**, this entitys bounding box will be drawn in blue.
+When `g_scriptDebug` is set to **1**, this entity's bounding box will be drawn in blue.
 ```
 
 ---
@@ -442,7 +510,7 @@ When `g_scriptDebug` is set to **1**, this entitys bounding box will be drawn in
 Used for spawning a `trigger_stoptimer` entity. You must set `mins`, `maxs` and `origin` keys for this manually. Supports same entity keys and spawnflags as regular `target/trigger_stoptimer`.
 
 ```{hint}
-When `g_scriptDebug` is set to **1**, this entitys bounding box will be drawn in blue.
+When `g_scriptDebug` is set to **1**, this entity's bounding box will be drawn in blue.
 ```
 
 ---

@@ -100,7 +100,7 @@ Fires a random target instead of all targets.
 
 ## func_button
 
-When a button is used, it moves some distance in the direction of it's angles, triggers all of it's targets, waits some time, then returns to it's original position where it can be triggered again.
+When a button is used, it moves some distance in the direction of its angles, triggers all of its targets, waits some time, then returns to its original position where it can be triggered again.
 
 **Keys**
 
@@ -231,7 +231,7 @@ A static brushmodel that does nothing by itself. Similar to `func_static`, excep
 | 4         | Gib the activator if they are inside the entity when it turns solid.                                                                         |
 | 8         | Sync the state of this entity for all fireteam members, when fireteam teamjump mode is enabled.                                              |
 | 16        | Delete activators portals that are inside the entity, when it turns solid.                                                                   |
-| 32        | Portals fired on this entity are always centered on it's surfaces (similar to [`func_portaltarget`](mapping_entities.md/#func_portaltarget). |
+| 32        | Portals fired on this entity are always centered on its surfaces (similar to [`func_portaltarget`](mapping_entities.md/#func_portaltarget)). |
 
 ```{note}
 * This must be activated via an entity that passes on the activator data.
@@ -366,7 +366,7 @@ If `spawnflag 4` isn't set, fires a random target instead of all targets. The ta
 
 ## target_give
 
-Gives activator targeted items. Must target actual entites in the map. Standard class restrictions apply when giving weapons (eg. cannot give `weapon_panzerfaust` to a medic).
+Gives activator targeted items. Must target actual entities in the map. Standard class restrictions apply when giving weapons (eg. cannot give `weapon_panzerfaust` to a medic).
 
 **Keys**
 
@@ -380,7 +380,7 @@ Gives activator targeted items. Must target actual entites in the map. Standard 
 
 ## target_init
 
-Initalizes player into a freshly spawned state
+Initializes player into a freshly spawned state
 
 **Keys**
 
@@ -625,7 +625,7 @@ Sets activators health to specified value.
 ---
 
 ## target_spawn_relay
-A passive entity that fires it's targets when a player spawns.
+A passive entity that fires its targets when a player spawns.
 
 **Keys**
 
@@ -646,7 +646,7 @@ A passive entity that fires it's targets when a player spawns.
 
 ### Usage
 
-This entity can be a bit hard to grasp initially with it's relatively complex rules, so here's a bit more thorough explanation.
+This entity can be a bit hard to grasp initially with its relatively complex rules, so here's a bit more thorough explanation.
 
 * You can place this entity anywhere in the playable area in your map. You **do not** need to target this entity with anything, it is automatically activated whenever a player spawns (think of `script_multiplayer`, which automatically "activates" the mapscript at the start of the map).
 * If you do not specify value for the `team` key, the entity will fire for all teams, including spectators. This means that you may not place additional `target_spawn_relay` entities in your map, due to the rule of one spawn relay per team.
@@ -674,7 +674,7 @@ Starts a timerun for the activator.
 | :-------: | :----------------------------------------------------------------------------- |
 | 1         | Run resets on team change.                                                     |
 | 2         | Run resets on death.                                                           |
-| 4         | Run resets only wnen reaching the end.                                         |
+| 4         | Run resets only when reaching the end.                                         |
 | 8         | Run resets if client sets `pmove_fixed 0`.                                     |
 | 16        | Disables `backup` and extra save slots.                                        |
 | 32        | Cannot pickup explosive weapons.                                               |
@@ -844,6 +844,37 @@ Keeping track of tracker values and testing out the logic can become quite compl
 
 ---
 
+## target_wskey_overrides
+
+Applies conditional overrides to global worldspawn key values.
+
+**Keys**
+
+| Key         | Value    | Default | Description                                   |
+| :---------- | :------- | :------ | :-------------------------------------------- |
+| nonoclip    | 0 - 3    |         | Override value for `nonoclip` worldspawn key. |
+| noprone     | 0 - 3    |         | Override value for `noprone` worldspawn key.  |
+| nosave      | 0 - 3    |         | Override value for `nosave` worldspawn key.   |
+
+**Spawnflags**
+
+| Spawnflag | Description                                                      |
+| :-------: | :--------------------------------------------------------------- |
+| 1         | Apply this override for Axis players.                            |
+| 2         | Apply this override for Allied players.                          |
+| 4         | Apply this override for Spectators.                              |
+| 8         | Apply this override only when the player is timerunning.         |
+| 16        | Apply this override only when the player is **NOT** timerunning. |
+
+```{note}
+* This entity will not count towards the entity limit.
+* You must pick at least one team to apply the overrides for.
+* Conflicting overrides will result in an error - you may not set different values for the same key in two different entities, while targeting the same team(s) and timerun state.
+* If neither timerun state spawnflag is set, the override applies regardless of the timerun state.
+```
+
+---
+
 ## trigger_multiple
 
 Activates targets when touched.
@@ -920,7 +951,7 @@ The BSP leaf that the destination lies in will be added to the PVS whenever this
 
 | Spawnflag | Description                                                     |
 | :-------: | :-------------------------------------------------------------- |
-| 2         | Spins around it's axis.                                         |
+| 2         | Spins around its axis.                                          |
 
 ```{note}
 Technically this is not a new spawnflag, but ETJump has fixed it not working on these entities.
@@ -940,11 +971,11 @@ Spawns an Axis hand grenade at the location.
 
 **Spawnflags**
 
-| Spawnflag | Description                                                     |
-| :-------: | :-------------------------------------------------------------- |
-| 1         | Spawns on the entitys location and does not fall to the ground. |
-| 2         | Spins around it's axis.                                         |
-| 4         | Bobs up and down.                                               |
+| Spawnflag | Description                                                      |
+| :-------: | :--------------------------------------------------------------- |
+| 1         | Spawns on the entity's location and does not fall to the ground. |
+| 2         | Spins around its axis.                                           |
+| 4         | Bobs up and down.                                                |
 
 ```{note}
 Unlike other `weapon_` entities, this respects the maximum grenade limits of classes.
@@ -964,11 +995,11 @@ Spawns an Allied hand grenade at the location.
 
 **Spawnflags**
 
-| Spawnflag | Description                                                     |
-| :-------: | :-------------------------------------------------------------- |
-| 1         | Spawns on the entitys location and does not fall to the ground. |
-| 2         | Spins around it's axis.                                         |
-| 4         | Bobs up and down.                                               |
+| Spawnflag | Description                                                      |
+| :-------: | :--------------------------------------------------------------- |
+| 1         | Spawns on the entity's location and does not fall to the ground. |
+| 2         | Spins around its axis.                                           |
+| 4         | Bobs up and down.                                                |
 
 ```{note}
 Unlike other `weapon_` entities, this respects the maximum grenade limits of classes.
@@ -990,7 +1021,7 @@ Spawns a portal gun at the location.
 
 | Spawnflag | Description             |
 | :-------: | :---------------------- |
-| 2         | Spins around it's axis. |
+| 2         | Spins around its axis.  |
 | 4         | Bobs up and down.       |
 
 ```{note}
@@ -1007,30 +1038,30 @@ This entity does not disappear when picked up, and does not need to be manually 
 
 **Keys**
 
-| Key                | Value                | Default | Description                                                                                                                                                                           |
-| :----------------- | :------------------- | :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| nodrop             | 0 or  1              | 0       | Enable/disable nodrop. **0** Items are not dropped inside `surfaceparm nodrop`. **1** items are only dropped inside `surfaceparm nodrop`.                                             |
-| noexplosives       | 0 - 2                | 0       | Disables explosives. **0** explosives are allowed. **1** no explosive weapons. **2** no explosive weapons or dynamite.                                                                |
-| nofalldamage       | 0 - 2                | 0       | Enable/disable fall damage. **0** Fall damage disabled only on `surfaceparm nodamage` **1** Fall damage enabled only on `surfaceparm nodamage` **2** Fall damage disabled everywhere. |
-| noftnoghost        | 0 or 1               | 0       | Disable players' ability to toggle collision between fireteam members.                                                                                                                |
-| noftsavelimit      | 0 or 1               | 0       | Disable players' ability to set savelimit for the fireteam.                                                                                                                           |
-| noftteamjumpmode   | 0 or 1               | 0       | Disable players' ability to toggle teamjump mode for the fireteam.                                                                                                                    |
-| noghost            | 0 or 1               | 0       | Disables player ghosting (nonsolid players). Overrides `g_ghostPlayers` server cvar.                                                                                                  |
-| nogod              | 0 or 1               | 0       | Disables god mode.                                                                                                                                                                    |
-| nogoto             | 0 or 1               | 0       | Disables goto.                                                                                                                                                                        |
-| nojumpdelay        | 0 or 1               | 0       | Enable/disable jump delay. **0** No jump delay only on `surfaceparm monsterslicknorth` **1** Jump delay only on `surfaceparm monsterslicknorth`.                                      |
-| nonoclip           | 0 or 1               | 0       | Enable/disable noclip. **0** Don't allow noclip inside `surfaceparm donotenterlarge` **1** Only allow noclip inside `surfaceparm donotenterlarge`.                                    |
-| nosave             | 0 or 1               | 0       | Enable/disable save. **0** Don't allow save inside `surfaceparm clusterportal` brushes **1** Only allow save inside `surfaceparm clusterportal` brushes.                              |
-| nooverbounce       | 0 or 1               | 0       | Enable/disable overbounces. **0** Don't allow overbounces on `surfaceparm monsterslicksouth` **1** Only allow overbounces on `surfaceparm monsterslicksouth`.                         |
-| noprone            | 0 or 1               | 0       | Enable/disable prone. **0** Don't allow prone inside `surfaceparm donotenter` brushes **1** Only allow prone inside `surfaceparm donotenter` brushes.                                 |
-| nowallbug          | 0 or 1               | 0       | Toggles whether players can accelerate while stuck in a wall.                                                                                                                         |
-| overbounce_players | 0 - 2                | 0       | Controls whether overbounces from top of other players are allowed. **0** no change, controlled by `nooverbounce` **1** always allowed **2** never allowed                            |
-| portalgun_spawn    | 0 or 1               | 1       | Toggles whether players should spawn with a portal gun.                                                                                                                               |
-| portalsurfaces     | 0 or 1               | 1       | Enable/disable portalsurfaces. **0** Only allow portals on `surfaceparm monsterslickeast` **1** Don't allow portals on `surfaceparm monsterslickeast`.                                |
-| portalpredict      | 0 or 1               | 0       | Toggles whether client side predicted portal teleports are always enabled, regadless of server settings.                                                                              |
-| portalteam         | 0 - 2                | 0       | If set to **0**, players can only go to own portals. If set to **1**, players can also go to fireteam mates' portals. If set to **2**, anyone can go to anyones portals.              |
-| limitedsaves       | any positive integer | 0       | If set to higher than 0, saves are limited to the set value.                                                                                                                          |
-| strictsaveload     | bitflag or string    | 0       | Limits save and load by given conditions. **1/move** cannot save while moving **2/dead** cannot save/load while dead. Combine strings with `\|` (eg. `move \| dead`).                 |
+| Key                | Value                | Default | Description                                                                                                                                                                                           |
+| :----------------- | :------------------- | :------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| nodrop             | 0 or 1               | 0       | Enable/disable nodrop. **0** Items are not dropped inside `surfaceparm nodrop`. **1** items are only dropped inside `surfaceparm nodrop`.                                                             |
+| noexplosives       | 0 - 2                | 0       | Disables explosives. **0** explosives are allowed. **1** no explosive weapons. **2** no explosive weapons or dynamite.                                                                                |
+| nofalldamage       | 0 - 2                | 0       | Enable/disable fall damage. **0** Fall damage disabled only on `surfaceparm nodamage` **1** Fall damage enabled only on `surfaceparm nodamage` **2** Fall damage disabled everywhere.                 |
+| noftnoghost        | 0 or 1               | 0       | Disable players' ability to toggle collision between fireteam members.                                                                                                                                |
+| noftsavelimit      | 0 or 1               | 0       | Disable players' ability to set savelimit for the fireteam.                                                                                                                                           |
+| noftteamjumpmode   | 0 or 1               | 0       | Disable players' ability to toggle teamjump mode for the fireteam.                                                                                                                                    |
+| noghost            | 0 or 1               | 0       | Disables player ghosting (nonsolid players). Overrides `g_ghostPlayers` server cvar.                                                                                                                  |
+| nogod              | 0 or 1               | 0       | Disables god mode.                                                                                                                                                                                    |
+| nogoto             | 0 or 1               | 0       | Disables goto.                                                                                                                                                                                        |
+| nojumpdelay        | 0 or 1               | 0       | Enable/disable jump delay. **0** No jump delay only on `surfaceparm monsterslicknorth` **1** Jump delay only on `surfaceparm monsterslicknorth`.                                                      |
+| nonoclip           | 0 - 3                | 0       | Enable/disable noclip. **0** Don't allow noclip inside `surfaceparm donotenterlarge` **1** Only allow noclip inside `surfaceparm donotenterlarge`. **2** Allow everywhere. **3** Allow nowhere.       |
+| nosave             | 0 - 3                | 0       | Enable/disable save. **0** Don't allow save inside `surfaceparm clusterportal` brushes **1** Only allow save inside `surfaceparm clusterportal` brushes. **2** Allow everywhere. **3** Allow nowhere. |
+| nooverbounce       | 0 or 1               | 0       | Enable/disable overbounces. **0** Don't allow overbounces on `surfaceparm monsterslicksouth` **1** Only allow overbounces on `surfaceparm monsterslicksouth`.                                         |
+| noprone            | 0 - 3                | 0       | Enable/disable prone. **0** Don't allow prone inside `surfaceparm donotenter` brushes **1** Only allow prone inside `surfaceparm donotenter` brushes. **2** Allow everywhere. **3** Allow nowhere.    |
+| nowallbug          | 0 or 1               | 0       | Toggles whether players can accelerate while stuck in a wall.                                                                                                                                         |
+| overbounce_players | 0 - 2                | 0       | Controls whether overbounces from top of other players are allowed. **0** no change, controlled by `nooverbounce` **1** always allowed **2** never allowed                                            |
+| portalgun_spawn    | 0 or 1               | 1       | Toggles whether players should spawn with a portal gun.                                                                                                                                               |
+| portalsurfaces     | 0 or 1               | 1       | Enable/disable portalsurfaces. **0** Only allow portals on `surfaceparm monsterslickeast` **1** Don't allow portals on `surfaceparm monsterslickeast`.                                                |
+| portalpredict      | 0 or 1               | 0       | Toggles whether client side predicted portal spawning and teleports are always enabled, regardless of server settings.                                                                                |
+| portalteam         | 0 - 2                | 0       | If set to **0**, players can only go to own portals. If set to **1**, players can also go to fireteam mates' portals. If set to **2**, anyone can go to anyone's portals.                             |
+| limitedsaves       | any positive integer | 0       | If set to higher than 0, saves are limited to the set value.                                                                                                                                          |
+| strictsaveload     | bitflag or string    | 0       | Limits save and load by given conditions. **1/move** cannot save while moving **2/dead** cannot save/load while dead. Combine strings with `\|` (eg. `move \| dead`).                                 |
 
 **Spawnflags**
 

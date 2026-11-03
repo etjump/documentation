@@ -38,7 +38,7 @@ ETJump has removed cheat protection from this cvar.
 ## cg_crosshairSize
 Cvar                    | Values                                                         | Default
 :-----------------------|:---------------------------------------------------------------|:------------
-cg_crosshairSize        | [size (-256 - 256)](../getting_started.md/#size--scale-system) | 48
+cg_crosshairSize        | [size (-256 - 256)](../getting_started.md/#size--scale-system) | 40
 
 Sets size of the crosshair.
 
@@ -77,7 +77,7 @@ ETJump allows using floating point values for this cvar.
 ## cg_drawCrosshair
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-cg_drawCrosshair        | 0 - 16        | 1
+cg_drawCrosshair        | 0 - 16        | 5
 
 Sets the crosshair variant to draw.
 
