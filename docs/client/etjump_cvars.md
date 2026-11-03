@@ -1277,7 +1277,10 @@ etj_drawObWatcher       | 0 or 1        | 1
 Toggles drawing the overbounce watcher. Overbounce watcher allows you to save position(s) that you want to monitor, and displays `OB` when you would land an overbounce on the saved position.
 
 ```{seealso}
-[`ob_save`, `ob_load`, `ob_reset`, `ob_list`](client_commands.md/#ob_save-ob_load-ob_reset-ob_list)
+* [`ob_save`](client_commands.md/#ob_save)
+* [`ob_load`](client_commands.md/#ob_load)
+* [`ob_reset`](client_commands.md/#ob_reset)
+* [`ob_list`](client_commands.md/#ob_list)
 ```
 
 ---
