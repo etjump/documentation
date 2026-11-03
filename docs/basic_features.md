@@ -31,7 +31,7 @@ There are 3 different saveslots available for each team, which can be accessed b
 ---
 
 ## Speed meter
-ETJump offers you two different speed meters to see how fast you're going. These are both visible by default.
+ETJump offers you two different speed meters to see how fast you're going. `etj_drawspeed` is disabled by default, while `etj_drawSpeed2` is visible by default.
 
 [`etj_drawspeed`](client/etjump_cvars.md/#etj_drawspeed)  
 ![etj_drawspeed](img/etj_drawspeed.gif)
@@ -120,7 +120,7 @@ By default, you are not allowed to target any players with these commands. A pla
 ## Chat features
 The chat in ETJump offers a lot of new features. You can add timestamps to chat messages, expand it to show more than **8** messages, change the size and position and move it around freely.
 
-The chat also supports a mentioning systen. You can tag players by typing a part of their name inside at signs, e.g. `@name@`. This marks the chat message for the tagged client and plays a notification sound.
+The chat also supports a mentioning system. You can tag players by typing a part of their name inside at signs, e.g. `@name@`. This marks the chat message for the tagged client and plays a notification sound.
 
 THe full list of customization available is the following.
 
@@ -149,12 +149,13 @@ ETJump has a chat replay system, which replays the latest global chat messages t
 ---
 
 ## Private messages
-You can send private messages to other players by typing `/m <name|clientnum> <message>` in the console.
+You can send private messages to other players by typing `/m <name|clientnum> <message>` in the console, or by opening the private message UI with the [`privateMessage`](client/client_commands.md/#privatemessage) console command.
 
-```{note}
-Private messages are sent to all players who's name match `<name>` partially. If you want to make sure you're only sending the message to a single client, it's safer to use `<clientnum>`.
+![private message UI](img/privatemessage_ui.png)
 
-If playing with ET: Legacy client, you can enable window flashing for incoming private messages if the game is minimized by setting the bit **2** on [`etj_highlight`](client/etjump_cvars.md/#etj_highlight).
+```{tip}
+* Private messages sent via the UI are encoded with [quote-printable encoding](https://en.wikipedia.org/wiki/Quoted-printable), allowing you to use extended ASCII characters in the messages.
+* If playing with ET: Legacy client, you can enable window flashing for incoming private messages if the game is minimized by setting the bit **2** on [`etj_highlight`](client/etjump_cvars.md/#etj_highlight).
 ```
 
 ---
@@ -206,13 +207,13 @@ Depending on the map and server settings, portalgun might be disabled, as it's q
 ```
 
 ### Portal gun mechanics
-After placing two portals, touching a portal will teleport you to the other portal you have placed. Any speed you have at the time of teleportation will be transfered to the exit portal, and an additional **50ups** speed boost is given.
+After placing two portals, touching a portal will teleport you to the other portal you have placed. Any speed you have at the time of teleportation will be transferred to the exit portal, and an additional **50ups** speed boost is given.
 
 ```{note}
-The transfered speed includes **all** speed, not just horizontal or vertical!
+The transferred speed includes **all** speed, not just horizontal or vertical!
 ```
 
-Because the transfered speed is the total amount of speed on all axes, this has implications on how portals behave on certain scenarios. For example, falling from the same height (meaning identical vertical speed) with 0ups horizontal speed will result in less speed at the exit portal, compared to falling with 500ups horizontal speed. This can be a highly influential factor on some portal jumps!
+Because the transferred speed is the total amount of speed on all axes, this has implications on how portals behave on certain scenarios. For example, falling from the same height (meaning identical vertical speed) with 0ups horizontal speed will result in less speed at the exit portal, compared to falling with 500ups horizontal speed. This can be a highly influential factor on some portal jumps!
 
 Some maps restrict the surfaces where portals can be placed. This is usually done by visual indicators by the mapper, however there is no standard, built-in way to see which surface accepts a portal. Maps might also deploy [`func_portaltarget`](mapping/mapping_entities.md/#func_portaltarget) entities. These are special entities intended to make portal jumps more consistent, by always centering a portal on a surface, regardless of where the portal was fired exactly.
 
@@ -236,7 +237,7 @@ When `portalteam` is enabled, you may not shoot portals on places where another 
 
 ## Timeruns
 
-Some maps feature timeruns. They work exactly as you'd expect - go from start to finish as fast as possible. Timerun records are saved on the server and can be viewed using the [`ranks`](client/client_commands.md/#ranks-records-times-top) command. There is no central, mod-wide database for records - each server has it's own records database.
+Some maps feature timeruns. They work exactly as you'd expect - go from start to finish as fast as possible. Timerun records are saved on the server and can be viewed using the [`ranks`](client/client_commands.md/#ranks-records-times-top) command. There is no central, mod-wide database for records - each server has its own records database.
 
 Timeruns might also contain checkpoints. These are optional and are used to simply give better indication to the player how well their run is going. Finishing a timerun does not require hitting checkpoints in a particular order, nor do you have to hit all of them (though these can be enforced by the map via other means such as [trackers](mapping/mapping_entities.md/#target_tracker-and-trigger_tracker)).
 
