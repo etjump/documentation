@@ -18,7 +18,7 @@ This page is a work in progress. The old "Getting Started" page was split into t
 Overbounce is a bug that originates from Quake III Arena. When an overbounce happens, instead of clipping your velocity when landing on ground, the game instead projects all the velocity to a different direction based on your movement input and horizontal velocity. This allows players to retain their velocity and project it to another direction when landing on a surface.
 ```
 
-Overbounce detector shows you if you can overbounce from your current position to the surface you're aiming at. The detector can display whether you need to jump or fall to the surface, to perform an overbounce. It can be enabled with the [`etj_drawOB`](client/etjump_cvars.md/#etj_drawob) cvar.
+Overbounce detector shows you if you can overbounce from your current position to the surface you're aiming at. The detector can display whether you need to jump or fall to the surface, to perform an overbounce. It is enabled by default, and can be configured with the [`etj_drawOB`](client/etjump_cvars.md/#etj_drawob) cvar.
 
 * **F** will be shown if you need to **Fall** onto the surface
 * **J** will be shown if you need to **Jump** onto the surface
@@ -33,7 +33,7 @@ Performing an overbounce does not require anything special, it happens "automati
 * On ET 2.60b (and old versions of ET: Legacy and ETe), these values are framerate-dependant - `m_forward 0.25` is twice as sensitive on **250FPS** compared to **125FPS**. Newer versions of ET: Legacy and ETe have normalized the sensitivity values to match **125FPS** values.
 ```
 
-An overbounce cannot be performed if the user has exactly **0ups** horizontal speed, hence we must apply a miniscule amount of speed using `+strafe`. An exception to this are overbounces performed from water, which work by either proning or crouching, depending on how deep the water is.
+An overbounce cannot be performed if the user has exactly **0ups** horizontal speed, hence we must apply a minuscule amount of speed using `+strafe`. An exception to this are overbounces performed from water, which work by either proning or crouching, depending on how deep the water is.
 
 ```{note}
 To learn more about overbounces and what causes it to happen, watch [this excellent video](https://www.youtube.com/watch?v=WmO2cdTU7EM) by Matt's Ramblings.
@@ -309,7 +309,7 @@ ETJump provides some additional shaders that can be used for drawing. Note that 
 * `tcRenderShader_nocull`
    * Identical to the built-in shader used by ETe, except it will disable culling on the shader, so looking at a clip brush for example will also draw the other side of the brush. 
 * `tcRenderShader<1|2|3><r|g|b|y|m|c>`
-  * Allows setting __3__ different transparency levels, __1__ being most opaque (equivalent to the built-in shader), as well as __6__ different colors (red, green, blue, yellow, magenta, cyan). For example, `tcRenderShader2c` would be a medium tranparency (__2__) shader with cyan (__c__) color.
+  * Allows setting __3__ different transparency levels, __1__ being most opaque (equivalent to the built-in shader), as well as __6__ different colors (red, green, blue, yellow, magenta, cyan). For example, `tcRenderShader2c` would be a medium transparency (__2__) shader with cyan (__c__) color.
 
 Note that since this feature is built into ETe engine and we merely provide cvar unlockers, ETJump has no real control over it's development. Keep an eye out for ETe updates for possible improvements and fixes!
 

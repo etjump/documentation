@@ -11,7 +11,7 @@ b_demo_lookat           | -1 - 1024     | -1
 Specifies an entity to focus freecam at on demo playback. **-1** disables focus.
 
 ```{note}
-This cvar shares it's name with the equivalent ETPro cvar for compatibility with Camtrace 3D scripts.
+This cvar shares its name with the equivalent ETPro cvar for compatibility with Camtrace 3D scripts.
 ```
 
 ---
@@ -180,7 +180,7 @@ Changes the scoreboard to an alternative one.
 ## etj_autoDemo
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_autoDemo            | 0 - 2         | 0
+etj_autoDemo            | 0 - 2         | 1
 
 Automatically start recording a demo whenever player loads (unless a timerun is active) or spawns.
 
@@ -308,7 +308,7 @@ Sets the width of [custom command menu](../basic_features.md/#custom-command-men
 ## etj_CGaz1Color1
 Cvar                    | Values                                           | Default
 :-----------------------|:-------------------------------------------------|:------------
-etj_CGaz1Color1         | [any color](../getting_started.md/#color-system) | 0.75 0.75 0.75 0.75
+etj_CGaz1Color1         | [any color](../getting_started.md/#color-system) | 0.0 0.0 0.0 0.0
 
 Sets color of the no accel zone in CGaz HUD **1**.
 
@@ -326,7 +326,7 @@ Sets color of the minimum angle in CGaz HUD **1**.
 ## etj_CGaz1Color3
 Cvar                    | Values                                           | Default
 :-----------------------|:-------------------------------------------------|:------------
-etj_CGaz1Color3         | [any color](../getting_started.md/#color-system) | 0.0 0.2 0.0 0.75
+etj_CGaz1Color3         | [any color](../getting_started.md/#color-system) | 0.1 0.1 0.1 0.75
 
 Sets color of the accel zone in CGaz HUD **1**.
 
@@ -505,7 +505,7 @@ Sets FOV of CGaz HUD **1**. Value **0** uses your current in-game FOV.
 ## etj_CGazHeight
 Cvar                    | Values             | Default
 :-----------------------|:-------------------|:------------
-etj_CGazHeight          | any positive value | 20
+etj_CGazHeight          | any positive value | 12
 
 Sets height of CGaz HUD **1**.
 
@@ -620,7 +620,7 @@ Scales the chat size.
 ## etj_chatShadow
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_chatShadow          | 0 or 1        | 0
+etj_chatShadow          | 0 or 1        | 1
 
 Toggles shadow on chat messages.
 
@@ -699,6 +699,19 @@ Cvar                    | Values        | Default
 etj_checkpointsShadow   | 0 or 1        | 1
 
 Toggles shadow on the checkpoint timer.
+
+---
+
+## etj_checkpointsShowGold
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_checkpointsShowGold | 0 - 2         | 1
+
+Enables showing gold segments on the checkpoint timer. When this is enabled, the checkpoint timer is colored gold when you hit a checkpoint, if the segment was the new best pace.
+
+* **0** - off
+* **1** - show for personal bests or global bests
+* **2** - show for global bests only
 
 ---
 
@@ -868,7 +881,7 @@ Alpha is controlled by [`etj_CHSAlpha`](etjump_cvars.md/#etj_chsalpha).
 ## etj_CHSShadow
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_CHSShadow           | 0 or 1        | 0
+etj_CHSShadow           | 0 or 1        | 1
 
 Toggles shadow on CHS.
 
@@ -1135,6 +1148,23 @@ Toggles connection interrupted text if there are connection problems. Useful for
 
 ---
 
+## etj_drawFallDamageDetector
+Cvar                       | Values        | Default
+:--------------------------|:--------------|:------------
+etj_drawFallDamageDetector | 0 - 2         | 0
+
+Draws fall damage detector, displaying the damage the player would take when falling or jumping onto a surface.
+
+* **1** Draw damage taken on the surface aimed at
+* **2** Also detect fall damage below the player
+
+```{note}
+* Water is taken into account for fall damage calculations.
+* Lethal falls color the damage number in red.
+```
+
+---
+
 ## etj_drawFoliage
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
@@ -1249,7 +1279,7 @@ This is a cvar unlocker for `con_drawNotify`.
 ## etj_drawOB
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_drawOB              | 0 - 2         | 0
+etj_drawOB              | 0 - 2         | 1
 
 Draws overbounce detector.
 
@@ -1327,6 +1357,8 @@ Toggles drawing of quick connect window in the main menu.
 [Quick connect menu](../basic_features.md/#quick-connect-menu)
 ```
 
+---
+
 ## etj_drawRecordingStatus
 Cvar                     | Values        | Default
 :------------------------|:--------------|:------------
@@ -1372,7 +1404,7 @@ etj_drawScoreboardInactivity | 0 or 1        | 1
 Toggles drawing an idle indicator on scoreboard for clients who haven't registered an input for **3** minutes.
 
 ```{note}
-Due to the way the game engine handles input, chatting does not reqister as an input, which might cause inaccuracy with this cvar.
+Due to the way the game engine handles input, chatting does not register as an input, which might cause inaccuracy with this cvar.
 ```
 
 ---
@@ -1440,7 +1472,7 @@ Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 etj_drawSpectatorInfo   | 0 - 3         | 0
 
-Draws a list of people spectating you. Idle spectators are drawn with sligtly transparent colors.
+Draws a list of people spectating you. Idle spectators are drawn with slightly transparent colors.
 
 * **1** Left aligned
 * **2** Center aligned
@@ -1451,7 +1483,7 @@ Draws a list of people spectating you. Idle spectators are drawn with sligtly tr
 ## etj_drawspeed
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_drawspeed           | 0 - 2         | 1
+etj_drawspeed           | 0 - 2         | 0
 
 Draws original ETPro-style speed meter on the right side of the screen.
 
@@ -1539,6 +1571,15 @@ Draws the upmove meter.
 
 ---
 
+## etj_drawYaw
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_drawYaw             | 0 or 1        | 0
+
+Toggles drawing arrows indicating horizontal mouse movement.
+
+---
+
 ## etj_enableTimeruns
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
@@ -1590,6 +1631,24 @@ Toggles tracing of playerclips on various detectors.
 ```{tip}
 You can see the list of values in-game with the [`extraTrace`](client_commands.md/#extratrace) command.
 ```
+
+---
+
+## etj_fallDamageDetectorX
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_fallDamageDetectorX | 0.0 - 640.0   | 380
+
+Sets horizontal position of the fall damage detector.
+
+---
+
+## etj_fallDamageDetectorY
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_fallDamageDetectorY | 0.0 - 480.0   | 245
+
+Sets vertical position of the fall damage detector.
 
 ---
 
@@ -1712,7 +1771,7 @@ How close a player has to be to be hidden from view.
 ## etj_hideFadeRange
 Cvar                    | Values               | Default
 :-----------------------|:---------------------|:------------
-etj_hideFadeRange       | any positive integer | 200
+etj_hideFadeRange       | any positive integer | 128
 
 Additional range added to [`etj_hideDistance`](etjump_cvars.md/#etj_hidedistance) where other players start to fade before disappearing completely.
 
@@ -2159,6 +2218,15 @@ Sets vertical offset of the lagometer.
 
 ---
 
+## etj_lerpPmove
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_lerpPmove           | 0 or 1        | 0
+
+Toggles client-side interpolation of physics for non-physics frames. This makes gameplay appear smoother when `pmove_fixed 1` is set and FPS is over 125.
+
+---
+
 ## etj_lightmap
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
@@ -2444,7 +2512,7 @@ Sets vertical position of the OB watcher.
 ## etj_OBX
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_OBX                 | any integer   | 320
+etj_OBX                 | any integer   | 350
 
 Sets horizontal position of the OB detector.
 
@@ -2453,7 +2521,7 @@ Sets horizontal position of the OB detector.
 ## etj_OBY
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_OBY                 | any integer   | 220
+etj_OBY                 | any integer   | 245
 
 Sets vertical position of the OB detector.
 
@@ -2673,7 +2741,7 @@ Sets vertical offset of popup messages.
 ## etj_popupShadow
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_popupShadow         | 0 or 1        | 0
+etj_popupShadow         | 0 or 1        | 1
 
 Toggles drawing shadow on popup messages.
 
@@ -2695,9 +2763,9 @@ How long in milliseconds a popup stays on screen before it starts fading out.
 ## etj_popupTime
 Cvar                    | Values               | Default
 :-----------------------|:---------------------|:------------
-etj_popupTime           | any positive integer | 1000
+etj_popupTime           | any positive integer | 0
 
-Minimum delay in milliseconds between popup messages. Value **0** will make make popup messages appear instantly.
+Minimum delay in milliseconds between popup messages. Value **0** will make popup messages appear instantly.
 
 ---
 
@@ -2786,7 +2854,7 @@ Enables spectating players by aiming at them and pressing `+activate`.
 ## etj_realFov
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_realFov             | 0 or 1        | 0
+etj_realFov             | 0 or 1        | 1
 
 Changes the way Field of View is calculated.
 
@@ -2844,7 +2912,7 @@ Sets color of the timerun timer when no timerun is active.
 ## etj_runTimerShadow
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_runTimerShadow      | 0 or 1        | 0
+etj_runTimerShadow      | 0 or 1        | 1
 
 Toggles drawing shadow on the timerun timer.
 
@@ -2945,7 +3013,7 @@ Sets the color of other players when [`etj_drawSimplePlayers`](etjump_cvars.md/#
 ## etj_slickX
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_slickX              | any integer   | 315
+etj_slickX              | any integer   | 301
 
 Sets horizontal position of the slick detector.
 
@@ -2954,7 +3022,7 @@ Sets horizontal position of the slick detector.
 ## etj_slickY
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_slickY              | any integer   | 220
+etj_slickY              | any integer   | 245
 
 Sets vertical position of the slick detector.
 
@@ -2966,6 +3034,10 @@ Cvar                    | Values        | Default
 etj_smoothAngles        | 0 or 1        | 1
 
 Enables pmove-independent viewangle updates. When enabled, clients viewangle updates are not limited to `pmove_msec` intervals (8ms by default), but can be updated each frame that the client renders, allowing for smoother gameplay.
+
+```{warning}
+This cvar is deprecated and will be removed in a future release. It has been replaced by [`etj_lerpPmove`](etjump_cvars.md/#etj_lerppmove).
+```
 
 ```{note}
 This does not affect physics calculations, they are still performed with viewangles calculated at `pmove_msec` intervals.
@@ -3079,7 +3151,7 @@ Sets the FOV of the velocity snapping HUD. Value **0** uses your current in-game
 ## etj_snapHUDHeight
 Cvar                    | Values             | Default
 :-----------------------|:-------------------|:------------
-etj_snapHUDHeight       | any positive value | 10
+etj_snapHUDHeight       | any positive value | 6
 
 Sets the height of the velocity snapping HUD.
 
@@ -3088,7 +3160,7 @@ Sets the height of the velocity snapping HUD.
 ## etj_snapHUDHLActive
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_snapHUDHLActive     | 0 or 1        | 0
+etj_snapHUDHLActive     | 0 or 1        | 1
 
 Toggles highlighting currently active snapzone with a different color.
 
@@ -3097,7 +3169,7 @@ Toggles highlighting currently active snapzone with a different color.
 ## etj_snapHUDHLColor1
 Cvar                    | Values                                           | Default
 :-----------------------|:-------------------------------------------------|:------------
-etj_snapHUDHLColor1     | [any color](../getting_started.md/#color-system) | 1.0 0.5 1.0 0.75
+etj_snapHUDHLColor1     | [any color](../getting_started.md/#color-system) | 0.0 1.0 1.0 0.25
 
 Sets the primary highlight color of velocity snapping HUD.
 
@@ -3106,7 +3178,7 @@ Sets the primary highlight color of velocity snapping HUD.
 ## etj_snapHUDHLColor2
 Cvar                    | Values                                           | Default
 :-----------------------|:-------------------------------------------------|:------------
-etj_snapHUDHLColor2     | [any color](../getting_started.md/#color-system) | 1.0 0.5 1.0 0.1
+etj_snapHUDHLColor2     | [any color](../getting_started.md/#color-system) | 0.0 0.0 0.0 0.0
 
 Sets the secondary highlight color of velocity snapping HUD.
 
@@ -3298,7 +3370,7 @@ This is a cvar unlocker for `r_speeds`.
 ## etj_speedShadow
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_speedShadow         | 0 or 1        | 0
+etj_speedShadow         | 0 or 1        | 1
 
 Toggles drawing shadow on the ETJump speed meter.
 
@@ -3414,7 +3486,7 @@ Sets vertical offset of the strafe quality display.
 ## etj_stretchCgaz
 Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
-etj_stretchCgaz         | 0 or 1        | 1
+etj_stretchCgaz         | 0 or 1        | 0
 
 Toggles whether CGaz 2 is affected by widescreen correction. Value **1** disables widescreen correction and stretches the drawing from 4:3 aspect ratio.
 
@@ -3675,6 +3747,60 @@ This is a cvar unlocker for `r_wolffog`
 
 ---
 
+## etj_yawColor
+Cvar                    | Values                                           | Default
+:-----------------------|:-------------------------------------------------|:------------
+etj_yawColor            | [any color](../getting_started.md/#color-system) | white
+
+Sets the color of yaw movement arrows.
+
+---
+
+## etj_yawShadow
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_yawShadow           | 0 or 1        | 1
+
+Toggles drawing shadow on yaw movement arrows.
+
+---
+
+## etj_yawSize
+Cvar                    | Values                                                     | Default
+:-----------------------|:-----------------------------------------------------------|:------------
+etj_yawSize             | [size (0 - 10)](../getting_started.md/#size--scale-system) | 3
+
+Sets the size of yaw movement arrows.
+
+---
+
+## etj_yawWidth
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_yawWidth            | 0.0 - 640.0   | 10
+
+Sets width of yaw movement arrows. Higher values push the arrows further apart from each other.
+
+---
+
+## etj_yawX
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_yawX                | 0.0 - 640.0   | 320
+
+Sets horizontal position of yaw movement arrows.
+
+---
+
+## etj_yawY
+Cvar                    | Values        | Default
+:-----------------------|:--------------|:------------
+etj_yawY                | 0.0 - 480.0   | 480
+
+Sets vertical position of yaw movement arrows.
+
+---
+
 ## etj_zFar
 Cvar                    | Values               | Default
 :-----------------------|:---------------------|:------------
@@ -3712,7 +3838,7 @@ movie_fovIncreasePerFrame | any value     | 1
 
 How many units FOV should change per frame.
 
-----
+---
 
 ## movie_fovMax
 Cvar                    | Values             | Default

@@ -448,7 +448,7 @@ Cvar                    | Values        | Default
 :-----------------------|:--------------|:------------
 g_portalPredict         | 0 or 1        | 0
 
-Toggles client side predicted portal teleports.
+Toggles client side predicted portal spawning and teleports.
 
 ```{note}
 * This can be overridden on per-map basis with the `portalpredict` [worldspawn key](../mapping/mapping_entities.md/#worldspawn).
