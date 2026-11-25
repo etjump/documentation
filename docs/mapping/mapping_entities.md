@@ -241,6 +241,7 @@ A static brushmodel that does nothing by itself. Similar to `func_static`, excep
 * `offShader` uses a single shader for all surfaces of every brush included in the entity. If you need more fine-tuned control over the shaders, consider using `offModel` instead.
 * If portals are fired onto the entity when it's visible, they will be deleted when it's turned off.
 * When `spawflag 2` is set, the entity must be visible for it to take damage. Damage dealt by non-player entities (e.g. `shooter_rocket`) is ignored, only a client may damage the entity.
+* If a player disconnects from a server, the entity will reset back to it's default state for that player.
 ```
 
 ---
