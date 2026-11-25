@@ -767,10 +767,8 @@ Option                    | Description
 **-r, --run**             | Name of the run.
 -s, --season              | Name of the season. If not given, defaults to the overall season, cascading to any other season holding a copy of the record.
 -m, --map                 | Name of the map.
--u, --user                | User ID of the user whose record to remove.
--re, --reason             | Reason for removing the record. Mandatory when removing other players' records, optional when removing your own.
-
-Any player can remove their own record on a run; administrators with the [`timerun management (T)`](../server/admin_system.md/#permission-system) admin flag can remove records from other players.
+-u, --user                | User ID of the user whose record to remove. Only administrators (flag `T`) can remove other players' records. Default is your own user ID.
+-re, --reason             | Reason for the removal. Optional when removing your own records, required when removing another players' record.
 
 ```{note}
 * All parameters in this command must be an exact match, no partial/fuzzy matching is performed.
@@ -795,13 +793,13 @@ Option                    | Description
 **-r, --run**             | Run to remove the segment from.
 **-sg, --segment**        | The segment to remove.
 -u, --user                | User ID of the segment owner. Only administrators (flag `T`) can remove other players' segments. Default is your own user ID.
--re, --reason             | Reason for the removal. Optional when removing your own segments, required when removing another player's segment.
+-re, --reason             | Reason for the removal. Optional when removing your own segments, required when removing another players' segment.
 
-Removed segments are archived in the timerun database, not completely removed.
-
-Map and run names are matched exactly when possible. A partial name is accepted when it resolves to a single map or run.
-
-Administrators with the [`timerun management (T)`](../server/admin_system.md/#permission-system) admin flag can remove another player's segment by adding `--user <user ID> --reason <reason>`.
+```{note}
+* All parameters in this command must be an exact match, no partial/fuzzy matching is performed.
+* You can view all removed segments with the [`list-removed-segments`](client_commands.md/#list-removed-segments) command.
+* Segments removed by this command are stored in the removed segments archive, and can be restored with the [`restore-segment`](client_commands.md/#restore-segment) command.
+```
 
 ---
 
